@@ -1,0 +1,227 @@
+Prefix(:=<http://www.grsu.by/net/OdTMCCCTM#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.grsu.by/net/OdTMCCCTM>
+Import(<http://www.grsu.by/net/OdTMBaseThreatModel>)
+
+Declaration(Class(:ApplicationFlow))
+Declaration(Class(:CloudApplication))
+Declaration(Class(:CloudBoundary))
+Declaration(Class(:Container))
+Declaration(Class(:ExternalService))
+Declaration(Class(:GenericUser))
+Declaration(Class(:LocalManager))
+Declaration(Class(:ManagementFlow))
+Declaration(Class(:RemoteUser))
+Declaration(Class(:SynchronizationFlow))
+Declaration(Class(:TemplateA))
+Declaration(Class(:TemplateB))
+Declaration(Class(:TemplateBA))
+Declaration(Class(:TemplateF))
+Declaration(Class(:TenantBoundary))
+Declaration(Class(:VirtualMachine))
+Declaration(NamedIndividual(:threatA1_faiureOfExternalService))
+Declaration(NamedIndividual(:threatA2__InformationDisclosureByExternalService))
+Declaration(NamedIndividual(:threatA3__InformationModificationByExternalService))
+Declaration(NamedIndividual(:threatA4_ClientSideConnectionIssueToExternalService))
+Declaration(NamedIndividual(:threatA5_MaliciousContentFromExternalService))
+Declaration(NamedIndividual(:threatB11_UsageOfPublicAccessNetworksByRemoteUser))
+Declaration(NamedIndividual(:threatB12_socialEngineeringAttacksAgainstCloudApplication))
+Declaration(NamedIndividual(:threatB1_faiureOfCloudApplication))
+Declaration(NamedIndividual(:threatB2_InformationDisclosureByCloudApplication))
+Declaration(NamedIndividual(:threatB3_InformationModificationByCloudApplication))
+Declaration(NamedIndividual(:threatB4_ClientSideConnectionIssueToCloudApplication))
+Declaration(NamedIndividual(:threatB5_MaliciousContentFromCloudApplication))
+Declaration(NamedIndividual(:threatC20_DoSDDoSAttackAgainstCloudApplication))
+Declaration(NamedIndividual(:threatC21_EDoSAttackAgainstCloudApplication))
+Declaration(NamedIndividual(:threatC23_MaliciousUsingOfCloudApplication))
+Declaration(NamedIndividual(:threatC24_BlockingSharedResourcesOfCloudApplication))
+Declaration(NamedIndividual(:threatF1_UsageOfUnencryptedFlow))
+Declaration(NamedIndividual(:threatF9_vulnerabilitiesOfInternetProtocols))
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :ApplicationFlow (:ApplicationFlow)
+
+EquivalentClasses(:ApplicationFlow :TemplateF)
+SubClassOf(:ApplicationFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DerivedDataFlow>)
+
+# Class: :CloudApplication (:CloudApplication)
+
+SubClassOf(:CloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#Process>)
+
+# Class: :CloudBoundary (:CloudBoundary)
+
+SubClassOf(:CloudBoundary <http://www.grsu.by/net/OdTMBaseThreatModel#TrustBorderBoundary>)
+
+# Class: :Container (:Container)
+
+SubClassOf(:Container :CloudApplication)
+
+# Class: :ExternalService (:ExternalService)
+
+SubClassOf(:ExternalService <http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor>)
+
+# Class: :GenericUser (:GenericUser)
+
+SubClassOf(:GenericUser <http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor>)
+
+# Class: :LocalManager (:LocalManager)
+
+SubClassOf(:LocalManager :GenericUser)
+
+# Class: :ManagementFlow (:ManagementFlow)
+
+SubClassOf(:ManagementFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DerivedDataFlow>)
+
+# Class: :RemoteUser (:RemoteUser)
+
+SubClassOf(:RemoteUser :GenericUser)
+
+# Class: :SynchronizationFlow (:SynchronizationFlow)
+
+SubClassOf(:SynchronizationFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DerivedDataFlow>)
+
+# Class: :TemplateA (:TemplateA)
+
+EquivalentClasses(:TemplateA ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :ExternalService)))
+SubClassOf(:TemplateA <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA1_faiureOfExternalService))
+SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA2__InformationDisclosureByExternalService))
+SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA3__InformationModificationByExternalService))
+SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA4_ClientSideConnectionIssueToExternalService))
+SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA5_MaliciousContentFromExternalService))
+
+# Class: :TemplateB (:TemplateB)
+
+EquivalentClasses(:TemplateB ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
+SubClassOf(:TemplateB <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB1_faiureOfCloudApplication))
+SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB2_InformationDisclosureByCloudApplication))
+SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB3_InformationModificationByCloudApplication))
+SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB4_ClientSideConnectionIssueToCloudApplication))
+SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB5_MaliciousContentFromCloudApplication))
+
+# Class: :TemplateBA (:TemplateBA)
+
+EquivalentClasses(:TemplateBA ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :RemoteUser) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
+SubClassOf(:TemplateBA <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB11_UsageOfPublicAccessNetworksByRemoteUser))
+SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB12_socialEngineeringAttacksAgainstCloudApplication))
+SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC20_DoSDDoSAttackAgainstCloudApplication))
+SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC21_EDoSAttackAgainstCloudApplication))
+SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC23_MaliciousUsingOfCloudApplication))
+SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC24_BlockingSharedResourcesOfCloudApplication))
+
+# Class: :TemplateF (:TemplateF)
+
+SubClassOf(:TemplateF <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+SubClassOf(:TemplateF ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatF1_UsageOfUnencryptedFlow))
+SubClassOf(:TemplateF ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatF9_vulnerabilitiesOfInternetProtocols))
+
+# Class: :TenantBoundary (:TenantBoundary)
+
+SubClassOf(:TenantBoundary <http://www.grsu.by/net/OdTMBaseThreatModel#TrustBorderBoundary>)
+
+# Class: :VirtualMachine (:VirtualMachine)
+
+SubClassOf(:VirtualMachine :CloudApplication)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :threatA1_faiureOfExternalService (:threatA1_faiureOfExternalService)
+
+AnnotationAssertion(rdfs:comment :threatA1_faiureOfExternalService "A1. Unexpected failure of <{target.Name}>"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatA1_faiureOfExternalService)
+
+# Individual: :threatA2__InformationDisclosureByExternalService (:threatA2__InformationDisclosureByExternalService)
+
+AnnotationAssertion(rdfs:comment :threatA2__InformationDisclosureByExternalService "A2. Disclosure of information processed by <{target.Name}>"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatA2__InformationDisclosureByExternalService)
+
+# Individual: :threatA3__InformationModificationByExternalService (:threatA3__InformationModificationByExternalService)
+
+AnnotationAssertion(rdfs:comment :threatA3__InformationModificationByExternalService "A3. Modification of information processed by <{target.Name}>"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatA3__InformationModificationByExternalService)
+
+# Individual: :threatA4_ClientSideConnectionIssueToExternalService (:threatA4_ClientSideConnectionIssueToExternalService)
+
+AnnotationAssertion(rdfs:comment :threatA4_ClientSideConnectionIssueToExternalService "A4. Client-side network connection to <{target.Name}> issues"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatA4_ClientSideConnectionIssueToExternalService)
+
+# Individual: :threatA5_MaliciousContentFromExternalService (:threatA5_MaliciousContentFromExternalService)
+
+AnnotationAssertion(rdfs:comment :threatA5_MaliciousContentFromExternalService "A5. Malicious content from <{target.Name}>"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatA5_MaliciousContentFromExternalService)
+
+# Individual: :threatB11_UsageOfPublicAccessNetworksByRemoteUser (:threatB11_UsageOfPublicAccessNetworksByRemoteUser)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatB11_UsageOfPublicAccessNetworksByRemoteUser)
+
+# Individual: :threatB12_socialEngineeringAttacksAgainstCloudApplication (:threatB12_socialEngineeringAttacksAgainstCloudApplication)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatB12_socialEngineeringAttacksAgainstCloudApplication)
+
+# Individual: :threatB1_faiureOfCloudApplication (:threatB1_faiureOfCloudApplication)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatB1_faiureOfCloudApplication)
+
+# Individual: :threatB2_InformationDisclosureByCloudApplication (:threatB2_InformationDisclosureByCloudApplication)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatB2_InformationDisclosureByCloudApplication)
+
+# Individual: :threatB3_InformationModificationByCloudApplication (:threatB3_InformationModificationByCloudApplication)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatB3_InformationModificationByCloudApplication)
+
+# Individual: :threatB4_ClientSideConnectionIssueToCloudApplication (:threatB4_ClientSideConnectionIssueToCloudApplication)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatB4_ClientSideConnectionIssueToCloudApplication)
+
+# Individual: :threatB5_MaliciousContentFromCloudApplication (:threatB5_MaliciousContentFromCloudApplication)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatB5_MaliciousContentFromCloudApplication)
+
+# Individual: :threatC20_DoSDDoSAttackAgainstCloudApplication (:threatC20_DoSDDoSAttackAgainstCloudApplication)
+
+AnnotationAssertion(rdfs:comment :threatC20_DoSDDoSAttackAgainstCloudApplication "C20. DoS/DDoS attack against <{target.Name}> from Internet"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatC20_DoSDDoSAttackAgainstCloudApplication)
+
+# Individual: :threatC21_EDoSAttackAgainstCloudApplication (:threatC21_EDoSAttackAgainstCloudApplication)
+
+AnnotationAssertion(rdfs:comment :threatC21_EDoSAttackAgainstCloudApplication "C21. EDoS (Economic Denial of Service) attack against <{target.Name}> from Internet"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatC21_EDoSAttackAgainstCloudApplication)
+
+# Individual: :threatC23_MaliciousUsingOfCloudApplication (:threatC23_MaliciousUsingOfCloudApplication)
+
+AnnotationAssertion(rdfs:comment :threatC23_MaliciousUsingOfCloudApplication "С23. Malicious using of <{target.Name}> from Internet"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatC23_MaliciousUsingOfCloudApplication)
+
+# Individual: :threatC24_BlockingSharedResourcesOfCloudApplication (:threatC24_BlockingSharedResourcesOfCloudApplication)
+
+AnnotationAssertion(rdfs:comment :threatC24_BlockingSharedResourcesOfCloudApplication "C24. Blocking shared resources of <{target.Name}>"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatC24_BlockingSharedResourcesOfCloudApplication)
+
+# Individual: :threatF1_UsageOfUnencryptedFlow (:threatF1_UsageOfUnencryptedFlow)
+
+AnnotationAssertion(rdfs:comment :threatF1_UsageOfUnencryptedFlow "F1. Using of unencrypted flow <{flow.Name}>"@en)
+
+# Individual: :threatF9_vulnerabilitiesOfInternetProtocols (:threatF9_vulnerabilitiesOfInternetProtocols)
+
+AnnotationAssertion(rdfs:comment :threatF9_vulnerabilitiesOfInternetProtocols "F9. vulnerabilities of Internet protocols of flow <{flow.Name}>"@en)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threatF9_vulnerabilitiesOfInternetProtocols)
+
+
+)
