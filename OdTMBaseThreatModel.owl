@@ -10,6 +10,7 @@ Ontology(<http://www.grsu.by/net/OdTMBaseThreatModel>
 
 Declaration(Class(:Boundary))
 Declaration(Class(:Checker))
+Declaration(Class(:ContextSecurityPattern))
 Declaration(Class(:Countermeasure))
 Declaration(Class(:DataFlow))
 Declaration(Class(:DataStore))
@@ -114,6 +115,10 @@ InverseObjectProperties(:isProtectedBy :protects)
 # Class: :Boundary (:Boundary)
 
 SubClassOf(:Boundary :Stencil)
+
+# Class: :ContextSecurityPattern (:ContextSecurityPattern)
+
+SubClassOf(:ContextSecurityPattern :Countermeasure)
 
 # Class: :DataFlow (:DataFlow)
 
