@@ -40,7 +40,7 @@ Declaration(Class(:Target))
 Declaration(Class(:TemplateDataFlow))
 Declaration(Class(:Threat))
 Declaration(Class(:TrustBorderBoundary))
-Declaration(Class(:TrustLineBoandary))
+Declaration(Class(:TrustLineBoundary))
 Declaration(ObjectProperty(:affects))
 Declaration(ObjectProperty(:crosses))
 Declaration(ObjectProperty(:divides))
@@ -229,9 +229,9 @@ SubClassOf(:TemplateDataFlow :DataFlow)
 
 SubClassOf(:TrustBorderBoundary :Boundary)
 
-# Class: :TrustLineBoandary (:TrustLineBoandary)
+# Class: :TrustLineBoundary (:TrustLineBoundary)
 
-SubClassOf(:TrustLineBoandary :Boundary)
+SubClassOf(:TrustLineBoundary :Boundary)
 
 
 
