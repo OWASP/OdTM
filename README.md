@@ -1,6 +1,5 @@
 
-# Ontology-driven threat modelling (OdTM) 
-basic models & repositories
+# Ontology-driven threat modelling (OdTM) basic models
 
 The OdTM framework enables an ontological approach of the architectural security analysis with DFD diagrams.
 The approach is based on the base threat model that enables creation of various domain specific threat models. 
