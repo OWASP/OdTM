@@ -8,6 +8,16 @@ It contains basic concepts and individuals, representing components of DFD diagr
 
 * [OWL file](../OdTMBaseThreatModel.owl)
 
+## Structure
+
+Stencils and their properties:
+
+![structure 1](structure1.png)
+
+Threats and countermeasures:
+
+![structure 2](structure2.png)
+
 ## Example
 
 A simple DFD diagram looks like:
@@ -19,11 +29,11 @@ Using DL it possible to define this as
 ```
 Process(pr1)
 Process(pr2)
-DataFlow(f low)
-hasSource(f low, pr1)
-hasTarget(f low, pr2)
+DataFlow(flow)
+hasSource(flow, pr1)
+hasTarget(flow, pr2)
 TrustLineBoundary(line)
-crosses(f low, line)
+crosses(flow, line)
 TrustBorderBoundary(box)
 includes(box, pr1)
 ```
