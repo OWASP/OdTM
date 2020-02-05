@@ -35,7 +35,7 @@ A simple DFD diagram looks like:
 
 ![Diagram example](dfd_example.png)
 
-Using DL it possible to define this as
+Using DL it possible to define this picture as
 
 ```
 Process(pr1)
@@ -49,4 +49,7 @@ TrustBorderBoundary(box)
 includes(box, pr1)
 ```
 
+After putting all the DL items to OWL and combining with the base model and reasoning in Protege it might look like:
+
+![reasoning example](protege_example.png)
 
