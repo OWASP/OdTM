@@ -16,7 +16,7 @@ like attack/vulnerability/weakness enumerations, also with catalogues of traditi
 
 All the models are implemented as OWL (Web Ontology Language) ontologies with Description Logics (DL) as a mathematical background.
 
-Full description is [here](https://www.researchgate.net/publication/338999512_Framework_for_ontology-driven_threat_modelling_of_modern_computer_systems)
+A description is [here](https://www.researchgate.net/publication/338999512_Framework_for_ontology-driven_threat_modelling_of_modern_computer_systems)
 
 If you want to refer to the OdTM framework, please cite:
 >Brazhuk A., Olizarovich E. Framework for ontology-driven threat modelling of modern computer systems //International Journal of Open Information Technologies. – 2020. – Vol. 8. – No. 2. – С. 14-20.
