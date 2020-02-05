@@ -20,6 +20,17 @@ Threats and countermeasures:
 
 ## Example
 
+
+A simple threat model looks like:
+
+```
+Template1 ≡ DataFlow ∩ ∃hasSource.Process ∩ ∃hasTarget.Process ∩ ∃crosses.TrustLineBoundary
+ContextSecurityPattern(pattern1)
+Template1 ⊆ ∃isProtectedBy.{pattern1}
+Threat(threat2)
+Template1 ⊆ ∃isAffectedBy.{threat2}
+```
+
 A simple DFD diagram looks like:
 
 ![Diagram example](dfd_example.png)
@@ -37,3 +48,5 @@ crosses(flow, line)
 TrustBorderBoundary(box)
 includes(box, pr1)
 ```
+
+
