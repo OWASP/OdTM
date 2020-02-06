@@ -13,7 +13,7 @@ Note, that it does not have a countermeasure hierarchy.
 
 ## Proof of concept
 
-You can use the [CCCTM template](https://github.com/nets4geeks/CCCTM_template.tb7) 
+You can use the [CCCTM template](https://github.com/nets4geeks/CCCTM_template/CCCTM_template.tb7) 
 with the [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool) to create such a picture:
 
 ![ccctm_example](ccctm_example.png)
