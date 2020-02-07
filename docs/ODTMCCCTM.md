@@ -2,9 +2,14 @@
 
 # Common Cloud Computing Threat Model (CCCTM)
 
-This model depicts some common threats to cloud systems.
-You can use it to test different tools.
-Also it is implemented as an [XML template](https://github.com/nets4geeks/CCCTM_template) for the Microsoft TM tool.
+This model is an example of domain-specific threat model. 
+It depicts some common threats to cloud systems.
+The model is implemented as a OWL ontology.
+
+It can be used to test ontological tools, when they are under heavy development, also to prove different ideas (see below).
+
+There is also the similar model, 
+implemented as an [threats template](https://github.com/nets4geeks/CCCTM_template) in the XML format for the Microsoft TM tool.
 
 * [OWL file](../OdTMCCCTM.owl)
 
@@ -13,16 +18,16 @@ Note, that it does not have a countermeasure hierarchy.
 
 ## Proof of concept
 
-You can use the [CCCTM template](https://github.com/nets4geeks/CCCTM_template) 
-with the [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool) to create such a picture:
+You would use the [CCCTM template](https://github.com/nets4geeks/CCCTM_template), implemented as XML, 
+with the [Microsoft Threat Modeling (TM) tool](https://aka.ms/threatmodelingtool) to create such a picture:
 
 ![ccctm_example](ccctm_example.png)
 
-and you would get a list:
+and you would get a list in Microsoft TM:
 
 ![ccctm_example](ccctm_mtm.png)
 
-But there is a better option. It is possible to interpret a DFD as a DL code ...
+But there is a better option. You can interpret a DFD as DL axioms ...
 
 ```
 ExternalService (dns)
@@ -36,8 +41,8 @@ hasSource (flow2, user)
 hasTarget (flow2, app)
 ```
 
-and put it as OWL into Protege with the [base model](../OdTMBaseThreatModel.owl) and the CCCTM model,
-enable a resoner, and get the similar results:
+and put them as OWL into Protege with CCCTM, implemented as the ontology, 
+add the [base model](../OdTMBaseThreatModel.owl), enable a reasoner, and obtain the similar results:
 
 ![ccctm_protege](ccctm_protege.png)
 
