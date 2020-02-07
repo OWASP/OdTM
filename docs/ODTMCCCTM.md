@@ -9,7 +9,7 @@ The model is implemented as a OWL ontology.
 It can be used to test ontological tools, when they are under heavy development, also to prove different ideas (see below).
 
 There is also the similar model, 
-implemented as an [threats template](https://github.com/nets4geeks/CCCTM_template) in the XML format for the Microsoft TM tool.
+implemented as a [threat template](https://github.com/nets4geeks/CCCTM_template) in the XML format for the Microsoft TM tool.
 
 * [OWL file](../OdTMCCCTM.owl)
 
