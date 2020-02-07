@@ -18,8 +18,8 @@ Note, that it does not have a countermeasure hierarchy.
 
 ## Proof of concept
 
-You would use the [CCCTM template](https://github.com/nets4geeks/CCCTM_template), implemented as XML, 
-with the [Microsoft Threat Modeling (TM) tool](https://aka.ms/threatmodelingtool) to create such a picture:
+To create such a picture, you would use the [CCCTM template](https://github.com/nets4geeks/CCCTM_template), 
+implemented as XML and the [Microsoft Threat Modeling (TM) tool](https://aka.ms/threatmodelingtool):
 
 ![ccctm_example](ccctm_example.png)
 
