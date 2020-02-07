@@ -9,7 +9,8 @@ The model is implemented as a OWL ontology.
 It can be used to test ontological tools, when they are under heavy development, also to prove different ideas (see below).
 
 There is also the similar model, 
-implemented as a [threat template](https://github.com/nets4geeks/CCCTM_template) in the XML format for the Microsoft TM tool.
+implemented as a [threat template](https://github.com/nets4geeks/CCCTM_template) 
+in the XML format for the Microsoft Threat Modelling (TM) tool.
 
 * [OWL file](../OdTMCCCTM.owl)
 
@@ -19,7 +20,7 @@ Note, that it does not have a countermeasure hierarchy.
 ## Proof of concept
 
 To create such a picture, you would use the [CCCTM template](https://github.com/nets4geeks/CCCTM_template), 
-implemented as XML and the [Microsoft Threat Modeling (TM) tool](https://aka.ms/threatmodelingtool):
+implemented as XML and the [Microsoft TM tool](https://aka.ms/threatmodelingtool):
 
 ![ccctm_example](ccctm_example.png)
 
