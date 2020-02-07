@@ -8,11 +8,11 @@ The model is implemented as a OWL ontology.
 
 It can be used to test ontological tools, when they are under heavy development, also to prove different ideas (see below).
 
+* [OWL file](../OdTMCCCTM.owl)
+
 There is also the similar model, 
 implemented as a [threat template](https://github.com/nets4geeks/CCCTM_template) 
 in the XML format for the Microsoft Threat Modelling (TM) tool.
-
-* [OWL file](../OdTMCCCTM.owl)
 
 Note, that it does not have a countermeasure hierarchy.
 
