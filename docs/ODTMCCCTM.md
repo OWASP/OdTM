@@ -6,13 +6,15 @@ This model is an example of domain-specific threat model.
 It depicts some common threats to cloud systems.
 The model is implemented as a OWL ontology.
 
-It can be used to test ontological tools, when they are under heavy development, also to prove different ideas (see below).
-
 * [OWL file](../OdTMCCCTM.owl)
 
 There is also the similar model, 
 implemented as a [threat template](https://github.com/nets4geeks/CCCTM_template) 
 in the XML format for the Microsoft Threat Modelling (TM) tool.
+
+It can be used to prove different ideas (see below), 
+also if someone took a decision to create an ontology-driven alternative to Microsoft TM, 
+it could be used to test different software tools.
 
 Note, that it does not have a countermeasure hierarchy.
 
@@ -28,7 +30,7 @@ and you would get a list in Microsoft TM:
 
 ![ccctm_example](ccctm_mtm.png)
 
-But there is a better option. You can interpret a DFD as DL axioms ...
+But there is another option. You can interpret a DFD as DL axioms ...
 
 ```
 ExternalService (dns)
@@ -42,8 +44,8 @@ hasSource (flow2, user)
 hasTarget (flow2, app)
 ```
 
-and put them as OWL into Protege with CCCTM, implemented as the ontology, 
-add the [base model](../OdTMBaseThreatModel.owl), enable a reasoner, and obtain the similar results:
+... and put them as OWL into Protege with CCCTM, implemented as the ontology, 
+add the ontology of the [base model](../OdTMBaseThreatModel.owl), enable a reasoner, and obtain the similar results:
 
 ![ccctm_protege](ccctm_protege.png)
 
