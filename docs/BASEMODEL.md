@@ -15,9 +15,17 @@ Stencils and their properties:
 
 ![structure 1](structure1.png)
 
+DL "axioms" that represent this picture:
+
+![axioms 1](lst1.png)
+
 Threats and countermeasures:
 
 ![structure 2](structure2.png)
+
+The sentences for this part of the ontology:
+
+![axioms 2](lst2.png)
 
 ## Example
 
