@@ -12,7 +12,7 @@ A system architect can describe its computer system in terms of a domain-specifi
 Then automatic reasoning procedures are used to build a threat model of the system (lists of relevant threats and countermeasures).
 
 Context security patterns and threats enable integration of domain-specific threat models with different external sources, 
-like attack/vulnerability/weakness enumerations, also with catalogues of traditional security patterns.
+like attack/vulnerability/weakness enumerations, also with [catalogues of traditional security patterns](https://github.com/nets4geeks/SPCatalogMaker).
 
 All the models are implemented as OWL (Web Ontology Language) ontologies with Description Logics (DL) as a mathematical background.
 
