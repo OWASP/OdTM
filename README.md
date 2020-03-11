@@ -27,7 +27,6 @@ If you want to refer to the OdTM framework, please cite:
 * [OWL file](OdTMBaseThreatModel.owl)
 * [Description](docs/BASEMODEL.md)
 
-
 ## Domain-specific threat models
 
 Common Cloud Computing Threat Model (CCCTM)
