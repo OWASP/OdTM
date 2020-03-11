@@ -11,8 +11,9 @@ also threats and countermeasures, associated with these components.
 A system architect can describe its computer system in terms of a domain-specific model, for example, with DFD (Data Flow Diagram).
 Then automatic reasoning procedures are used to build a threat model of the system (lists of relevant threats and countermeasures).
 
-Context security patterns and threats enable integration of domain-specific threat models with different external sources, 
-like attack/vulnerability/weakness enumerations, also with [catalogues of traditional security patterns](https://github.com/nets4geeks/SPCatalogMaker).
+[Context security patterns and threats](https://github.com/nets4geeks/SPCatalogMaker) enable integration 
+of domain-specific threat models with different external sources, like attack/vulnerability/weakness enumerations, 
+also with catalogues of traditional security patterns.
 
 All the models are implemented as OWL (Web Ontology Language) ontologies with Description Logics (DL) as a mathematical background.
 
