@@ -1,0 +1,11 @@
+# These axioms will be applied to the MODEL
+   # it might be ClassAssertion
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow> :flow)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :pr1)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :pr2)
+
+   # or ObjectPropertyAssertion
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :flow :pr1)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :flow :pr2)
+
+# this file also accepts comments with #

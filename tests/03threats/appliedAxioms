@@ -1,0 +1,8 @@
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow> :flow)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :pr1)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :pr2)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#TrustLineBoundary> :line)
+# flow hasSource pr1 and hasTarget pr2 and crosses line
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :flow :pr1)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :flow :pr2)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#crosses> :flow :line)

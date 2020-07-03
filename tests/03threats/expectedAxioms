@@ -1,0 +1,21 @@
+# Tempalate1 
+# eqivalents: 
+#    DataFlow 
+#    and (hasSource some Process)
+#    and (hasTarget some Process)
+#    and (crosses some TrustLineBoundary)
+# subclass: 
+#    isAffectedBy value threat2
+#    isProtectedBy value pattern1
+#  
+# flow 
+#    hasSource pr1 
+#    hasTarget pr2 
+#    crosses line
+#  
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :flow :threat2)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isProtectedBy> :flow :pattern1)
+# also:
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#protects> :pattern1 :flow)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#affects> :threat2 :flow)
+

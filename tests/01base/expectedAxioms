@@ -1,0 +1,16 @@
+# (1) line divides flow
+ObjectPropertyAssertion(:divides :line :flow)
+# (2) pr1 isSourceOf flow
+ObjectPropertyAssertion(:isSourceOf :pr1 :flow)
+# (3) pr2 isTargetOf flow
+ObjectPropertyAssertion(:isTargetOf :pr2 :flow)
+
+# (4) threat1 isMitigated cont1
+ObjectPropertyAssertion(:isMitigatedBy :threat1 :cont1)
+# (5) flow isProtectedBy cont1 
+ObjectPropertyAssertion(:isProtectedBy :flow :cont1)
+# (6) threat1 affects flow
+ObjectPropertyAssertion(:affects :threat1 :flow)
+
+# (7) pr1 isIncluded box
+ObjectPropertyAssertion(:isIncluded :pr1 :box)

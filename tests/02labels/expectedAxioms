@@ -1,0 +1,15 @@
+# (1) STRIDE
+ObjectPropertyAssertion(:labelsSO :t1 :SO_Authentication)
+ObjectPropertyAssertion(:labelsSO :t1 :SO_NonRepudiation)
+ObjectPropertyAssertion(:labelsSO :t1 :SO_Confidentiality)
+ObjectPropertyAssertion(:labelsSO :t1 :SO_Integrity)
+ObjectPropertyAssertion(:labelsSO :t1 :SO_Availability)
+ObjectPropertyAssertion(:labelsSO :t1 :SO_Authorization)
+
+# (2) SO
+ObjectPropertyAssertion(:labelsSTRIDE :t2 :STRIDE_Spoofing)
+ObjectPropertyAssertion(:labelsSTRIDE :t2 :STRIDE_Tampering)
+ObjectPropertyAssertion(:labelsSTRIDE :t2 :STRIDE_Repudiation)
+ObjectPropertyAssertion(:labelsSTRIDE :t2 :STRIDE_Information_Disclosure)
+ObjectPropertyAssertion(:labelsSTRIDE :t2 :STRIDE_Denial_of_Service)
+ObjectPropertyAssertion(:labelsSTRIDE :t2 :STRIDE_Elevation_of_Privilege)

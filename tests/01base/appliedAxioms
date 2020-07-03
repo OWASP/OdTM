@@ -1,0 +1,25 @@
+ClassAssertion(:TrustLineBoundary :line)
+ClassAssertion(:Process :pr1)
+ClassAssertion(:Process :pr2)
+ClassAssertion(:DataFlow :flow)
+# (1) flow crosses line
+ObjectPropertyAssertion(:crosses :flow :line)
+# (2) flow hasSource pr1
+ObjectPropertyAssertion(:hasSource :flow :pr1)
+# (3) flow hasTarget pr2
+ObjectPropertyAssertion(:hasTarget :flow :pr2)
+
+ClassAssertion(:Countermeasure :cont1)
+ClassAssertion(:Countermeasure :threat1)
+# (4) cont1 mitigates threat1
+ObjectPropertyAssertion(:mitigates :cont1 :threat1)
+# (5) cont1 protects flow
+ObjectPropertyAssertion(:protects :cont1 :flow)
+# (6) flow isAffectedBy threat1
+ObjectPropertyAssertion(:isAffectedBy :flow :threat1)
+
+
+ClassAssertion(:TrustBorderBoundary :box)
+# (7) box includes pr1
+ObjectPropertyAssertion(:includes :box :pr1)
+

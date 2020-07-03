@@ -1,0 +1,48 @@
+Prefix(:=<http://www.semanticweb.org/net/ontologies/2019/10/untitled-ontology-247#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/net/ontologies/2019/10/untitled-ontology-247>
+Import(<http://www.grsu.by/net/OdTMBaseThreatModel>)
+
+Declaration(Class(:Template1))
+Declaration(NamedIndividual(:pattern1))
+Declaration(NamedIndividual(:pattern2))
+Declaration(NamedIndividual(:threat2))
+
+############################
+#   Classes
+############################
+
+# Class: :Template1 (:Template1)
+
+EquivalentClasses(:Template1 ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow> ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> <http://www.grsu.by/net/OdTMBaseThreatModel#Process>) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/OdTMBaseThreatModel#Process>)))
+SubClassOf(:Template1 ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threat2))
+SubClassOf(:Template1 ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isProtectedBy> :pattern1))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :pattern1 (:pattern1)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#ContextSecurityPattern> :pattern1)
+
+# Individual: :pattern2 (:pattern2)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#ContextSecurityPattern> :pattern2)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO> :pattern2 <http://www.grsu.by/net/OdTMBaseThreatModel#SO_Availability>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#mitigates> :pattern2 :threat2)
+
+# Individual: :threat2 (:threat2)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> :threat2)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE> :threat2 <http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Denial_of_Service>)
+
+
+)

@@ -8,33 +8,36 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 Ontology(<http://www.grsu.by/net/OdTMBaseThreatModel>
 
-Declaration(Class(:AuthenticationThreat))
-Declaration(Class(:AuthorizationThreat))
-Declaration(Class(:AvailabilityThreat))
 Declaration(Class(:Boundary))
-Declaration(Class(:Classified))
-Declaration(Class(:ConfidentialityThreat))
+Declaration(Class(:Checker))
 Declaration(Class(:ContextSecurityPattern))
 Declaration(Class(:Countermeasure))
 Declaration(Class(:DataFlow))
 Declaration(Class(:DataStore))
 Declaration(Class(:Denial_of_ServiceThreat))
+Declaration(Class(:DerivedDataFlow))
 Declaration(Class(:Elevation_of_PrivilegeThreat))
+Declaration(Class(:ExceptionFlowHasTwoSources))
+Declaration(Class(:ExceptionFlowHasTwoTargets))
 Declaration(Class(:ExternalInteractor))
+Declaration(Class(:FlowException))
+Declaration(Class(:FlowMeetsAllRules))
+Declaration(Class(:FlowMeetsAnException))
+Declaration(Class(:FlowRule))
+Declaration(Class(:FlowRuleHasSource))
+Declaration(Class(:FlowRuleHasTarget))
 Declaration(Class(:Information_DisclosureThreat))
-Declaration(Class(:IntegrityThreat))
-Declaration(Class(:NonRepudiationThreat))
 Declaration(Class(:Process))
 Declaration(Class(:RepudiationThreat))
 Declaration(Class(:STRIDE))
-Declaration(Class(:SchemaInstance))
+Declaration(Class(:STRIDEThreat))
 Declaration(Class(:SecurityMetrics))
 Declaration(Class(:SecurityObjective))
 Declaration(Class(:SpoofingThreat))
 Declaration(Class(:Stencil))
-Declaration(Class(:Stub))
 Declaration(Class(:TamperingThreat))
 Declaration(Class(:Target))
+Declaration(Class(:TemplateDataFlow))
 Declaration(Class(:Threat))
 Declaration(Class(:TrustBorderBoundary))
 Declaration(Class(:TrustLineBoundary))
@@ -52,14 +55,20 @@ Declaration(ObjectProperty(:isSourceOf))
 Declaration(ObjectProperty(:isTargetOf))
 Declaration(ObjectProperty(:labelsSO))
 Declaration(ObjectProperty(:labelsSTRIDE))
+Declaration(ObjectProperty(:meetsException))
+Declaration(ObjectProperty(:meetsRule))
 Declaration(ObjectProperty(:mitigates))
 Declaration(ObjectProperty(:protects))
+Declaration(NamedIndividual(:FLOWEXCEPTION_has_two_sources))
+Declaration(NamedIndividual(:FLOWEXCEPTION_has_two_targets))
+Declaration(NamedIndividual(:FLOWRULE_has_source))
+Declaration(NamedIndividual(:FLOWRULE_has_target))
 Declaration(NamedIndividual(:SO_Authentication))
 Declaration(NamedIndividual(:SO_Authorization))
 Declaration(NamedIndividual(:SO_Availability))
 Declaration(NamedIndividual(:SO_Confidentiality))
 Declaration(NamedIndividual(:SO_Integrity))
-Declaration(NamedIndividual(:SO_NonRepudiation))
+Declaration(NamedIndividual(:SO_Non-repudiation))
 Declaration(NamedIndividual(:STRIDE_Denial_of_Service))
 Declaration(NamedIndividual(:STRIDE_Elevation_of_Privilege))
 Declaration(NamedIndividual(:STRIDE_Information_Disclosure))
@@ -103,33 +112,9 @@ InverseObjectProperties(:isProtectedBy :protects)
 #   Classes
 ############################
 
-# Class: :AuthenticationThreat (:AuthenticationThreat)
-
-EquivalentClasses(:AuthenticationThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_Authentication)))
-SubClassOf(:AuthenticationThreat :Threat)
-SubClassOf(:AuthenticationThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing))
-
-# Class: :AuthorizationThreat (:AuthorizationThreat)
-
-EquivalentClasses(:AuthorizationThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_Authorization)))
-SubClassOf(:AuthorizationThreat :Threat)
-SubClassOf(:AuthorizationThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Elevation_of_Privilege))
-
-# Class: :AvailabilityThreat (:AvailabilityThreat)
-
-EquivalentClasses(:AvailabilityThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_Availability)))
-SubClassOf(:AvailabilityThreat :Threat)
-SubClassOf(:AvailabilityThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Service))
-
 # Class: :Boundary (:Boundary)
 
 SubClassOf(:Boundary :Stencil)
-
-# Class: :ConfidentialityThreat (:ConfidentialityThreat)
-
-EquivalentClasses(:ConfidentialityThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_Confidentiality)))
-SubClassOf(:ConfidentialityThreat :Threat)
-SubClassOf(:ConfidentialityThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure))
 
 # Class: :ContextSecurityPattern (:ContextSecurityPattern)
 
@@ -146,33 +131,60 @@ SubClassOf(:DataStore :Target)
 # Class: :Denial_of_ServiceThreat (:Denial_of_ServiceThreat)
 
 EquivalentClasses(:Denial_of_ServiceThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Service)))
-SubClassOf(:Denial_of_ServiceThreat ObjectHasValue(:labelsSO :SO_Availability))
+
+# Class: :DerivedDataFlow (:DerivedDataFlow)
+
+SubClassOf(:DerivedDataFlow :DataFlow)
 
 # Class: :Elevation_of_PrivilegeThreat (:Elevation_of_PrivilegeThreat)
 
 EquivalentClasses(:Elevation_of_PrivilegeThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Elevation_of_Privilege)))
-SubClassOf(:Elevation_of_PrivilegeThreat ObjectHasValue(:labelsSO :SO_Authorization))
+
+# Class: :ExceptionFlowHasTwoSources (:ExceptionFlowHasTwoSources)
+
+EquivalentClasses(:ExceptionFlowHasTwoSources ObjectIntersectionOf(:DataFlow ObjectMinCardinality(2 :hasSource)))
+SubClassOf(:ExceptionFlowHasTwoSources ObjectHasValue(:meetsException :FLOWEXCEPTION_has_two_sources))
+
+# Class: :ExceptionFlowHasTwoTargets (:ExceptionFlowHasTwoTargets)
+
+EquivalentClasses(:ExceptionFlowHasTwoTargets ObjectIntersectionOf(:DataFlow ObjectMinCardinality(2 :hasTarget)))
+SubClassOf(:ExceptionFlowHasTwoTargets ObjectHasValue(:meetsException :FLOWEXCEPTION_has_two_targets))
 
 # Class: :ExternalInteractor (:ExternalInteractor)
 
 SubClassOf(:ExternalInteractor :Target)
 
+# Class: :FlowException (:FlowException)
+
+EquivalentClasses(:FlowException ObjectOneOf(:FLOWEXCEPTION_has_two_sources :FLOWEXCEPTION_has_two_targets))
+SubClassOf(:FlowException :Checker)
+
+# Class: :FlowMeetsAllRules (:FlowMeetsAllRules)
+
+EquivalentClasses(:FlowMeetsAllRules ObjectIntersectionOf(:DataFlow ObjectHasValue(:meetsRule :FLOWRULE_has_source) ObjectHasValue(:meetsRule :FLOWRULE_has_target)))
+
+# Class: :FlowMeetsAnException (:FlowMeetsAnException)
+
+EquivalentClasses(:FlowMeetsAnException ObjectIntersectionOf(:DataFlow ObjectSomeValuesFrom(:meetsException :FlowException)))
+
+# Class: :FlowRule (:FlowRule)
+
+EquivalentClasses(:FlowRule ObjectOneOf(:FLOWRULE_has_source :FLOWRULE_has_target))
+SubClassOf(:FlowRule :Checker)
+
+# Class: :FlowRuleHasSource (:FlowRuleHasSource)
+
+EquivalentClasses(:FlowRuleHasSource ObjectIntersectionOf(:DataFlow ObjectSomeValuesFrom(:hasSource :Target)))
+SubClassOf(:FlowRuleHasSource ObjectHasValue(:meetsRule :FLOWRULE_has_source))
+
+# Class: :FlowRuleHasTarget (:FlowRuleHasTarget)
+
+EquivalentClasses(:FlowRuleHasTarget ObjectIntersectionOf(:DataFlow ObjectSomeValuesFrom(:hasTarget :Target)))
+SubClassOf(:FlowRuleHasTarget ObjectHasValue(:meetsRule :FLOWRULE_has_target))
+
 # Class: :Information_DisclosureThreat (:Information_DisclosureThreat)
 
 EquivalentClasses(:Information_DisclosureThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure)))
-SubClassOf(:Information_DisclosureThreat ObjectHasValue(:labelsSO :SO_Confidentiality))
-
-# Class: :IntegrityThreat (:IntegrityThreat)
-
-EquivalentClasses(:IntegrityThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_Integrity)))
-SubClassOf(:IntegrityThreat :Threat)
-SubClassOf(:IntegrityThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering))
-
-# Class: :NonRepudiationThreat (:NonRepudiationThreat)
-
-EquivalentClasses(:NonRepudiationThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_NonRepudiation)))
-SubClassOf(:NonRepudiationThreat :Threat)
-SubClassOf(:NonRepudiationThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation))
 
 # Class: :Process (:Process)
 
@@ -181,35 +193,37 @@ SubClassOf(:Process :Target)
 # Class: :RepudiationThreat (:RepudiationThreat)
 
 EquivalentClasses(:RepudiationThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation)))
-SubClassOf(:RepudiationThreat ObjectHasValue(:labelsSO :SO_NonRepudiation))
 
 # Class: :STRIDE (:STRIDE)
 
 EquivalentClasses(:STRIDE ObjectOneOf(:STRIDE_Denial_of_Service :STRIDE_Elevation_of_Privilege :STRIDE_Information_Disclosure :STRIDE_Repudiation :STRIDE_Spoofing :STRIDE_Tampering))
 SubClassOf(:STRIDE :SecurityMetrics)
 
+# Class: :STRIDEThreat (:STRIDEThreat)
+
+EquivalentClasses(:STRIDEThreat ObjectIntersectionOf(:Threat ObjectSomeValuesFrom(:labelsSTRIDE :STRIDE)))
+SubClassOf(:STRIDEThreat :Threat)
+
 # Class: :SecurityObjective (:SecurityObjective)
 
-EquivalentClasses(:SecurityObjective ObjectOneOf(:SO_Authentication :SO_Authorization :SO_Availability :SO_Confidentiality :SO_Integrity :SO_NonRepudiation))
+EquivalentClasses(:SecurityObjective ObjectOneOf(:SO_Authentication :SO_Authorization :SO_Availability :SO_Confidentiality :SO_Integrity :SO_Non-repudiation))
 SubClassOf(:SecurityObjective :SecurityMetrics)
 
 # Class: :SpoofingThreat (:SpoofingThreat)
 
 EquivalentClasses(:SpoofingThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing)))
-SubClassOf(:SpoofingThreat ObjectHasValue(:labelsSO :SO_Authentication))
-
-# Class: :Stub (:Stub)
-
-SubClassOf(:Stub :SchemaInstance)
 
 # Class: :TamperingThreat (:TamperingThreat)
 
 EquivalentClasses(:TamperingThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering)))
-SubClassOf(:TamperingThreat ObjectHasValue(:labelsSO :SO_Integrity))
 
 # Class: :Target (:Target)
 
 SubClassOf(:Target :Stencil)
+
+# Class: :TemplateDataFlow (:TemplateDataFlow)
+
+SubClassOf(:TemplateDataFlow :DataFlow)
 
 # Class: :TrustBorderBoundary (:TrustBorderBoundary)
 
@@ -219,58 +233,6 @@ SubClassOf(:TrustBorderBoundary :Boundary)
 
 SubClassOf(:TrustLineBoundary :Boundary)
 
-
-############################
-#   Named Individuals
-############################
-
-# Individual: :SO_Authentication (:SO_Authentication)
-
-ClassAssertion(:SchemaInstance :SO_Authentication)
-
-# Individual: :SO_Authorization (:SO_Authorization)
-
-ClassAssertion(:SchemaInstance :SO_Authorization)
-
-# Individual: :SO_Availability (:SO_Availability)
-
-ClassAssertion(:SchemaInstance :SO_Availability)
-
-# Individual: :SO_Confidentiality (:SO_Confidentiality)
-
-ClassAssertion(:SchemaInstance :SO_Confidentiality)
-
-# Individual: :SO_Integrity (:SO_Integrity)
-
-ClassAssertion(:SchemaInstance :SO_Integrity)
-
-# Individual: :SO_NonRepudiation (:SO_NonRepudiation)
-
-ClassAssertion(:SchemaInstance :SO_NonRepudiation)
-
-# Individual: :STRIDE_Denial_of_Service (:STRIDE_Denial_of_Service)
-
-ClassAssertion(:SchemaInstance :STRIDE_Denial_of_Service)
-
-# Individual: :STRIDE_Elevation_of_Privilege (:STRIDE_Elevation_of_Privilege)
-
-ClassAssertion(:SchemaInstance :STRIDE_Elevation_of_Privilege)
-
-# Individual: :STRIDE_Information_Disclosure (:STRIDE_Information_Disclosure)
-
-ClassAssertion(:SchemaInstance :STRIDE_Information_Disclosure)
-
-# Individual: :STRIDE_Repudiation (:STRIDE_Repudiation)
-
-ClassAssertion(:SchemaInstance :STRIDE_Repudiation)
-
-# Individual: :STRIDE_Spoofing (:STRIDE_Spoofing)
-
-ClassAssertion(:SchemaInstance :STRIDE_Spoofing)
-
-# Individual: :STRIDE_Tampering (:STRIDE_Tampering)
-
-ClassAssertion(:SchemaInstance :STRIDE_Tampering)
 
 
 )

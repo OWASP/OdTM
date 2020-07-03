@@ -1,0 +1,10 @@
+# list of checked axioms
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf> :pr1 :flow)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf> :pr1 :flow)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> :pr2 :flow)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :flow :threat2)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isProtectedBy> :flow :pattern1)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#protects> :pattern1 :flow)
+
+# you can use leading - to tell this axiom should not be in ontology
+-ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf> :flow :pr1)
