@@ -22,18 +22,34 @@ import java.time.Instant;
 import java.util.logging.*;
 
 // a simple OWL Manager for anything you want
+//  i.e. to create, load, reason, save, copy, remove ontologies
 // it has a OWLOntologyManager instance inside
 public class OManager{
 
    private static final Logger LOGGER = Logger.getLogger(LManager.class.getName());
 
+   // the main thing here
+   // ontologies here are reasoned together
    protected OWLOntologyManager man;
    
    public OManager(){
       man = OWLManager.createOWLOntologyManager();
    }
 
+   // create ontology with given iri
+   public OWLOntology create(String _iri){
+      OWLOntology o;
+      try {
+         o = man.createOntology(IRI.create(_iri));
+      } catch (Exception e){
+         LOGGER.severe("unable to create ontology with " + _iri);         
+         e.printStackTrace();
+         return null;
+      }
+      return o;
+   }
 
+   // load ontology from file by file name
    public OWLOntology loadFromFile (String fileName){
       File file;
       try {
@@ -46,25 +62,36 @@ public class OManager{
       return loadFromFile(file);
    }
 
+   // load ontology from file by file descriptor
    public OWLOntology loadFromFile (File file){
       OWLOntology o;
-      //LOGGER.info("trying to load " + file.getAbsolutePath());
       try {
          o = man.loadOntologyFromOntologyDocument(file);
       } catch (Exception e) {
-         LOGGER.severe("failed to load " +file.getAbsolutePath());
+         LOGGER.severe("failed to load" +file.getAbsolutePath());
          e.printStackTrace();
          return null;
       }
-      LOGGER.info("loaded file "+ file.getAbsolutePath()+" with IRI "+ getIRI(o).toString());
       return o;
    }
 
+   // copy ontology to this manager
+   public OWLOntology copyOntology(OWLOntology _o){
+      OWLOntology o;
+      try {
+        o = man.copyOntology(_o,OntologyCopy.DEEP);
+      } catch (Exception e) {
+         LOGGER.severe("failed to copy ontology" +getIRI(_o));
+         e.printStackTrace();
+         return null;
+      }
+      return o;
+   }
 
+   // merge all the ontologies with new iri
    public OWLOntology merge(String iriName){
       OWLOntology merged;
       try {
-         LOGGER.info("merging all the ontologies...");
          OWLOntologyMerger merger = new OWLOntologyMerger(man);
          merged = merger.createMergedOntology(man,IRI.create(iriName));
       } catch (OWLOntologyCreationException e) {
@@ -75,6 +102,7 @@ public class OManager{
       return merged;
    }
 
+   // !!! deprecated, use O
    // reasoner is here because it is 'manager-depended' feature:
    //     to reason an ontology it needs all the imported ontologies
    public void reason(OWLOntology o){
@@ -130,15 +158,13 @@ public class OManager{
 
    }
 
+   // save ontology as OWL file in functional syntax
    public boolean saveToFile(OWLOntology o, String filepath){
-      LOGGER.info("target file is "+ filepath);
       try {
          File fileout = new File(filepath);
          long startTime = System.nanoTime();
          man.saveOntology(o, new FunctionalSyntaxDocumentFormat(), new FileOutputStream(fileout));
          long stopTime = System.nanoTime();
-         LOGGER.info("time (ms): "+ getms(startTime,stopTime));
-         //showStat(o);
       } catch (Exception e){
          LOGGER.severe("failed to save "+ filepath);
          e.printStackTrace();
@@ -147,18 +173,13 @@ public class OManager{
       return true;
    } 
 
-
   // save an ontology to a file in the Turtle format
    public boolean saveToFileTTL(OWLOntology o, String filepath){
-      LOGGER.info("target file is "+ filepath);
       try {
          File fileout = new File(filepath);
          long startTime = System.nanoTime();
          man.saveOntology(o, new TurtleDocumentFormat(), new FileOutputStream(fileout));
          long stopTime = System.nanoTime();
-         LOGGER.info("time (ms): "+ getms(startTime,stopTime));
-         //showStat(o);
-
       } catch (Exception e){
          e.printStackTrace();
          return false;
@@ -188,6 +209,13 @@ public class OManager{
          e.printStackTrace();
          return null;
       }      
+   }
+
+   // add import to ontology
+   public void addImportDeclaration(OWLOntology o,String iriname){
+      IRI tmpiri = IRI.create(iriname);
+      OWLImportsDeclaration importDeclaration=man.getOWLDataFactory().getOWLImportsDeclaration(tmpiri);
+      man.applyChange(new AddImport(o, importDeclaration));
    }
  
 

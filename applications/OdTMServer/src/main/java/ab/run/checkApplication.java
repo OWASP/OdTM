@@ -2,7 +2,7 @@
 package ab.run;
 
 import ab.base.*;
-import ab.ext.*;
+//import ab.ext.*;
 import org.semanticweb.owlapi.model.*;
 import uk.ac.manchester.cs.owl.owlapi.*;
 import org.semanticweb.owlapi.apibinding.*;

@@ -19,21 +19,20 @@ public class PManager{
      try {
         props = new Properties();
         if (fname !=null)props.load(new FileInputStream(fname));
-        LOGGER.info ("starting with " +fname);
         return true;
      } catch (Exception e){
-	   LOGGER.severe("could not find "+fname); 
+       LOGGER.severe("could not find "+fname); 
+       e.printStackTrace();
        return false;
      }
    }
 
    public String get(String name){
-     LOGGER.info ("get "+name+" as "+props.getProperty(name));
      return props.getProperty(name); 
    }
 
+   // returns null if no property
    public String[] getAsArray(String name){
-     LOGGER.info ("get "+name+" as "+props.getProperty(name));
      String prop = props.getProperty(name);
      
      if (prop==null) return null;

@@ -1,3 +1,3 @@
 
-mvn -e exec:java -q -Dexec.mainClass="ab.run.testApplication" -Dexec.args="server.properties"
+mvn -e exec:java -q -Dexec.mainClass="ab.run.consoleApplication" -Dexec.args="server.properties"
 

@@ -19,36 +19,83 @@ import java.time.Instant;
 import java.util.logging.*;
 import ab.base.*;
 
-// A special representation for an ontology
+// a special representation for a single ontology
+// for different manipulations inside the ontology
+// it has an OWLOntology object inside
 public class O {
    private static final Logger LOGGER = Logger.getLogger(LManager.class.getName());
    
-   protected OWLOntology o;
+   protected OWLOntology o; // this one
+   protected String defaultPrefix;
+   
    protected OWLDataFactory df;
 
-   protected String defaultPrefix;
+   protected OWLReasoner reasoner;
+   protected InferredOntologyGenerator generator;
+   protected String reasonerName;
+
+/////////////////////////////////////////////////////////////////////////////////
+// constructors
+////////////////////////////////////////////////////////////////////////////////
 
    protected O(OWLOntology _o){
       o = _o;
       df = o.getOWLOntologyManager().getOWLDataFactory();
       defaultPrefix = getIRI().toString()+"#";
-      LOGGER.info("got ontology with prefix "+defaultPrefix);
    }
    
-   // to create an object use the O.create(OWLOntology), returns null if ontology is null 
-   public static O create(OWLOntology _o){
+   // to create an object use the O.create(OWLOntology), returns null if ontology is null    
+   public static O create (OWLOntology _o){
       if (_o==null) {
-          LOGGER.severe("tryied to use an empty ontology");
+          LOGGER.severe("got the empty ontology");
           return null;
       }
-      return new O(_o);      
+      O tmp = new O(_o);
+      // inits Hermits
+      tmp.initReasoner();
+      return tmp;
    }
-   
+ 
+////////////////////////////////////////////////////////////////////////////////////////////
+// common functions
+///////////////////////////////////////////////////////////////////////////////////////////   
+ 
    // get the OWLOntology object
    public OWLOntology get(){
       return o;
    }
+ 
+    public IRI getIRI(){
+      return o.getOntologyID().getOntologyIRI().get();
+   }
+
+
+   public void addAxiom(OWLAxiom ax){
+      o.add(ax);
+   }
    
+   public void removeAxiom(OWLAxiom ax){
+      o.removeAxiom(ax);
+   }
+  
+   // it seems to be legacy approach
+   // what is a new one? EntitySearcher.containsAxiom
+   public boolean containsAxiom(OWLAxiom ax){
+      return o.containsAxiom(ax);
+   }
+ 
+/////////////////////////////////////////////////////////////////////////////
+// a simple functional parser
+///////////////////////////////////////////////////////////////////////////// 
+
+   // returns true if an object belongs to this namespace
+   public boolean hasDefaultPrefix(HasIRI in){
+      if (in.getIRI().toString().startsWith(defaultPrefix)) return true;
+      return false;
+   }
+      
+   // takes strings like ":user" or "<http://www.grsu.by/net/OdTMBaseThreatModel#agrees>"
+   // and returns the IRI object
    public IRI parseIRI(String in){
       if (in.startsWith(":")){
          String name = in.substring(1, in.length());
@@ -61,9 +108,11 @@ public class O {
       return null;
    }
    
+   // add parseAxiom & object like String type; String[] args
    
    // converts functional syntax string to axiom
-   // like ObjectPropertyAssertion(:crosses :flow :line)
+   // like "ObjectPropertyAssertion(:crosses :flow :line)"
+   //   or "ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :flow)"
    public OWLAxiom simpleStringToAxiom(String in){
       String[] parts = in.split("\\(");
       if (parts.length ==2) {
@@ -78,7 +127,6 @@ public class O {
               if (type.equals("ObjectPropertyAssertion")){
                   if (args.length ==3) return getObjectPropertyAssertionAxiom(parseIRI(args[0]),parseIRI(args[1]),parseIRI(args[2]));
               }
-              
           }
       }
       LOGGER.severe("failed to process " +in);
@@ -106,16 +154,37 @@ public class O {
       if (a!=b){
          LOGGER.severe("got " + a+ " axioms, added only "+ b +" axioms");
          return false;
-      } else {
-         LOGGER.info("processed " + b+ " axioms");         
-      }
+      } 
       return true; 
    }
    
-   
-   public IRI getIRI(){
-      return o.getOntologyID().getOntologyIRI().get();
+//////////////////////////////////////////////////////////////////////////      
+// reasoner
+//////////////////////////////////////////////////////////////////////////
+      
+   public void initReasoner(){
+      reasoner = new Reasoner.ReasonerFactory().createReasoner(o);
+      reasonerName = reasoner.getReasonerName()+" "+reasoner.getReasonerVersion().toString();
+      generator = new InferredOntologyGenerator(reasoner);
+      //LOGGER.info("got " +reasonerName);
    }
+   
+   public void fill(){
+      reasoner.flush();
+      generator.fillOntology(df, o);
+      LOGGER.info("fill "+getIRI().toString()); 
+   }
+   
+   public void flush(){
+      reasoner.flush();
+      LOGGER.info("flushed "+getIRI().toString()); 
+   }
+   
+   
+///////////////////////////////////////////////////////////////////////////////////
+// create different axioms with the OWLDataFactory object 
+// http://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/model/OWLDataFactory.html
+//////////////////////////////////////////////////////////////////////////////////
 
    // create class assertion axiom, i.e. map an individual to a class
    public OWLAxiom getClassAssertionAxiom(IRI className, IRI individualName){
@@ -141,21 +210,159 @@ public class O {
       OWLAxiom ax = df.getOWLObjectPropertyAssertionAxiom(prop, ind1, ind2); 
       return ax;  
    }   
-   
-   public void addAxiom(OWLAxiom ax){
-      o.add(ax);
+
+//////////////////////////////////////////////////////////////////////////////////////
+// results from EntitySearcher (aka non reasoned results)
+// http://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/search/EntitySearcher.html
+//////////////////////////////////////////////////////////////////////////////////////
+
+   public Stream<OWLClassExpression> getSearcherSuperClasses(OWLClass cls){
+      return EntitySearcher.getSuperClasses(cls,o);
+   }
+   public Stream<OWLClassExpression> getSearcherSuperClasses(IRI className){
+      return getSearcherSuperClasses(df.getOWLClass(className));
+   }
+
+
+   // for a given class returns equivalent class expressions
+   // e.g. 'ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> <http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocol>))'
+   public Stream<OWLClassExpression> getSearcherEquivalentClasses(OWLClass cls){
+      return EntitySearcher.getEquivalentClasses(cls,o);
+   }
+   public Stream<OWLClassExpression> getSearcherEquivalentClasses(IRI className){
+      return getSearcherEquivalentClasses(df.getOWLClass(className));
+   }
+
+   // get types for an individual
+   // returns only direct types
+   public Stream<OWLClass> getSearcherTypes(OWLNamedIndividual individual){
+      return EntitySearcher.getTypes(individual,o).map(x -> x.asOWLClass());
+   }
+   public Stream<OWLClass> getSearcherTypes(IRI individualName){
+      return getSearcherTypes(df.getOWLNamedIndividual(individualName));
+   }
+
+   // get instances for a class
+   // returns only direct instances
+   public Stream<OWLNamedIndividual> getSearcherInstances(OWLClass cls){
+      return EntitySearcher.getInstances(cls,o).map(x -> x.asOWLNamedIndividual());
+   }
+   public Stream<OWLNamedIndividual> getSearcherInstances(IRI className){
+      return getSearcherInstances(df.getOWLClass(className));
+      //return EntitySearcher.getInstances(df.getOWLClass(className),o).map(x -> x.asOWLNamedIndividual());
    }
    
-   public boolean containsAxiom(OWLAxiom ax){
-      return o.containsAxiom(ax);
+
+   // assumes that instance belongs to only one class
+   // this route returns that class
+   public OWLClass getPrimaryType(OWLNamedIndividual instance){
+      Iterator<OWLClass> iterator = getSearcherTypes(instance).iterator();
+      if (iterator.hasNext()) return (OWLClass)iterator.next(); 
+      LOGGER.severe("instance does not have type - " + instance.getIRI().toString());
+      return null;
+   }
+   public OWLClass getPrimaryType(IRI instanceName){
+      return getPrimaryType(df.getOWLNamedIndividual(instanceName));
+   }
+
+//////////////////////////////////////////////////////////////////////////////////////
+// find different axioms with the OWLReasoner object (aka reasoned results)
+// https://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/reasoner/OWLReasoner.html
+/////////////////////////////////////////////////////////////////////////////////////
+      
+   // get all types for an individual
+   public Stream<OWLClass> getReasonerTypes(OWLNamedIndividual individual){
+      return reasoner.types(individual,false);
+      // OWLReasoner.getTypes that returns org.semanticweb.owlapi.reasoner.NodeSet has been depricated, 
+      // despite there was no a such individual, it would return <http://www.w3.org/2002/07/owl#Thing>
+   }
+   public Stream<OWLClass> getReasonerTypes(IRI individualName){
+      return getReasonerTypes(df.getOWLNamedIndividual(individualName));
+      //return reasoner.types(df.getOWLNamedIndividual(individualName),false);
    }
    
-   // a simple test for an ontology
+   // get direct type of an individual
+   public Stream<OWLClass> getReasonerDirectTypes(OWLNamedIndividual individual){
+      return reasoner.types(individual,true);
+   } 
+   public Stream<OWLClass> getReasonerDirectTypes(IRI individualName){
+      return getReasonerDirectTypes(df.getOWLNamedIndividual(individualName));
+      // return reasoner.types(df.getOWLNamedIndividual(individualName),true);
+   } 
+     
+
+   // get all instances of given class
+   public Stream<OWLNamedIndividual> getReasonerInstances(OWLClass cls){
+      return reasoner.instances(cls,false);
+   }
+   public Stream<OWLNamedIndividual> getReasonerInstances(IRI className){
+      return getReasonerInstances(df.getOWLClass(className));
+      // return reasoner.instances(df.getOWLClass(className),false);
+   }
+   
+   // get all the instances
+   public Stream<OWLNamedIndividual> getReasonerAllInstances(){
+      return getReasonerInstances(IRI.create("http://www.w3.org/2002/07/owl#Thing"));
+   } 
+
+   // get the instances with default prefix (i.e. local instances)
+   public Stream<OWLNamedIndividual> getReasonerHasDefaultPrefixInstances(){
+      Stream<OWLNamedIndividual> stream = getReasonerAllInstances();
+      return stream.filter(x-> hasDefaultPrefix(x));
+   }
+   
+   // get values of a given property for a given instance
+   public Stream<OWLNamedIndividual> getReasonerObjectPropertyValues(OWLNamedIndividual instance,OWLObjectProperty property){
+      return reasoner.objectPropertyValues(instance,property);
+   } 
+   public Stream<OWLNamedIndividual> getReasonerObjectPropertyValues(IRI instanceName,IRI propertyName){
+      return reasoner.objectPropertyValues(df.getOWLNamedIndividual(instanceName),df.getOWLObjectProperty(propertyName));
+   } 
+
+   // assume that instance belongs to only one class
+   public OWLNamedIndividual getObjectPropertyValue(OWLNamedIndividual instance,OWLObjectProperty property){
+      Iterator<OWLNamedIndividual> iterator = getReasonerObjectPropertyValues(instance,property).iterator();
+      if (iterator.hasNext()) return (OWLNamedIndividual)iterator.next(); 
+      LOGGER.severe("instance does not have this propery - " + instance.getIRI().toString() + "  "+ property.getIRI().toString());
+      return null;
+   }
+   public OWLNamedIndividual getObjectPropertyValue(IRI instanceName,IRI propertyName){
+      return getObjectPropertyValue(df.getOWLNamedIndividual(instanceName),df.getOWLObjectProperty(propertyName));
+   }   
+
+/////////////////////////////////////////////////////////////////////////////////////
+// temporary & debug functions
+////////////////////////////////////////////////////////////////////////////////////
+   
+   public void showClasses(Stream<OWLClass> lst){
+       for (Iterator<OWLClass> iterator = lst.iterator(); iterator.hasNext(); ){
+           OWLClass in = (OWLClass)iterator.next();
+           System.out.println("... "+in.getIRI().toString());
+       }
+   }
+
+   public void showClassExpressions(Stream<OWLClassExpression> lst){
+       for (Iterator<OWLClassExpression> iterator = lst.iterator(); iterator.hasNext(); ){
+           OWLClassExpression in = (OWLClassExpression)iterator.next();
+           System.out.println("... ["+ in.getClassExpressionType().toString() +"]: "+in.toString());
+       }
+   }
+
+
+   public void showInstances(Stream<OWLNamedIndividual> lst){
+       for (Iterator<OWLNamedIndividual> iterator = lst.iterator(); iterator.hasNext(); ){
+          OWLNamedIndividual in = (OWLNamedIndividual)iterator.next();
+          System.out.println("... "+in.getIRI().toString());
+       }
+   }
+
+   // a simple test for an ontology (after the  InferredOntologyGenerator.fillOntology )
    // check presence of axioms given as ArrayList of string in functional syntax
    // return true if the ontology has all the axioms from the list
+   // gives a lot of console output
    public boolean testAxiomsFromArrayList(ArrayList<String> axioms){
       if (axioms.isEmpty()){
-         LOGGER.severe(">>> EXCUTION FAILED: nothing to do, no axioms");
+         LOGGER.severe(">>> EXECUTION FAILED: nothing to do, no axioms");
          return false;
       }
       int a=0;
@@ -184,10 +391,4 @@ public class O {
       LOGGER.info(">>> TEST PASSED: found " + c + " axioms");         
       return true; 
    }
-
-   
 }
-
-
-
-

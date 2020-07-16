@@ -1,0 +1,32 @@
+#
+#  (ExternalInteractor)             (Process)                 (Process)
+#         user---------------------> webapp -----------------> dnsapp 
+#                 webflow               |      dnsflow
+#               (NetworkFlow)           |    (NetworkFlow)
+#               (hasSource user)        |    (hasSource webapp)
+#               (hasTarget webapp)      |    (hasTarget dnsapp)
+#               (agrees protocol_HTTP)  |    (agrees protocol_DNS)
+#                                       |
+#                                       ------------> logstore (DataStore)
+#                                          logflow
+#                                        (SingleFlow)
+#
+#
+#Import(<http://www.grsu.by/net/OdTMBaseThreatModel>)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :webflow)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :webapp)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor> :user)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :webflow :user)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :webflow :webapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> :webflow <http://www.grsu.by/net/OdTMBaseThreatModel#protocol_HTTP>)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :dnsflow)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :dnsapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :dnsflow :webapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :dnsflow :dnsapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> :dnsflow <http://www.grsu.by/net/OdTMBaseThreatModel#protocol_DNS>)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#SingleFlow> :logflow)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :logstore)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :logflow :webapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :logflow :logstore)
+
+
