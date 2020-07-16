@@ -100,8 +100,7 @@ Declaration(NamedIndividual(:threatF9_vulnerabilitiesOfInternetProtocols))
 
 # Class: :ApplicationFlow (:ApplicationFlow)
 
-EquivalentClasses(:ApplicationFlow :TemplateF)
-SubClassOf(:ApplicationFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DerivedDataFlow>)
+SubClassOf(:ApplicationFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow>)
 
 # Class: :CloudApplication (:CloudApplication)
 
@@ -134,7 +133,7 @@ SubClassOf(:LocalManager :GenericUser)
 
 # Class: :ManagementFlow (:ManagementFlow)
 
-SubClassOf(:ManagementFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DerivedDataFlow>)
+SubClassOf(:ManagementFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow>)
 
 # Class: :RemoteUser (:RemoteUser)
 
@@ -146,12 +145,11 @@ EquivalentClasses(:ServiceLayer ObjectOneOf(:layerIaaS :layerPaaS :layerSaaS))
 
 # Class: :SynchronizationFlow (:SynchronizationFlow)
 
-SubClassOf(:SynchronizationFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DerivedDataFlow>)
+SubClassOf(:SynchronizationFlow <http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow>)
 
 # Class: :TemplateA (:TemplateA)
 
-EquivalentClasses(:TemplateA ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :ExternalService)))
-SubClassOf(:TemplateA <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateA ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :ExternalService)))
 SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA1_faiureOfExternalService))
 SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA2__InformationDisclosureByExternalService))
 SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatA3__InformationModificationByExternalService))
@@ -160,8 +158,7 @@ SubClassOf(:TemplateA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel
 
 # Class: :TemplateB (:TemplateB)
 
-EquivalentClasses(:TemplateB ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
-SubClassOf(:TemplateB <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateB ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
 SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB1_faiureOfCloudApplication))
 SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB2_InformationDisclosureByCloudApplication))
 SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB3_InformationModificationByCloudApplication))
@@ -170,20 +167,17 @@ SubClassOf(:TemplateB ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel
 
 # Class: :TemplateBA (:TemplateBA)
 
-EquivalentClasses(:TemplateBA ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :RemoteUser) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
-SubClassOf(:TemplateBA <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateBA ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :RemoteUser) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
 SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB11_UsageOfPublicAccessNetworksByRemoteUser))
 SubClassOf(:TemplateBA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatB12_socialEngineeringAttacksAgainstCloudApplication))
 
 # Class: :TemplateC (:TemplateC)
 
-EquivalentClasses(:TemplateC ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
-SubClassOf(:TemplateC <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateC ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
 
 # Class: :TemplateCA (:TemplateCA)
 
-EquivalentClasses(:TemplateCA ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :RemoteUser) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
-SubClassOf(:TemplateCA <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateCA ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :RemoteUser) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
 SubClassOf(:TemplateCA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC20_DoSDDoSAttackAgainstCloudApplication))
 SubClassOf(:TemplateCA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC21_EDoSAttackAgainstCloudApplication))
 SubClassOf(:TemplateCA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC23_MaliciousUsingOfCloudApplication))
@@ -191,23 +185,20 @@ SubClassOf(:TemplateCA ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatMode
 
 # Class: :TemplateC_IaaS (:TemplateC_IaaS)
 
-EquivalentClasses(:TemplateC_IaaS ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectIntersectionOf(:CloudApplication ObjectHasValue(:hasServiceLayer :layerIaaS)))))
-SubClassOf(:TemplateC_IaaS <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateC_IaaS ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectIntersectionOf(:CloudApplication ObjectHasValue(:hasServiceLayer :layerIaaS)))))
 SubClassOf(:TemplateC_IaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC1_elevationOfPriviledgeOfTarget))
 SubClassOf(:TemplateC_IaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC22_NetworkScanningFromInternet))
 SubClassOf(:TemplateC_IaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC2_hiddenChannelToTarget))
 
 # Class: :TemplateC_PaaS (:TemplateC_PaaS)
 
-EquivalentClasses(:TemplateC_PaaS ObjectIntersectionOf(:ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectIntersectionOf(:CloudApplication ObjectHasValue(:hasServiceLayer :layerPaaS)))))
-SubClassOf(:TemplateC_PaaS <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateC_PaaS ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectIntersectionOf(:CloudApplication ObjectHasValue(:hasServiceLayer :layerPaaS)))))
 SubClassOf(:TemplateC_PaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC1_elevationOfPriviledgeOfTarget))
 SubClassOf(:TemplateC_PaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatC2_hiddenChannelToTarget))
 
 # Class: :TemplateD (:TemplateD)
 
-EquivalentClasses(:TemplateD ObjectIntersectionOf(:ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
-SubClassOf(:TemplateD <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateD ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :CloudApplication)))
 SubClassOf(:TemplateD ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD14_restrictionsOfSecurityAssessmentOfCloudApplication))
 SubClassOf(:TemplateD ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD16_backupLost))
 SubClassOf(:TemplateD ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD17_backupStolen))
@@ -224,30 +215,26 @@ SubClassOf(:TemplateD ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel
 
 # Class: :TemplateD_DS (:TemplateD_DS)
 
-EquivalentClasses(:TemplateD_DS ObjectIntersectionOf(:ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/OdTMBaseThreatModel#DataStore>)))
-SubClassOf(:TemplateD_DS <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateD_DS ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/OdTMBaseThreatModel#DataStore>)))
 SubClassOf(:TemplateD_DS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD50_restorationOfDeletedDataFromStorage))
 SubClassOf(:TemplateD_DS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD51_weakDataEncryptionMechanismsOfStorage))
 
 # Class: :TemplateD_IaaS (:TemplateD_IaaS)
 
-EquivalentClasses(:TemplateD_IaaS ObjectIntersectionOf(:ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectHasValue(:hasServiceLayer :layerIaaS))))
-SubClassOf(:TemplateD_IaaS <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateD_IaaS ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectHasValue(:hasServiceLayer :layerIaaS))))
 SubClassOf(:TemplateD_IaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD10_threatsToCloudInfrastructure))
 SubClassOf(:TemplateD_IaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD12_lackOfCodeIsolation))
 SubClassOf(:TemplateD_IaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD13_lackOfNetworkIsolation))
 
 # Class: :TemplateD_PaaS (:TemplateD_PaaS)
 
-EquivalentClasses(:TemplateD_PaaS ObjectIntersectionOf(:ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectHasValue(:hasServiceLayer :layerPaaS))))
-SubClassOf(:TemplateD_PaaS <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateD_PaaS ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> ObjectHasValue(:hasServiceLayer :layerPaaS))))
 SubClassOf(:TemplateD_PaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD10_threatsToCloudInfrastructure))
 SubClassOf(:TemplateD_PaaS ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD12_lackOfCodeIsolation))
 
 # Class: :TemplateD_VM (:TemplateD_VM)
 
-EquivalentClasses(:TemplateD_VM ObjectIntersectionOf(:ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :VirtualMachine)))
-SubClassOf(:TemplateD_VM <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateD_VM ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ManagementFlow ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :LocalManager) ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :VirtualMachine)))
 SubClassOf(:TemplateD_VM ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD70_virtualMachineEscape))
 SubClassOf(:TemplateD_VM ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD71_crossVMSideChannelAttack))
 SubClassOf(:TemplateD_VM ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatD72_hypervisorVulnerabilities))
@@ -258,7 +245,7 @@ SubClassOf(:TemplateD_VM ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatMo
 
 # Class: :TemplateF (:TemplateF)
 
-SubClassOf(:TemplateF <http://www.grsu.by/net/OdTMBaseThreatModel#TemplateDataFlow>)
+EquivalentClasses(:TemplateF ObjectIntersectionOf(<http://www.grsu.by/net/OdTMBaseThreatModel#Classified> :ApplicationFlow))
 SubClassOf(:TemplateF ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatF1_UsageOfUnencryptedFlow))
 SubClassOf(:TemplateF ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :threatF9_vulnerabilitiesOfInternetProtocols))
 

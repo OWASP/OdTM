@@ -1,0 +1,15 @@
+
+# because user isEdgeOf flow that agrees protocol_HTTP
+ClassAssertion(:ImplementsHTTPProtocol :user)
+# because webapp isEdgeOf flow that agrees protocol_HTTP
+ClassAssertion(:ImplementsHTTPProtocol :webapp)
+
+# because user isSourceOf flow that agrees protocol_HTTP
+ClassAssertion(:ContainsHTTPClientComponent :user)
+# because webapp isTargetOf flow that agrees protocol_HTTP
+ClassAssertion(:ContainsHTTPServerComponent :webapp)
+
+# because user isSourceOf some NetworkFlow 
+ClassAssertion(:ContainsClientComponent :user)
+# because webapp isTargetOf some NetworkFlow
+ClassAssertion(:ContainsServerComponent :webapp)

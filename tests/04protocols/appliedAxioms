@@ -1,0 +1,16 @@
+#
+#  (ExternalInteractor)         (Process)
+#              user -----------> webapp
+#                       flow
+#                   (NetworkFlow)
+#                   (agrees protocol_HTTP)
+#                   (hasSource user)
+#                   (hasTarget webapp)
+#
+ClassAssertion(:NetworkFlow :flow)
+ClassAssertion(:Process :webapp)
+ClassAssertion(:ExternalInteractor :user)
+ObjectPropertyAssertion(:hasSource :flow :user)
+ObjectPropertyAssertion(:hasTarget :flow :webapp)
+ObjectPropertyAssertion(:agrees :flow :protocol_HTTP)
+

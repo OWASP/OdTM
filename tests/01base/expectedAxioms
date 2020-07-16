@@ -2,8 +2,13 @@
 ObjectPropertyAssertion(:divides :line :flow)
 # (2) pr1 isSourceOf flow
 ObjectPropertyAssertion(:isSourceOf :pr1 :flow)
+# pr1 isEdge of flow
+ObjectPropertyAssertion(:isEdgeOf :pr1 :flow)
+
 # (3) pr2 isTargetOf flow
 ObjectPropertyAssertion(:isTargetOf :pr2 :flow)
+# pr2 isEdge of flow
+ObjectPropertyAssertion(:isEdgeOf :pr2 :flow)
 
 # (4) threat1 isMitigated cont1
 ObjectPropertyAssertion(:isMitigatedBy :threat1 :cont1)

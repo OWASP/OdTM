@@ -8,43 +8,74 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 Ontology(<http://www.grsu.by/net/OdTMBaseThreatModel>
 
+Declaration(Class(:ApplicationProtocol))
 Declaration(Class(:AuthenticationThreat))
 Declaration(Class(:AuthorizationThreat))
 Declaration(Class(:AvailabilityThreat))
 Declaration(Class(:Boundary))
 Declaration(Class(:Classified))
+Declaration(Class(:Component))
 Declaration(Class(:ConfidentialityThreat))
+Declaration(Class(:ContainsClientComponent))
+Declaration(Class(:ContainsDNSClientComponent))
+Declaration(Class(:ContainsDNSServerComponent))
+Declaration(Class(:ContainsHTTPClientComponent))
+Declaration(Class(:ContainsHTTPServerComponent))
+Declaration(Class(:ContainsServerComponent))
 Declaration(Class(:ContextSecurityPattern))
 Declaration(Class(:Countermeasure))
+Declaration(Class(:DNSClientComponent))
+Declaration(Class(:DNSProtocol))
+Declaration(Class(:DNSServerComponent))
 Declaration(Class(:DataFlow))
+Declaration(Class(:DataLinkProtocol))
 Declaration(Class(:DataStore))
 Declaration(Class(:Denial_of_ServiceThreat))
 Declaration(Class(:Elevation_of_PrivilegeThreat))
 Declaration(Class(:ExternalInteractor))
+Declaration(Class(:HTTPClientComponent))
+Declaration(Class(:HTTPProtocol))
+Declaration(Class(:HTTPServerComponent))
+Declaration(Class(:HardwareComponent))
+Declaration(Class(:ImplementsApplicationProtocol))
+Declaration(Class(:ImplementsDNSProtocol))
+Declaration(Class(:ImplementsHTTPProtocol))
 Declaration(Class(:Information_DisclosureThreat))
 Declaration(Class(:IntegrityThreat))
+Declaration(Class(:NetworkFlow))
+Declaration(Class(:NetworkProtocol))
 Declaration(Class(:NonRepudiationThreat))
+Declaration(Class(:PhysicalProtocol))
 Declaration(Class(:Process))
+Declaration(Class(:Protocol))
 Declaration(Class(:RepudiationThreat))
 Declaration(Class(:STRIDE))
 Declaration(Class(:SchemaInstance))
 Declaration(Class(:SecurityMetrics))
 Declaration(Class(:SecurityObjective))
+Declaration(Class(:SingleFlow))
+Declaration(Class(:SoftwareComponent))
 Declaration(Class(:SpoofingThreat))
 Declaration(Class(:Stencil))
 Declaration(Class(:Stub))
 Declaration(Class(:TamperingThreat))
 Declaration(Class(:Target))
 Declaration(Class(:Threat))
+Declaration(Class(:TransportProtocol))
 Declaration(Class(:TrustBorderBoundary))
 Declaration(Class(:TrustLineBoundary))
 Declaration(ObjectProperty(:affects))
+Declaration(ObjectProperty(:agrees))
+Declaration(ObjectProperty(:contains))
 Declaration(ObjectProperty(:crosses))
 Declaration(ObjectProperty(:divides))
+Declaration(ObjectProperty(:hasEdge))
 Declaration(ObjectProperty(:hasSource))
 Declaration(ObjectProperty(:hasTarget))
+Declaration(ObjectProperty(:implements))
 Declaration(ObjectProperty(:includes))
 Declaration(ObjectProperty(:isAffectedBy))
+Declaration(ObjectProperty(:isEdgeOf))
 Declaration(ObjectProperty(:isIncluded))
 Declaration(ObjectProperty(:isMitigatedBy))
 Declaration(ObjectProperty(:isProtectedBy))
@@ -54,6 +85,7 @@ Declaration(ObjectProperty(:labelsSO))
 Declaration(ObjectProperty(:labelsSTRIDE))
 Declaration(ObjectProperty(:mitigates))
 Declaration(ObjectProperty(:protects))
+Declaration(ObjectProperty(:suggests))
 Declaration(NamedIndividual(:SO_Authentication))
 Declaration(NamedIndividual(:SO_Authorization))
 Declaration(NamedIndividual(:SO_Availability))
@@ -66,42 +98,123 @@ Declaration(NamedIndividual(:STRIDE_Information_Disclosure))
 Declaration(NamedIndividual(:STRIDE_Repudiation))
 Declaration(NamedIndividual(:STRIDE_Spoofing))
 Declaration(NamedIndividual(:STRIDE_Tampering))
+Declaration(NamedIndividual(:protocol_DNS))
+Declaration(NamedIndividual(:protocol_HTTP))
+
 ############################
 #   Object Properties
 ############################
 
 # Object Property: :affects (:affects)
 
+AnnotationAssertion(rdfs:comment :affects "i.e. Threat affects Target or DataFlow"@en)
 InverseObjectProperties(:affects :isAffectedBy)
 
-# Object Property: :crosses (:crosses)
+# Object Property: :agrees (:agrees)
 
+AnnotationAssertion(rdfs:comment :agrees "i.e.  NetworkFlow agrees Protocol"@en)
+
+# Object Property: :contains (:contains)
+
+AnnotationAssertion(rdfs:comment :contains "i.e. Target contains Component"@en)
+
+# Object Property: :crosses (crosses)
+
+AnnotationAssertion(rdfs:comment :crosses "i.e. DataFlow crosses Boundary"@en)
+AnnotationAssertion(rdfs:label :crosses "crosses"@en)
 InverseObjectProperties(:crosses :divides)
+
+# Object Property: :divides (divides)
+
+AnnotationAssertion(rdfs:comment :divides "i.e. Boundary divides DataFlow"@en)
+AnnotationAssertion(rdfs:label :divides "divides"@en)
+
+# Object Property: :hasEdge (:hasEdge)
+
+AnnotationAssertion(rdfs:comment :hasEdge "i.e. DataFlow hasEdge (hasSource or hasTarget) Target"@en)
 
 # Object Property: :hasSource (:hasSource)
 
+AnnotationAssertion(rdfs:comment :hasSource "i.e. DataFlow hasSource Target"@en)
+SubObjectPropertyOf(:hasSource :hasEdge)
 InverseObjectProperties(:hasSource :isSourceOf)
 
 # Object Property: :hasTarget (:hasTarget)
 
+AnnotationAssertion(rdfs:comment :hasTarget "i.e. DataFlow hasTarget Target"@en)
+SubObjectPropertyOf(:hasTarget :hasEdge)
 InverseObjectProperties(:hasTarget :isTargetOf)
+
+# Object Property: :implements (:implements)
+
+AnnotationAssertion(rdfs:comment :implements "(i.e. Target implements Protocol)"@en)
 
 # Object Property: :includes (:includes)
 
+AnnotationAssertion(rdfs:comment :includes "i.e. TrustLineBoundary includesTarget"@en)
 InverseObjectProperties(:includes :isIncluded)
+
+# Object Property: :isAffectedBy (:isAffectedBy)
+
+AnnotationAssertion(rdfs:comment :isAffectedBy "i.e. Target or DataFlow isAffectedBy Threat"@en)
+
+# Object Property: :isEdgeOf (:isEdgeOf)
+
+AnnotationAssertion(rdfs:comment :isEdgeOf "i.e. Target isEdgeOf (isSourceOf or isTargerOf) DataFlow"@en)
+
+# Object Property: :isIncluded (:isIncluded)
+
+AnnotationAssertion(rdfs:comment :isIncluded "i.e. Target isIncluded in TrustLineBoundary"@en)
 
 # Object Property: :isMitigatedBy (:isMitigatedBy)
 
+AnnotationAssertion(rdfs:comment :isMitigatedBy "i.e. Threat isMitigatedBy Countermeasure"@en)
 InverseObjectProperties(:isMitigatedBy :mitigates)
 
 # Object Property: :isProtectedBy (:isProtectedBy)
 
+AnnotationAssertion(rdfs:comment :isProtectedBy "i.e. Target or DataFlow isProtectedBy Counterneasure"@en)
 InverseObjectProperties(:isProtectedBy :protects)
+
+# Object Property: :isSourceOf (:isSourceOf)
+
+AnnotationAssertion(rdfs:comment :isSourceOf "i.e. Target isSourceOf DataFlow"@en)
+SubObjectPropertyOf(:isSourceOf :isEdgeOf)
+
+# Object Property: :isTargetOf (:isTargetOf)
+
+AnnotationAssertion(rdfs:comment :isTargetOf "i.e. Target isSourceOf DataFlow"@en)
+SubObjectPropertyOf(:isTargetOf :isEdgeOf)
+
+# Object Property: :labelsSO (:labelsSO)
+
+AnnotationAssertion(rdfs:comment :labelsSO "i.e. Threat or Countermeasure labelsSO SecurityObjective"@en)
+
+# Object Property: :labelsSTRIDE (:labelsSTRIDE)
+
+AnnotationAssertion(rdfs:comment :labelsSTRIDE "i.e. Threat or Countermeasure labelsSTRIDE STRIDE"@en)
+
+# Object Property: :mitigates (:mitigates)
+
+AnnotationAssertion(rdfs:comment :mitigates "i.e. Countermeasure mitigates Threat"@en)
+
+# Object Property: :protects (:protects)
+
+AnnotationAssertion(rdfs:comment :protects "i.e. Countermeasure protects Target or DataFlow"@en)
+
+# Object Property: :suggests (:suggests)
+
+AnnotationAssertion(rdfs:comment :suggests "Target might contain internal component"@en)
+
 
 
 ############################
 #   Classes
 ############################
+
+# Class: :ApplicationProtocol (:ApplicationProtocol)
+
+SubClassOf(:ApplicationProtocol :Protocol)
 
 # Class: :AuthenticationThreat (:AuthenticationThreat)
 
@@ -131,13 +244,63 @@ EquivalentClasses(:ConfidentialityThreat ObjectIntersectionOf(:Threat ObjectHasV
 SubClassOf(:ConfidentialityThreat :Threat)
 SubClassOf(:ConfidentialityThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure))
 
+# Class: :ContainsClientComponent (:ContainsClientComponent)
+
+EquivalentClasses(:ContainsClientComponent ObjectSomeValuesFrom(:isSourceOf :NetworkFlow))
+SubClassOf(:ContainsClientComponent :Classified)
+
+# Class: :ContainsDNSClientComponent (:ContainsDNSClientComponent)
+
+EquivalentClasses(:ContainsDNSClientComponent ObjectSomeValuesFrom(:isSourceOf ObjectSomeValuesFrom(:agrees :DNSProtocol)))
+SubClassOf(:ContainsDNSClientComponent :Classified)
+SubClassOf(:ContainsDNSClientComponent ObjectSomeValuesFrom(:suggests :DNSClientComponent))
+
+# Class: :ContainsDNSServerComponent (:ContainsDNSServerComponent)
+
+EquivalentClasses(:ContainsDNSServerComponent ObjectSomeValuesFrom(:isTargetOf ObjectSomeValuesFrom(:agrees :DNSProtocol)))
+SubClassOf(:ContainsDNSServerComponent :Classified)
+SubClassOf(:ContainsDNSServerComponent ObjectSomeValuesFrom(:suggests :DNSServerComponent))
+
+# Class: :ContainsHTTPClientComponent (:ContainsHTTPClientComponent)
+
+EquivalentClasses(:ContainsHTTPClientComponent ObjectSomeValuesFrom(:isSourceOf ObjectSomeValuesFrom(:agrees :HTTPProtocol)))
+SubClassOf(:ContainsHTTPClientComponent :Classified)
+SubClassOf(:ContainsHTTPClientComponent ObjectSomeValuesFrom(:suggests :HTTPClientComponent))
+
+# Class: :ContainsHTTPServerComponent (:ContainsHTTPServerComponent)
+
+EquivalentClasses(:ContainsHTTPServerComponent ObjectSomeValuesFrom(:isTargetOf ObjectSomeValuesFrom(:agrees :HTTPProtocol)))
+SubClassOf(:ContainsHTTPServerComponent :Classified)
+SubClassOf(:ContainsHTTPServerComponent ObjectSomeValuesFrom(:suggests :HTTPServerComponent))
+
+# Class: :ContainsServerComponent (:ContainsServerComponent)
+
+EquivalentClasses(:ContainsServerComponent ObjectSomeValuesFrom(:isTargetOf :NetworkFlow))
+SubClassOf(:ContainsServerComponent :Classified)
+
 # Class: :ContextSecurityPattern (:ContextSecurityPattern)
 
 SubClassOf(:ContextSecurityPattern :Countermeasure)
 
+# Class: :DNSClientComponent (:DNSClientComponent)
+
+SubClassOf(:DNSClientComponent :SoftwareComponent)
+
+# Class: :DNSProtocol (:DNSProtocol)
+
+SubClassOf(:DNSProtocol :ApplicationProtocol)
+
+# Class: :DNSServerComponent (:DNSServerComponent)
+
+SubClassOf(:DNSServerComponent :SoftwareComponent)
+
 # Class: :DataFlow (:DataFlow)
 
 SubClassOf(:DataFlow :Stencil)
+
+# Class: :DataLinkProtocol (:DataLinkProtocol)
+
+SubClassOf(:DataLinkProtocol :Protocol)
 
 # Class: :DataStore (:DataStore)
 
@@ -157,6 +320,37 @@ SubClassOf(:Elevation_of_PrivilegeThreat ObjectHasValue(:labelsSO :SO_Authorizat
 
 SubClassOf(:ExternalInteractor :Target)
 
+# Class: :HTTPClientComponent (:HTTPClientComponent)
+
+SubClassOf(:HTTPClientComponent :SoftwareComponent)
+
+# Class: :HTTPProtocol (:HTTPProtocol)
+
+SubClassOf(:HTTPProtocol :ApplicationProtocol)
+
+# Class: :HTTPServerComponent (:HTTPServerComponent)
+
+SubClassOf(:HTTPServerComponent :SoftwareComponent)
+
+# Class: :HardwareComponent (:HardwareComponent)
+
+SubClassOf(:HardwareComponent :Component)
+
+# Class: :ImplementsApplicationProtocol (:ImplementsApplicationProtocol)
+
+EquivalentClasses(:ImplementsApplicationProtocol ObjectSomeValuesFrom(:implements :ApplicationProtocol))
+SubClassOf(:ImplementsApplicationProtocol :Classified)
+
+# Class: :ImplementsDNSProtocol (:ImplementsDNSProtocol)
+
+EquivalentClasses(:ImplementsDNSProtocol ObjectSomeValuesFrom(:implements :DNSProtocol))
+SubClassOf(:ImplementsDNSProtocol :Classified)
+
+# Class: :ImplementsHTTPProtocol (:ImplementsHTTPProtocol)
+
+EquivalentClasses(:ImplementsHTTPProtocol ObjectSomeValuesFrom(:implements :HTTPProtocol))
+SubClassOf(:ImplementsHTTPProtocol :Classified)
+
 # Class: :Information_DisclosureThreat (:Information_DisclosureThreat)
 
 EquivalentClasses(:Information_DisclosureThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure)))
@@ -168,11 +362,23 @@ EquivalentClasses(:IntegrityThreat ObjectIntersectionOf(:Threat ObjectHasValue(:
 SubClassOf(:IntegrityThreat :Threat)
 SubClassOf(:IntegrityThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering))
 
+# Class: :NetworkFlow (:NetworkFlow)
+
+SubClassOf(:NetworkFlow :DataFlow)
+
+# Class: :NetworkProtocol (:NetworkProtocol)
+
+SubClassOf(:NetworkProtocol :Protocol)
+
 # Class: :NonRepudiationThreat (:NonRepudiationThreat)
 
 EquivalentClasses(:NonRepudiationThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_NonRepudiation)))
 SubClassOf(:NonRepudiationThreat :Threat)
 SubClassOf(:NonRepudiationThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation))
+
+# Class: :PhysicalProtocol (:PhysicalProtocol)
+
+SubClassOf(:PhysicalProtocol :Protocol)
 
 # Class: :Process (:Process)
 
@@ -193,6 +399,14 @@ SubClassOf(:STRIDE :SecurityMetrics)
 EquivalentClasses(:SecurityObjective ObjectOneOf(:SO_Authentication :SO_Authorization :SO_Availability :SO_Confidentiality :SO_Integrity :SO_NonRepudiation))
 SubClassOf(:SecurityObjective :SecurityMetrics)
 
+# Class: :SingleFlow (:SingleFlow)
+
+SubClassOf(:SingleFlow :DataFlow)
+
+# Class: :SoftwareComponent (:SoftwareComponent)
+
+SubClassOf(:SoftwareComponent :Component)
+
 # Class: :SpoofingThreat (:SpoofingThreat)
 
 EquivalentClasses(:SpoofingThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing)))
@@ -210,6 +424,10 @@ SubClassOf(:TamperingThreat ObjectHasValue(:labelsSO :SO_Integrity))
 # Class: :Target (:Target)
 
 SubClassOf(:Target :Stencil)
+
+# Class: :TransportProtocol (:TransportProtocol)
+
+SubClassOf(:TransportProtocol :Protocol)
 
 # Class: :TrustBorderBoundary (:TrustBorderBoundary)
 
@@ -272,5 +490,16 @@ ClassAssertion(:SchemaInstance :STRIDE_Spoofing)
 
 ClassAssertion(:SchemaInstance :STRIDE_Tampering)
 
+# Individual: :protocol_DNS (:protocol_DNS)
 
+ClassAssertion(:DNSProtocol :protocol_DNS)
+ClassAssertion(:SchemaInstance :protocol_DNS)
+
+# Individual: :protocol_HTTP (:protocol_HTTP)
+
+ClassAssertion(:HTTPProtocol :protocol_HTTP)
+ClassAssertion(:SchemaInstance :protocol_HTTP)
+
+
+SubObjectPropertyOf(ObjectPropertyChain(:isEdgeOf :agrees) :implements)
 )
