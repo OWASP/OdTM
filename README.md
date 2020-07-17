@@ -39,6 +39,5 @@ Common Cloud Computing Threat Model (CCCTM)
 
 ## Software tools
 
-* [folder](applications/)
-* [Description](applications/README.md)
+* [In folder](applications/)
 
