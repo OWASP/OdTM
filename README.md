@@ -3,6 +3,7 @@
 
 The OdTM framework implements an ontological approach to the threat modelling (architectural/design security analysis) of computer systems.
 The approach is based on a base threat model, domain-specific threat models, and context security patterns and threats.
+Also it includes a set of software tools for automation of the threat modelling.
 
 The base threat model enables creation of various domain-specific threat models. 
 Each domain-specific threat model holds a set of typical components of some type of computer systems (architectural domain), 
@@ -16,8 +17,9 @@ of domain-specific threat models with different external sources, like attack/vu
 also with catalogues of traditional security patterns.
 
 All the models are implemented as OWL (Web Ontology Language) ontologies with Description Logics (DL) as a mathematical background.
+The [software tools](applications/) are based on Java and the OWL API library.
 
-A description is [here](https://www.researchgate.net/publication/339415212_Security_patterns_based_approach_to_automatically_select_mitigations_in_ontology-driven_threat_modelling)
+Some details about our approach is [here](https://www.researchgate.net/publication/339415212_Security_patterns_based_approach_to_automatically_select_mitigations_in_ontology-driven_threat_modelling)
 
 If you want to refer to the OdTM framework, please cite:
 >Brazhuk A. Security patterns based approach to automatically select mitigations in ontology-driven threat modelling // Open Semantic Technologies for Intelligent Systems (OSTIS). – 2020. – №. 4. – С. 267-272
@@ -35,4 +37,7 @@ Common Cloud Computing Threat Model (CCCTM)
 * [OWL file](OdTMCCCTM.owl)
 * [Description](docs/ODTMCCCTM.md)
 
+## Software tools
+
+* [Description](applications/README.md)
 

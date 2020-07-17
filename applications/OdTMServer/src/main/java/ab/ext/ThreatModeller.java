@@ -29,6 +29,8 @@ public class ThreatModeller extends OManager {
    protected OWLOntology baseModel;    // the first model
    protected OWLOntology domainModel;  // the second one
    protected OWLOntology workModel;    // and abox (i.e. diagram) is here
+   protected O bmodel;
+   protected O dmodel;
    protected O model;                  // processor for workModel, init it with workModel
    
    protected String domainModelIRI;    // will be applied to abox as import
@@ -39,6 +41,7 @@ public class ThreatModeller extends OManager {
    protected static String HasTargetProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget";
    protected static String IsSourceOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf";
    protected static String IsTargetOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf";
+   protected static String suggestsProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggests";
    
    // init it with base model & domain model before use 
    //    you can skip base model if set first arg to null
@@ -49,6 +52,7 @@ public class ThreatModeller extends OManager {
             LOGGER.severe ("unable to copy base model");      
             return false;
          }
+         bmodel = O.create(baseModel);
          LOGGER.info("base model: "+ getBaseModelIRI());
       }
          
@@ -57,6 +61,7 @@ public class ThreatModeller extends OManager {
          LOGGER.severe ("unable to copy domain model");      
          return false;
       }
+      dmodel = O.create(domainModel);
       domainModelIRI = getDomainModelIRI();
       LOGGER.info("domain model: "+ domainModelIRI);
       return true;
@@ -113,6 +118,16 @@ public class ThreatModeller extends OManager {
        System.out.println(name+": "+str);
     }
     
+    // to perform an operation with an object (i.e. EntitySearch related methods in O)  
+    // we need to know where this object is (in base or domain model)
+    protected O getModelByIRI(IRI iri){
+       if (bmodel!=null) {
+          if (bmodel.hasDefaultPrefix(iri)) return bmodel;
+       }
+       if (dmodel.hasDefaultPrefix(iri)) return dmodel;
+       return null;
+    }
+    
     public void analyseWithAIEd(){
        // reason the model
        flushModel();
@@ -121,38 +136,49 @@ public class ThreatModeller extends OManager {
        says ("Starting to analize " +model.getIRI() +" ...");
        // get list of flows
        Supplier<Stream<OWLNamedIndividual>> flows = () -> model.getReasonerInstances(IRI.create(DataFlowClass));
+       says("...................................................");
        says("Given model contains "+flows.get().count()+" data flow(s):");
        model.showInstances(flows.get()); 
        for (Iterator<OWLNamedIndividual> iterator = flows.get().iterator(); iterator.hasNext(); ){
           OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
-          says("Some details about " + flow.getIRI().toString() + " flow.");
+          says("........................");
+          says("From what I understand about the " + flow.getIRI().toString() + " flow:");
           says("its primary type is " + model.getPrimaryType(flow).getIRI().toString());
           says("its source is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasSourceProperty)));
           says("its target is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasTargetProperty)));
           //says("it's classified as (all the types):"); 
           //model.showClasses(model.getReasonerTypes(flow));
-          says("it's classified as (direct types):"); 
-          model.showClasses(model.getReasonerDirectTypes(flow));
+          //says("it's classified as (direct types):"); 
+          //model.showClasses(model.getReasonerDirectTypes(flow));
 
        }
 
        // get list of targets
        Supplier<Stream<OWLNamedIndividual>> targets = () -> model.getReasonerInstances(IRI.create(TargetClass));
+       says("...................................................");
        says("Given model contains "+targets.get().count()+" target(s):");
        model.showInstances(targets.get()); 
        for (Iterator<OWLNamedIndividual> iterator = targets.get().iterator(); iterator.hasNext(); ){
           OWLNamedIndividual target = (OWLNamedIndividual)iterator.next();
-          says("Some details about " + target.getIRI().toString() + " target.");
+          says("........................");
+          says("And what I think of the " + target.getIRI().toString() + " target:");
           says("its primary type is " + model.getPrimaryType(target).getIRI().toString());
-          says("it's a source of:");
-          model.showInstances(model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsSourceOfProperty)));
-          says("it's a target of:");
-          model.showInstances(model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsTargetOfProperty)));
+          for (Iterator<OWLNamedIndividual> iterator2 = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsSourceOfProperty)).iterator(); iterator2.hasNext(); ){
+              OWLNamedIndividual tmp = (OWLNamedIndividual)iterator2.next();
+              says("it's a source of " + tmp.toString());
+          }
+          
+          for (Iterator<OWLNamedIndividual> iterator3 = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsTargetOfProperty)).iterator(); iterator3.hasNext(); ){
+              OWLNamedIndividual tmp = (OWLNamedIndividual)iterator3.next();
+              says("it's a target of " + tmp.toString());
+          }
 
-          //says("it's classified as (all the types):"); 
-          //model.showClasses(model.getReasonerTypes(target));
-          says("it's classified as (direct types):"); 
-          model.showClasses(model.getReasonerDirectTypes(target));
+          for (Iterator<OWLClass> iterator1 = model.getReasonerDirectTypes(target).iterator(); iterator1.hasNext(); ){
+              OWLClass cls = (OWLClass)iterator1.next();
+              O tmp = getModelByIRI(cls.getIRI());
+              IRI x = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
+              if (x!=null) says("You can add an instance of "+ x.toString() +" (because " +cls.toString()+")");
+          }
        }
        
        says("That's all.");
@@ -166,6 +192,8 @@ public class ThreatModeller extends OManager {
        //bmodel.showClassExpressions(bmodel.getSearcherEquivalentClasses(IRI.create(name)) );
        bmodel.showClassExpressions(bmodel.getSearcherSuperClasses(IRI.create(name)) );
        
+       IRI x = bmodel.searchForExpressionValue(bmodel.getSearcherSuperClasses(IRI.create(name)),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
+       System.out.println("xxxx " +x+ " zzzzz");
        //String str = "ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> :flow <http://www.grsu.by/net/OdTMBaseThreatModel#protocol_HTTP>)";
        //String str = "ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf> :user :flow)";
        // OWLAxiom ax = model.simpleStringToAxiom(str);

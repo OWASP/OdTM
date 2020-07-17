@@ -25,6 +25,5 @@ but it is quite possible with git and maven (you should clone the OdTM Server [f
 
 Example of a running script is [here](../../tests/run.sh).
 
-Whole [folder](../../tests/) is an example 
-how this simple testing approach has been added to the base model.
+The whole [folder](../../tests/) is an example how this approach has been added to the base model.
 

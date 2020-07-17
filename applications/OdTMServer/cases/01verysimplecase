@@ -28,5 +28,3 @@ ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#SingleFlow> :logflow)
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :logstore)
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :logflow :webapp)
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :logflow :logstore)
-
-

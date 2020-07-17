@@ -45,11 +45,11 @@ class consoleApplication {
                   modeller.createWorkModelFromFile(caseName);   
                   //modeller.flushModel();
                   
-                  //modeller.analyseWithAIEd();
+                  modeller.analyseWithAIEd();
                   
                   //modeller.fillWorkModel();
                   //modeller.saveWorkModelToFile("/home/net/tmp/test.owl");
-                  modeller.test();   
+                  //modeller.test();   
                   
                   //modeller.saveWorkModelToFile("/home/net/tmp/test1.owl");
                   //modeller.saveWorkModelToFile("/home/net/tmp/test2.owl");

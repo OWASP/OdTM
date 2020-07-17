@@ -55,7 +55,7 @@ public class O {
       tmp.initReasoner();
       return tmp;
    }
- 
+  
 ////////////////////////////////////////////////////////////////////////////////////////////
 // common functions
 ///////////////////////////////////////////////////////////////////////////////////////////   
@@ -93,6 +93,10 @@ public class O {
       if (in.getIRI().toString().startsWith(defaultPrefix)) return true;
       return false;
    }
+   public boolean hasDefaultPrefix(IRI in){
+      if (in.toString().startsWith(defaultPrefix)) return true;
+      return false;
+   }
       
    // takes strings like ":user" or "<http://www.grsu.by/net/OdTMBaseThreatModel#agrees>"
    // and returns the IRI object
@@ -108,8 +112,48 @@ public class O {
       return null;
    }
    
-   // add parseAxiom & object like String type; String[] args
-   
+   // hack that enables cutting things 
+   // 'ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#suggests> <http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent>)'
+   //    ^^^ MyAxiom.type       ^^^MyAxiom.args[0]                                 ^^^MyAxiom.args[1]
+   // similar to simpleStringToAxiom, but takes output of API's streams (EntitySearcher), not functional syntax expressions
+   public MyAxiom parseClassExpression(String in){
+      // classes are like '<...>'
+      if (in.startsWith("<")){
+         String[] args = new String[1];
+         args[0] = in;
+         return new MyAxiom("Class", args);
+      }
+      
+      String[] parts = in.split("\\(");
+      if (parts.length ==2) {
+          String type = parts[0];
+          String arg = parts[1].substring(0, parts[1].length() - 1);
+          String[] args = arg.split(" ");
+          if (args.length !=0){
+             return new MyAxiom(type,args);
+          }
+      }
+      LOGGER.severe("failed to process " +in);
+      return null;
+   }
+
+   // We have stream of lines (lst)
+   // 'ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#suggests> <http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent>)'
+   //        ^^^ type                          ^^^ propName                                  ^^^ 
+   //                                                                          it returns the last item as IRI
+   // !!! it takes only first line with this property
+   public IRI searchForExpressionValue(Stream lst, String type, IRI propName){
+       for (Iterator<OWLClassExpression> iterator = lst.iterator(); iterator.hasNext(); ){
+           OWLClassExpression in = (OWLClassExpression)iterator.next();           
+           MyAxiom a = parseClassExpression(in.toString());
+           if ( (a !=null) && a.type.equals(type)){              
+              if (parseIRI(a.args[0]).equals(propName)) return parseIRI(a.args[1]);
+           }
+       }      
+       return null;
+   }
+
+
    // converts functional syntax string to axiom
    // like "ObjectPropertyAssertion(:crosses :flow :line)"
    //   or "ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :flow)"
@@ -216,13 +260,13 @@ public class O {
 // http://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/search/EntitySearcher.html
 //////////////////////////////////////////////////////////////////////////////////////
 
+   // get superclass expressions for a given class
    public Stream<OWLClassExpression> getSearcherSuperClasses(OWLClass cls){
       return EntitySearcher.getSuperClasses(cls,o);
    }
    public Stream<OWLClassExpression> getSearcherSuperClasses(IRI className){
       return getSearcherSuperClasses(df.getOWLClass(className));
    }
-
 
    // for a given class returns equivalent class expressions
    // e.g. 'ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> <http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocol>))'
@@ -264,6 +308,7 @@ public class O {
    public OWLClass getPrimaryType(IRI instanceName){
       return getPrimaryType(df.getOWLNamedIndividual(instanceName));
    }
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 // find different axioms with the OWLReasoner object (aka reasoned results)
@@ -319,7 +364,7 @@ public class O {
       return reasoner.objectPropertyValues(df.getOWLNamedIndividual(instanceName),df.getOWLObjectProperty(propertyName));
    } 
 
-   // assume that instance belongs to only one class
+   // assumes that instance belongs to only one class
    public OWLNamedIndividual getObjectPropertyValue(OWLNamedIndividual instance,OWLObjectProperty property){
       Iterator<OWLNamedIndividual> iterator = getReasonerObjectPropertyValues(instance,property).iterator();
       if (iterator.hasNext()) return (OWLNamedIndividual)iterator.next(); 

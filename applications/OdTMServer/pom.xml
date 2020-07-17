@@ -4,7 +4,7 @@
   <groupId>ab</groupId>
   <artifactId>OdTMServer</artifactId>
   <packaging>jar</packaging>
-  <version>0.02-SNAPSHOT</version>
+  <version>0.03-SNAPSHOT</version>
   <name>OdTMServer</name>
   <url>http://maven.apache.org</url>
   <properties>

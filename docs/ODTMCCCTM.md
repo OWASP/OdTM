@@ -1,4 +1,3 @@
-/[ . . ](../README.md)/
 
 # Common Cloud Computing Threat Model (CCCTM)
 
@@ -59,5 +58,4 @@ If you want to refer to the CCCTM model, please cite:
 >Brazhuk A., Olizarovich E. Framework for ontology-driven threat modelling of modern computer systems //International Journal of Open Information Technologies. – 2020. – Vol. 8. – No. 2. – С. 14-20.
 
 
-/[ . . ](../README.md)/
 
