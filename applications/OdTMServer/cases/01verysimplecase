@@ -1,4 +1,12 @@
-#
+#                                        (agrees protocol_HTTP)
+#                                        (hasTarget supapp)
+#                                        (hasSource webapp)
+#                                        (NetworkFlow)
+#                                         webflow1
+#                                       -------------------> supapp
+#                                       |                    (Process)
+#                                       |
+#                                       |
 #  (ExternalInteractor)             (Process)                 (Process)
 #         user---------------------> webapp -----------------> dnsapp 
 #                 webflow               |      dnsflow
@@ -28,3 +36,9 @@ ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#SingleFlow> :logflow)
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :logstore)
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :logflow :webapp)
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :logflow :logstore)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :webflow1)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :supapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :webflow1 :webapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :webflow1 :supapp)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> :webflow1 <http://www.grsu.by/net/OdTMBaseThreatModel#protocol_HTTP>)
+

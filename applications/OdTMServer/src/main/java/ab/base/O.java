@@ -112,7 +112,7 @@ public class O {
       return null;
    }
    
-   // hack that enables cutting things 
+   // hack that enables cutting things (only classes <...> & like this:)
    // 'ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#suggests> <http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent>)'
    //    ^^^ MyAxiom.type       ^^^MyAxiom.args[0]                                 ^^^MyAxiom.args[1]
    // similar to simpleStringToAxiom, but takes output of API's streams (EntitySearcher), not functional syntax expressions
@@ -130,6 +130,9 @@ public class O {
           String arg = parts[1].substring(0, parts[1].length() - 1);
           String[] args = arg.split(" ");
           if (args.length !=0){
+             // only two arguments and both are IRIs
+             args[0] = parseIRI(args[0]).toString();
+             args[1] = parseIRI(args[1]).toString();
              return new MyAxiom(type,args);
           }
       }
@@ -147,7 +150,23 @@ public class O {
            OWLClassExpression in = (OWLClassExpression)iterator.next();           
            MyAxiom a = parseClassExpression(in.toString());
            if ( (a !=null) && a.type.equals(type)){              
-              if (parseIRI(a.args[0]).equals(propName)) return parseIRI(a.args[1]);
+              if (a.args[0].equals(propName.toString())) return IRI.create(a.args[1]);
+           }
+       }      
+       return null;
+   }
+
+   // gets a simple class definition
+   // i.e. tokens from first item in stream, which is like ... equivalent <property> some <class>
+   // ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> <http://www.grsu.by/net/OdTMBaseThreatModel#AgreesHTTPProtocol>)
+   //       ^^^ MyAxiom.type         ^^^MyAxiom.args[0] (property)                       ^^^MyAxiom.args[1] (class)
+   public MyAxiom searchForSimpleClassDefinition(IRI className){
+       Stream lst=getSearcherEquivalentClasses(className);
+       for (Iterator<OWLClassExpression> iterator = lst.iterator(); iterator.hasNext(); ){
+           OWLClassExpression in = (OWLClassExpression)iterator.next();           
+           MyAxiom a = parseClassExpression(in.toString());
+           if ( (a !=null) && a.type.equals("ObjectSomeValuesFrom")){
+              return a;              
            }
        }      
        return null;
@@ -314,12 +333,22 @@ public class O {
 // find different axioms with the OWLReasoner object (aka reasoned results)
 // https://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/reasoner/OWLReasoner.html
 /////////////////////////////////////////////////////////////////////////////////////
+
+   // get subclasses of given class
+   public Stream<OWLClass> getReasonerSubclasses(OWLClass cls){
+      return reasoner.subClasses(cls);
+   }
+   public Stream<OWLClass> getReasonerSubclasses(IRI className){
+      return reasoner.subClasses(df.getOWLClass(className));
+   }
+   
       
    // get all types for an individual
    public Stream<OWLClass> getReasonerTypes(OWLNamedIndividual individual){
       return reasoner.types(individual,false);
       // OWLReasoner.getTypes that returns org.semanticweb.owlapi.reasoner.NodeSet has been depricated, 
       // despite there was no a such individual, it would return <http://www.w3.org/2002/07/owl#Thing>
+      //    it returns owl:Thing in any case, filter it while usage
    }
    public Stream<OWLClass> getReasonerTypes(IRI individualName){
       return getReasonerTypes(df.getOWLNamedIndividual(individualName));
@@ -374,6 +403,18 @@ public class O {
    public OWLNamedIndividual getObjectPropertyValue(IRI instanceName,IRI propertyName){
       return getObjectPropertyValue(df.getOWLNamedIndividual(instanceName),df.getOWLObjectProperty(propertyName));
    }   
+   
+   
+   public boolean isReasonerIndividualBelongsToClass(OWLNamedIndividual instance, OWLClass cls){
+      for (Iterator<OWLClass> iterator = getReasonerTypes(instance).iterator(); iterator.hasNext(); ){
+          OWLClass in = (OWLClass)iterator.next();
+          if (in.equals(cls)) return true;           
+      }
+      return false;
+   }
+   public boolean isReasonerIndividualBelongsToClass(IRI instanceName, IRI className){
+       return isReasonerIndividualBelongsToClass(df.getOWLNamedIndividual(instanceName),df.getOWLClass(className));
+   }
 
 /////////////////////////////////////////////////////////////////////////////////////
 // temporary & debug functions

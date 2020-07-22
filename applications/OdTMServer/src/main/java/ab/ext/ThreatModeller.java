@@ -37,10 +37,13 @@ public class ThreatModeller extends OManager {
    
    protected static String DataFlowClass = "http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow";
    protected static String TargetClass = "http://www.grsu.by/net/OdTMBaseThreatModel#Target";
+   protected static String ClassifiedClass = "http://www.grsu.by/net/OdTMBaseThreatModel#Classified";
+   protected static String ClassifiedIsEdgeClass = "http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge";
    protected static String HasSourceProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasSource";
    protected static String HasTargetProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget";
    protected static String IsSourceOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf";
    protected static String IsTargetOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf";
+   protected static String IsEdgeOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf";   
    protected static String suggestsProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggests";
    
    // init it with base model & domain model before use 
@@ -67,8 +70,6 @@ public class ThreatModeller extends OManager {
       return true;
    } 
    
-   
-
    public String getBaseModelIRI(){
       return getIRI(baseModel).toString();
    }
@@ -76,7 +77,6 @@ public class ThreatModeller extends OManager {
    public String getDomainModelIRI(){
       return getIRI(domainModel).toString();
    }
-   
    
    public boolean createWorkModelFromFile(String filename){
       // get model configuration from file
@@ -125,24 +125,82 @@ public class ThreatModeller extends OManager {
           if (bmodel.hasDefaultPrefix(iri)) return bmodel;
        }
        if (dmodel.hasDefaultPrefix(iri)) return dmodel;
+       // ignoring owl:thing
+       if (iri.toString().equals("http://www.w3.org/2002/07/owl#Thing")) return null;
+       // failed
+       LOGGER.severe("could not found model for "+ iri.toString());
+       return null;
+    }
+    
+    public Stream<OWLNamedIndividual> findReasonForTarget(List<OWLNamedIndividual> sourceFlows, List<OWLNamedIndividual> targetFlows, OWLNamedIndividual target, OWLClass cls){
+       O tmp = getModelByIRI(cls.getIRI());
+       MyAxiom ax = tmp.searchForSimpleClassDefinition(cls.getIRI());
+       if (ax != null){ // ax.args[0] - property, ax.args[1] - class
+          ArrayList<OWLNamedIndividual> lst = new ArrayList();
+          // if isSourceOf
+          if (ax.args[0].equals(IsSourceOfProperty)) {
+             for (Iterator<OWLNamedIndividual> iterator = sourceFlows.stream().iterator(); iterator.hasNext(); ){
+                OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+                if (model.isReasonerIndividualBelongsToClass(flow.getIRI(),IRI.create(ax.args[1])) ) lst.add (flow);
+             }
+             return lst.stream();
+          }
+          
+          // if isTargetOf
+          if (ax.args[0].equals(IsTargetOfProperty)) {
+             for (Iterator<OWLNamedIndividual> iterator = targetFlows.stream().iterator(); iterator.hasNext(); ){
+                OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+                if (model.isReasonerIndividualBelongsToClass(flow.getIRI(),IRI.create(ax.args[1])) ) lst.add (flow);
+             }
+             return lst.stream();           
+          }
+          
+          if (ax.args[0].equals(IsEdgeOfProperty)) {
+             for (Iterator<OWLNamedIndividual> iterator = targetFlows.stream().iterator(); iterator.hasNext(); ){
+                OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+                if (model.isReasonerIndividualBelongsToClass(flow.getIRI(),IRI.create(ax.args[1])) ) lst.add (flow);
+             }
+             for (Iterator<OWLNamedIndividual> iterator = sourceFlows.stream().iterator(); iterator.hasNext(); ){
+                OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+                if (model.isReasonerIndividualBelongsToClass(flow.getIRI(),IRI.create(ax.args[1])) ) lst.add (flow);
+             }
+             return lst.stream();
+                        
+          }
+          
+       }
+       return null;
+    }
+    
+    public String reasonsToString(Stream<OWLNamedIndividual> lst){
+       if (lst != null){
+          StringBuffer bf = new StringBuffer();
+          for (Iterator<OWLNamedIndividual> iterator = lst.iterator(); iterator.hasNext(); ){
+             OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+             bf.append(flow.toString());
+             bf.append(" ");
+          }
+          return bf.toString();
+       }
        return null;
     }
     
     public void analyseWithAIEd(){
        // reason the model
        flushModel();
+   
        says ("Hello, I love flow based security analysis."); 
        // get model prefix
        says ("Starting to analize " +model.getIRI() +" ...");
        // get list of flows
        Supplier<Stream<OWLNamedIndividual>> flows = () -> model.getReasonerInstances(IRI.create(DataFlowClass));
-       says("...................................................");
+       says(">>>>>> flows:");
        says("Given model contains "+flows.get().count()+" data flow(s):");
        model.showInstances(flows.get()); 
+       // get primary type, source & target
        for (Iterator<OWLNamedIndividual> iterator = flows.get().iterator(); iterator.hasNext(); ){
           OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
-          says("........................");
-          says("From what I understand about the " + flow.getIRI().toString() + " flow:");
+          says(">>> " + flow.getIRI().toString());
           says("its primary type is " + model.getPrimaryType(flow).getIRI().toString());
           says("its source is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasSourceProperty)));
           says("its target is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasTargetProperty)));
@@ -150,55 +208,82 @@ public class ThreatModeller extends OManager {
           //model.showClasses(model.getReasonerTypes(flow));
           //says("it's classified as (direct types):"); 
           //model.showClasses(model.getReasonerDirectTypes(flow));
-
        }
 
        // get list of targets
        Supplier<Stream<OWLNamedIndividual>> targets = () -> model.getReasonerInstances(IRI.create(TargetClass));
-       says("...................................................");
+       says(">>>>>> targets:");
        says("Given model contains "+targets.get().count()+" target(s):");
        model.showInstances(targets.get()); 
        for (Iterator<OWLNamedIndividual> iterator = targets.get().iterator(); iterator.hasNext(); ){
           OWLNamedIndividual target = (OWLNamedIndividual)iterator.next();
-          says("........................");
-          says("And what I think of the " + target.getIRI().toString() + " target:");
+          says(">>> " + target.getIRI().toString());
+          
+          // primary type
           says("its primary type is " + model.getPrimaryType(target).getIRI().toString());
-          for (Iterator<OWLNamedIndividual> iterator2 = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsSourceOfProperty)).iterator(); iterator2.hasNext(); ){
+
+          // sourced flows 
+          List<OWLNamedIndividual> sourceFlows = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsSourceOfProperty)).collect(Collectors.toList());
+          // sourced and targeted flows
+          for (Iterator<OWLNamedIndividual> iterator2 = sourceFlows.stream().iterator(); iterator2.hasNext(); ){
               OWLNamedIndividual tmp = (OWLNamedIndividual)iterator2.next();
               says("it's a source of " + tmp.toString());
           }
           
-          for (Iterator<OWLNamedIndividual> iterator3 = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsTargetOfProperty)).iterator(); iterator3.hasNext(); ){
+          // target flows
+          List<OWLNamedIndividual> targetFlows = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsTargetOfProperty)).collect(Collectors.toList());
+          for (Iterator<OWLNamedIndividual> iterator3 = targetFlows.stream().iterator(); iterator3.hasNext(); ){
               OWLNamedIndividual tmp = (OWLNamedIndividual)iterator3.next();
               says("it's a target of " + tmp.toString());
           }
 
-          for (Iterator<OWLClass> iterator1 = model.getReasonerDirectTypes(target).iterator(); iterator1.hasNext(); ){
+          // list of classified classes
+          List<OWLClass> classifiedIsEdge = model.getReasonerSubclasses(IRI.create(ClassifiedIsEdgeClass)).collect(Collectors.toList());
+          // model.showClasses(model.getReasonerTypes(target));
+          for (Iterator<OWLClass> iterator1 = model.getReasonerTypes(target).iterator(); iterator1.hasNext(); ){
               OWLClass cls = (OWLClass)iterator1.next();
-              O tmp = getModelByIRI(cls.getIRI());
-              IRI x = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
-              if (x!=null) says("You can add an instance of "+ x.toString() +" (because " +cls.toString()+")");
+              if (classifiedIsEdge.contains(cls)){ // check only subclasses of the 'ClassifiedIsEdge' class
+                 O tmp = getModelByIRI(cls.getIRI());
+                 if (tmp!=null){
+                    // a recommendation for internal structure
+                    IRI x = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
+                    if (x!=null) {
+                       String reasons = reasonsToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
+                       says("Probably it contains an instance of "+ x.toString()+ "(reasons: "+reasons+")");
+                    }
+                 }
+              }
           }
        }
        
-       says("That's all.");
+       says("Done.");
     }
    
     public void test(){
        //String name = "http://www.grsu.by/net/OdTMBaseThreatModel#ContainsHTTPServerComponent";
-       String name = "http://www.grsu.by/net/OdTMBaseThreatModel#ContainsHTTPServerComponent";
-       //flushModel();
-       O bmodel = O.create(domainModel);
-       //bmodel.showClassExpressions(bmodel.getSearcherEquivalentClasses(IRI.create(name)) );
-       bmodel.showClassExpressions(bmodel.getSearcherSuperClasses(IRI.create(name)) );
+       String name = "http://www.grsu.by/net/OdTMBaseThreatModel#TestClass";
+
+       flushModel();
+       MyAxiom ax = dmodel.searchForSimpleClassDefinition(IRI.create(name));
+       if (ax !=null) { ax.print();}
+       else {System.out.println("ax=null");}
        
-       IRI x = bmodel.searchForExpressionValue(bmodel.getSearcherSuperClasses(IRI.create(name)),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
-       System.out.println("xxxx " +x+ " zzzzz");
+       
+       //O bmodel = O.create(domainModel);
+       //dmodel.showClassExpressions(dmodel.getSearcherEquivalentClasses(IRI.create(name)) );
+       //bmodel.showClassExpressions(bmodel.getSearcherSuperClasses(IRI.create(name)) );
+       //Stream tmp = dmodel.getSearcherEquivalentClasses(IRI.create(name));
+       //MyAxiom ax = dmodel.searchForExpressionValue(tmp);
+       //for (Iterator<OWLClassExpression> iterator = tmp.iterator(); iterator.hasNext(); ){
+       //   OWLClassExpression cls = (OWLClassExpression)iterator.next();
+       //   MyAxiom ax = dmodel.searchForSimpleClassDefinition(IRI.create(name));
+       //   System.out.println(cls.toString());
+       //}
+       //IRI x = dmodel.searchForExpressionValue(dmodel.getSearcherEquivalentClasses(IRI.create(name)),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
+       //System.out.println("xxxx " +x+ " zzzzz");
        //String str = "ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> :flow <http://www.grsu.by/net/OdTMBaseThreatModel#protocol_HTTP>)";
        //String str = "ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf> :user :flow)";
        // OWLAxiom ax = model.simpleStringToAxiom(str);
-
-               
     }
     
     public boolean saveWorkModelToFile(String filename){

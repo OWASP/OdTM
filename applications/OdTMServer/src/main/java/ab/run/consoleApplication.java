@@ -51,6 +51,7 @@ class consoleApplication {
                   //modeller.saveWorkModelToFile("/home/net/tmp/test.owl");
                   //modeller.test();   
                   
+                  //modeller.fillWorkModel();
                   //modeller.saveWorkModelToFile("/home/net/tmp/test1.owl");
                   //modeller.saveWorkModelToFile("/home/net/tmp/test2.owl");
                   

@@ -8,12 +8,17 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 Ontology(<http://www.grsu.by/net/OdTMBaseThreatModel>
 
+Declaration(Class(:AgreesApplicationProtocol))
+Declaration(Class(:AgreesDNSProtocol))
+Declaration(Class(:AgreesHTTPProtocol))
 Declaration(Class(:ApplicationProtocol))
 Declaration(Class(:AuthenticationThreat))
 Declaration(Class(:AuthorizationThreat))
 Declaration(Class(:AvailabilityThreat))
 Declaration(Class(:Boundary))
 Declaration(Class(:Classified))
+Declaration(Class(:ClassifiedHasEdge))
+Declaration(Class(:ClassifiedIsEdge))
 Declaration(Class(:Component))
 Declaration(Class(:ConfidentialityThreat))
 Declaration(Class(:ContainsClientComponent))
@@ -26,6 +31,7 @@ Declaration(Class(:ContextSecurityPattern))
 Declaration(Class(:Countermeasure))
 Declaration(Class(:DNSClientComponent))
 Declaration(Class(:DNSProtocol))
+Declaration(Class(:DNSProtocolImplementation))
 Declaration(Class(:DNSServerComponent))
 Declaration(Class(:DataFlow))
 Declaration(Class(:DataLinkProtocol))
@@ -35,6 +41,7 @@ Declaration(Class(:Elevation_of_PrivilegeThreat))
 Declaration(Class(:ExternalInteractor))
 Declaration(Class(:HTTPClientComponent))
 Declaration(Class(:HTTPProtocol))
+Declaration(Class(:HTTPProtocolImplementation))
 Declaration(Class(:HTTPServerComponent))
 Declaration(Class(:HardwareComponent))
 Declaration(Class(:ImplementsApplicationProtocol))
@@ -212,6 +219,21 @@ AnnotationAssertion(rdfs:comment :suggests "Target might contain internal compon
 #   Classes
 ############################
 
+# Class: :AgreesApplicationProtocol (:AgreesApplicationProtocol)
+
+EquivalentClasses(:AgreesApplicationProtocol ObjectSomeValuesFrom(:agrees :ApplicationProtocol))
+SubClassOf(:AgreesApplicationProtocol :ClassifiedHasEdge)
+
+# Class: :AgreesDNSProtocol (:AgreesDNSProtocol)
+
+EquivalentClasses(:AgreesDNSProtocol ObjectSomeValuesFrom(:agrees :DNSProtocol))
+SubClassOf(:AgreesDNSProtocol :ClassifiedHasEdge)
+
+# Class: :AgreesHTTPProtocol (:AgreesHTTPProtocol)
+
+EquivalentClasses(:AgreesHTTPProtocol ObjectSomeValuesFrom(:agrees :HTTPProtocol))
+SubClassOf(:AgreesHTTPProtocol :ClassifiedHasEdge)
+
 # Class: :ApplicationProtocol (:ApplicationProtocol)
 
 SubClassOf(:ApplicationProtocol :Protocol)
@@ -238,6 +260,14 @@ SubClassOf(:AvailabilityThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Se
 
 SubClassOf(:Boundary :Stencil)
 
+# Class: :ClassifiedHasEdge (:ClassifiedHasEdge)
+
+SubClassOf(:ClassifiedHasEdge :Classified)
+
+# Class: :ClassifiedIsEdge (:ClassifiedIsEdge)
+
+SubClassOf(:ClassifiedIsEdge :Classified)
+
 # Class: :ConfidentialityThreat (:ConfidentialityThreat)
 
 EquivalentClasses(:ConfidentialityThreat ObjectIntersectionOf(:Threat ObjectHasValue(:labelsSO :SO_Confidentiality)))
@@ -247,36 +277,36 @@ SubClassOf(:ConfidentialityThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Informati
 # Class: :ContainsClientComponent (:ContainsClientComponent)
 
 EquivalentClasses(:ContainsClientComponent ObjectSomeValuesFrom(:isSourceOf :NetworkFlow))
-SubClassOf(:ContainsClientComponent :Classified)
+SubClassOf(:ContainsClientComponent :ClassifiedIsEdge)
 
 # Class: :ContainsDNSClientComponent (:ContainsDNSClientComponent)
 
-EquivalentClasses(:ContainsDNSClientComponent ObjectSomeValuesFrom(:isSourceOf ObjectSomeValuesFrom(:agrees :DNSProtocol)))
-SubClassOf(:ContainsDNSClientComponent :Classified)
+EquivalentClasses(:ContainsDNSClientComponent ObjectSomeValuesFrom(:isSourceOf :AgreesDNSProtocol))
+SubClassOf(:ContainsDNSClientComponent :ClassifiedIsEdge)
 SubClassOf(:ContainsDNSClientComponent ObjectSomeValuesFrom(:suggests :DNSClientComponent))
 
 # Class: :ContainsDNSServerComponent (:ContainsDNSServerComponent)
 
-EquivalentClasses(:ContainsDNSServerComponent ObjectSomeValuesFrom(:isTargetOf ObjectSomeValuesFrom(:agrees :DNSProtocol)))
-SubClassOf(:ContainsDNSServerComponent :Classified)
+EquivalentClasses(:ContainsDNSServerComponent ObjectSomeValuesFrom(:isTargetOf :AgreesDNSProtocol))
+SubClassOf(:ContainsDNSServerComponent :ClassifiedIsEdge)
 SubClassOf(:ContainsDNSServerComponent ObjectSomeValuesFrom(:suggests :DNSServerComponent))
 
 # Class: :ContainsHTTPClientComponent (:ContainsHTTPClientComponent)
 
-EquivalentClasses(:ContainsHTTPClientComponent ObjectSomeValuesFrom(:isSourceOf ObjectSomeValuesFrom(:agrees :HTTPProtocol)))
-SubClassOf(:ContainsHTTPClientComponent :Classified)
+EquivalentClasses(:ContainsHTTPClientComponent ObjectSomeValuesFrom(:isSourceOf :AgreesHTTPProtocol))
+SubClassOf(:ContainsHTTPClientComponent :ClassifiedIsEdge)
 SubClassOf(:ContainsHTTPClientComponent ObjectSomeValuesFrom(:suggests :HTTPClientComponent))
 
 # Class: :ContainsHTTPServerComponent (:ContainsHTTPServerComponent)
 
-EquivalentClasses(:ContainsHTTPServerComponent ObjectSomeValuesFrom(:isTargetOf ObjectSomeValuesFrom(:agrees :HTTPProtocol)))
-SubClassOf(:ContainsHTTPServerComponent :Classified)
+EquivalentClasses(:ContainsHTTPServerComponent ObjectSomeValuesFrom(:isTargetOf :AgreesHTTPProtocol))
+SubClassOf(:ContainsHTTPServerComponent :ClassifiedIsEdge)
 SubClassOf(:ContainsHTTPServerComponent ObjectSomeValuesFrom(:suggests :HTTPServerComponent))
 
 # Class: :ContainsServerComponent (:ContainsServerComponent)
 
 EquivalentClasses(:ContainsServerComponent ObjectSomeValuesFrom(:isTargetOf :NetworkFlow))
-SubClassOf(:ContainsServerComponent :Classified)
+SubClassOf(:ContainsServerComponent :ClassifiedIsEdge)
 
 # Class: :ContextSecurityPattern (:ContextSecurityPattern)
 
@@ -289,6 +319,10 @@ SubClassOf(:DNSClientComponent :SoftwareComponent)
 # Class: :DNSProtocol (:DNSProtocol)
 
 SubClassOf(:DNSProtocol :ApplicationProtocol)
+
+# Class: :DNSProtocolImplementation (:DNSProtocolImplementation)
+
+SubClassOf(:DNSProtocolImplementation :SoftwareComponent)
 
 # Class: :DNSServerComponent (:DNSServerComponent)
 
@@ -328,6 +362,10 @@ SubClassOf(:HTTPClientComponent :SoftwareComponent)
 
 SubClassOf(:HTTPProtocol :ApplicationProtocol)
 
+# Class: :HTTPProtocolImplementation (:HTTPProtocolImplementation)
+
+SubClassOf(:HTTPProtocolImplementation :SoftwareComponent)
+
 # Class: :HTTPServerComponent (:HTTPServerComponent)
 
 SubClassOf(:HTTPServerComponent :SoftwareComponent)
@@ -338,18 +376,20 @@ SubClassOf(:HardwareComponent :Component)
 
 # Class: :ImplementsApplicationProtocol (:ImplementsApplicationProtocol)
 
-EquivalentClasses(:ImplementsApplicationProtocol ObjectSomeValuesFrom(:implements :ApplicationProtocol))
-SubClassOf(:ImplementsApplicationProtocol :Classified)
+EquivalentClasses(:ImplementsApplicationProtocol ObjectSomeValuesFrom(:isEdgeOf :AgreesApplicationProtocol))
+SubClassOf(:ImplementsApplicationProtocol :ClassifiedIsEdge)
 
 # Class: :ImplementsDNSProtocol (:ImplementsDNSProtocol)
 
-EquivalentClasses(:ImplementsDNSProtocol ObjectSomeValuesFrom(:implements :DNSProtocol))
-SubClassOf(:ImplementsDNSProtocol :Classified)
+EquivalentClasses(:ImplementsDNSProtocol ObjectSomeValuesFrom(:isEdgeOf :AgreesDNSProtocol))
+SubClassOf(:ImplementsDNSProtocol :ClassifiedIsEdge)
+SubClassOf(:ImplementsDNSProtocol ObjectSomeValuesFrom(:suggests :DNSProtocolImplementation))
 
 # Class: :ImplementsHTTPProtocol (:ImplementsHTTPProtocol)
 
-EquivalentClasses(:ImplementsHTTPProtocol ObjectSomeValuesFrom(:implements :HTTPProtocol))
-SubClassOf(:ImplementsHTTPProtocol :Classified)
+EquivalentClasses(:ImplementsHTTPProtocol ObjectSomeValuesFrom(:isEdgeOf :AgreesHTTPProtocol))
+SubClassOf(:ImplementsHTTPProtocol :ClassifiedIsEdge)
+SubClassOf(:ImplementsHTTPProtocol ObjectSomeValuesFrom(:suggests :HTTPProtocolImplementation))
 
 # Class: :Information_DisclosureThreat (:Information_DisclosureThreat)
 
