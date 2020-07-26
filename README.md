@@ -29,6 +29,7 @@ If you want to refer to the OdTM framework, please cite:
 
 * [OWL file](OdTMBaseThreatModel.owl)
 * [Description](docs/BASEMODEL.md)
+* [Changelog](docs/BASEMODEL_changelog.md)
 
 ## Domain-specific threat models
 

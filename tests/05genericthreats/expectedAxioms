@@ -1,0 +1,6 @@
+
+ClassAssertion(:AffectedByGenericTargetThreat :user)
+ClassAssertion(:AffectedByGenericTargetThreat :webapp)
+ClassAssertion(:AffectedByGenericFlowThreat :flow)
+
+ClassAssertion(:IsInboundFlow :flow)
