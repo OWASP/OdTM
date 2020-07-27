@@ -23,7 +23,7 @@ All the models are implemented as OWL (Web Ontology Language) ontologies
 with Description Logics (DL) as a mathematical background.
 
 Our framework includes a set of software tools for automation of the threat modelling process.
-In particular, you can use the [OdTM Server](applications/OdTMServer/README.md) 
+In particular, you can use the [OdTM Server](applications/OdTMServer/) 
 with existing threat modelling tools as an alternative threat rule engine.
 
 The [applications](applications/) are built with Java, 
