@@ -10,7 +10,7 @@ At the moment you can test the simple console application
 that allows loading the base model and a set of domain-specific models
 and test them against semantic interpretations of DFD:
 
-* represented as a text file with ABox axioms, like [this one](OdTMServer/cases/01verysimplecase)
+* represented as a text file with ABox axioms, like [this one](cases/01verysimplecase)
 
 
 
