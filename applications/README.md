@@ -3,9 +3,10 @@
 
 ## OdTM Server
 
-OdTM Server implements an ontology-driven alternative to rule engines for threat modelling tools.
-It is going to be JSON-based remote API application, performing automatic threat modelling
-on given domain-specific models and use cases.
+The OdTM Server implements an ontology-driven threat rule engine.
+Our plans include creation of the JSON-based remote API application, 
+aimed to perform automatic threat modelling on a given system description 
+through a domain-specific threat model.
 
 [Description is here](OdTMServer/README.md)
 

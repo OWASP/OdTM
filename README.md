@@ -24,7 +24,7 @@ with Description Logics (DL) as a mathematical background.
 
 Our framework includes a set of software tools for automation of the threat modelling process.
 In particular, you can use the [OdTM Server](applications/OdTMServer/) 
-with existing threat modelling tools as an alternative threat rule engine.
+with threat modelling tools as an alternative rule engine.
 
 The [applications](applications/) are built with Java, 
 the [OWL API](https://github.com/owlcs/owlapi) and [HermiT Reasoner](http://www.hermit-reasoner.com/) libraries.

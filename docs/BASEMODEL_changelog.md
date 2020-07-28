@@ -13,5 +13,5 @@
 * added a semantic interpretation of the DFD graphical notation
 * added an approach to automatically reason threats and countermeasures
 * added mapping of threats to data flows with flow templates
-* added STIDE and CIA labels
+* added STRIDE and CIA labels
 
