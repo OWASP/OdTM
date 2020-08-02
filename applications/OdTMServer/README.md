@@ -2,15 +2,16 @@
 # OdTM Server
 
 The OdTM Server implements an ontology-driven threat rule engine.
-Our plans include creation of the JSON-based remote API application, 
+Our plans include creation of a JSON-based remote API service, 
 aimed to perform automatic threat modelling on a given system description 
 through a domain-specific threat model.
 
-At the moment you can test the simple console application 
-that allows loading the base model and a set of domain-specific models
-and test them against semantic interpretations of DFD:
+At the moment you can try the simple console application 
+that allows to load the base model and a set of domain-specific models
+and test them against a semantic interpretation of DFD.
+You can represent source data as:
 
-* represented as a text file with ABox axioms, like [this one](cases/01verysimplecase)
+* a text file with ABox axioms, like [this one](cases/01verysimplecase)
 
 
 

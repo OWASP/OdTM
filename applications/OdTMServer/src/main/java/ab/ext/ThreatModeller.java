@@ -45,7 +45,9 @@ public class ThreatModeller extends OManager {
    protected static String IsSourceOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf";
    protected static String IsTargetOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf";
    protected static String IsEdgeOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf";   
+   protected static String IsAffectedByProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy";
    protected static String suggestsProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggests";
+   protected static String suggestsThreatCategoryProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory";
    protected static String suggestsThreatProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreat"; 
    
    // init it with base model & domain model before use 
@@ -176,7 +178,7 @@ public class ThreatModeller extends OManager {
        return null;
     }
     
-    public String reasonsToString(Stream<OWLNamedIndividual> lst){
+    public String instancesToString(Stream<OWLNamedIndividual> lst){
        if (lst != null){
           StringBuffer bf = new StringBuffer();
           for (Iterator<OWLNamedIndividual> iterator = lst.iterator(); iterator.hasNext(); ){
@@ -188,6 +190,21 @@ public class ThreatModeller extends OManager {
        }
        return null;
     }
+
+    public String classesToString(Stream<OWLClass> lst){
+       if (lst != null){
+          StringBuffer bf = new StringBuffer();
+          for (Iterator<OWLClass> iterator = lst.iterator(); iterator.hasNext(); ){
+             OWLClass flow = (OWLClass)iterator.next();
+             bf.append(flow.toString());
+             bf.append(" ");
+          }
+          return bf.toString();
+       }
+       return null;
+    }
+
+
     
     public void analyseWithAIEd(){
        // reason the model
@@ -206,8 +223,14 @@ public class ThreatModeller extends OManager {
           OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
           says("The " + flow.toString()+ " flow:");
           says("...Its primary type is " + model.getPrimaryType(flow).toString());
-          says("...Its source stencil is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasSourceProperty)));
-          says("...Its target stencil is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasTargetProperty)));
+          says("...Its source is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasSourceProperty)));
+          says("...Its target is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasTargetProperty)));
+
+          List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(flow.getIRI(),IRI.create(IsAffectedByProperty)).collect(Collectors.toList());
+          for (Iterator<OWLNamedIndividual> iterator5 = threats.stream().iterator(); iterator5.hasNext(); ){
+              OWLNamedIndividual tmp = (OWLNamedIndividual)iterator5.next();
+              says("...It is affected by the " + tmp.toString() + " threat");
+          }
 
           for (Iterator<OWLClass> iterator1 = model.getReasonerTypes(flow).iterator(); iterator1.hasNext(); ){
               OWLClass cls = (OWLClass)iterator1.next();
@@ -217,8 +240,8 @@ public class ThreatModeller extends OManager {
                     // a recommendation for threats
                     IRI y = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsThreatProperty));
                     if (y!=null) {
-                       String instances = reasonsToString(model.getReasonerInstances(y)); 
-                       says("...I suggests threats of the <"+ y.toString()+ "> class: " +instances);
+                       String instances = instancesToString(model.getReasonerInstances(y)); 
+                       says("...I suggest to apply threats of the <"+ y.toString()+ "> class: " +instances);
                     }
                  }
               }
@@ -252,6 +275,14 @@ public class ThreatModeller extends OManager {
               says("...It's a target of flow " + tmp.toString());
           }
 
+          // affected threats
+          List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsAffectedByProperty)).collect(Collectors.toList());
+          for (Iterator<OWLNamedIndividual> iterator4 = threats.stream().iterator(); iterator4.hasNext(); ){
+              OWLNamedIndividual tmp = (OWLNamedIndividual)iterator4.next();
+              says("...It is affected by the " + tmp.toString() + " threat");
+          }
+
+
           // list of the 'classified as an edge' classes
           List<OWLClass> classifiedIsEdge = model.getReasonerSubclasses(IRI.create(ClassifiedIsEdgeClass)).collect(Collectors.toList());
           // model.showClasses(model.getReasonerTypes(target));
@@ -260,21 +291,31 @@ public class ThreatModeller extends OManager {
               if (classifiedIsEdge.contains(cls)){ // check only subclasses of the 'ClassifiedIsEdge' class
                  O tmp = getModelByIRI(cls.getIRI());
                  if (tmp!=null){
+                    String reasons = instancesToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
+                    
                     // a recommendation for internal structure
                     IRI x = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
                     if (x!=null) {
-                       String reasons = reasonsToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
-                       String instances = reasonsToString(model.getReasonerInstances(x));
-                       says("...I suggests an internal component of the <"+ x.toString() + "> class (because of "+reasons+"): "+instances);
+                       String instances = instancesToString(model.getReasonerInstances(x));
+                       says("...I suggest to apply an internal component of the <"+ x.toString() + "> class (because of "+reasons+"): "+instances);
                     }
 
-                    // a recommendation for threats
-                    IRI y = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsThreatProperty));
+                    // a recommendation for threat categories
+                    IRI y = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsThreatCategoryProperty));
                     if (y!=null) {
-                       String reasons = reasonsToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
-                       String instances = reasonsToString(model.getReasonerInstances(y)); 
-                       says("...I suggests threats of the <"+ y.toString()+ "> class (because of "+reasons+"): " +instances);
+                       //String reasons = instancesToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
+                       String instances = classesToString(model.getReasonerDirectSubclasses(y)); 
+                       says("...I suggest to apply threats of the <"+ y.toString()+ "> class (because of "+reasons+"): " +instances);
                     }
+                    
+                    // a recommendation for threats 
+                    IRI z = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsThreatProperty));
+                    if (z!=null) {
+                       //String reasons = instancesToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
+                       //String instances = classesToString(model.getReasonerSubclasses(z)); 
+                       says("...I suggest to apply an instance of the <"+ z.toString()+ "> threat class (because of "+reasons+")");
+                    }
+
                  }
               }
           }

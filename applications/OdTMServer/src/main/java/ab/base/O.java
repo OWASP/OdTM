@@ -335,13 +335,21 @@ public class O {
 /////////////////////////////////////////////////////////////////////////////////////
 
    // get subclasses of given class
+   // also returns owl:Nothing
    public Stream<OWLClass> getReasonerSubclasses(OWLClass cls){
       return reasoner.subClasses(cls);
    }
    public Stream<OWLClass> getReasonerSubclasses(IRI className){
       return reasoner.subClasses(df.getOWLClass(className));
    }
-   
+
+   // get direct subclasses of given class
+   public Stream<OWLClass> getReasonerDirectSubclasses(OWLClass cls){
+      return reasoner.subClasses(cls,true);
+   }
+   public Stream<OWLClass> getReasonerDirectSubclasses(IRI className){
+      return reasoner.subClasses(df.getOWLClass(className),true);
+   }   
       
    // get all types for an individual
    public Stream<OWLClass> getReasonerTypes(OWLNamedIndividual individual){

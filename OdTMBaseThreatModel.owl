@@ -40,7 +40,13 @@ Declaration(Class(:DataLinkProtocol))
 Declaration(Class(:DataStore))
 Declaration(Class(:ExternalInteractor))
 Declaration(Class(:FlowThreat))
+Declaration(Class(:GenericDenialOfServiceThreat))
+Declaration(Class(:GenericElevationOfPrivilegeThreat))
 Declaration(Class(:GenericFlowThreat))
+Declaration(Class(:GenericInformationDisclosureThreat))
+Declaration(Class(:GenericRepudiationThreat))
+Declaration(Class(:GenericSpoofingThreat))
+Declaration(Class(:GenericTamperingThreat))
 Declaration(Class(:GenericTargetThreat))
 Declaration(Class(:GenericThreat))
 Declaration(Class(:HTTPClientComponent))
@@ -109,6 +115,7 @@ Declaration(ObjectProperty(:mitigates))
 Declaration(ObjectProperty(:protects))
 Declaration(ObjectProperty(:suggests))
 Declaration(ObjectProperty(:suggestsThreat))
+Declaration(ObjectProperty(:suggestsThreatCategory))
 Declaration(NamedIndividual(:SO_Authentication))
 Declaration(NamedIndividual(:SO_Authorization))
 Declaration(NamedIndividual(:SO_Availability))
@@ -241,7 +248,11 @@ AnnotationAssertion(rdfs:comment :suggests "Target might contain internal compon
 
 # Object Property: :suggestsThreat (:suggestsThreat)
 
-AnnotationAssertion(rdfs:comment :suggestsThreat "Target or flow might contain a threat or a group of threats"@en)
+AnnotationAssertion(rdfs:comment :suggestsThreat "Target or flow might contain a threat"@en)
+
+# Object Property: :suggestsThreatCategory (:suggestsThreatCategory)
+
+AnnotationAssertion(rdfs:comment :suggestsThreatCategory "Target or flow might suggest a group of threats"@en)
 
 
 
@@ -254,12 +265,21 @@ AnnotationAssertion(rdfs:comment :suggestsThreat "Target or flow might contain a
 EquivalentClasses(:AffectedByGenericFlowThreat ObjectSomeValuesFrom(:hasEdge :Target))
 SubClassOf(:AffectedByGenericFlowThreat :ClassifiedHasEdge)
 SubClassOf(:AffectedByGenericFlowThreat ObjectSomeValuesFrom(:suggestsThreat :GenericFlowThreat))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericTampering))
 
 # Class: :AffectedByGenericTargetThreat (:AffectedByGenericTargetThreat)
 
 EquivalentClasses(:AffectedByGenericTargetThreat ObjectSomeValuesFrom(:isEdgeOf :DataFlow))
 SubClassOf(:AffectedByGenericTargetThreat :ClassifiedIsEdge)
-SubClassOf(:AffectedByGenericTargetThreat ObjectSomeValuesFrom(:suggestsThreat :GenericTargetThreat))
+SubClassOf(:AffectedByGenericTargetThreat ObjectSomeValuesFrom(:suggestsThreatCategory :GenericTargetThreat))
+SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericElevationOfPrivilege))
+SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericTampering))
 
 # Class: :AgreesApplicationProtocol (:AgreesApplicationProtocol)
 
@@ -382,9 +402,48 @@ SubClassOf(:ExternalInteractor :Target)
 
 SubClassOf(:FlowThreat :Threat)
 
+# Class: :GenericDenialOfServiceThreat (:GenericDenialOfServiceThreat)
+
+SubClassOf(:GenericDenialOfServiceThreat :GenericFlowThreat)
+SubClassOf(:GenericDenialOfServiceThreat :GenericTargetThreat)
+SubClassOf(:GenericDenialOfServiceThreat :GenericThreat)
+SubClassOf(:GenericDenialOfServiceThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Service))
+
+# Class: :GenericElevationOfPrivilegeThreat (:GenericElevationOfPrivilegeThreat)
+
+SubClassOf(:GenericElevationOfPrivilegeThreat :GenericTargetThreat)
+SubClassOf(:GenericElevationOfPrivilegeThreat :GenericThreat)
+SubClassOf(:GenericElevationOfPrivilegeThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Elevation_of_Privilege))
+
 # Class: :GenericFlowThreat (:GenericFlowThreat)
 
 SubClassOf(:GenericFlowThreat :FlowThreat)
+
+# Class: :GenericInformationDisclosureThreat (:GenericInformationDisclosureThreat)
+
+SubClassOf(:GenericInformationDisclosureThreat :GenericFlowThreat)
+SubClassOf(:GenericInformationDisclosureThreat :GenericTargetThreat)
+SubClassOf(:GenericInformationDisclosureThreat :GenericThreat)
+SubClassOf(:GenericInformationDisclosureThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure))
+
+# Class: :GenericRepudiationThreat (:GenericRepudiationThreat)
+
+SubClassOf(:GenericRepudiationThreat :GenericTargetThreat)
+SubClassOf(:GenericRepudiationThreat :GenericThreat)
+SubClassOf(:GenericRepudiationThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation))
+
+# Class: :GenericSpoofingThreat (:GenericSpoofingThreat)
+
+SubClassOf(:GenericSpoofingThreat :GenericTargetThreat)
+SubClassOf(:GenericSpoofingThreat :GenericThreat)
+SubClassOf(:GenericSpoofingThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing))
+
+# Class: :GenericTamperingThreat (:GenericTamperingThreat)
+
+SubClassOf(:GenericTamperingThreat :GenericFlowThreat)
+SubClassOf(:GenericTamperingThreat :GenericTargetThreat)
+SubClassOf(:GenericTamperingThreat :GenericThreat)
+SubClassOf(:GenericTamperingThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering))
 
 # Class: :GenericTargetThreat (:GenericTargetThreat)
 
@@ -666,44 +725,36 @@ ClassAssertion(:SchemaInstance :protocol_HTTP)
 
 # Individual: :threat_GenericDenialOfService (:threat_GenericDenialOfService)
 
-ClassAssertion(:GenericFlowThreat :threat_GenericDenialOfService)
-ClassAssertion(:GenericTargetThreat :threat_GenericDenialOfService)
-ClassAssertion(:GenericThreat :threat_GenericDenialOfService)
+ClassAssertion(:GenericDenialOfServiceThreat :threat_GenericDenialOfService)
 ClassAssertion(:SchemaInstance :threat_GenericDenialOfService)
 
 # Individual: :threat_GenericElevationOfPrivilege (:threat_GenericElevationOfPrivilege)
 
-ClassAssertion(:GenericTargetThreat :threat_GenericElevationOfPrivilege)
-ClassAssertion(:GenericThreat :threat_GenericElevationOfPrivilege)
+ClassAssertion(:GenericElevationOfPrivilegeThreat :threat_GenericElevationOfPrivilege)
 ClassAssertion(:SchemaInstance :threat_GenericElevationOfPrivilege)
+ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericElevationOfPrivilege :STRIDE_Elevation_of_Privilege)
 
 # Individual: :threat_GenericInformationDisclosure (:threat_GenericInformationDisclosure)
 
-ClassAssertion(:GenericFlowThreat :threat_GenericInformationDisclosure)
-ClassAssertion(:GenericTargetThreat :threat_GenericInformationDisclosure)
-ClassAssertion(:GenericThreat :threat_GenericInformationDisclosure)
+ClassAssertion(:GenericInformationDisclosureThreat :threat_GenericInformationDisclosure)
 ClassAssertion(:SchemaInstance :threat_GenericInformationDisclosure)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericInformationDisclosure :STRIDE_Information_Disclosure)
 
 # Individual: :threat_GenericRepudiation (:threat_GenericRepudiation)
 
-ClassAssertion(:GenericTargetThreat :threat_GenericRepudiation)
-ClassAssertion(:GenericThreat :threat_GenericRepudiation)
+ClassAssertion(:GenericRepudiationThreat :threat_GenericRepudiation)
 ClassAssertion(:SchemaInstance :threat_GenericRepudiation)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericRepudiation :STRIDE_Repudiation)
 
 # Individual: :threat_GenericSpoofing (:threat_GenericSpoofing)
 
-ClassAssertion(:GenericTargetThreat :threat_GenericSpoofing)
-ClassAssertion(:GenericThreat :threat_GenericSpoofing)
+ClassAssertion(:GenericSpoofingThreat :threat_GenericSpoofing)
 ClassAssertion(:SchemaInstance :threat_GenericSpoofing)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericSpoofing :STRIDE_Spoofing)
 
 # Individual: :threat_GenericTampering (:threat_GenericTampering)
 
-ClassAssertion(:GenericFlowThreat :threat_GenericTampering)
-ClassAssertion(:GenericTargetThreat :threat_GenericTampering)
-ClassAssertion(:GenericThreat :threat_GenericTampering)
+ClassAssertion(:GenericTamperingThreat :threat_GenericTampering)
 ClassAssertion(:SchemaInstance :threat_GenericTampering)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericTampering :STRIDE_Tampering)
 
