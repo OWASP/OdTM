@@ -177,35 +177,7 @@ public class ThreatModeller extends OManager {
        }
        return null;
     }
-    
-    public String instancesToString(Stream<OWLNamedIndividual> lst){
-       if (lst != null){
-          StringBuffer bf = new StringBuffer();
-          for (Iterator<OWLNamedIndividual> iterator = lst.iterator(); iterator.hasNext(); ){
-             OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
-             bf.append(flow.toString());
-             bf.append(" ");
-          }
-          return bf.toString();
-       }
-       return null;
-    }
-
-    public String classesToString(Stream<OWLClass> lst){
-       if (lst != null){
-          StringBuffer bf = new StringBuffer();
-          for (Iterator<OWLClass> iterator = lst.iterator(); iterator.hasNext(); ){
-             OWLClass flow = (OWLClass)iterator.next();
-             bf.append(flow.toString());
-             bf.append(" ");
-          }
-          return bf.toString();
-       }
-       return null;
-    }
-
-
-    
+        
     public void analyseWithAIEd(){
        // reason the model
        flushModel();
@@ -238,9 +210,10 @@ public class ThreatModeller extends OManager {
                  O tmp = getModelByIRI(cls.getIRI());
                  if (tmp!=null){
                     // a recommendation for threats
+                    // !!! takes only one value
                     IRI y = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsThreatProperty));
                     if (y!=null) {
-                       String instances = instancesToString(model.getReasonerInstances(y)); 
+                       String instances = model.instancesToString(model.getReasonerInstances(y)); 
                        says("...I suggest to apply threats of the <"+ y.toString()+ "> class: " +instances);
                     }
                  }
@@ -291,28 +264,28 @@ public class ThreatModeller extends OManager {
               if (classifiedIsEdge.contains(cls)){ // check only subclasses of the 'ClassifiedIsEdge' class
                  O tmp = getModelByIRI(cls.getIRI());
                  if (tmp!=null){
-                    String reasons = instancesToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
+                    String reasons = tmp.instancesToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
                     
                     // a recommendation for internal structure
+                    // !!! takes only one value
                     IRI x = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsProperty));
                     if (x!=null) {
-                       String instances = instancesToString(model.getReasonerInstances(x));
+                       String instances = model.instancesToString(model.getReasonerInstances(x));
                        says("...I suggest to apply an internal component of the <"+ x.toString() + "> class (because of "+reasons+"): "+instances);
                     }
 
                     // a recommendation for threat categories
+                    // !!! takes only one value
                     IRI y = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsThreatCategoryProperty));
                     if (y!=null) {
-                       //String reasons = instancesToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
-                       String instances = classesToString(model.getReasonerDirectSubclasses(y)); 
+                       String instances = model.classesToString(model.getReasonerDirectSubclasses(y)); 
                        says("...I suggest to apply threats of the <"+ y.toString()+ "> class (because of "+reasons+"): " +instances);
                     }
                     
-                    // a recommendation for threats 
+                    // a recommendation for threats
+                    // !!! takes only one value 
                     IRI z = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(suggestsThreatProperty));
                     if (z!=null) {
-                       //String reasons = instancesToString(findReasonForTarget(sourceFlows,targetFlows,target,cls));
-                       //String instances = classesToString(model.getReasonerSubclasses(z)); 
                        says("...I suggest to apply an instance of the <"+ z.toString()+ "> threat class (because of "+reasons+")");
                     }
 

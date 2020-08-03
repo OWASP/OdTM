@@ -220,7 +220,33 @@ public class O {
       } 
       return true; 
    }
-   
+
+    public static String instancesToString(Stream<OWLNamedIndividual> lst){
+       if (lst != null){
+          StringBuffer bf = new StringBuffer();
+          for (Iterator<OWLNamedIndividual> iterator = lst.iterator(); iterator.hasNext(); ){
+             OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+             bf.append(flow.toString());
+             bf.append(" ");
+          }
+          return bf.toString();
+       }
+       return null;
+    }
+
+    public static String classesToString(Stream<OWLClass> lst){
+       if (lst != null){
+          StringBuffer bf = new StringBuffer();
+          for (Iterator<OWLClass> iterator = lst.iterator(); iterator.hasNext(); ){
+             OWLClass flow = (OWLClass)iterator.next();
+             bf.append(flow.toString());
+             bf.append(" ");
+          }
+          return bf.toString();
+       }
+       return null;
+    }
+
 //////////////////////////////////////////////////////////////////////////      
 // reasoner
 //////////////////////////////////////////////////////////////////////////

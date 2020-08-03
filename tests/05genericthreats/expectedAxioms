@@ -3,4 +3,26 @@ ClassAssertion(:AffectedByGenericTargetThreat :user)
 ClassAssertion(:AffectedByGenericTargetThreat :webapp)
 ClassAssertion(:AffectedByGenericFlowThreat :flow)
 
+ObjectPropertyAssertion(:isAffectedBy :user :threat_GenericElevationOfPrivilege)
+ObjectPropertyAssertion(:isAffectedBy :user :threat_GenericSpoofing)
+ObjectPropertyAssertion(:isAffectedBy :user :threat_GenericTampering)
+ObjectPropertyAssertion(:isAffectedBy :user :threat_GenericRepudiation)
+ObjectPropertyAssertion(:isAffectedBy :user :threat_GenericInformationDisclosure)
+ObjectPropertyAssertion(:isAffectedBy :user :threat_GenericDenialOfService)
+
+ObjectPropertyAssertion(:isAffectedBy :webapp :threat_GenericElevationOfPrivilege)
+ObjectPropertyAssertion(:isAffectedBy :webapp :threat_GenericSpoofing)
+ObjectPropertyAssertion(:isAffectedBy :webapp :threat_GenericTampering)
+ObjectPropertyAssertion(:isAffectedBy :webapp :threat_GenericRepudiation)
+ObjectPropertyAssertion(:isAffectedBy :webapp :threat_GenericInformationDisclosure)
+ObjectPropertyAssertion(:isAffectedBy :webapp :threat_GenericDenialOfService)
+
+ObjectPropertyAssertion(:isAffectedBy :flow :threat_GenericInformationDisclosure)
+ObjectPropertyAssertion(:isAffectedBy :flow :threat_GenericDenialOfService)
+ObjectPropertyAssertion(:isAffectedBy :flow :threat_GenericTampering)
+-ObjectPropertyAssertion(:isAffectedBy :flow :threat_GenericElevationOfPrivilege)
+-ObjectPropertyAssertion(:isAffectedBy :flow :threat_GenericSpoofing)
+-ObjectPropertyAssertion(:isAffectedBy :flow :threat_GenericRepudiation)
+
+
 ClassAssertion(:IsInboundFlow :flow)
