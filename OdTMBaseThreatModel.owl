@@ -8,8 +8,13 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 Ontology(<http://www.grsu.by/net/OdTMBaseThreatModel>
 
+Declaration(Class(:AffectedByGenericDataStoreThreatAsSource))
+Declaration(Class(:AffectedByGenericDataStoreThreatAsTarget))
+Declaration(Class(:AffectedByGenericExternalInteractorThreatAsSource))
+Declaration(Class(:AffectedByGenericExternalInteractorThreatAsTarget))
 Declaration(Class(:AffectedByGenericFlowThreat))
-Declaration(Class(:AffectedByGenericTargetThreat))
+Declaration(Class(:AffectedByGenericProcessThreatAsSource))
+Declaration(Class(:AffectedByGenericProcessThreatAsTarget))
 Declaration(Class(:AgreesApplicationProtocol))
 Declaration(Class(:AgreesDNSProtocol))
 Declaration(Class(:AgreesHTTPProtocol))
@@ -40,20 +45,28 @@ Declaration(Class(:DataLinkProtocol))
 Declaration(Class(:DataStore))
 Declaration(Class(:ExternalInteractor))
 Declaration(Class(:FlowThreat))
+Declaration(Class(:GenericDataStoreThreat))
 Declaration(Class(:GenericDenialOfServiceThreat))
 Declaration(Class(:GenericElevationOfPrivilegeThreat))
+Declaration(Class(:GenericExternalInteractorThreat))
 Declaration(Class(:GenericFlowThreat))
 Declaration(Class(:GenericInformationDisclosureThreat))
+Declaration(Class(:GenericProcessThreat))
 Declaration(Class(:GenericRepudiationThreat))
 Declaration(Class(:GenericSpoofingThreat))
 Declaration(Class(:GenericTamperingThreat))
-Declaration(Class(:GenericTargetThreat))
 Declaration(Class(:GenericThreat))
 Declaration(Class(:HTTPClientComponent))
 Declaration(Class(:HTTPProtocol))
 Declaration(Class(:HTTPProtocolImplementation))
 Declaration(Class(:HTTPServerComponent))
 Declaration(Class(:HardwareComponent))
+Declaration(Class(:HasSourceDataStore))
+Declaration(Class(:HasSourceExternalInteractor))
+Declaration(Class(:HasSourceProcess))
+Declaration(Class(:HasTargetDataStore))
+Declaration(Class(:HasTargetExternalInteractor))
+Declaration(Class(:HasTargetProcess))
 Declaration(Class(:ImplementsApplicationProtocol))
 Declaration(Class(:ImplementsDNSProtocol))
 Declaration(Class(:ImplementsHTTPProtocol))
@@ -260,6 +273,42 @@ AnnotationAssertion(rdfs:comment :suggestsThreatCategory "Target or flow might s
 #   Classes
 ############################
 
+# Class: :AffectedByGenericDataStoreThreatAsSource (:AffectedByGenericDataStoreThreatAsSource)
+
+EquivalentClasses(:AffectedByGenericDataStoreThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceDataStore))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericDataStoreThreat))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AffectedByGenericDataStoreThreatAsTarget (:AffectedByGenericDataStoreThreatAsTarget)
+
+EquivalentClasses(:AffectedByGenericDataStoreThreatAsTarget ObjectSomeValuesFrom(:isTargetOf :HasTargetDataStore))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectSomeValuesFrom(:suggestsThreatCategory :GenericDataStoreThreat))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AffectedByGenericExternalInteractorThreatAsSource (:AffectedByGenericExternalInteractorThreatAsSource)
+
+EquivalentClasses(:AffectedByGenericExternalInteractorThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceExternalInteractor))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericExternalInteractorThreat))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+
+# Class: :AffectedByGenericExternalInteractorThreatAsTarget (:AffectedByGenericExternalInteractorThreatAsTarget)
+
+EquivalentClasses(:AffectedByGenericExternalInteractorThreatAsTarget ObjectSomeValuesFrom(:isTargetOf :HasTargetExternalInteractor))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget ObjectSomeValuesFrom(:suggestsThreatCategory :GenericExternalInteractorThreat))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+
 # Class: :AffectedByGenericFlowThreat (:AffectedByGenericFlowThreat)
 
 EquivalentClasses(:AffectedByGenericFlowThreat ObjectSomeValuesFrom(:hasEdge :Target))
@@ -269,17 +318,29 @@ SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_Gen
 SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
 SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericTampering))
 
-# Class: :AffectedByGenericTargetThreat (:AffectedByGenericTargetThreat)
+# Class: :AffectedByGenericProcessThreatAsSource (:AffectedByGenericProcessThreatAsSource)
 
-EquivalentClasses(:AffectedByGenericTargetThreat ObjectSomeValuesFrom(:isEdgeOf :DataFlow))
-SubClassOf(:AffectedByGenericTargetThreat :ClassifiedIsEdge)
-SubClassOf(:AffectedByGenericTargetThreat ObjectSomeValuesFrom(:suggestsThreatCategory :GenericTargetThreat))
-SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
-SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericElevationOfPrivilege))
-SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
-SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
-SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
-SubClassOf(:AffectedByGenericTargetThreat ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+EquivalentClasses(:AffectedByGenericProcessThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceProcess))
+SubClassOf(:AffectedByGenericProcessThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericProcessThreat))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericElevationOfPrivilege))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AffectedByGenericProcessThreatAsTarget (:AffectedByGenericProcessThreatAsTarget)
+
+EquivalentClasses(:AffectedByGenericProcessThreatAsTarget ObjectSomeValuesFrom(:isTargetOf :HasTargetProcess))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectSomeValuesFrom(:suggestsThreatCategory :GenericProcessThreat))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericElevationOfPrivilege))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericTampering))
 
 # Class: :AgreesApplicationProtocol (:AgreesApplicationProtocol)
 
@@ -402,18 +463,27 @@ SubClassOf(:ExternalInteractor :Target)
 
 SubClassOf(:FlowThreat :Threat)
 
+# Class: :GenericDataStoreThreat (:GenericDataStoreThreat)
+
+SubClassOf(:GenericDataStoreThreat :TargetThreat)
+
 # Class: :GenericDenialOfServiceThreat (:GenericDenialOfServiceThreat)
 
+SubClassOf(:GenericDenialOfServiceThreat :GenericDataStoreThreat)
 SubClassOf(:GenericDenialOfServiceThreat :GenericFlowThreat)
-SubClassOf(:GenericDenialOfServiceThreat :GenericTargetThreat)
+SubClassOf(:GenericDenialOfServiceThreat :GenericProcessThreat)
 SubClassOf(:GenericDenialOfServiceThreat :GenericThreat)
 SubClassOf(:GenericDenialOfServiceThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Service))
 
 # Class: :GenericElevationOfPrivilegeThreat (:GenericElevationOfPrivilegeThreat)
 
-SubClassOf(:GenericElevationOfPrivilegeThreat :GenericTargetThreat)
+SubClassOf(:GenericElevationOfPrivilegeThreat :GenericProcessThreat)
 SubClassOf(:GenericElevationOfPrivilegeThreat :GenericThreat)
 SubClassOf(:GenericElevationOfPrivilegeThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Elevation_of_Privilege))
+
+# Class: :GenericExternalInteractorThreat (:GenericExternalInteractorThreat)
+
+SubClassOf(:GenericExternalInteractorThreat :TargetThreat)
 
 # Class: :GenericFlowThreat (:GenericFlowThreat)
 
@@ -421,33 +491,38 @@ SubClassOf(:GenericFlowThreat :FlowThreat)
 
 # Class: :GenericInformationDisclosureThreat (:GenericInformationDisclosureThreat)
 
+SubClassOf(:GenericInformationDisclosureThreat :GenericDataStoreThreat)
 SubClassOf(:GenericInformationDisclosureThreat :GenericFlowThreat)
-SubClassOf(:GenericInformationDisclosureThreat :GenericTargetThreat)
+SubClassOf(:GenericInformationDisclosureThreat :GenericProcessThreat)
 SubClassOf(:GenericInformationDisclosureThreat :GenericThreat)
 SubClassOf(:GenericInformationDisclosureThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure))
 
+# Class: :GenericProcessThreat (:GenericProcessThreat)
+
+SubClassOf(:GenericProcessThreat :TargetThreat)
+
 # Class: :GenericRepudiationThreat (:GenericRepudiationThreat)
 
-SubClassOf(:GenericRepudiationThreat :GenericTargetThreat)
+SubClassOf(:GenericRepudiationThreat :GenericDataStoreThreat)
+SubClassOf(:GenericRepudiationThreat :GenericExternalInteractorThreat)
+SubClassOf(:GenericRepudiationThreat :GenericProcessThreat)
 SubClassOf(:GenericRepudiationThreat :GenericThreat)
 SubClassOf(:GenericRepudiationThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation))
 
 # Class: :GenericSpoofingThreat (:GenericSpoofingThreat)
 
-SubClassOf(:GenericSpoofingThreat :GenericTargetThreat)
+SubClassOf(:GenericSpoofingThreat :GenericExternalInteractorThreat)
+SubClassOf(:GenericSpoofingThreat :GenericProcessThreat)
 SubClassOf(:GenericSpoofingThreat :GenericThreat)
 SubClassOf(:GenericSpoofingThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing))
 
 # Class: :GenericTamperingThreat (:GenericTamperingThreat)
 
+SubClassOf(:GenericTamperingThreat :GenericDataStoreThreat)
 SubClassOf(:GenericTamperingThreat :GenericFlowThreat)
-SubClassOf(:GenericTamperingThreat :GenericTargetThreat)
+SubClassOf(:GenericTamperingThreat :GenericProcessThreat)
 SubClassOf(:GenericTamperingThreat :GenericThreat)
 SubClassOf(:GenericTamperingThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering))
-
-# Class: :GenericTargetThreat (:GenericTargetThreat)
-
-SubClassOf(:GenericTargetThreat :TargetThreat)
 
 # Class: :GenericThreat (:GenericThreat)
 
@@ -472,6 +547,36 @@ SubClassOf(:HTTPServerComponent :SoftwareComponent)
 # Class: :HardwareComponent (:HardwareComponent)
 
 SubClassOf(:HardwareComponent :Component)
+
+# Class: :HasSourceDataStore (:HasSourceDataStore)
+
+EquivalentClasses(:HasSourceDataStore ObjectSomeValuesFrom(:hasSource :DataStore))
+SubClassOf(:HasSourceDataStore :ClassifiedFlow)
+
+# Class: :HasSourceExternalInteractor (:HasSourceExternalInteractor)
+
+EquivalentClasses(:HasSourceExternalInteractor ObjectSomeValuesFrom(:hasSource :ExternalInteractor))
+SubClassOf(:HasSourceExternalInteractor :ClassifiedFlow)
+
+# Class: :HasSourceProcess (:HasSourceProcess)
+
+EquivalentClasses(:HasSourceProcess ObjectSomeValuesFrom(:hasSource :Process))
+SubClassOf(:HasSourceProcess :ClassifiedFlow)
+
+# Class: :HasTargetDataStore (:HasTargetDataStore)
+
+EquivalentClasses(:HasTargetDataStore ObjectSomeValuesFrom(:hasTarget :DataStore))
+SubClassOf(:HasTargetDataStore :ClassifiedFlow)
+
+# Class: :HasTargetExternalInteractor (:HasTargetExternalInteractor)
+
+EquivalentClasses(:HasTargetExternalInteractor ObjectSomeValuesFrom(:hasTarget :ExternalInteractor))
+SubClassOf(:HasTargetExternalInteractor :ClassifiedFlow)
+
+# Class: :HasTargetProcess (:HasTargetProcess)
+
+EquivalentClasses(:HasTargetProcess ObjectSomeValuesFrom(:hasTarget :Process))
+SubClassOf(:HasTargetProcess :ClassifiedFlow)
 
 # Class: :ImplementsApplicationProtocol (:ImplementsApplicationProtocol)
 

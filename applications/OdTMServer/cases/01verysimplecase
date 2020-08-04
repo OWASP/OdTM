@@ -33,7 +33,7 @@ ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :dnsflow :dnsapp)
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#agrees> :dnsflow <http://www.grsu.by/net/OdTMBaseThreatModel#protocol_DNS>)
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#SingleFlow> :logflow)
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :logstore)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#DataStore> :logstore)
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :logflow :webapp)
 ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :logflow :logstore)
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :webflow1)

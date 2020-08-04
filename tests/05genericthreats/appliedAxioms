@@ -1,14 +1,18 @@
 #
-#  (ExternalInteractor)         (Process)
-#              user -----------> webapp
-#                       flow
-#                   (NetworkFlow)
-#                   (hasSource user)
-#                   (hasTarget webapp)
+#  (ExternalInteractor)         (Process)          (DataStore)
+#              user -----------> webapp -----------> log
+#                       flow               logflow
+#                   (NetworkFlow)         (DataFlow)
+#                   (hasSource user)      (hasSource webapp)
+#                   (hasTarget webapp)    (hasTarget log)
 #
 ClassAssertion(:NetworkFlow :flow)
+ClassAssertion(:DataFlow :logflow)
 ClassAssertion(:Process :webapp)
 ClassAssertion(:ExternalInteractor :user)
+ClassAssertion(:DataStore :log)
 ObjectPropertyAssertion(:hasSource :flow :user)
 ObjectPropertyAssertion(:hasTarget :flow :webapp)
+ObjectPropertyAssertion(:hasSource :logflow :webapp)
+ObjectPropertyAssertion(:hasTarget :logflow :log)
 

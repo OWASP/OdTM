@@ -5,7 +5,7 @@
 
 * added a classification approach based on the 'ClassifiedXXX' classes
 * added a conception of protocol profiles with the HTTP and DNS examples
-* added STRIDE-based generic threats
+* added STRIDE-based generic threats (found the Threat Dragon sources)
 * added a simple testing tool and a set of tests
 
 ## Version 0.02 (March 2020)
