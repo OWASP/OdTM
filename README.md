@@ -14,7 +14,7 @@ of a domain-specific model, for example, with DFD (Data Flow Diagram),
 it allows the use of automatic reasoning procedures to build a threat model of the system 
 (i.e. figure out relevant threats and countermeasures).
 
-Our approach is based on a base threat model (ontology).
+Our approach is based on a [base threat model (ontology)](docs/BASEMODEL.md).
 The base model enables creation of various domain-specific threat models 
 and their integration with external sources, like attack/vulnerability/weakness enumerations, 
 also with catalogues of traditional security patterns.
