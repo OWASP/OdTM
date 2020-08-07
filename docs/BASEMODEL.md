@@ -232,3 +232,11 @@ SubClassOf(:LabelsDenialOfService ObjectHasValue(:labelsSO :SO_Availability))
 So, you can label threats and countermeasures by the STRIDE and SO instances (see the OWL file) 
 with the 'labelsSTRIDE' and 'labelsSO' properties.
 
+## Examples
+
+Here is an early example of a flow, tested against a simple threat model in Protege:
+
+![Simple example in Protege](protege_example.png)
+
+
+
