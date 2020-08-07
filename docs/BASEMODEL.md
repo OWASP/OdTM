@@ -238,5 +238,13 @@ Here is an early example of a flow, tested against a simple threat model in Prot
 
 ![Simple example in Protege](protege_example.png)
 
+Another example in Protege shows a flow, reasoned with the first version of the cloud model:
+
+![CCCTMv01 in Protege](ccctm_protege.png)
+
+And this one shows a piece of console output of the [OdTM Server](../applications/OdTMServer/) application:
+
+![console of OdTMServer](odtmserver_example.png)
+
 
 
