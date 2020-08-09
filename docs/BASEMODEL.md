@@ -4,7 +4,8 @@
 The OdTM base threat model is an ontology, implemented with OWL (Web Ontology Language).
 It enables semantic interpretation of DFDs (Data Flow Diagrams) and automatic building of threat/countermeasure lists.
 It contains concepts and instances to represent components of diagrams, threats, countermeasures, and their properties.
-Also, it provides a basic STRIDE approach to the threat modelling and labelling of security things with different tags.
+Also, it provides a basic STRIDE approach to the threat modelling, labelling of security things with different tags,
+and protocol profiles.
 
 * [OWL file](../OdTMBaseThreatModel.owl)
 
@@ -197,10 +198,10 @@ Let us argue that:
 
 That is STRIDE-per-element approach, implemented by the base model
 (actually we have taken this from the OWASP Threat Dragon sources).
+So, any item of a DFD gets a list of the STRIDE threats according its type.
 
-Keep in mind, if a target interacts with two other targets (i.e. has two flows), 
-it has double number of STRIDE threats.
-And, for example, the DoS threat, spawned by the first flow, can be different from spawned by the second one.
+Keep in mind, if a target interacts with two other targets, it has double number of STRIDE threats.
+For example, the DoS threat, spawned by the first remote target, can be different from spawned by the second one.
 Enumeration of threats, their proper management etc. should be implemented with an application. 
 
 ## Labelling of threats and countermeasures
@@ -231,6 +232,48 @@ SubClassOf(:LabelsDenialOfService ObjectHasValue(:labelsSO :SO_Availability))
 ```
 So, you can label threats and countermeasures by the STRIDE and SO instances (see the OWL file) 
 with the 'labelsSTRIDE' and 'labelsSO' properties.
+
+## Protocol profiles
+
+The 'NetworkFlow' class describes flows, involved in the network communications:
+
+```
+SubClassOf(:NetworkFlow :DataFlow)
+```
+
+We suppose that a 'NetworkFlow' instance is a bidirectional flow that 'agrees' an application protocol. 
+A source of such flow is a client and target is a server. 
+The client (and server) 'implements' the application protocol.
+
+The base model allows to figure out implementations with the feature of property chains
+(if a target 'isEdgeOf' some flow that 'agrees' an application protocol,
+it means the target 'implements' this protocol): 
+
+```
+isEdgeOf o agrees -> implements
+```
+
+Some useful common defined classes are in the base model.
+For flows:
+
+* 'AgreesApplicationProtocol' equivalents to 'agrees some ApplicationProtocol'
+
+For targets:
+
+* 'ImplementsApplicationProtocol' equivalents to 'isEdgeOf some AgreesApplicationProtocol'
+* 'ContainsClientComponent' equivalents to 'isSourceOf some NetworkFlow'
+* 'ContainsServerComponent' equivalents to 'isTargetOf some NetworkFlow'
+
+The similar way we can define different application protocols, like HTTP:
+
+* 'AgreesHTTPProtocol' equivalents to 'agrees some HTTPProtocol'
+* 'ImplementsHTTPProtocol' equivalents to 'isEdgeOf some AgreesHTTPProtocol'
+* 'ContainsHTTPClientComponent' equivalents to 'isSourceOf some AgreesHTTPProtocol'
+* 'ContainsHTTPServerComponent' equivalents to 'isTargetOf some AgreesHTTPProtocol'
+
+To defined classes, like Agrees*, Implements*, Contains*, you can add different threats
+and their suggestions.
+
 
 ## Examples
 
