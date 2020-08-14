@@ -25,44 +25,52 @@ class consoleApplication {
        if (conf.init(args[0])) {
           ModelManager manager = new ModelManager();
           if (manager.init(conf)){
-               
-            // console application is always run against a particular case
-            String caseName = conf.get("CASE");
-            String caseImport = conf.get("CASEIRI");
-
-            if (caseName !=null){                                    ///
-               ThreatModeller modeller = new ThreatModeller();
-               boolean res;
-               if (caseImport !=null){
-                  // apply both base model & domain model
-                  res = manager.fillModeller(modeller,caseImport);
-               }else{
-                  // apply base model as domain model
-                  res = manager.fillModeller(modeller);
-               }
-               
-               if (res){
-                  modeller.createWorkModelFromFile(caseName);   
-                  //modeller.flushModel();
-                  
-                  modeller.analyseWithAIEd();
-                  
-                  //modeller.fillWorkModel();
-                  //modeller.saveWorkModelToFile("/home/net/tmp/test.owl");
-                  //modeller.test();   
-                  
-                  //modeller.fillWorkModel();
-                  //modeller.saveWorkModelToFile("/home/net/tmp/test1.owl");
-                  //modeller.saveWorkModelToFile("/home/net/tmp/test2.owl");
-                  
+            
+            // console application can be run with the Threat Dragon model   
+            String tdFile = conf.get("TDFILE");
+            String tdFileImport = conf.get("TDIRI");
+            String tdFileOut = conf.get("TDOUT");
+            
+            if ( (tdFile != null) && (tdFileOut != null) ){
+               // process the Threat Dragon model
+               ThreatDragonManager parser = new ThreatDragonManager();
+               if (parser.init(tdFile,manager,tdFileImport,tdFileOut)){
+                  parser.process();
                } else{
-                  LOGGER.severe("could not fill modeller! exiting...");
+                  LOGGER.severe("could not init TD model"+ tdFile);
                }
-                      
-                     
-             }else {LOGGER.severe("please give a case! exiting...");} ///
+               
+            }else{
+               
+               // trying to run the console application against a particular case
+               String caseName = conf.get("CASE");
+               String caseImport = conf.get("CASEIRI");
+
+               if (caseName !=null){                                    ///
+                  ThreatModeller modeller = new ThreatModeller();
+                  boolean res;
+                  if (caseImport !=null){
+                     // apply both base model & domain model
+                     res = manager.fillModeller(modeller,caseImport);
+                  }else{
+                     // apply base model as domain model
+                     res = manager.fillModeller(modeller);
+                  }
+               
+                  if (res){
+                     modeller.createWorkModelFromFile(caseName);                     
+                     modeller.analyseWithAIEd();
+                                    
+                  } else{
+                    LOGGER.severe("could not fill modeller! exiting...");
+                  }
+                                           
+                }else {
+                  // todo: init API server
+                  LOGGER.severe("please give a case! exiting...");
+                } ///
                   
-          
+           }
                
            } else {LOGGER.severe("could not init ModelManager! exiting...");};
                                     

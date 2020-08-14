@@ -7,6 +7,7 @@
 * added a conception of protocol profiles with the HTTP and DNS examples
 * added STRIDE-based generic threats (found in the Threat Dragon sources)
 * added a simple testing tool and a set of tests
+* added some data properties to describe threats
 
 ## Version 0.02 (March 2020)
 

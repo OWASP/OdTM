@@ -69,6 +69,9 @@ public class O {
       return o.getOntologyID().getOntologyIRI().get();
    }
 
+   public String getDefaultPrefix(){
+      return defaultPrefix;
+   }
 
    public void addAxiom(OWLAxiom ax){
       o.add(ax);
@@ -97,6 +100,13 @@ public class O {
       if (in.toString().startsWith(defaultPrefix)) return true;
       return false;
    }
+
+   public static String getShortIRI(HasIRI src){
+     return src.getIRI().getShortForm();
+   
+   }
+
+
       
    // takes strings like ":user" or "<http://www.grsu.by/net/OdTMBaseThreatModel#agrees>"
    // and returns the IRI object
@@ -247,6 +257,39 @@ public class O {
        return null;
     }
 
+   public static String safeIRI(String in){
+      String in1 = in;
+      in1 = in1.replace(" ","_");
+      in1 = in1.replace(":","_");
+      in1 = in1.replace("(","_");
+      in1 = in1.replace(")","_");
+      in1 = in1.replace("/","_");
+      in1 = in1.replace("\\","_");
+      in1 = in1.replace("^","_");
+      in1 = in1.replace("+","plus");
+      in1 = in1.replace("#","sharp");
+      in1 = in1.replace("$","dollar");
+      in1 = in1.replace("@","at");
+      in1 = in1.replace(".","dot");
+      in1 = in1.replace("-","dash");
+      in1 = in1.replace("'","_");
+      in1 = in1.replace("&","and");
+      in1 = in1.replace("!","_");
+      in1 = in1.replace("?","_");
+      in1 = in1.replace(",","_");
+      in1 = in1.replace(">","_");
+      in1 = in1.replace("<","_");
+      in1 = in1.replace("\"","_");
+      in1 = in1.replace("*","star");
+      in1 = in1.replace("%","_");
+      in1 = in1.replace("[","_");
+      in1 = in1.replace("]","_");
+      in1 = in1.replace("|","_");
+      if (Character.isDigit(in1.charAt(0))) in1 = "x" + in1;
+      return in1;
+   }
+ 
+
 //////////////////////////////////////////////////////////////////////////      
 // reasoner
 //////////////////////////////////////////////////////////////////////////
@@ -299,6 +342,20 @@ public class O {
       OWLAxiom ax = df.getOWLObjectPropertyAssertionAxiom(prop, ind1, ind2); 
       return ax;  
    }   
+
+   // create data property assertion axiom
+   public OWLAxiom getIndividualDataProperty(IRI indName, IRI propertyName, String value){
+      OWLNamedIndividual ind = df.getOWLNamedIndividual(indName);
+      OWLDataProperty property = df.getOWLDataProperty(propertyName);      
+      return getIndividualDataProperty(ind,property,value);
+   }
+   public OWLAxiom getIndividualDataProperty(OWLNamedIndividual ind, OWLDataProperty property, String value){
+      OWLDataPropertyAssertionAxiom ax = df.getOWLDataPropertyAssertionAxiom(property,ind,df.getOWLLiteral(value, "en"));
+      return ax;
+   }
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 // results from EntitySearcher (aka non reasoned results)
@@ -354,7 +411,18 @@ public class O {
       return getPrimaryType(df.getOWLNamedIndividual(instanceName));
    }
 
-
+   // assumes that instance has only one property
+   // for several it returns the first one
+   public String getSearcherDataPropertyValue(OWLNamedIndividual ind, OWLDataProperty property){
+      Iterator<OWLLiteral> iterator = EntitySearcher.getDataPropertyValues(ind, property, o).iterator();
+      if (iterator.hasNext()) return ((OWLLiteral)iterator.next()).getLiteral();         
+      return null;      
+   }   
+   public String getSearcherDataPropertyValue(IRI instanceName, IRI propertyName){
+      return getSearcherDataPropertyValue(df.getOWLNamedIndividual(instanceName), df.getOWLDataProperty(propertyName));
+   }   
+    
+   
 //////////////////////////////////////////////////////////////////////////////////////
 // find different axioms with the OWLReasoner object (aka reasoned results)
 // https://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/reasoner/OWLReasoner.html

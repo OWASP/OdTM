@@ -81,9 +81,31 @@ public class ModelManager extends OManager{
       return true;
    };
    
+   // imports - IRI of a domain model or null
+   public ThreatModeller createModeller(String imports){
+       ThreatModeller modeller = new ThreatModeller();
+       boolean res;
+       
+       if (imports !=null){
+          // use the base model & a domain model
+          res = fillModeller(modeller,imports);
+       }else{
+          // apply base model as domain model
+          res = fillModeller(modeller);
+       }
+
+       if (!res) {
+          LOGGER.severe("could not create modeller");
+          return null;
+       }
+       return modeller;
+   }
+   
+   
    // fill modeller with base and domain models
    // needs a modeller instance & iri of domain model
    public boolean fillModeller(ThreatModeller modeller,String iri){
+      
       OWLOntology tmp = getModel(iri);
       if (tmp == null){
          LOGGER.severe ("unable to get domain model");      

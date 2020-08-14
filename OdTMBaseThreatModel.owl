@@ -129,6 +129,10 @@ Declaration(ObjectProperty(:protects))
 Declaration(ObjectProperty(:suggests))
 Declaration(ObjectProperty(:suggestsThreat))
 Declaration(ObjectProperty(:suggestsThreatCategory))
+Declaration(DataProperty(:hasDescription))
+Declaration(DataProperty(:hasID))
+Declaration(DataProperty(:hasSeverity))
+Declaration(DataProperty(:hasTitle))
 Declaration(NamedIndividual(:SO_Authentication))
 Declaration(NamedIndividual(:SO_Authorization))
 Declaration(NamedIndividual(:SO_Availability))
@@ -266,6 +270,27 @@ AnnotationAssertion(rdfs:comment :suggestsThreat "Target or flow might contain a
 # Object Property: :suggestsThreatCategory (:suggestsThreatCategory)
 
 AnnotationAssertion(rdfs:comment :suggestsThreatCategory "Target or flow might suggest a group of threats"@en)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :hasDescription (:hasDescription)
+
+AnnotationAssertion(rdfs:comment :hasDescription "a threat property"@en)
+
+# Data Property: :hasID (:hasID)
+
+AnnotationAssertion(rdfs:comment :hasID "a stencil property for TD json"@en)
+
+# Data Property: :hasSeverity (:hasSeverity)
+
+AnnotationAssertion(rdfs:comment :hasSeverity "a threat property"@en)
+
+# Data Property: :hasTitle (:hasTitle)
+
+AnnotationAssertion(rdfs:comment :hasTitle "a threat property"@en)
 
 
 
@@ -777,26 +802,32 @@ ClassAssertion(:SchemaInstance :SO_NonRepudiation)
 # Individual: :STRIDE_Denial_of_Service (:STRIDE_Denial_of_Service)
 
 ClassAssertion(:SchemaInstance :STRIDE_Denial_of_Service)
+DataPropertyAssertion(:hasTitle :STRIDE_Denial_of_Service "Denial of service"@en)
 
 # Individual: :STRIDE_Elevation_of_Privilege (:STRIDE_Elevation_of_Privilege)
 
 ClassAssertion(:SchemaInstance :STRIDE_Elevation_of_Privilege)
+DataPropertyAssertion(:hasTitle :STRIDE_Elevation_of_Privilege "Elevation of privilege"@en)
 
 # Individual: :STRIDE_Information_Disclosure (:STRIDE_Information_Disclosure)
 
 ClassAssertion(:SchemaInstance :STRIDE_Information_Disclosure)
+DataPropertyAssertion(:hasTitle :STRIDE_Information_Disclosure "Information disclosure"@en)
 
 # Individual: :STRIDE_Repudiation (:STRIDE_Repudiation)
 
 ClassAssertion(:SchemaInstance :STRIDE_Repudiation)
+DataPropertyAssertion(:hasTitle :STRIDE_Repudiation "Repudiation"@en)
 
 # Individual: :STRIDE_Spoofing (:STRIDE_Spoofing)
 
 ClassAssertion(:SchemaInstance :STRIDE_Spoofing)
+DataPropertyAssertion(:hasTitle :STRIDE_Spoofing "Spoofing"@en)
 
 # Individual: :STRIDE_Tampering (:STRIDE_Tampering)
 
 ClassAssertion(:SchemaInstance :STRIDE_Tampering)
+DataPropertyAssertion(:hasTitle :STRIDE_Tampering "Tampering"@en)
 
 # Individual: :component_Apache2 (:component_Apache2)
 
@@ -832,36 +863,54 @@ ClassAssertion(:SchemaInstance :protocol_HTTP)
 
 ClassAssertion(:GenericDenialOfServiceThreat :threat_GenericDenialOfService)
 ClassAssertion(:SchemaInstance :threat_GenericDenialOfService)
+DataPropertyAssertion(:hasDescription :threat_GenericDenialOfService "A generic DoS threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericDenialOfService "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericDenialOfService "Generic DoS threat"@en)
 
 # Individual: :threat_GenericElevationOfPrivilege (:threat_GenericElevationOfPrivilege)
 
 ClassAssertion(:GenericElevationOfPrivilegeThreat :threat_GenericElevationOfPrivilege)
 ClassAssertion(:SchemaInstance :threat_GenericElevationOfPrivilege)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericElevationOfPrivilege :STRIDE_Elevation_of_Privilege)
+DataPropertyAssertion(:hasDescription :threat_GenericElevationOfPrivilege "A generic elevation threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericElevationOfPrivilege "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericElevationOfPrivilege "Generic elevation threat"@en)
 
 # Individual: :threat_GenericInformationDisclosure (:threat_GenericInformationDisclosure)
 
 ClassAssertion(:GenericInformationDisclosureThreat :threat_GenericInformationDisclosure)
 ClassAssertion(:SchemaInstance :threat_GenericInformationDisclosure)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericInformationDisclosure :STRIDE_Information_Disclosure)
+DataPropertyAssertion(:hasDescription :threat_GenericInformationDisclosure "A generic information disclosure threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericInformationDisclosure "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericInformationDisclosure "Generic information disclosure threat"@en)
 
 # Individual: :threat_GenericRepudiation (:threat_GenericRepudiation)
 
 ClassAssertion(:GenericRepudiationThreat :threat_GenericRepudiation)
 ClassAssertion(:SchemaInstance :threat_GenericRepudiation)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericRepudiation :STRIDE_Repudiation)
+DataPropertyAssertion(:hasDescription :threat_GenericRepudiation "A generic repudiation threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericRepudiation "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericRepudiation "Generic repudiation threat"@en)
 
 # Individual: :threat_GenericSpoofing (:threat_GenericSpoofing)
 
 ClassAssertion(:GenericSpoofingThreat :threat_GenericSpoofing)
 ClassAssertion(:SchemaInstance :threat_GenericSpoofing)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericSpoofing :STRIDE_Spoofing)
+DataPropertyAssertion(:hasDescription :threat_GenericSpoofing "A generic spoofing threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericSpoofing "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericSpoofing "Generic spoofing threat"@en)
 
 # Individual: :threat_GenericTampering (:threat_GenericTampering)
 
 ClassAssertion(:GenericTamperingThreat :threat_GenericTampering)
 ClassAssertion(:SchemaInstance :threat_GenericTampering)
 ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericTampering :STRIDE_Tampering)
+DataPropertyAssertion(:hasDescription :threat_GenericTampering "A generic tampering threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericTampering "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericTampering "Generic tampering threat"@en)
 
 
 SubObjectPropertyOf(ObjectPropertyChain(:isEdgeOf :agrees) :implements)

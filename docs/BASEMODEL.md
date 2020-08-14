@@ -271,8 +271,8 @@ The similar way we can define different application protocols, like HTTP:
 * 'ContainsHTTPClientComponent' equivalents to 'isSourceOf some AgreesHTTPProtocol'
 * 'ContainsHTTPServerComponent' equivalents to 'isTargetOf some AgreesHTTPProtocol'
 
-To defined classes, like Agrees*, Implements*, Contains*, you can add different threats
-and their suggestions.
+You can add different threats and their suggestions to defined classes 
+like Agrees*, Implements*, Contains*. 
 
 
 ## Examples
@@ -288,6 +288,4 @@ Another example in Protege shows a flow, reasoned with the first version of the 
 And this one shows a piece of console output of the [OdTM Server](../applications/OdTMServer/) application:
 
 ![console of OdTMServer](odtmserver_example.png)
-
-
 
