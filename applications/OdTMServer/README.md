@@ -13,7 +13,7 @@ You can represent source data as:
 
 * a JSON file of the [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/) model.
 Create a diagram with Threat Dragon like [this one](cases/tdexample.json).
-And process the model with the OdTMServer application and get a threat model like [this](cases/tdexample_modelled.json). 
+Process the model with the OdTMServer application and get a threat model like [this](cases/tdexample_modelled.json). 
 
 * a text file with ABox axioms, like [this one](cases/01verysimplecase)
 
