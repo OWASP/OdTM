@@ -11,11 +11,12 @@ that allows to load the base model and a set of domain-specific models
 and test them against a semantic interpretation of DFD.
 You can represent source data as:
 
-* a JSON file of the [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/) model.
-Create a diagram with Threat Dragon like [this one](cases/tdexample.json).
-Process the model with the OdTMServer application and get a threat model like [this](cases/tdexample_modelled.json). 
+* a JSON file, compatible with the [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/) tool.
+Creating a diagram with GUI of Threat Dragon, like [this one](cases/tdexample.json),
+and processing by the OdTMServer application, you can get a threat model like [this](cases/tdexample_modelled.json). 
 
-* a text file with ABox axioms, like [this one](cases/01verysimplecase)
+* a text file with ABox axioms, like [this one](cases/01verysimplecase). 
+You can get a simple console output, used for the test purposes.
 
 
 To compile & run the application:
