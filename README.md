@@ -2,7 +2,7 @@
 # Ontology-driven threat modelling (OdTM) framework
 
 The ontology-driven threat modelling (OdTM) framework implements an ontological approach
-to threat modelling (architectural/design security analysis) of computer systems.
+to the threat modelling (architectural/design security analysis) of computer systems.
 
 The ontological approach has two general benefits.
 Firstly, it enables formalization of security related knowledge 
@@ -20,7 +20,7 @@ and their integration with external sources, like attack/vulnerability/weakness 
 also with catalogues of traditional security patterns.
 
 All the models are implemented as OWL (Web Ontology Language) ontologies 
-with Description Logics (DL) as a mathematical background.
+with Description Logics (DLs) as a mathematical background.
 
 Our framework includes a set of software tools for automation of the threat modelling process.
 In particular, you can use the [OdTM Server](applications/OdTMServer/) 

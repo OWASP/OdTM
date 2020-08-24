@@ -19,7 +19,7 @@ which allow to get extra facts (inferred axioms) from an ontology.
 Semantic interpretation means that a DFD can be represented as a sequence of facts (axioms) about its items.
 
 Here is an informal graphical representation of concepts (classes) and their properties (i.e. TBox) 
-that are in charge of semantic interpretation: 
+that are in charge of the semantic interpretation: 
 
 ![structure 1](structure1.png)
 
@@ -190,6 +190,9 @@ ClassAssertion(:SchemaInstance :threat_GenericDenialOfService)
 
 ## STRIDE approach
 
+STRIDE gives a way to figure out possible threats for a particular case. 
+Considering a target or flow you can ask questions like "Is spoofing possible here?", "Is tampering is possible here?" etc.
+
 Let us argue that: 
 * processes are affected by every STRIDE threat 
 * datastores suffer from the tampering, repudiation, information disclosure, and DoS threats 
@@ -206,8 +209,11 @@ Enumeration of threats, their proper management etc. should be implemented with 
 
 ## Labelling of threats and countermeasures
 
-For more precise classification of particular threats and countermeasures the STRIDE model can be used, 
-as well as a set of security objectives (SO).
+The STRIDE approach is limited by these six threat types. 
+In many cases you should consider more specific threats, depended on environment, trust boundaries, protocols etc.
+
+Having dozens threats (and countermeasures) you need a way to classify them. 
+And it is possible to use STRIDE for that purpose, as well as a set of security objectives (SO).
 
 Both depend on each other:
 
