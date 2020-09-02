@@ -21,8 +21,7 @@ You can get a simple console output, used for the test purposes.
 
 To compile & run the application:
 
-* clone the whole repository [https://github.com/nets4geeks/OdTM.git](https://github.com/nets4geeks/OdTM.git),
-go to the 'applications/OdTMServer' folder and run 'mvn compile' there.
+* clone the whole OdTM repository, go to the 'applications/OdTMServer' folder and run 'mvn compile' there.
 
 * edit 'server.properties' and execute the 'run' script there.
 
