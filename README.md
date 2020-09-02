@@ -39,7 +39,7 @@ If you want to refer to OdTM, please cite:
 
 Note, [the OWASP repository of the project is here](https://github.com/OWASP/OdTM)
 (please send your contributions, issues etc. to this one). 
-And a [mirror of the project repository is here](https://github.com/nets4geeks/OdTM).
+And a [mirror is here](https://github.com/nets4geeks/OdTM).
 
 
 ## Base Threat Model
