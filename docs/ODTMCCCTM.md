@@ -7,6 +7,8 @@ The model is implemented as a OWL ontology.
 
 * [OWL file](../OdTMCCCTM.owl)
 
+Note: please use [old version of the base model](../old/OdTMBaseThreatModelv02.owl) with this one.
+
 There is also the similar model, 
 implemented as a [threat template](https://github.com/nets4geeks/CCCTM_template) 
 in the XML format for the Microsoft Threat Modelling (TM) tool.

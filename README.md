@@ -1,10 +1,12 @@
 
-# Ontology-driven threat modelling (OdTM) framework
+# OWASP Ontology-driven threat modelling (OdTM) framework
 
-The ontology-driven threat modelling (OdTM) framework implements an ontological approach
-to the threat modelling (architectural/design security analysis) of computer systems.
+Ontology-driven Threat Modelling (OdTM) framework is a set of means for implementation 
+of an ontological approach into automatic threat modelling of computer systems.
 
-The ontological approach has two general benefits.
+It is an [OWASP Incubator Project](https://owasp.org/www-project-ontology-driven-threat-modeling-framework/).
+
+The ontological approach, provided by the OdTM framework, has two general benefits.
 Firstly, it enables formalization of security related knowledge 
 (architectual components and associated threats and countermeasures)
 of different computer system types (architectural domains) in form of domain-specific threat models 
@@ -26,7 +28,7 @@ Our framework includes a set of software tools for automation of the threat mode
 In particular, you can use the [OdTM Server](applications/OdTMServer/) 
 as an alternative threat rule engine with different modelling tools.
 
-The [applications](applications/) are built with Java, 
+The applications are built with Java, 
 the [OWL API](https://github.com/owlcs/owlapi) 
 and [HermiT Reasoner](http://www.hermit-reasoner.com/) libraries.
 
@@ -34,6 +36,10 @@ A basic introduction to the OdTM framework is [here](https://www.researchgate.ne
 
 If you want to refer to OdTM, please cite:
 >Brazhuk A. Security patterns based approach to automatically select mitigations in ontology-driven threat modelling // Open Semantic Technologies for Intelligent Systems (OSTIS). – 2020. – №. 4. – С. 267-272
+
+Note, [the OWASP repository of the project is here](https://github.com/OWASP/OdTM)
+(please send your contributions, issues etc. to this one). 
+And a [mirror of the project repository is here](https://github.com/nets4geeks/OdTM).
 
 
 ## Base Threat Model
@@ -44,11 +50,10 @@ If you want to refer to OdTM, please cite:
 
 ## Domain-specific threat models
 
-Common Cloud Computing Threat Model (CCCTM)
-
-* [OWL file](OdTMCCCTM.owl)
-* [Description](docs/ODTMCCCTM.md)
+* [Common Cloud Computing Threat Model or CCCTM (obsolete)](docs/ODTMCCCTM.md)
 
 ## Applications
 
-* [In folder](applications/)
+* [OdTM Server](applications/OdTMServer/)
+* [Check application](applications/checkApplication/)
+
