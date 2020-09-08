@@ -53,6 +53,7 @@ public class ThreatModeller extends OManager {
    protected static String ClassifiedHasEdgeClass = "http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge";
    protected static String HasSourceProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasSource";
    protected static String HasTargetProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget";
+   protected static String HasEdgeProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasEdge";
    protected static String IsSourceOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf";
    protected static String IsTargetOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf";
    protected static String IsEdgeOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf";   
@@ -164,12 +165,6 @@ public class ThreatModeller extends OManager {
          IRI nameIRI = IRI.create(model.getDefaultPrefix()+O.safeIRI(cellID));
          // add ID
          model.addAxiom(model.getIndividualDataProperty(nameIRI,IRI.create(HasIDProperty),cellID));
-
-         // get & add text ???
-         //String cellText = cell.path("attrs").path("text").path("text").textValue();
-         //if (cellText !=null){
-         //   model.addAxiom(model.getIndividualDataProperty(nameIRI,IRI.create(HasTextProperty),cellID));
-         //}
          
          // get type        
          String cellType = cell.path("type").textValue();
@@ -180,7 +175,20 @@ public class ThreatModeller extends OManager {
          }
          // add type
          model.addAxiom(model.getClassAssertionAxiom(typeIRI, nameIRI));
-         
+
+         // get & add text
+         String cellText = null;
+         if (cellType.equals("tm.Flow")){
+            JsonNode labels = cell.path("labels");
+            Iterator<JsonNode> itr2 = labels.elements();
+            if (itr2.hasNext()) cellText=((JsonNode)itr2.next()).path("attrs").path("text").path("text").textValue();
+         } else{
+            cellText = cell.path("attrs").path("text").path("text").textValue();
+         }
+         if (cellText != null) {
+            model.addAxiom(model.getIndividualDataProperty(nameIRI,IRI.create(HasTextProperty),cellText));
+         }
+
          // for flows add source & target edges
          if (cellType.equals("tm.Flow") ){
              String sourceID = cell.path("source").path("id").textValue();
@@ -195,7 +203,7 @@ public class ThreatModeller extends OManager {
              }
          }
                   
-         //
+         //         
                   
       }  
       
@@ -216,9 +224,18 @@ public class ThreatModeller extends OManager {
             LOGGER.severe("could not find id ");
             return false;               
          }   
-         
          // get name
          IRI nameIRI = IRI.create(model.getDefaultPrefix()+O.safeIRI(cellID));
+         
+         // get type        
+         String cellType = cell.path("type").textValue();
+         IRI typeIRI = convertJSONtype(cellType);
+         if (typeIRI == null){
+            LOGGER.severe("could not find the type "+ cellType);
+            return false;   
+         }   
+           
+
          
          // get threats from the ontological model
          List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(nameIRI,IRI.create(IsAffectedByProperty)).collect(Collectors.toList());
@@ -231,13 +248,80 @@ public class ThreatModeller extends OManager {
                O modelOfThreat = getModelByIRI(tmp.getIRI()); // model from what the threat comes (base or domain) 
                String ruleId = tmp.getIRI().toString(); // get rule ID
                String shortIRI = O.getShortIRI(tmp);
+   
                String title = modelOfThreat.getSearcherDataPropertyValue(tmp.getIRI(), IRI.create(HasTitleProperty)); // get title
                String description = modelOfThreat.getSearcherDataPropertyValue(tmp.getIRI(), IRI.create(HasDescriptionProperty)); // get description
                // get type (!!! only one)
                OWLNamedIndividual typeInstance = modelOfThreat.getObjectPropertyValue(tmp.getIRI(),IRI.create(LabelsSTRIDE));
                //String type = typeInstance.getIRI().toString();
-               String type = getModelByIRI(typeInstance.getIRI()).getSearcherDataPropertyValue(typeInstance.getIRI(), IRI.create(HasTitleProperty));
-                       
+               String type = getModelByIRI(typeInstance.getIRI()).getSearcherDataPropertyValue(typeInstance.getIRI(), IRI.create(HasTitleProperty));   
+               
+               // if it isn't a dataflow
+               if (!cellType.equals("tm.Flow")){
+                 
+                  // trying to find reasons
+                  // hasEdge value nameIRI(target) - ask the diagram's model 
+                  IRI HasEdgeValueClass = IRI.create(model.getDefaultPrefix()+"HasEdgeValue"+O.safeIRI(cellID));
+                  OWLAxiom hasEdgeValue = model.getDefinedClassValue(HasEdgeValueClass, IRI.create(HasEdgeProperty),nameIRI);
+                  model.addAxiom(hasEdgeValue);
+                  // isAffectedBy value tmp(threat) - ask the diagram's model 
+                  IRI IsAffectedByValueClass = IRI.create(model.getDefaultPrefix()+"IsAffectedByValue"+shortIRI);
+                  OWLAxiom isAffectedByValue = model.getDefinedClassValue(IsAffectedByValueClass, IRI.create(IsAffectedByProperty),tmp.getIRI());
+                  model.addAxiom(isAffectedByValue);
+                  // hasEdge some IsAffectedByValueClass 
+                  IRI HasEdgeSomeClass = IRI.create(model.getDefaultPrefix()+"hasEdgeSome"+O.getShortIRI(IsAffectedByValueClass));
+                  OWLAxiom hasEdgeSome = model.getDefinedClassSome(HasEdgeSomeClass, IRI.create(HasEdgeProperty),IsAffectedByValueClass);
+                  model.addAxiom(hasEdgeSome);
+                  // (hasEdge value nameIRI(target))=HasEdgeValueClass and HasEdgeSomeClass=(hasEdge some (isAffectedBy value tmp(threat)))
+                  IRI AndClass = IRI.create(model.getDefaultPrefix()+O.getShortIRI(HasEdgeValueClass)+"AND"+O.getShortIRI(HasEdgeSomeClass));
+                  OWLAxiom andClassAxiom = model.getDefinedClassAnd(AndClass, HasEdgeValueClass,HasEdgeSomeClass);
+                  model.addAxiom(andClassAxiom);
+                  
+                  model.flush();
+                  
+                  List<OWLNamedIndividual> flows = model.getReasonerInstances(AndClass).collect(Collectors.toList());
+                  for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
+                     OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+                     String reasonText = model.getSearcherDataPropertyValue(flow.getIRI(), IRI.create(HasTextProperty));
+                     // copy-past
+                     ObjectNode threatNode = nodes.addObject(); // add a JSON node
+                     // add ruleId
+                     threatNode.put("ruleId", ruleId);
+                     // add title
+                     if (title !=null) threatNode.put("title", title+" (from "+reasonText+")");
+                     else threatNode.put("title", shortIRI);
+                     // add description
+                     if (description !=null) threatNode.put("description", description+" (because of "+reasonText+")" );
+                     else threatNode.put("description", shortIRI);
+                     // add status
+                     threatNode.put("status", "Open");
+                     // add severity (Medium at the moment)
+                     threatNode.put("severity", "Medium");
+                     // add type 
+                     if (type != null) threatNode.put("type", type);                     
+
+                  }
+                  
+               }  else {
+                  // copy-past
+                  ObjectNode threatNode = nodes.addObject(); // add a JSON node
+                  // add ruleId
+                  threatNode.put("ruleId", ruleId);
+                  // add title
+                  if (title !=null) threatNode.put("title", title);
+                  else threatNode.put("title", shortIRI);
+                  // add description
+                  if (description !=null) threatNode.put("description", description);
+                  else threatNode.put("description", shortIRI);
+                  // add status
+                  threatNode.put("status", "Open");
+                  // add severity (Medium at the moment)
+                  threatNode.put("severity", "Medium");
+                  // add type 
+                  if (type != null) threatNode.put("type", type);
+                  
+               }        
+               
                // standard fields
                // {
                //   "ruleId": "b2a6d40d-d3f8-4750-8e4d-c02cc84b13dc",
@@ -249,22 +333,6 @@ public class ThreatModeller extends OManager {
                //   "$$hashKey": "object:59"
                // }
 
-               ObjectNode threatNode = nodes.addObject(); // add a JSON node
-               // add ruleId
-               threatNode.put("ruleId", ruleId);
-               // add title
-               if (title !=null) threatNode.put("title", title);
-               else threatNode.put("title", shortIRI);
-               // add description
-               if (description !=null) threatNode.put("description", description);
-               else threatNode.put("description", shortIRI);
-               // add status
-               threatNode.put("status", "Open");
-               // add severity (Medium at the moment)
-               threatNode.put("severity", "Medium");
-               // add type 
-               if (type != null) threatNode.put("type", type);
-                
             }
             ((ObjectNode)cell).set("threats",nodes); // apply nodes to cell (i.e. item)
             
@@ -272,6 +340,7 @@ public class ThreatModeller extends OManager {
          }
 
       }      
+      //saveToFile(model.get(),"cases/model.owl");
       return true;
    }
  
@@ -307,7 +376,7 @@ public class ThreatModeller extends OManager {
        return true;
    }
 
-
+    //                                                                        source flows                       target flows        instance i.e. target       class
     public Stream<OWLNamedIndividual> findReasonForTarget(List<OWLNamedIndividual> sourceFlows, List<OWLNamedIndividual> targetFlows, OWLNamedIndividual target, OWLClass cls){
        O tmp = getModelByIRI(cls.getIRI());
        MyAxiom ax = tmp.searchForSimpleClassDefinition(cls.getIRI());

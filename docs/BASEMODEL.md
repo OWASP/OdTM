@@ -151,10 +151,16 @@ And we need two defined classes to find processes, connected to such flows:
 * 'AffectedByGenericProcessThreatAsSource' with 'isSourceOf some HasSourceProcess' as a definition
 * 'AffectedByGenericProcessThreatAsTarget' with 'isTargetOf some HasTargetProcess' as a definition
 
-Now it is possible to add threat instances to the last two concepts with the 'SubclassOf axioms.
+Now it is possible to add threat instances to the last two concepts with the 'SubclassOf axioms, like
 
-Pay attention, a such threat instance, taken from the base model, 
-is common for every affected entity of a semantic interpretation.
+```
+SubClassOf(
+   :AffectedByGenericProcessThreatAsSource
+   ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService)
+)
+```
+
+Pay attention, a such threat instance, taken from the base model, is common for every affected entity of a semantic interpretation.
 This does not allow to distinct threats, for example, for applying entity-dependent mitigations to a specific threat.  
 To 'personalize' the reasoning results, you should create an instance of the threat class for each affected entity.
 
@@ -193,17 +199,65 @@ ClassAssertion(:SchemaInstance :threat_GenericDenialOfService)
 STRIDE gives a way to figure out possible threats for a particular case. 
 Considering a target or flow you can ask questions like "Is spoofing possible here?", "Is tampering is possible here?" etc.
 
-Let us argue that: 
-* processes are affected by every STRIDE threat 
-* datastores suffer from the tampering, repudiation, information disclosure, and DoS threats 
-* external entities are affected by spoofing and DoS
-* flows suffer from information disclosure, tampering, and DoS.
 
-That is STRIDE-per-element approach, implemented by the base model
-(actually we have taken this from the OWASP Threat Dragon sources).
+Let us argue that: 
+
+* processes are affected by every STRIDE threat as AffectedByGenericProcessThreatAsSource tells
+(also there is AffectedByGenericProcessThreatAsTarget): 
+
+```
+EquivalentClasses(:AffectedByGenericProcessThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceProcess))
+SubClassOf(:AffectedByGenericProcessThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericProcessThreat))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericElevationOfPrivilege))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+```
+
+* datastores suffer from the tampering, repudiation, information disclosure, and DoS threats
+as AffectedByGenericDataStoreThreatAsSource tells (also there is AffectedByGenericDataStoreThreatAsTarget):
+
+```
+EquivalentClasses(: ObjectSomeValuesFrom(:isSourceOf :HasSourceDataStore))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericDataStoreThreat))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+```
+
+* external entities are affected by spoofing and DoS as AffectedByGenericExternalInteractorThreatAsSource tells
+(also there is AffectedByGenericExternalInteractorThreatAsTarget): 
+
+```
+EquivalentClasses(:AffectedByGenericExternalInteractorThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceExternalInteractor))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericExternalInteractorThreat))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+```
+
+* flows suffer from information disclosure, tampering, and DoS:
+
+```
+EquivalentClasses(:AffectedByGenericFlowThreat ObjectSomeValuesFrom(:hasEdge :Target))
+SubClassOf(:AffectedByGenericFlowThreat :ClassifiedHasEdge)
+SubClassOf(:AffectedByGenericFlowThreat ObjectSomeValuesFrom(:suggestsThreat :GenericFlowThreat))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+```
+
+That is STRIDE-per-element approach, implemented by the base model.
+Actually we have taken this from the OWASP Threat Dragon sources and from
+[Shostack, 2008](https://www.google.com/search?q=Shostack+A.+Experiences+Threat+Modeling+at+Microsoft).
 So, any item of a DFD gets a list of the STRIDE threats according its type.
 
-Keep in mind, if a target interacts with two other targets, it has double number of STRIDE threats.
+Keep in mind, if a target interacts with two other targets, it has double number of the STRIDE threats.
 For example, the DoS threat, spawned by the first remote target, can be different from spawned by the second one.
 Enumeration of threats, their proper management etc. should be implemented with an application. 
 
@@ -283,6 +337,16 @@ like Agrees*, Implements*, Contains*.
 
 ## Examples
 
+It is an example of a threat model, loaded into the Threat Dragon application,
+after it has been processed by [OdTM Server](../applications/OdTMServer/).
+(pay attention, 'process 0' has double number of threats, produced by 'flow 3' and 'flow 4'):
+
+![Dragon screenshot](td_example.png)
+
+This example shows a piece of console (debug) output of the OdTMServer application:
+
+![console of OdTMServer](odtmserver_example.png)
+
 Here is an early example of a flow, tested against a simple threat model in Protege:
 
 ![Simple example in Protege](protege_example.png)
@@ -291,7 +355,4 @@ Another example in Protege shows a flow, reasoned with the first version of the 
 
 ![CCCTMv01 in Protege](ccctm_protege.png)
 
-And this one shows a piece of console output of the [OdTM Server](../applications/OdTMServer/) application:
-
-![console of OdTMServer](odtmserver_example.png)
 

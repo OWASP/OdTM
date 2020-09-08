@@ -38,43 +38,85 @@
           },
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
-            "title" : "Generic tampering threat",
-            "description" : "A generic tampering threat",
+            "title" : "Generic tampering threat (from flow 4)",
+            "description" : "A generic tampering threat (because of flow 4)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from flow 3)",
+            "description" : "A generic tampering threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
-            "title" : "Generic repudiation threat",
-            "description" : "A generic repudiation threat",
+            "title" : "Generic repudiation threat (from flow 4)",
+            "description" : "A generic repudiation threat (because of flow 4)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from flow 3)",
+            "description" : "A generic repudiation threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
-            "title" : "Generic spoofing threat",
-            "description" : "A generic spoofing threat",
+            "title" : "Generic spoofing threat (from flow 4)",
+            "description" : "A generic spoofing threat (because of flow 4)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from flow 3)",
+            "description" : "A generic spoofing threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Spoofing"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
-            "title" : "Generic DoS threat",
-            "description" : "A generic DoS threat",
+            "title" : "Generic DoS threat (from flow 4)",
+            "description" : "A generic DoS threat (because of flow 4)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from flow 3)",
+            "description" : "A generic DoS threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
-            "title" : "Generic elevation threat",
-            "description" : "A generic elevation threat",
+            "title" : "Generic elevation threat (from flow 4)",
+            "description" : "A generic elevation threat (because of flow 4)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat (from flow 3)",
+            "description" : "A generic elevation threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Elevation of privilege"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
-            "title" : "Generic information disclosure threat",
-            "description" : "A generic information disclosure threat",
+            "title" : "Generic information disclosure threat (from flow 4)",
+            "description" : "A generic information disclosure threat (because of flow 4)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat (from flow 3)",
+            "description" : "A generic information disclosure threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
@@ -106,29 +148,29 @@
           },
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
-            "title" : "Generic tampering threat",
-            "description" : "A generic tampering threat",
+            "title" : "Generic tampering threat (from flow 4)",
+            "description" : "A generic tampering threat (because of flow 4)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
-            "title" : "Generic repudiation threat",
-            "description" : "A generic repudiation threat",
+            "title" : "Generic repudiation threat (from flow 4)",
+            "description" : "A generic repudiation threat (because of flow 4)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
-            "title" : "Generic DoS threat",
-            "description" : "A generic DoS threat",
+            "title" : "Generic DoS threat (from flow 4)",
+            "description" : "A generic DoS threat (because of flow 4)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
-            "title" : "Generic information disclosure threat",
-            "description" : "A generic information disclosure threat",
+            "title" : "Generic information disclosure threat (from flow 4)",
+            "description" : "A generic information disclosure threat (because of flow 4)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
@@ -160,15 +202,15 @@
           },
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
-            "title" : "Generic repudiation threat",
-            "description" : "A generic repudiation threat",
+            "title" : "Generic repudiation threat (from flow 3)",
+            "description" : "A generic repudiation threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
-            "title" : "Generic spoofing threat",
-            "description" : "A generic spoofing threat",
+            "title" : "Generic spoofing threat (from flow 3)",
+            "description" : "A generic spoofing threat (because of flow 3)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Spoofing"

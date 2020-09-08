@@ -106,7 +106,10 @@ public class O {
    
    }
 
-
+   public static String getShortIRI(IRI src){
+     return src.getShortForm();
+   
+   }
       
    // takes strings like ":user" or "<http://www.grsu.by/net/OdTMBaseThreatModel#agrees>"
    // and returns the IRI object
@@ -354,7 +357,41 @@ public class O {
       return ax;
    }
 
-
+   // create defined class axiom like <cls> equivalents to <prop> value <val>
+   // see http://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/model/axiomproviders/EquivalentAxiomProvider.html
+   public OWLAxiom getDefinedClassValue (OWLClass cls, OWLObjectProperty prop, OWLNamedIndividual val){
+      Set<OWLClassExpression> arguments=new HashSet<OWLClassExpression>();
+      arguments.add (cls);
+      arguments.add(df.getOWLObjectHasValue(prop, val));
+      return df.getOWLEquivalentClassesAxiom(arguments);
+   }
+   public OWLAxiom getDefinedClassValue(IRI clsName,IRI propName, IRI valName){
+      return getDefinedClassValue(df.getOWLClass(clsName),df.getOWLObjectProperty(propName),df.getOWLNamedIndividual(valName));
+   }  
+ 
+   // create defined class axiom like <cls> equivalents to <prop> some <val>
+   // see http://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/model/axiomproviders/EquivalentAxiomProvider.html
+   public OWLAxiom getDefinedClassSome (OWLClass cls, OWLObjectProperty prop, OWLClass val){
+      Set<OWLClassExpression> arguments=new HashSet<OWLClassExpression>();
+      arguments.add (cls);
+      arguments.add(df.getOWLObjectSomeValuesFrom(prop, val));
+      return df.getOWLEquivalentClassesAxiom(arguments);
+   }
+   public OWLAxiom getDefinedClassSome(IRI clsName,IRI propName, IRI valName){
+      return getDefinedClassSome(df.getOWLClass(clsName),df.getOWLObjectProperty(propName),df.getOWLClass(valName));
+   }  
+ 
+   // create defined class axiom like <cls> equivalents to <class> and <class>
+   // see http://owlcs.github.io/owlapi/apidocs_5/org/semanticweb/owlapi/model/axiomproviders/EquivalentAxiomProvider.html
+   public OWLAxiom getDefinedClassAnd (OWLClass cls, OWLClass cls1, OWLClass cls2){
+      Set<OWLClassExpression> arguments=new HashSet<OWLClassExpression>();
+      arguments.add (cls);
+      arguments.add( df.getOWLObjectIntersectionOf(cls1, cls2));
+      return df.getOWLEquivalentClassesAxiom(arguments);
+   }
+   public OWLAxiom getDefinedClassAnd(IRI clsName,IRI cls1Name, IRI cls2Name){
+      return getDefinedClassAnd(df.getOWLClass(clsName),df.getOWLClass(cls1Name),df.getOWLClass(cls2Name));
+   }  
 
 
 //////////////////////////////////////////////////////////////////////////////////////

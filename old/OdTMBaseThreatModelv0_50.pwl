@@ -1,0 +1,917 @@
+Prefix(:=<http://www.grsu.by/net/OdTMBaseThreatModel#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.grsu.by/net/OdTMBaseThreatModel>
+
+Declaration(Class(:AffectedByGenericDataStoreThreatAsSource))
+Declaration(Class(:AffectedByGenericDataStoreThreatAsTarget))
+Declaration(Class(:AffectedByGenericExternalInteractorThreatAsSource))
+Declaration(Class(:AffectedByGenericExternalInteractorThreatAsTarget))
+Declaration(Class(:AffectedByGenericFlowThreat))
+Declaration(Class(:AffectedByGenericProcessThreatAsSource))
+Declaration(Class(:AffectedByGenericProcessThreatAsTarget))
+Declaration(Class(:AgreesApplicationProtocol))
+Declaration(Class(:AgreesDNSProtocol))
+Declaration(Class(:AgreesHTTPProtocol))
+Declaration(Class(:ApplicationProtocol))
+Declaration(Class(:Boundary))
+Declaration(Class(:Classified))
+Declaration(Class(:ClassifiedFlow))
+Declaration(Class(:ClassifiedHasEdge))
+Declaration(Class(:ClassifiedIsEdge))
+Declaration(Class(:ClassifiedLabel))
+Declaration(Class(:ClassifiedTarget))
+Declaration(Class(:CommonThreat))
+Declaration(Class(:Component))
+Declaration(Class(:ContainsClientComponent))
+Declaration(Class(:ContainsDNSClientComponent))
+Declaration(Class(:ContainsDNSServerComponent))
+Declaration(Class(:ContainsHTTPClientComponent))
+Declaration(Class(:ContainsHTTPServerComponent))
+Declaration(Class(:ContainsServerComponent))
+Declaration(Class(:ContextSecurityPattern))
+Declaration(Class(:Countermeasure))
+Declaration(Class(:DNSClientComponent))
+Declaration(Class(:DNSProtocol))
+Declaration(Class(:DNSProtocolImplementation))
+Declaration(Class(:DNSServerComponent))
+Declaration(Class(:DataFlow))
+Declaration(Class(:DataLinkProtocol))
+Declaration(Class(:DataStore))
+Declaration(Class(:ExternalInteractor))
+Declaration(Class(:FlowThreat))
+Declaration(Class(:GenericDataStoreThreat))
+Declaration(Class(:GenericDenialOfServiceThreat))
+Declaration(Class(:GenericElevationOfPrivilegeThreat))
+Declaration(Class(:GenericExternalInteractorThreat))
+Declaration(Class(:GenericFlowThreat))
+Declaration(Class(:GenericInformationDisclosureThreat))
+Declaration(Class(:GenericProcessThreat))
+Declaration(Class(:GenericRepudiationThreat))
+Declaration(Class(:GenericSpoofingThreat))
+Declaration(Class(:GenericTamperingThreat))
+Declaration(Class(:GenericThreat))
+Declaration(Class(:HTTPClientComponent))
+Declaration(Class(:HTTPProtocol))
+Declaration(Class(:HTTPProtocolImplementation))
+Declaration(Class(:HTTPServerComponent))
+Declaration(Class(:HardwareComponent))
+Declaration(Class(:HasSourceDataStore))
+Declaration(Class(:HasSourceExternalInteractor))
+Declaration(Class(:HasSourceProcess))
+Declaration(Class(:HasTargetDataStore))
+Declaration(Class(:HasTargetExternalInteractor))
+Declaration(Class(:HasTargetProcess))
+Declaration(Class(:ImplementsApplicationProtocol))
+Declaration(Class(:ImplementsDNSProtocol))
+Declaration(Class(:ImplementsHTTPProtocol))
+Declaration(Class(:IsExternalFlow))
+Declaration(Class(:IsInboundFlow))
+Declaration(Class(:IsInternalFlow))
+Declaration(Class(:IsOutboundFlow))
+Declaration(Class(:LabelsAuthentication))
+Declaration(Class(:LabelsAuthorization))
+Declaration(Class(:LabelsAvailability))
+Declaration(Class(:LabelsConfidentiality))
+Declaration(Class(:LabelsDenialOfService))
+Declaration(Class(:LabelsElevationOfPrivilege))
+Declaration(Class(:LabelsInformationDisclosure))
+Declaration(Class(:LabelsIntegrity))
+Declaration(Class(:LabelsNonRepudiation))
+Declaration(Class(:LabelsRepudiation))
+Declaration(Class(:LabelsSpoofing))
+Declaration(Class(:LabelsTampering))
+Declaration(Class(:NetworkFlow))
+Declaration(Class(:NetworkProtocol))
+Declaration(Class(:PhysicalProtocol))
+Declaration(Class(:Process))
+Declaration(Class(:Protocol))
+Declaration(Class(:STRIDE))
+Declaration(Class(:SchemaInstance))
+Declaration(Class(:SecurityMetrics))
+Declaration(Class(:SecurityObjective))
+Declaration(Class(:SingleFlow))
+Declaration(Class(:SoftwareComponent))
+Declaration(Class(:Stencil))
+Declaration(Class(:Stub))
+Declaration(Class(:Target))
+Declaration(Class(:TargetThreat))
+Declaration(Class(:Threat))
+Declaration(Class(:TransportProtocol))
+Declaration(Class(:TrustBorderBoundary))
+Declaration(Class(:TrustLineBoundary))
+Declaration(ObjectProperty(:affects))
+Declaration(ObjectProperty(:agrees))
+Declaration(ObjectProperty(:contains))
+Declaration(ObjectProperty(:crosses))
+Declaration(ObjectProperty(:divides))
+Declaration(ObjectProperty(:hasEdge))
+Declaration(ObjectProperty(:hasSource))
+Declaration(ObjectProperty(:hasTarget))
+Declaration(ObjectProperty(:implements))
+Declaration(ObjectProperty(:includes))
+Declaration(ObjectProperty(:isAffectedBy))
+Declaration(ObjectProperty(:isEdgeOf))
+Declaration(ObjectProperty(:isIncluded))
+Declaration(ObjectProperty(:isMitigatedBy))
+Declaration(ObjectProperty(:isProtectedBy))
+Declaration(ObjectProperty(:isSourceOf))
+Declaration(ObjectProperty(:isTargetOf))
+Declaration(ObjectProperty(:labelsSO))
+Declaration(ObjectProperty(:labelsSTRIDE))
+Declaration(ObjectProperty(:mitigates))
+Declaration(ObjectProperty(:protects))
+Declaration(ObjectProperty(:suggests))
+Declaration(ObjectProperty(:suggestsThreat))
+Declaration(ObjectProperty(:suggestsThreatCategory))
+Declaration(DataProperty(:hasDescription))
+Declaration(DataProperty(:hasID))
+Declaration(DataProperty(:hasSeverity))
+Declaration(DataProperty(:hasTitle))
+Declaration(NamedIndividual(:SO_Authentication))
+Declaration(NamedIndividual(:SO_Authorization))
+Declaration(NamedIndividual(:SO_Availability))
+Declaration(NamedIndividual(:SO_Confidentiality))
+Declaration(NamedIndividual(:SO_Integrity))
+Declaration(NamedIndividual(:SO_NonRepudiation))
+Declaration(NamedIndividual(:STRIDE_Denial_of_Service))
+Declaration(NamedIndividual(:STRIDE_Elevation_of_Privilege))
+Declaration(NamedIndividual(:STRIDE_Information_Disclosure))
+Declaration(NamedIndividual(:STRIDE_Repudiation))
+Declaration(NamedIndividual(:STRIDE_Spoofing))
+Declaration(NamedIndividual(:STRIDE_Tampering))
+Declaration(NamedIndividual(:component_Apache2))
+Declaration(NamedIndividual(:component_Chrome))
+Declaration(NamedIndividual(:component_Firefox))
+Declaration(NamedIndividual(:component_Nginx))
+Declaration(NamedIndividual(:protocol_DNS))
+Declaration(NamedIndividual(:protocol_HTTP))
+Declaration(NamedIndividual(:threat_GenericDenialOfService))
+Declaration(NamedIndividual(:threat_GenericElevationOfPrivilege))
+Declaration(NamedIndividual(:threat_GenericInformationDisclosure))
+Declaration(NamedIndividual(:threat_GenericRepudiation))
+Declaration(NamedIndividual(:threat_GenericSpoofing))
+Declaration(NamedIndividual(:threat_GenericTampering))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :affects (:affects)
+
+AnnotationAssertion(rdfs:comment :affects "i.e. Threat affects Target or DataFlow"@en)
+InverseObjectProperties(:affects :isAffectedBy)
+
+# Object Property: :agrees (:agrees)
+
+AnnotationAssertion(rdfs:comment :agrees "i.e.  NetworkFlow agrees Protocol"@en)
+
+# Object Property: :contains (:contains)
+
+AnnotationAssertion(rdfs:comment :contains "i.e. Target contains Component"@en)
+
+# Object Property: :crosses (crosses)
+
+AnnotationAssertion(rdfs:comment :crosses "i.e. DataFlow crosses Boundary"@en)
+AnnotationAssertion(rdfs:label :crosses "crosses"@en)
+InverseObjectProperties(:crosses :divides)
+
+# Object Property: :divides (divides)
+
+AnnotationAssertion(rdfs:comment :divides "i.e. Boundary divides DataFlow"@en)
+AnnotationAssertion(rdfs:label :divides "divides"@en)
+
+# Object Property: :hasEdge (:hasEdge)
+
+AnnotationAssertion(rdfs:comment :hasEdge "i.e. DataFlow hasEdge (hasSource or hasTarget) Target"@en)
+
+# Object Property: :hasSource (:hasSource)
+
+AnnotationAssertion(rdfs:comment :hasSource "i.e. DataFlow hasSource Target"@en)
+SubObjectPropertyOf(:hasSource :hasEdge)
+InverseObjectProperties(:hasSource :isSourceOf)
+
+# Object Property: :hasTarget (:hasTarget)
+
+AnnotationAssertion(rdfs:comment :hasTarget "i.e. DataFlow hasTarget Target"@en)
+SubObjectPropertyOf(:hasTarget :hasEdge)
+InverseObjectProperties(:hasTarget :isTargetOf)
+
+# Object Property: :implements (:implements)
+
+AnnotationAssertion(rdfs:comment :implements "(i.e. Target implements Protocol)"@en)
+
+# Object Property: :includes (:includes)
+
+AnnotationAssertion(rdfs:comment :includes "i.e. TrustLineBoundary includesTarget"@en)
+InverseObjectProperties(:includes :isIncluded)
+
+# Object Property: :isAffectedBy (:isAffectedBy)
+
+AnnotationAssertion(rdfs:comment :isAffectedBy "i.e. Target or DataFlow isAffectedBy Threat"@en)
+
+# Object Property: :isEdgeOf (:isEdgeOf)
+
+AnnotationAssertion(rdfs:comment :isEdgeOf "i.e. Target isEdgeOf (isSourceOf or isTargerOf) DataFlow"@en)
+
+# Object Property: :isIncluded (:isIncluded)
+
+AnnotationAssertion(rdfs:comment :isIncluded "i.e. Target isIncluded in TrustLineBoundary"@en)
+
+# Object Property: :isMitigatedBy (:isMitigatedBy)
+
+AnnotationAssertion(rdfs:comment :isMitigatedBy "i.e. Threat isMitigatedBy Countermeasure"@en)
+InverseObjectProperties(:isMitigatedBy :mitigates)
+
+# Object Property: :isProtectedBy (:isProtectedBy)
+
+AnnotationAssertion(rdfs:comment :isProtectedBy "i.e. Target or DataFlow isProtectedBy Counterneasure"@en)
+InverseObjectProperties(:isProtectedBy :protects)
+
+# Object Property: :isSourceOf (:isSourceOf)
+
+AnnotationAssertion(rdfs:comment :isSourceOf "i.e. Target isSourceOf DataFlow"@en)
+SubObjectPropertyOf(:isSourceOf :isEdgeOf)
+
+# Object Property: :isTargetOf (:isTargetOf)
+
+AnnotationAssertion(rdfs:comment :isTargetOf "i.e. Target isSourceOf DataFlow"@en)
+SubObjectPropertyOf(:isTargetOf :isEdgeOf)
+
+# Object Property: :labelsSO (:labelsSO)
+
+AnnotationAssertion(rdfs:comment :labelsSO "i.e. Threat or Countermeasure labelsSO SecurityObjective"@en)
+
+# Object Property: :labelsSTRIDE (:labelsSTRIDE)
+
+AnnotationAssertion(rdfs:comment :labelsSTRIDE "i.e. Threat or Countermeasure labelsSTRIDE STRIDE"@en)
+
+# Object Property: :mitigates (:mitigates)
+
+AnnotationAssertion(rdfs:comment :mitigates "i.e. Countermeasure mitigates Threat"@en)
+
+# Object Property: :protects (:protects)
+
+AnnotationAssertion(rdfs:comment :protects "i.e. Countermeasure protects Target or DataFlow"@en)
+
+# Object Property: :suggests (:suggests)
+
+AnnotationAssertion(rdfs:comment :suggests "Target might contain internal component"@en)
+
+# Object Property: :suggestsThreat (:suggestsThreat)
+
+AnnotationAssertion(rdfs:comment :suggestsThreat "Target or flow might contain a threat"@en)
+
+# Object Property: :suggestsThreatCategory (:suggestsThreatCategory)
+
+AnnotationAssertion(rdfs:comment :suggestsThreatCategory "Target or flow might suggest a group of threats"@en)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :hasDescription (:hasDescription)
+
+AnnotationAssertion(rdfs:comment :hasDescription "a threat property"@en)
+
+# Data Property: :hasID (:hasID)
+
+AnnotationAssertion(rdfs:comment :hasID "a stencil property for TD json"@en)
+
+# Data Property: :hasSeverity (:hasSeverity)
+
+AnnotationAssertion(rdfs:comment :hasSeverity "a threat property"@en)
+
+# Data Property: :hasTitle (:hasTitle)
+
+AnnotationAssertion(rdfs:comment :hasTitle "a threat property"@en)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :AffectedByGenericDataStoreThreatAsSource (:AffectedByGenericDataStoreThreatAsSource)
+
+EquivalentClasses(:AffectedByGenericDataStoreThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceDataStore))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericDataStoreThreat))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericDataStoreThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AffectedByGenericDataStoreThreatAsTarget (:AffectedByGenericDataStoreThreatAsTarget)
+
+EquivalentClasses(:AffectedByGenericDataStoreThreatAsTarget ObjectSomeValuesFrom(:isTargetOf :HasTargetDataStore))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectSomeValuesFrom(:suggestsThreatCategory :GenericDataStoreThreat))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericDataStoreThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AffectedByGenericExternalInteractorThreatAsSource (:AffectedByGenericExternalInteractorThreatAsSource)
+
+EquivalentClasses(:AffectedByGenericExternalInteractorThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceExternalInteractor))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericExternalInteractorThreat))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+
+# Class: :AffectedByGenericExternalInteractorThreatAsTarget (:AffectedByGenericExternalInteractorThreatAsTarget)
+
+EquivalentClasses(:AffectedByGenericExternalInteractorThreatAsTarget ObjectSomeValuesFrom(:isTargetOf :HasTargetExternalInteractor))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget ObjectSomeValuesFrom(:suggestsThreatCategory :GenericExternalInteractorThreat))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericExternalInteractorThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+
+# Class: :AffectedByGenericFlowThreat (:AffectedByGenericFlowThreat)
+
+EquivalentClasses(:AffectedByGenericFlowThreat ObjectSomeValuesFrom(:hasEdge :Target))
+SubClassOf(:AffectedByGenericFlowThreat :ClassifiedHasEdge)
+SubClassOf(:AffectedByGenericFlowThreat ObjectSomeValuesFrom(:suggestsThreat :GenericFlowThreat))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericFlowThreat ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AffectedByGenericProcessThreatAsSource (:AffectedByGenericProcessThreatAsSource)
+
+EquivalentClasses(:AffectedByGenericProcessThreatAsSource ObjectSomeValuesFrom(:isSourceOf :HasSourceProcess))
+SubClassOf(:AffectedByGenericProcessThreatAsSource :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectSomeValuesFrom(:suggestsThreatCategory :GenericProcessThreat))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericElevationOfPrivilege))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+SubClassOf(:AffectedByGenericProcessThreatAsSource ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AffectedByGenericProcessThreatAsTarget (:AffectedByGenericProcessThreatAsTarget)
+
+EquivalentClasses(:AffectedByGenericProcessThreatAsTarget ObjectSomeValuesFrom(:isTargetOf :HasTargetProcess))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget :ClassifiedIsEdge)
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectSomeValuesFrom(:suggestsThreatCategory :GenericProcessThreat))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericDenialOfService))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericElevationOfPrivilege))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericInformationDisclosure))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericRepudiation))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericSpoofing))
+SubClassOf(:AffectedByGenericProcessThreatAsTarget ObjectHasValue(:isAffectedBy :threat_GenericTampering))
+
+# Class: :AgreesApplicationProtocol (:AgreesApplicationProtocol)
+
+EquivalentClasses(:AgreesApplicationProtocol ObjectSomeValuesFrom(:agrees :ApplicationProtocol))
+SubClassOf(:AgreesApplicationProtocol :ClassifiedFlow)
+
+# Class: :AgreesDNSProtocol (:AgreesDNSProtocol)
+
+EquivalentClasses(:AgreesDNSProtocol ObjectSomeValuesFrom(:agrees :DNSProtocol))
+SubClassOf(:AgreesDNSProtocol :ClassifiedFlow)
+
+# Class: :AgreesHTTPProtocol (:AgreesHTTPProtocol)
+
+EquivalentClasses(:AgreesHTTPProtocol ObjectSomeValuesFrom(:agrees :HTTPProtocol))
+SubClassOf(:AgreesHTTPProtocol :ClassifiedFlow)
+
+# Class: :ApplicationProtocol (:ApplicationProtocol)
+
+SubClassOf(:ApplicationProtocol :Protocol)
+
+# Class: :Boundary (:Boundary)
+
+SubClassOf(:Boundary :Stencil)
+
+# Class: :ClassifiedFlow (:ClassifiedFlow)
+
+SubClassOf(:ClassifiedFlow :Classified)
+
+# Class: :ClassifiedHasEdge (:ClassifiedHasEdge)
+
+SubClassOf(:ClassifiedHasEdge :Classified)
+
+# Class: :ClassifiedIsEdge (:ClassifiedIsEdge)
+
+SubClassOf(:ClassifiedIsEdge :Classified)
+
+# Class: :ClassifiedLabel (:ClassifiedLabel)
+
+SubClassOf(:ClassifiedLabel :Classified)
+
+# Class: :ClassifiedTarget (:ClassifiedTarget)
+
+SubClassOf(:ClassifiedTarget :Classified)
+
+# Class: :CommonThreat (:CommonThreat)
+
+SubClassOf(:CommonThreat :Threat)
+
+# Class: :ContainsClientComponent (:ContainsClientComponent)
+
+EquivalentClasses(:ContainsClientComponent ObjectSomeValuesFrom(:isSourceOf :NetworkFlow))
+SubClassOf(:ContainsClientComponent :ClassifiedIsEdge)
+
+# Class: :ContainsDNSClientComponent (:ContainsDNSClientComponent)
+
+EquivalentClasses(:ContainsDNSClientComponent ObjectSomeValuesFrom(:isSourceOf :AgreesDNSProtocol))
+SubClassOf(:ContainsDNSClientComponent :ClassifiedIsEdge)
+SubClassOf(:ContainsDNSClientComponent ObjectSomeValuesFrom(:suggests :DNSClientComponent))
+
+# Class: :ContainsDNSServerComponent (:ContainsDNSServerComponent)
+
+EquivalentClasses(:ContainsDNSServerComponent ObjectSomeValuesFrom(:isTargetOf :AgreesDNSProtocol))
+SubClassOf(:ContainsDNSServerComponent :ClassifiedIsEdge)
+SubClassOf(:ContainsDNSServerComponent ObjectSomeValuesFrom(:suggests :DNSServerComponent))
+
+# Class: :ContainsHTTPClientComponent (:ContainsHTTPClientComponent)
+
+EquivalentClasses(:ContainsHTTPClientComponent ObjectSomeValuesFrom(:isSourceOf :AgreesHTTPProtocol))
+SubClassOf(:ContainsHTTPClientComponent :ClassifiedIsEdge)
+SubClassOf(:ContainsHTTPClientComponent ObjectSomeValuesFrom(:suggests :HTTPClientComponent))
+
+# Class: :ContainsHTTPServerComponent (:ContainsHTTPServerComponent)
+
+EquivalentClasses(:ContainsHTTPServerComponent ObjectSomeValuesFrom(:isTargetOf :AgreesHTTPProtocol))
+SubClassOf(:ContainsHTTPServerComponent :ClassifiedIsEdge)
+SubClassOf(:ContainsHTTPServerComponent ObjectSomeValuesFrom(:suggests :HTTPServerComponent))
+
+# Class: :ContainsServerComponent (:ContainsServerComponent)
+
+EquivalentClasses(:ContainsServerComponent ObjectSomeValuesFrom(:isTargetOf :NetworkFlow))
+SubClassOf(:ContainsServerComponent :ClassifiedIsEdge)
+
+# Class: :ContextSecurityPattern (:ContextSecurityPattern)
+
+SubClassOf(:ContextSecurityPattern :Countermeasure)
+
+# Class: :DNSClientComponent (:DNSClientComponent)
+
+SubClassOf(:DNSClientComponent :SoftwareComponent)
+
+# Class: :DNSProtocol (:DNSProtocol)
+
+SubClassOf(:DNSProtocol :ApplicationProtocol)
+
+# Class: :DNSProtocolImplementation (:DNSProtocolImplementation)
+
+SubClassOf(:DNSProtocolImplementation :SoftwareComponent)
+
+# Class: :DNSServerComponent (:DNSServerComponent)
+
+SubClassOf(:DNSServerComponent :SoftwareComponent)
+
+# Class: :DataFlow (:DataFlow)
+
+SubClassOf(:DataFlow :Stencil)
+
+# Class: :DataLinkProtocol (:DataLinkProtocol)
+
+SubClassOf(:DataLinkProtocol :Protocol)
+
+# Class: :DataStore (:DataStore)
+
+SubClassOf(:DataStore :Target)
+
+# Class: :ExternalInteractor (:ExternalInteractor)
+
+SubClassOf(:ExternalInteractor :Target)
+
+# Class: :FlowThreat (:FlowThreat)
+
+SubClassOf(:FlowThreat :Threat)
+
+# Class: :GenericDataStoreThreat (:GenericDataStoreThreat)
+
+SubClassOf(:GenericDataStoreThreat :TargetThreat)
+
+# Class: :GenericDenialOfServiceThreat (:GenericDenialOfServiceThreat)
+
+SubClassOf(:GenericDenialOfServiceThreat :GenericDataStoreThreat)
+SubClassOf(:GenericDenialOfServiceThreat :GenericFlowThreat)
+SubClassOf(:GenericDenialOfServiceThreat :GenericProcessThreat)
+SubClassOf(:GenericDenialOfServiceThreat :GenericThreat)
+SubClassOf(:GenericDenialOfServiceThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Service))
+
+# Class: :GenericElevationOfPrivilegeThreat (:GenericElevationOfPrivilegeThreat)
+
+SubClassOf(:GenericElevationOfPrivilegeThreat :GenericProcessThreat)
+SubClassOf(:GenericElevationOfPrivilegeThreat :GenericThreat)
+SubClassOf(:GenericElevationOfPrivilegeThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Elevation_of_Privilege))
+
+# Class: :GenericExternalInteractorThreat (:GenericExternalInteractorThreat)
+
+SubClassOf(:GenericExternalInteractorThreat :TargetThreat)
+
+# Class: :GenericFlowThreat (:GenericFlowThreat)
+
+SubClassOf(:GenericFlowThreat :FlowThreat)
+
+# Class: :GenericInformationDisclosureThreat (:GenericInformationDisclosureThreat)
+
+SubClassOf(:GenericInformationDisclosureThreat :GenericDataStoreThreat)
+SubClassOf(:GenericInformationDisclosureThreat :GenericFlowThreat)
+SubClassOf(:GenericInformationDisclosureThreat :GenericProcessThreat)
+SubClassOf(:GenericInformationDisclosureThreat :GenericThreat)
+SubClassOf(:GenericInformationDisclosureThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure))
+
+# Class: :GenericProcessThreat (:GenericProcessThreat)
+
+SubClassOf(:GenericProcessThreat :TargetThreat)
+
+# Class: :GenericRepudiationThreat (:GenericRepudiationThreat)
+
+SubClassOf(:GenericRepudiationThreat :GenericDataStoreThreat)
+SubClassOf(:GenericRepudiationThreat :GenericExternalInteractorThreat)
+SubClassOf(:GenericRepudiationThreat :GenericProcessThreat)
+SubClassOf(:GenericRepudiationThreat :GenericThreat)
+SubClassOf(:GenericRepudiationThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation))
+
+# Class: :GenericSpoofingThreat (:GenericSpoofingThreat)
+
+SubClassOf(:GenericSpoofingThreat :GenericExternalInteractorThreat)
+SubClassOf(:GenericSpoofingThreat :GenericProcessThreat)
+SubClassOf(:GenericSpoofingThreat :GenericThreat)
+SubClassOf(:GenericSpoofingThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing))
+
+# Class: :GenericTamperingThreat (:GenericTamperingThreat)
+
+SubClassOf(:GenericTamperingThreat :GenericDataStoreThreat)
+SubClassOf(:GenericTamperingThreat :GenericFlowThreat)
+SubClassOf(:GenericTamperingThreat :GenericProcessThreat)
+SubClassOf(:GenericTamperingThreat :GenericThreat)
+SubClassOf(:GenericTamperingThreat ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering))
+
+# Class: :GenericThreat (:GenericThreat)
+
+SubClassOf(:GenericThreat :CommonThreat)
+
+# Class: :HTTPClientComponent (:HTTPClientComponent)
+
+SubClassOf(:HTTPClientComponent :SoftwareComponent)
+
+# Class: :HTTPProtocol (:HTTPProtocol)
+
+SubClassOf(:HTTPProtocol :ApplicationProtocol)
+
+# Class: :HTTPProtocolImplementation (:HTTPProtocolImplementation)
+
+SubClassOf(:HTTPProtocolImplementation :SoftwareComponent)
+
+# Class: :HTTPServerComponent (:HTTPServerComponent)
+
+SubClassOf(:HTTPServerComponent :SoftwareComponent)
+
+# Class: :HardwareComponent (:HardwareComponent)
+
+SubClassOf(:HardwareComponent :Component)
+
+# Class: :HasSourceDataStore (:HasSourceDataStore)
+
+EquivalentClasses(:HasSourceDataStore ObjectSomeValuesFrom(:hasSource :DataStore))
+SubClassOf(:HasSourceDataStore :ClassifiedFlow)
+
+# Class: :HasSourceExternalInteractor (:HasSourceExternalInteractor)
+
+EquivalentClasses(:HasSourceExternalInteractor ObjectSomeValuesFrom(:hasSource :ExternalInteractor))
+SubClassOf(:HasSourceExternalInteractor :ClassifiedFlow)
+
+# Class: :HasSourceProcess (:HasSourceProcess)
+
+EquivalentClasses(:HasSourceProcess ObjectSomeValuesFrom(:hasSource :Process))
+SubClassOf(:HasSourceProcess :ClassifiedFlow)
+
+# Class: :HasTargetDataStore (:HasTargetDataStore)
+
+EquivalentClasses(:HasTargetDataStore ObjectSomeValuesFrom(:hasTarget :DataStore))
+SubClassOf(:HasTargetDataStore :ClassifiedFlow)
+
+# Class: :HasTargetExternalInteractor (:HasTargetExternalInteractor)
+
+EquivalentClasses(:HasTargetExternalInteractor ObjectSomeValuesFrom(:hasTarget :ExternalInteractor))
+SubClassOf(:HasTargetExternalInteractor :ClassifiedFlow)
+
+# Class: :HasTargetProcess (:HasTargetProcess)
+
+EquivalentClasses(:HasTargetProcess ObjectSomeValuesFrom(:hasTarget :Process))
+SubClassOf(:HasTargetProcess :ClassifiedFlow)
+
+# Class: :ImplementsApplicationProtocol (:ImplementsApplicationProtocol)
+
+EquivalentClasses(:ImplementsApplicationProtocol ObjectSomeValuesFrom(:isEdgeOf :AgreesApplicationProtocol))
+SubClassOf(:ImplementsApplicationProtocol :ClassifiedIsEdge)
+
+# Class: :ImplementsDNSProtocol (:ImplementsDNSProtocol)
+
+EquivalentClasses(:ImplementsDNSProtocol ObjectSomeValuesFrom(:isEdgeOf :AgreesDNSProtocol))
+SubClassOf(:ImplementsDNSProtocol :ClassifiedIsEdge)
+SubClassOf(:ImplementsDNSProtocol ObjectSomeValuesFrom(:suggests :DNSProtocolImplementation))
+
+# Class: :ImplementsHTTPProtocol (:ImplementsHTTPProtocol)
+
+EquivalentClasses(:ImplementsHTTPProtocol ObjectSomeValuesFrom(:isEdgeOf :AgreesHTTPProtocol))
+SubClassOf(:ImplementsHTTPProtocol :ClassifiedIsEdge)
+SubClassOf(:ImplementsHTTPProtocol ObjectSomeValuesFrom(:suggests :HTTPProtocolImplementation))
+
+# Class: :IsExternalFlow (:IsExternalFlow)
+
+EquivalentClasses(:IsExternalFlow ObjectIntersectionOf(ObjectSomeValuesFrom(:hasSource :ExternalInteractor) ObjectSomeValuesFrom(:hasTarget :ExternalInteractor)))
+SubClassOf(:IsExternalFlow :ClassifiedFlow)
+
+# Class: :IsInboundFlow (:IsInboundFlow)
+
+EquivalentClasses(:IsInboundFlow ObjectIntersectionOf(ObjectSomeValuesFrom(:hasSource :ExternalInteractor) ObjectSomeValuesFrom(:hasTarget :Process)))
+SubClassOf(:IsInboundFlow :ClassifiedFlow)
+
+# Class: :IsInternalFlow (:IsInternalFlow)
+
+EquivalentClasses(:IsInternalFlow ObjectIntersectionOf(ObjectSomeValuesFrom(:hasSource :Process) ObjectSomeValuesFrom(:hasTarget :Process)))
+SubClassOf(:IsInternalFlow :ClassifiedFlow)
+
+# Class: :IsOutboundFlow (:IsOutboundFlow)
+
+EquivalentClasses(:IsOutboundFlow ObjectIntersectionOf(ObjectSomeValuesFrom(:hasSource :Process) ObjectSomeValuesFrom(:hasTarget :ExternalInteractor)))
+SubClassOf(:IsOutboundFlow :ClassifiedFlow)
+
+# Class: :LabelsAuthentication (:LabelsAuthentication)
+
+EquivalentClasses(:LabelsAuthentication ObjectHasValue(:labelsSO :SO_Authentication))
+SubClassOf(:LabelsAuthentication :ClassifiedLabel)
+SubClassOf(:LabelsAuthentication ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing))
+
+# Class: :LabelsAuthorization (:LabelsAuthorization)
+
+EquivalentClasses(:LabelsAuthorization ObjectHasValue(:labelsSO :SO_Authorization))
+SubClassOf(:LabelsAuthorization :ClassifiedLabel)
+SubClassOf(:LabelsAuthorization ObjectHasValue(:labelsSTRIDE :STRIDE_Elevation_of_Privilege))
+
+# Class: :LabelsAvailability (:LabelsAvailability)
+
+EquivalentClasses(:LabelsAvailability ObjectHasValue(:labelsSO :SO_Availability))
+SubClassOf(:LabelsAvailability :ClassifiedLabel)
+SubClassOf(:LabelsAvailability ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Service))
+
+# Class: :LabelsConfidentiality (:LabelsConfidentiality)
+
+EquivalentClasses(:LabelsConfidentiality ObjectHasValue(:labelsSO :SO_Confidentiality))
+SubClassOf(:LabelsConfidentiality :ClassifiedLabel)
+SubClassOf(:LabelsConfidentiality ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure))
+
+# Class: :LabelsDenialOfService (:LabelsDenialOfService)
+
+EquivalentClasses(:LabelsDenialOfService ObjectHasValue(:labelsSTRIDE :STRIDE_Denial_of_Service))
+SubClassOf(:LabelsDenialOfService :ClassifiedLabel)
+SubClassOf(:LabelsDenialOfService ObjectHasValue(:labelsSO :SO_Availability))
+
+# Class: :LabelsElevationOfPrivilege (:LabelsElevationOfPrivilege)
+
+EquivalentClasses(:LabelsElevationOfPrivilege ObjectHasValue(:labelsSTRIDE :STRIDE_Elevation_of_Privilege))
+SubClassOf(:LabelsElevationOfPrivilege :ClassifiedLabel)
+SubClassOf(:LabelsElevationOfPrivilege ObjectHasValue(:labelsSO :SO_Authorization))
+
+# Class: :LabelsInformationDisclosure (:LabelsInformationDisclosure)
+
+EquivalentClasses(:LabelsInformationDisclosure ObjectHasValue(:labelsSTRIDE :STRIDE_Information_Disclosure))
+SubClassOf(:LabelsInformationDisclosure :ClassifiedLabel)
+SubClassOf(:LabelsInformationDisclosure ObjectHasValue(:labelsSO :SO_Confidentiality))
+
+# Class: :LabelsIntegrity (:LabelsIntegrity)
+
+EquivalentClasses(:LabelsIntegrity ObjectHasValue(:labelsSO :SO_Integrity))
+SubClassOf(:LabelsIntegrity :ClassifiedLabel)
+SubClassOf(:LabelsIntegrity ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering))
+
+# Class: :LabelsNonRepudiation (:LabelsNonRepudiation)
+
+EquivalentClasses(:LabelsNonRepudiation ObjectHasValue(:labelsSO :SO_NonRepudiation))
+SubClassOf(:LabelsNonRepudiation :ClassifiedLabel)
+SubClassOf(:LabelsNonRepudiation ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation))
+
+# Class: :LabelsRepudiation (:LabelsRepudiation)
+
+EquivalentClasses(:LabelsRepudiation ObjectHasValue(:labelsSTRIDE :STRIDE_Repudiation))
+SubClassOf(:LabelsRepudiation :ClassifiedLabel)
+SubClassOf(:LabelsRepudiation ObjectHasValue(:labelsSO :SO_NonRepudiation))
+
+# Class: :LabelsSpoofing (:LabelsSpoofing)
+
+EquivalentClasses(:LabelsSpoofing ObjectHasValue(:labelsSTRIDE :STRIDE_Spoofing))
+SubClassOf(:LabelsSpoofing :ClassifiedLabel)
+SubClassOf(:LabelsSpoofing ObjectHasValue(:labelsSO :SO_Authentication))
+
+# Class: :LabelsTampering (:LabelsTampering)
+
+EquivalentClasses(:LabelsTampering ObjectHasValue(:labelsSTRIDE :STRIDE_Tampering))
+SubClassOf(:LabelsTampering :ClassifiedLabel)
+SubClassOf(:LabelsTampering ObjectHasValue(:labelsSO :SO_Integrity))
+
+# Class: :NetworkFlow (:NetworkFlow)
+
+SubClassOf(:NetworkFlow :DataFlow)
+
+# Class: :NetworkProtocol (:NetworkProtocol)
+
+SubClassOf(:NetworkProtocol :Protocol)
+
+# Class: :PhysicalProtocol (:PhysicalProtocol)
+
+SubClassOf(:PhysicalProtocol :Protocol)
+
+# Class: :Process (:Process)
+
+SubClassOf(:Process :Target)
+
+# Class: :STRIDE (:STRIDE)
+
+EquivalentClasses(:STRIDE ObjectOneOf(:STRIDE_Denial_of_Service :STRIDE_Elevation_of_Privilege :STRIDE_Information_Disclosure :STRIDE_Repudiation :STRIDE_Spoofing :STRIDE_Tampering))
+SubClassOf(:STRIDE :SecurityMetrics)
+
+# Class: :SecurityObjective (:SecurityObjective)
+
+EquivalentClasses(:SecurityObjective ObjectOneOf(:SO_Authentication :SO_Authorization :SO_Availability :SO_Confidentiality :SO_Integrity :SO_NonRepudiation))
+SubClassOf(:SecurityObjective :SecurityMetrics)
+
+# Class: :SingleFlow (:SingleFlow)
+
+SubClassOf(:SingleFlow :DataFlow)
+
+# Class: :SoftwareComponent (:SoftwareComponent)
+
+SubClassOf(:SoftwareComponent :Component)
+
+# Class: :Stub (:Stub)
+
+SubClassOf(:Stub :SchemaInstance)
+
+# Class: :Target (:Target)
+
+SubClassOf(:Target :Stencil)
+
+# Class: :TargetThreat (:TargetThreat)
+
+SubClassOf(:TargetThreat :Threat)
+
+# Class: :TransportProtocol (:TransportProtocol)
+
+SubClassOf(:TransportProtocol :Protocol)
+
+# Class: :TrustBorderBoundary (:TrustBorderBoundary)
+
+SubClassOf(:TrustBorderBoundary :Boundary)
+
+# Class: :TrustLineBoundary (:TrustLineBoundary)
+
+SubClassOf(:TrustLineBoundary :Boundary)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :SO_Authentication (:SO_Authentication)
+
+ClassAssertion(:SchemaInstance :SO_Authentication)
+
+# Individual: :SO_Authorization (:SO_Authorization)
+
+ClassAssertion(:SchemaInstance :SO_Authorization)
+
+# Individual: :SO_Availability (:SO_Availability)
+
+ClassAssertion(:SchemaInstance :SO_Availability)
+
+# Individual: :SO_Confidentiality (:SO_Confidentiality)
+
+ClassAssertion(:SchemaInstance :SO_Confidentiality)
+
+# Individual: :SO_Integrity (:SO_Integrity)
+
+ClassAssertion(:SchemaInstance :SO_Integrity)
+
+# Individual: :SO_NonRepudiation (:SO_NonRepudiation)
+
+ClassAssertion(:SchemaInstance :SO_NonRepudiation)
+
+# Individual: :STRIDE_Denial_of_Service (:STRIDE_Denial_of_Service)
+
+ClassAssertion(:SchemaInstance :STRIDE_Denial_of_Service)
+DataPropertyAssertion(:hasTitle :STRIDE_Denial_of_Service "Denial of service"@en)
+
+# Individual: :STRIDE_Elevation_of_Privilege (:STRIDE_Elevation_of_Privilege)
+
+ClassAssertion(:SchemaInstance :STRIDE_Elevation_of_Privilege)
+DataPropertyAssertion(:hasTitle :STRIDE_Elevation_of_Privilege "Elevation of privilege"@en)
+
+# Individual: :STRIDE_Information_Disclosure (:STRIDE_Information_Disclosure)
+
+ClassAssertion(:SchemaInstance :STRIDE_Information_Disclosure)
+DataPropertyAssertion(:hasTitle :STRIDE_Information_Disclosure "Information disclosure"@en)
+
+# Individual: :STRIDE_Repudiation (:STRIDE_Repudiation)
+
+ClassAssertion(:SchemaInstance :STRIDE_Repudiation)
+DataPropertyAssertion(:hasTitle :STRIDE_Repudiation "Repudiation"@en)
+
+# Individual: :STRIDE_Spoofing (:STRIDE_Spoofing)
+
+ClassAssertion(:SchemaInstance :STRIDE_Spoofing)
+DataPropertyAssertion(:hasTitle :STRIDE_Spoofing "Spoofing"@en)
+
+# Individual: :STRIDE_Tampering (:STRIDE_Tampering)
+
+ClassAssertion(:SchemaInstance :STRIDE_Tampering)
+DataPropertyAssertion(:hasTitle :STRIDE_Tampering "Tampering"@en)
+
+# Individual: :component_Apache2 (:component_Apache2)
+
+ClassAssertion(:HTTPServerComponent :component_Apache2)
+ClassAssertion(:SchemaInstance :component_Apache2)
+
+# Individual: :component_Chrome (:component_Chrome)
+
+ClassAssertion(:HTTPClientComponent :component_Chrome)
+ClassAssertion(:SchemaInstance :component_Chrome)
+
+# Individual: :component_Firefox (:component_Firefox)
+
+ClassAssertion(:HTTPClientComponent :component_Firefox)
+ClassAssertion(:SchemaInstance :component_Firefox)
+
+# Individual: :component_Nginx (:component_Nginx)
+
+ClassAssertion(:HTTPServerComponent :component_Nginx)
+ClassAssertion(:SchemaInstance :component_Nginx)
+
+# Individual: :protocol_DNS (:protocol_DNS)
+
+ClassAssertion(:DNSProtocol :protocol_DNS)
+ClassAssertion(:SchemaInstance :protocol_DNS)
+
+# Individual: :protocol_HTTP (:protocol_HTTP)
+
+ClassAssertion(:HTTPProtocol :protocol_HTTP)
+ClassAssertion(:SchemaInstance :protocol_HTTP)
+
+# Individual: :threat_GenericDenialOfService (:threat_GenericDenialOfService)
+
+ClassAssertion(:GenericDenialOfServiceThreat :threat_GenericDenialOfService)
+ClassAssertion(:SchemaInstance :threat_GenericDenialOfService)
+DataPropertyAssertion(:hasDescription :threat_GenericDenialOfService "A generic DoS threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericDenialOfService "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericDenialOfService "Generic DoS threat"@en)
+
+# Individual: :threat_GenericElevationOfPrivilege (:threat_GenericElevationOfPrivilege)
+
+ClassAssertion(:GenericElevationOfPrivilegeThreat :threat_GenericElevationOfPrivilege)
+ClassAssertion(:SchemaInstance :threat_GenericElevationOfPrivilege)
+ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericElevationOfPrivilege :STRIDE_Elevation_of_Privilege)
+DataPropertyAssertion(:hasDescription :threat_GenericElevationOfPrivilege "A generic elevation threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericElevationOfPrivilege "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericElevationOfPrivilege "Generic elevation threat"@en)
+
+# Individual: :threat_GenericInformationDisclosure (:threat_GenericInformationDisclosure)
+
+ClassAssertion(:GenericInformationDisclosureThreat :threat_GenericInformationDisclosure)
+ClassAssertion(:SchemaInstance :threat_GenericInformationDisclosure)
+ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericInformationDisclosure :STRIDE_Information_Disclosure)
+DataPropertyAssertion(:hasDescription :threat_GenericInformationDisclosure "A generic information disclosure threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericInformationDisclosure "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericInformationDisclosure "Generic information disclosure threat"@en)
+
+# Individual: :threat_GenericRepudiation (:threat_GenericRepudiation)
+
+ClassAssertion(:GenericRepudiationThreat :threat_GenericRepudiation)
+ClassAssertion(:SchemaInstance :threat_GenericRepudiation)
+ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericRepudiation :STRIDE_Repudiation)
+DataPropertyAssertion(:hasDescription :threat_GenericRepudiation "A generic repudiation threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericRepudiation "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericRepudiation "Generic repudiation threat"@en)
+
+# Individual: :threat_GenericSpoofing (:threat_GenericSpoofing)
+
+ClassAssertion(:GenericSpoofingThreat :threat_GenericSpoofing)
+ClassAssertion(:SchemaInstance :threat_GenericSpoofing)
+ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericSpoofing :STRIDE_Spoofing)
+DataPropertyAssertion(:hasDescription :threat_GenericSpoofing "A generic spoofing threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericSpoofing "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericSpoofing "Generic spoofing threat"@en)
+
+# Individual: :threat_GenericTampering (:threat_GenericTampering)
+
+ClassAssertion(:GenericTamperingThreat :threat_GenericTampering)
+ClassAssertion(:SchemaInstance :threat_GenericTampering)
+ObjectPropertyAssertion(:labelsSTRIDE :threat_GenericTampering :STRIDE_Tampering)
+DataPropertyAssertion(:hasDescription :threat_GenericTampering "A generic tampering threat"@en)
+DataPropertyAssertion(:hasSeverity :threat_GenericTampering "Medium"@en)
+DataPropertyAssertion(:hasTitle :threat_GenericTampering "Generic tampering threat"@en)
+
+
+SubObjectPropertyOf(ObjectPropertyChain(:isEdgeOf :agrees) :implements)
+)
