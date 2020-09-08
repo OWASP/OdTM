@@ -265,21 +265,23 @@ public class ThreatModeller extends OManager {
                   OWLAxiom hasEdgeValue = model.getDefinedClassValue(HasEdgeValueClass, IRI.create(HasEdgeProperty),nameIRI);
                   model.addAxiom(hasEdgeValue);
                   // isAffectedBy value tmp(threat) - ask the diagram's model 
-                  IRI IsAffectedByValueClass = IRI.create(model.getDefaultPrefix()+"IsAffectedByValue"+shortIRI);
-                  OWLAxiom isAffectedByValue = model.getDefinedClassValue(IsAffectedByValueClass, IRI.create(IsAffectedByProperty),tmp.getIRI());
-                  model.addAxiom(isAffectedByValue);
+                  //IRI IsAffectedByValueClass = IRI.create(model.getDefaultPrefix()+"IsAffectedByValue"+shortIRI);
+                  //OWLAxiom isAffectedByValue = model.getDefinedClassValue(IsAffectedByValueClass, IRI.create(IsAffectedByProperty),tmp.getIRI());
+                  //model.addAxiom(isAffectedByValue);
                   // hasEdge some IsAffectedByValueClass 
-                  IRI HasEdgeSomeClass = IRI.create(model.getDefaultPrefix()+"hasEdgeSome"+O.getShortIRI(IsAffectedByValueClass));
-                  OWLAxiom hasEdgeSome = model.getDefinedClassSome(HasEdgeSomeClass, IRI.create(HasEdgeProperty),IsAffectedByValueClass);
-                  model.addAxiom(hasEdgeSome);
+                  //IRI HasEdgeSomeClass = IRI.create(model.getDefaultPrefix()+"hasEdgeSome"+O.getShortIRI(IsAffectedByValueClass));
+                  //OWLAxiom hasEdgeSome = model.getDefinedClassSome(HasEdgeSomeClass, IRI.create(HasEdgeProperty),IsAffectedByValueClass);
+                  //model.addAxiom(hasEdgeSome);
                   // (hasEdge value nameIRI(target))=HasEdgeValueClass and HasEdgeSomeClass=(hasEdge some (isAffectedBy value tmp(threat)))
-                  IRI AndClass = IRI.create(model.getDefaultPrefix()+O.getShortIRI(HasEdgeValueClass)+"AND"+O.getShortIRI(HasEdgeSomeClass));
-                  OWLAxiom andClassAxiom = model.getDefinedClassAnd(AndClass, HasEdgeValueClass,HasEdgeSomeClass);
-                  model.addAxiom(andClassAxiom);
+                  //IRI AndClass = IRI.create(model.getDefaultPrefix()+O.getShortIRI(HasEdgeValueClass)+"AND"+O.getShortIRI(HasEdgeSomeClass));
+                  //OWLAxiom andClassAxiom = model.getDefinedClassAnd(AndClass, HasEdgeValueClass,HasEdgeSomeClass);
+                  //model.addAxiom(andClassAxiom);
                   
-                  model.flush();
-                  
-                  List<OWLNamedIndividual> flows = model.getReasonerInstances(AndClass).collect(Collectors.toList());
+                  model.flush(); // dinamically reason the model
+                 
+                  // get list of reasons (i.e. flows) 
+                  List<OWLNamedIndividual> flows = model.getReasonerInstances(HasEdgeValueClass).collect(Collectors.toList());
+                  //List<OWLNamedIndividual> flows = model.getReasonerObjectPropertyValues(nameIRI,IRI.create(IsEdgeOfProperty)).collect(Collectors.toList());
                   for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
                      OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
                      String reasonText = model.getSearcherDataPropertyValue(flow.getIRI(), IRI.create(HasTextProperty));
