@@ -19,9 +19,7 @@ import java.time.Instant;
 import java.util.logging.*;
 import ab.base.*;
 
-// to load base model & domain models according properties file
-// to init modeller with base model and given domain model - fillModeller(*,*)
-//                                 or with base model only - fillModeller(*)             
+// to load base model & domain models according properties file           
 public class ModelManager extends OManager{
    private static final Logger LOGGER = Logger.getLogger(LManager.class.getName());
     
@@ -30,58 +28,64 @@ public class ModelManager extends OManager{
    // list of domain models
    ArrayList<OWLOntology> domainModels;
     
-   // init it from a properties file
-   // properties are like: 
-   //    MODELS_FOLDER: /home/net/gitprojects/OdTM_data/models/
-   //    BASEMODEL: OdTMBaseThreatModel.owl
-   //    DOMAINMODELS: OdTMCCCTM.owl, SecurityPatternCatalogNaiveSchema.owl.
+   // init all the models according properties
+   // takes the base model from file 
+   //    (object: baseModel, prop: 'BASEMODEL: /path/to/it/OdTMBaseThreatModel.owl'
+   // takes extra models from file:
+   //    (ArrayList domainModels, prop: 'MODELS: /path/to/it/OdTMCCCTM.owl, /path/to/it/SecurityPatternCatalogNaiveSchema.owl'
    public boolean init(PManager conf){
       domainModels = new ArrayList<OWLOntology>();
       
-      String folder = conf.get("MODELS_FOLDER");
-      if (folder == null){
-         LOGGER.severe("could not get MODELS_FOLDER from properties");
-         return false; 
-      }
-
       String basemodelname = conf.get("BASEMODEL");
       if (basemodelname == null){
          LOGGER.severe("could not get BASEMODEL from properties");
          return false; 
       }
 
-      String lst[] = conf.getAsArray("DOMAINMODELS");
-      if (lst == null) {
-         LOGGER.severe("could not get DOMAINMODELS from properties");
-         return false; 
-      }
-
-      baseModel = loadFromFile(folder+basemodelname);
+      baseModel = loadFromFile(basemodelname);
       if (baseModel == null) {
          LOGGER.severe("failed to init base model");
          return false; 
       }
-      LOGGER.info ("got base model "+folder+basemodelname);
+      LOGGER.info ("got base model "+basemodelname);
 
-      for (int i=0;i<lst.length;i++){
-         OWLOntology m = loadFromFile(folder+lst[i]);
-         if (m != null){
-             domainModels.add(m);
-             LOGGER.info ("got domain model "+folder+lst[i]);
-         } else {
-             LOGGER.severe ("failed to process "+folder+lst[i]);
-         }
+      String lst[] = conf.getAsArray("MODELS");
+      if (lst != null) {
+        // get extra models
+        for (int i=0;i<lst.length;i++){
+           OWLOntology m = loadFromFile(lst[i]);
+           if (m != null){
+              domainModels.add(m);
+              LOGGER.info ("got domain model "+lst[i]);
+           } else {
+              LOGGER.severe ("failed to process "+lst[i]);
+           }
+        }
+        if (domainModels.size()==0){
+           LOGGER.severe ("found no domain models");
+           return false;
+        }
+        
+      } else {
+         LOGGER.info("could not get MODELS from properties, uses the base model only");
       }
-      
-      if (domainModels.size()==0){
-         LOGGER.severe ("found no domain models");
-         return false;
-      }
-      
+
       return true;
    };
    
-   // imports - IRI of a domain model or null
+   public ThreatModeller createModellerNew(String domainModelIRI, String classModelIRI){
+       ThreatModeller modeller = new ThreatModeller();
+       if (modeller.init(baseModel,domainModels,domainModelIRI,classModelIRI)) {
+          return modeller;
+       } else{
+          LOGGER.severe("could not init modeller");
+          return null;
+       }
+   }   
+   
+   // creates the ThreatModeller object 
+   //   -with base model and domain model only (imports=<IRI of a domain model>)
+   //   -with base moedel as domain model (imports=null)
    public ThreatModeller createModeller(String imports){
        ThreatModeller modeller = new ThreatModeller();
        boolean res;
@@ -101,10 +105,9 @@ public class ModelManager extends OManager{
        return modeller;
    }
    
-   
    // fill modeller with base and domain models
    // needs a modeller instance & iri of domain model
-   public boolean fillModeller(ThreatModeller modeller,String iri){
+   protected boolean fillModeller(ThreatModeller modeller,String iri){
       
       OWLOntology tmp = getModel(iri);
       if (tmp == null){
@@ -121,7 +124,7 @@ public class ModelManager extends OManager{
    
    // fill modeller with base model as domain model
    // needs a modeller instance
-   public boolean fillModeller(ThreatModeller modeller){
+   protected boolean fillModeller(ThreatModeller modeller){
       if (!modeller.init(null,baseModel)){
          LOGGER.severe ("unable to get base model");      
          return false;

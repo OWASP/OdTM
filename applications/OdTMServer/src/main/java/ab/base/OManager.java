@@ -14,6 +14,8 @@ import org.semanticweb.owlapi.model.parameters.*;
 import org.semanticweb.owlapi.model.providers.*;
 import org.semanticweb.owlapi.util.mansyntax.*;
 import org.semanticweb.owlapi.expression.*;
+import org.semanticweb.owlapi.rdf.rdfxml.renderer.OWLOntologyXMLNamespaceManager;
+import org.semanticweb.owlapi.formats.PrefixDocumentFormatImpl;
 import java.io.*;
 import java.util.*;
 import java.util.stream.*;
@@ -218,7 +220,6 @@ public class OManager{
       man.applyChange(new AddImport(o, importDeclaration));
    }
  
-
 }
 
 

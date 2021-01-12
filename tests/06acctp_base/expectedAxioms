@@ -1,0 +1,34 @@
+
+ClassAssertion(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :webapp)
+ClassAssertion(<http://www.grsu.by/net/ACCTP/common#RemoteUser> :user)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :user <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :user <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation>)
+
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure>)
+
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :user <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :user <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> :webapp <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>)
+
+ClassAssertion(:HasSourceRemoteUser :flow)
+ClassAssertion(:HasTargetCloudApplication :flow)
+ClassAssertion(:HasSourceRemoteUserAndHasTargetCloudApplication :flow)
+
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow1 <http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow1 <http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService>)
+-ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow <http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService>)
+-ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow <http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService>)
+
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication>)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>)
+-ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow1 <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>)
+-ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow1 <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication>)
+-ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> :flow1 <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>)

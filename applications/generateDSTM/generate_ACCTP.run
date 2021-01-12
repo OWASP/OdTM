@@ -1,0 +1,8 @@
+#!/bin/bash
+
+CONF="../generateDSTM/generate_ACCTP.properties"
+APP="../OdTMServer"
+
+cd $APP
+
+mvn -e exec:java -q -Dexec.mainClass="ab.run.generateDSTM" -Dexec.args="$CONF"

@@ -94,7 +94,9 @@ public class TManager extends OManager{
          return false;
       }
             
-      reason(bmodel.get());
+      //reason(bmodel.get());
+      bmodel.flush();
+      //saveToFile(bmodel.get(),"../../tmp.owl");
       
       if (checkAxioms()==false){
          LOGGER.severe("could not check all the axioms.");
@@ -137,7 +139,7 @@ public class TManager extends OManager{
          OWLAxiom ax=model.simpleStringToAxiom(removePrefix(src));
          if (ax!=null){
             b++;
-            boolean isAxiom = model.containsAxiom(ax); 
+            boolean isAxiom = model.containsAxiom1(ax); 
             if ( (isPresent && isAxiom ) || ( (!isPresent) && (!isAxiom) ) ){
                //System.out.println(">>> AXIOM PASSED: " +src);
                c++;

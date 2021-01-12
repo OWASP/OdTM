@@ -1,0 +1,29 @@
+#
+#  (RemoteUser)                 (CloudApplication)      (CloudApplication)
+#  (ExternalInteractor)         (Process)               (Process)
+#              user -----------> webapp <--------------- webapp1
+#                       flow               flow1
+#                   (NetworkFlow)       (NetworkFlow)
+#                   (hasSource user)    (hasSource webapp1)
+#                   (hasTarget webapp)  (hasTarget webapp)
+#
+#Import(<http://www.grsu.by/net/OdTMBaseThreatModel>)
+#Import(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema>)
+#Import(<http://www.grsu.by/net/ACCTP/common>)
+#Import(<http://www.grsu.by/net/ACCTP>)
+#Ontology(<http://www.grsu.by/net/OdTMACCTP>
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :flow)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :webapp)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor> :user)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :flow :user)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :flow :webapp)
+ClassAssertion(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :webapp)
+ClassAssertion(<http://www.grsu.by/net/ACCTP/common#RemoteUser> :user)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow> :flow1)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :webapp1)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :flow1 :webapp1)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :flow1 :webapp)
+ClassAssertion(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :webapp1)
+

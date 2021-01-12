@@ -160,7 +160,10 @@ SubClassOf(
 )
 ```
 
-Pay attention, a such threat instance, taken from the base model, is common for every affected entity of a semantic interpretation.
+Note, to figure out, what flow causes the threat, we propose to use the 'isAffectedByTargets' property,
+which maps classes like 'HasTargetProcess' and 'HasSourceProcess' to the threat instances.
+
+Also, pay attention, a such threat instance, taken from the base model, is common for every affected entity of a semantic interpretation.
 This does not allow to distinct threats, for example, for applying entity-dependent mitigations to a specific threat.  
 To 'personalize' the reasoning results, you should create an instance of the threat class for each affected entity.
 
@@ -334,25 +337,5 @@ The similar way we can define different application protocols, like HTTP:
 You can add different threats and their suggestions to defined classes 
 like Agrees*, Implements*, Contains*. 
 
-
-## Examples
-
-It is an example of a threat model, loaded into the Threat Dragon application,
-after it has been processed by [OdTM Server](../applications/OdTMServer/).
-(pay attention, 'process 0' has double number of threats, produced by 'flow 3' and 'flow 4'):
-
-![Dragon screenshot](td_example.png)
-
-This example shows a piece of console (debug) output of the OdTMServer application:
-
-![console of OdTMServer](odtmserver_example.png)
-
-Here is an early example of a flow, tested against a simple threat model in Protege:
-
-![Simple example in Protege](protege_example.png)
-
-Another example in Protege shows a flow, reasoned with the first version of the cloud model:
-
-![CCCTMv01 in Protege](ccctm_protege.png)
 
 

@@ -33,12 +33,17 @@ public class JacksonParser{
    // JSON document as a tree
    protected JsonNode document; 
 
-
    public JacksonParser (){
       parserName = getClass().getName();
       mapper =  new ObjectMapper();
       jFactory = mapper.getJsonFactory();
       mapper.enable(SerializationFeature.INDENT_OUTPUT);
+   }
+ 
+   // init a new tree from scratch
+   public boolean init(){
+	   document = createEmptyNode();
+	   return true;
    }
 
    // give absolute path to data file 
@@ -61,14 +66,49 @@ public class JacksonParser{
       return true;
    }
 
+////////////////////////////////////////////////////////////////////////
+// get something
+////////////////////////////////////////////////////////////////////////
+
    public String getParserName(){
       return parserName;
    }
+
+   public ObjectMapper getMapper(){
+	  return mapper;
+   }
+
+   public JsonNode getDocument(){
+	   return document;
+   }
+
+////////////////////////////////////////////////////////////////////////
+// nodes manipulation
+////////////////////////////////////////////////////////////////////////
+
+   public JsonNode createEmptyNode(){
+	   return mapper.createObjectNode();
+   }
+
+   public boolean put(JsonNode node, String name, String value){
+	   if ( (node !=null) && (name != null) && (value != null) ){
+		   ((ObjectNode)node).put(name, value);
+		   return true;
+	   }
+	   LOGGER.severe("failed to put"); 
+	   return false;
+   }
+
+
+////////////////////////////////////////////////////////////////////////
+// save something
+////////////////////////////////////////////////////////////////////////
 
    // save the document instance to a given file
    public boolean saveToFile(String fileName){
       try{
          mapper.writeValue(new File(fileName), document); 
+         LOGGER.info("wrote "+fileName);
       } catch (Exception e){
          e.printStackTrace();
          LOGGER.severe("failed to save file " +fileName);

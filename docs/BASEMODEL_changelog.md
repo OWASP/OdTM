@@ -1,6 +1,12 @@
 
 # Changelog of Base Threat Model
 
+## Version 0.55 (February 2021)
+
+* added the 'isAffectedByTargets' property
+* added hand made reasons of the STRIDE threats for targets
+* a bit of integration with the security pattern (SP) schema 
+
 ## Version 0.50 (August 2020)
 
 * added a classification approach based on the 'ClassifiedXXX' classes

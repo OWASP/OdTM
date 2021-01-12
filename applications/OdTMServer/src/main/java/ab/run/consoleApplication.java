@@ -25,17 +25,21 @@ class consoleApplication {
        if (conf.init(args[0])) {
           ModelManager manager = new ModelManager();
           if (manager.init(conf)){
-            
+
+            // class model IRI
+            String classModel = conf.get("CLASSMODELIRI");
+            // domain model IRI
+            String domainModel = conf.get("DOMAINMODELIRI");
+
             // console application can be run with the Threat Dragon model   
             String tdFile = conf.get("TDFILE");
-            String tdFileImport = conf.get("TDIRI");
             String tdFileOut = conf.get("TDOUT");
             
             if ( (tdFile != null) && (tdFileOut != null) ){
                // process the Threat Dragon model
                ThreatDragonManager parser = new ThreatDragonManager();
-               if (parser.init(tdFile,manager,tdFileImport,tdFileOut)){
-                  parser.process();
+               if (parser.init(tdFile,manager)){
+                  parser.process(domainModel,classModel,tdFileOut);
                } else{
                   LOGGER.severe("could not init TD model"+ tdFile);
                }
@@ -44,20 +48,11 @@ class consoleApplication {
                
                // trying to run the console application against a particular case
                String caseName = conf.get("CASE");
-               String caseImport = conf.get("CASEIRI");
 
                if (caseName !=null){                                    ///
-                  ThreatModeller modeller = new ThreatModeller();
-                  boolean res;
-                  if (caseImport !=null){
-                     // apply both base model & domain model
-                     res = manager.fillModeller(modeller,caseImport);
-                  }else{
-                     // apply base model as domain model
-                     res = manager.fillModeller(modeller);
-                  }
+                  ThreatModeller modeller = manager.createModeller(domainModel);
                
-                  if (res){
+                  if (modeller !=null){
                      modeller.createWorkModelFromFile(caseName);                     
                      modeller.analyseWithAIEd();
                                     

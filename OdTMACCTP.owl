@@ -1,0 +1,178 @@
+Prefix(:=<http://www.grsu.by/net/OdTMACCTP#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.grsu.by/net/OdTMACCTP>
+Import(<http://www.grsu.by/net/ACCTP>)
+Import(<http://www.grsu.by/net/OdTMBaseThreatModel>)
+
+Declaration(Class(:CloudApplicationAndIsSourceOfHasTargetCloudApplication))
+Declaration(Class(:CloudApplicationAndIsSourceOfHasTargetExternalService))
+Declaration(Class(:CloudApplicationAndIsTargetOfHasSourceCloudApplication))
+Declaration(Class(:CloudApplicationAndIsTargetOfHasSourceExternalService))
+Declaration(Class(:CloudApplicationAndIsTargetOfHasSourceRemoteUser))
+Declaration(Class(:ExternalServiceAndIsSourceOfHasTargetCloudApplication))
+Declaration(Class(:HasSourceCloudApplication))
+Declaration(Class(:HasSourceCloudApplicationAndHasTargetCloudApplication))
+Declaration(Class(:HasSourceCloudApplicationAndHasTargetExternalService))
+Declaration(Class(:HasSourceExternalService))
+Declaration(Class(:HasSourceExternalServiceAndHasTargetCloudApplication))
+Declaration(Class(:HasSourceRemoteUser))
+Declaration(Class(:HasSourceRemoteUserAndHasTargetCloudApplication))
+Declaration(Class(:HasTargetCloudApplication))
+Declaration(Class(:HasTargetExternalService))
+Declaration(Class(:IsSourceOfHasTargetCloudApplication))
+Declaration(Class(:IsSourceOfHasTargetExternalService))
+Declaration(Class(:IsTargetOfHasSourceCloudApplication))
+Declaration(Class(:IsTargetOfHasSourceExternalService))
+Declaration(Class(:IsTargetOfHasSourceRemoteUser))
+Declaration(Class(:RemoteUserAndIsSourceOfHasTargetCloudApplication))
+
+############################
+#   Classes
+############################
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsSourceOfHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsSourceOfHasTargetCloudApplication>)
+
+EquivalentClasses(:CloudApplicationAndIsSourceOfHasTargetCloudApplication ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :IsSourceOfHasTargetCloudApplication))
+SubClassOf(:CloudApplicationAndIsSourceOfHasTargetCloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:CloudApplicationAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsSourceOfHasTargetExternalService> (<http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsSourceOfHasTargetExternalService>)
+
+EquivalentClasses(:CloudApplicationAndIsSourceOfHasTargetExternalService ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :IsSourceOfHasTargetExternalService))
+SubClassOf(:CloudApplicationAndIsSourceOfHasTargetExternalService <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:CloudApplicationAndIsSourceOfHasTargetExternalService ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService>))
+SubClassOf(:CloudApplicationAndIsSourceOfHasTargetExternalService ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsTargetOfHasSourceCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsTargetOfHasSourceCloudApplication>)
+
+EquivalentClasses(:CloudApplicationAndIsTargetOfHasSourceCloudApplication ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :IsTargetOfHasSourceCloudApplication))
+SubClassOf(:CloudApplicationAndIsTargetOfHasSourceCloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:CloudApplicationAndIsTargetOfHasSourceCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsTargetOfHasSourceExternalService> (<http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsTargetOfHasSourceExternalService>)
+
+EquivalentClasses(:CloudApplicationAndIsTargetOfHasSourceExternalService ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :IsTargetOfHasSourceExternalService))
+SubClassOf(:CloudApplicationAndIsTargetOfHasSourceExternalService <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:CloudApplicationAndIsTargetOfHasSourceExternalService ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsTargetOfHasSourceRemoteUser> (<http://www.grsu.by/net/OdTMACCTP#CloudApplicationAndIsTargetOfHasSourceRemoteUser>)
+
+EquivalentClasses(:CloudApplicationAndIsTargetOfHasSourceRemoteUser ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#CloudApplication> :IsTargetOfHasSourceRemoteUser))
+SubClassOf(:CloudApplicationAndIsTargetOfHasSourceRemoteUser <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:CloudApplicationAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#ExternalServiceAndIsSourceOfHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#ExternalServiceAndIsSourceOfHasTargetCloudApplication>)
+
+EquivalentClasses(:ExternalServiceAndIsSourceOfHasTargetCloudApplication ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#ExternalService> :IsSourceOfHasTargetCloudApplication))
+SubClassOf(:ExternalServiceAndIsSourceOfHasTargetCloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:ExternalServiceAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#HasSourceCloudApplication>)
+
+EquivalentClasses(:HasSourceCloudApplication ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> <http://www.grsu.by/net/ACCTP/common#CloudApplication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceCloudApplicationAndHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#HasSourceCloudApplicationAndHasTargetCloudApplication>)
+
+EquivalentClasses(:HasSourceCloudApplicationAndHasTargetCloudApplication ObjectIntersectionOf(:HasSourceCloudApplication :HasTargetCloudApplication))
+SubClassOf(:HasSourceCloudApplicationAndHasTargetCloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
+SubClassOf(:HasSourceCloudApplicationAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>))
+SubClassOf(:HasSourceCloudApplicationAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceCloudApplicationAndHasTargetExternalService> (<http://www.grsu.by/net/OdTMACCTP#HasSourceCloudApplicationAndHasTargetExternalService>)
+
+EquivalentClasses(:HasSourceCloudApplicationAndHasTargetExternalService ObjectIntersectionOf(:HasSourceCloudApplication :HasTargetExternalService))
+SubClassOf(:HasSourceCloudApplicationAndHasTargetExternalService <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
+SubClassOf(:HasSourceCloudApplicationAndHasTargetExternalService ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService>))
+SubClassOf(:HasSourceCloudApplicationAndHasTargetExternalService ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceExternalService> (<http://www.grsu.by/net/OdTMACCTP#HasSourceExternalService>)
+
+EquivalentClasses(:HasSourceExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> <http://www.grsu.by/net/ACCTP/common#ExternalService>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceExternalServiceAndHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#HasSourceExternalServiceAndHasTargetCloudApplication>)
+
+EquivalentClasses(:HasSourceExternalServiceAndHasTargetCloudApplication ObjectIntersectionOf(:HasSourceExternalService :HasTargetCloudApplication))
+SubClassOf(:HasSourceExternalServiceAndHasTargetCloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
+SubClassOf(:HasSourceExternalServiceAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>))
+SubClassOf(:HasSourceExternalServiceAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUser> (<http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUser>)
+
+EquivalentClasses(:HasSourceRemoteUser ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> <http://www.grsu.by/net/ACCTP/common#RemoteUser>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetCloudApplication>)
+
+EquivalentClasses(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectIntersectionOf(:HasSourceRemoteUser :HasTargetCloudApplication))
+SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
+SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>))
+SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication>))
+SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets> <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#HasTargetCloudApplication>)
+
+EquivalentClasses(:HasTargetCloudApplication ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#CloudApplication>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetExternalService> (<http://www.grsu.by/net/OdTMACCTP#HasTargetExternalService>)
+
+EquivalentClasses(:HasTargetExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#ExternalService>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetCloudApplication>)
+
+EquivalentClasses(:IsSourceOfHasTargetCloudApplication ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf> :HasTargetCloudApplication))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetExternalService> (<http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetExternalService>)
+
+EquivalentClasses(:IsSourceOfHasTargetExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf> :HasTargetExternalService))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceCloudApplication>)
+
+EquivalentClasses(:IsTargetOfHasSourceCloudApplication ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> :HasSourceCloudApplication))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceExternalService> (<http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceExternalService>)
+
+EquivalentClasses(:IsTargetOfHasSourceExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> :HasSourceExternalService))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceRemoteUser> (<http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceRemoteUser>)
+
+EquivalentClasses(:IsTargetOfHasSourceRemoteUser ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> :HasSourceRemoteUser))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#RemoteUserAndIsSourceOfHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#RemoteUserAndIsSourceOfHasTargetCloudApplication>)
+
+EquivalentClasses(:RemoteUserAndIsSourceOfHasTargetCloudApplication ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#RemoteUser> :IsSourceOfHasTargetCloudApplication))
+SubClassOf(:RemoteUserAndIsSourceOfHasTargetCloudApplication <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:RemoteUserAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>))
+SubClassOf(:RemoteUserAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication>))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService> (AA01 Failure Of Remote Service)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService> (AA02 Connection Lost To Remote Service)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication> (AB01 Failure Of Cloud Application)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication> (AC01 Malware From Cloud Application)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication> (AD01 Broken Authentication)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication>)
+
+
+)

@@ -116,6 +116,7 @@ Declaration(ObjectProperty(:hasTarget))
 Declaration(ObjectProperty(:implements))
 Declaration(ObjectProperty(:includes))
 Declaration(ObjectProperty(:isAffectedBy))
+Declaration(ObjectProperty(:isAffectedByTargets))
 Declaration(ObjectProperty(:isEdgeOf))
 Declaration(ObjectProperty(:isIncluded))
 Declaration(ObjectProperty(:isMitigatedBy))
@@ -129,6 +130,7 @@ Declaration(ObjectProperty(:protects))
 Declaration(ObjectProperty(:suggests))
 Declaration(ObjectProperty(:suggestsThreat))
 Declaration(ObjectProperty(:suggestsThreatCategory))
+Declaration(ObjectProperty(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE>))
 Declaration(DataProperty(:hasDescription))
 Declaration(DataProperty(:hasID))
 Declaration(DataProperty(:hasSeverity))
@@ -157,6 +159,12 @@ Declaration(NamedIndividual(:threat_GenericInformationDisclosure))
 Declaration(NamedIndividual(:threat_GenericRepudiation))
 Declaration(NamedIndividual(:threat_GenericSpoofing))
 Declaration(NamedIndividual(:threat_GenericTampering))
+Declaration(NamedIndividual(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Denial_of_Service>))
+Declaration(NamedIndividual(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Elevation_of_Privilege>))
+Declaration(NamedIndividual(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Information_Disclosure>))
+Declaration(NamedIndividual(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Repudiation>))
+Declaration(NamedIndividual(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Spoofing>))
+Declaration(NamedIndividual(<http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Tampering>))
 
 ############################
 #   Object Properties
@@ -215,6 +223,10 @@ InverseObjectProperties(:includes :isIncluded)
 
 AnnotationAssertion(rdfs:comment :isAffectedBy "i.e. Target or DataFlow isAffectedBy Threat"@en)
 
+# Object Property: :isAffectedByTargets (:isAffectedByTargets)
+
+AnnotationAssertion(rdfs:comment :isAffectedByTargets "Flow is affected by a threat through its edges."@en)
+
 # Object Property: :isEdgeOf (:isEdgeOf)
 
 AnnotationAssertion(rdfs:comment :isEdgeOf "i.e. Target isEdgeOf (isSourceOf or isTargerOf) DataFlow"@en)
@@ -250,6 +262,7 @@ AnnotationAssertion(rdfs:comment :labelsSO "i.e. Threat or Countermeasure labels
 # Object Property: :labelsSTRIDE (:labelsSTRIDE)
 
 AnnotationAssertion(rdfs:comment :labelsSTRIDE "i.e. Threat or Countermeasure labelsSTRIDE STRIDE"@en)
+EquivalentObjectProperties(:labelsSTRIDE <http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE>)
 
 # Object Property: :mitigates (:mitigates)
 
@@ -577,31 +590,53 @@ SubClassOf(:HardwareComponent :Component)
 
 EquivalentClasses(:HasSourceDataStore ObjectSomeValuesFrom(:hasSource :DataStore))
 SubClassOf(:HasSourceDataStore :ClassifiedFlow)
+SubClassOf(:HasSourceDataStore ObjectHasValue(:isAffectedByTargets :threat_GenericDenialOfService))
+SubClassOf(:HasSourceDataStore ObjectHasValue(:isAffectedByTargets :threat_GenericInformationDisclosure))
+SubClassOf(:HasSourceDataStore ObjectHasValue(:isAffectedByTargets :threat_GenericTampering))
 
 # Class: :HasSourceExternalInteractor (:HasSourceExternalInteractor)
 
 EquivalentClasses(:HasSourceExternalInteractor ObjectSomeValuesFrom(:hasSource :ExternalInteractor))
 SubClassOf(:HasSourceExternalInteractor :ClassifiedFlow)
+SubClassOf(:HasSourceExternalInteractor ObjectHasValue(:isAffectedByTargets :threat_GenericRepudiation))
+SubClassOf(:HasSourceExternalInteractor ObjectHasValue(:isAffectedByTargets :threat_GenericSpoofing))
 
 # Class: :HasSourceProcess (:HasSourceProcess)
 
 EquivalentClasses(:HasSourceProcess ObjectSomeValuesFrom(:hasSource :Process))
 SubClassOf(:HasSourceProcess :ClassifiedFlow)
+SubClassOf(:HasSourceProcess ObjectHasValue(:isAffectedByTargets :threat_GenericDenialOfService))
+SubClassOf(:HasSourceProcess ObjectHasValue(:isAffectedByTargets :threat_GenericElevationOfPrivilege))
+SubClassOf(:HasSourceProcess ObjectHasValue(:isAffectedByTargets :threat_GenericInformationDisclosure))
+SubClassOf(:HasSourceProcess ObjectHasValue(:isAffectedByTargets :threat_GenericRepudiation))
+SubClassOf(:HasSourceProcess ObjectHasValue(:isAffectedByTargets :threat_GenericSpoofing))
+SubClassOf(:HasSourceProcess ObjectHasValue(:isAffectedByTargets :threat_GenericTampering))
 
 # Class: :HasTargetDataStore (:HasTargetDataStore)
 
 EquivalentClasses(:HasTargetDataStore ObjectSomeValuesFrom(:hasTarget :DataStore))
 SubClassOf(:HasTargetDataStore :ClassifiedFlow)
+SubClassOf(:HasTargetDataStore ObjectHasValue(:isAffectedByTargets :threat_GenericDenialOfService))
+SubClassOf(:HasTargetDataStore ObjectHasValue(:isAffectedByTargets :threat_GenericInformationDisclosure))
+SubClassOf(:HasTargetDataStore ObjectHasValue(:isAffectedByTargets :threat_GenericTampering))
 
 # Class: :HasTargetExternalInteractor (:HasTargetExternalInteractor)
 
 EquivalentClasses(:HasTargetExternalInteractor ObjectSomeValuesFrom(:hasTarget :ExternalInteractor))
 SubClassOf(:HasTargetExternalInteractor :ClassifiedFlow)
+SubClassOf(:HasTargetExternalInteractor ObjectHasValue(:isAffectedByTargets :threat_GenericRepudiation))
+SubClassOf(:HasTargetExternalInteractor ObjectHasValue(:isAffectedByTargets :threat_GenericSpoofing))
 
 # Class: :HasTargetProcess (:HasTargetProcess)
 
 EquivalentClasses(:HasTargetProcess ObjectSomeValuesFrom(:hasTarget :Process))
 SubClassOf(:HasTargetProcess :ClassifiedFlow)
+SubClassOf(:HasTargetProcess ObjectHasValue(:isAffectedByTargets :threat_GenericDenialOfService))
+SubClassOf(:HasTargetProcess ObjectHasValue(:isAffectedByTargets :threat_GenericElevationOfPrivilege))
+SubClassOf(:HasTargetProcess ObjectHasValue(:isAffectedByTargets :threat_GenericInformationDisclosure))
+SubClassOf(:HasTargetProcess ObjectHasValue(:isAffectedByTargets :threat_GenericRepudiation))
+SubClassOf(:HasTargetProcess ObjectHasValue(:isAffectedByTargets :threat_GenericSpoofing))
+SubClassOf(:HasTargetProcess ObjectHasValue(:isAffectedByTargets :threat_GenericTampering))
 
 # Class: :ImplementsApplicationProtocol (:ImplementsApplicationProtocol)
 
@@ -802,31 +837,37 @@ ClassAssertion(:SchemaInstance :SO_NonRepudiation)
 # Individual: :STRIDE_Denial_of_Service (:STRIDE_Denial_of_Service)
 
 ClassAssertion(:SchemaInstance :STRIDE_Denial_of_Service)
+SameIndividual(:STRIDE_Denial_of_Service <http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Denial_of_Service>)
 DataPropertyAssertion(:hasTitle :STRIDE_Denial_of_Service "Denial of service"@en)
 
 # Individual: :STRIDE_Elevation_of_Privilege (:STRIDE_Elevation_of_Privilege)
 
 ClassAssertion(:SchemaInstance :STRIDE_Elevation_of_Privilege)
+SameIndividual(:STRIDE_Elevation_of_Privilege <http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Elevation_of_Privilege>)
 DataPropertyAssertion(:hasTitle :STRIDE_Elevation_of_Privilege "Elevation of privilege"@en)
 
 # Individual: :STRIDE_Information_Disclosure (:STRIDE_Information_Disclosure)
 
 ClassAssertion(:SchemaInstance :STRIDE_Information_Disclosure)
+SameIndividual(:STRIDE_Information_Disclosure <http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Information_Disclosure>)
 DataPropertyAssertion(:hasTitle :STRIDE_Information_Disclosure "Information disclosure"@en)
 
 # Individual: :STRIDE_Repudiation (:STRIDE_Repudiation)
 
 ClassAssertion(:SchemaInstance :STRIDE_Repudiation)
+SameIndividual(:STRIDE_Repudiation <http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Repudiation>)
 DataPropertyAssertion(:hasTitle :STRIDE_Repudiation "Repudiation"@en)
 
 # Individual: :STRIDE_Spoofing (:STRIDE_Spoofing)
 
 ClassAssertion(:SchemaInstance :STRIDE_Spoofing)
+SameIndividual(:STRIDE_Spoofing <http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Spoofing>)
 DataPropertyAssertion(:hasTitle :STRIDE_Spoofing "Spoofing"@en)
 
 # Individual: :STRIDE_Tampering (:STRIDE_Tampering)
 
 ClassAssertion(:SchemaInstance :STRIDE_Tampering)
+SameIndividual(:STRIDE_Tampering <http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Tampering>)
 DataPropertyAssertion(:hasTitle :STRIDE_Tampering "Tampering"@en)
 
 # Individual: :component_Apache2 (:component_Apache2)
