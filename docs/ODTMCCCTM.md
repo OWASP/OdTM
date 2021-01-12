@@ -1,7 +1,7 @@
 
 # Common Cloud Computing Threat Model (CCCTM)
 
-It is legacy. Use the [ACCTM threat model](ODTMACCTP.md) instead.
+It is legacy. Use the [ACCTP threat model](ODTMACCTP.md) instead.
 
 This model is an example of domain-specific threat model. 
 It depicts some common threats to cloud systems.

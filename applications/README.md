@@ -13,3 +13,7 @@ A simple functional test framework integrated with OdTM Server.
 [Short description is here](checkApplication/README.md)
 
 
+## generate DSTM
+
+A simple tool for creation of domain-specific threat models 
+from ontological security/threat patterns catalogs.

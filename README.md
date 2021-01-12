@@ -54,7 +54,7 @@ And a [mirror is here](https://github.com/nets4geeks/OdTM).
 ## Domain-specific threat models
 
 * [Academic Cloud Computing Threat Patterns (ACCTP) model](docs/ODTMACCTP.md)
-* [Common Cloud Computing Threat Model or CCCTM (obsolete)](docs/ODTMCCCTM.md)
+* [Common Cloud Computing Threat Model or CCCTM](docs/ODTMCCCTM.md) (obsolete)
 
 ## Applications
 
