@@ -1,5 +1,5 @@
 
-# Acadeimic Cloud Computing Threat Patterns (ACCTP) Model
+# Academic Cloud Computing Threat Patterns (ACCTP) Model
 
 This model is an ontological domain-specific threat model, 
 which depicts common threats to cloud-based computer systems.
