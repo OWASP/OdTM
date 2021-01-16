@@ -6,7 +6,7 @@ which depicts common threats to cloud-based computer systems.
 
 * [OWL file](../OdTMACCTP.owl)
 
-It is automatically generated from the [ACCTP catalog](https://github.com/nets4geeks/SPCatalogMaker).
+It is automatically generated from the [ACCTP catalog](https://nets4geeks.github.io/acctp/).
 
 Proposed model of cloud computing environment contains a set of concepts, aimed to extend 
 the base threat model with the cloud-specific entities.

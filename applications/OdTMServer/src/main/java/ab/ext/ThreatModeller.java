@@ -425,7 +425,7 @@ public class ThreatModeller extends OManager {
                
                // get type (!!! only one)  <threat> labelsSTRIDE <some STRIDE>
                OWLNamedIndividual typeInstance = model.getObjectPropertyValueFromOntology(tmp.getIRI(),IRI.create(LabelsSTRIDE),bmodel.getIRI());
-               model.showInstances(model.getReasonerObjectPropertyValues(tmp.getIRI(),IRI.create(LabelsSTRIDE)));
+               //model.showInstances(model.getReasonerObjectPropertyValues(tmp.getIRI(),IRI.create(LabelsSTRIDE)));
                String type =null;
                if (typeInstance!=null) type = getModelByIRI1(typeInstance.getIRI()).getSearcherDataPropertyValue(typeInstance.getIRI(), IRI.create(HasTitleProperty));   
                
