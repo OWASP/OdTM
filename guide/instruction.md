@@ -24,17 +24,17 @@ You need a **git client**, **java** & **maven**.
 
 For the cloud modeling you need files of next ontologies:
 
-- [OdTMBaseThreatModel.owl](../OdTMBaseThreatModel.owl) - the base threat model (the 'BASEMODEL' property) 
+[OdTMBaseThreatModel.owl](../OdTMBaseThreatModel.owl) - the base threat model (the 'BASEMODEL' property) 
 
 Other are items of the 'MODELS' property:
 
-- [SecurityPatternCatalogNaiveSchema.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/schema/SecurityPatternCatalogNaiveSchema.owl) - the SP schema;
+[SecurityPatternCatalogNaiveSchema.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/schema/SecurityPatternCatalogNaiveSchema.owl) - the SP schema;
 
-- [common.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/catalogs/acctp/catalog/common.owl) - the ACCTP common model
+[common.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/catalogs/acctp/catalog/common.owl) - the ACCTP common model
 
-- [ACCTPCatalog.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/catalogs/acctp/catalog/ACCTPCatalog.owl) - the ACCTP target model;
+[ACCTPCatalog.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/catalogs/acctp/catalog/ACCTPCatalog.owl) - the ACCTP target model;
 
-- [OdTMACCTP.owl](../OdTMACCTP.owl) - the ACCTP domain specific threat model.
+[OdTMACCTP.owl](../OdTMACCTP.owl) - the ACCTP domain specific threat model.
 
 The 'TDFILE' property describes a source JSON file, and 'TDOUT' points to a target JSON file.
 
