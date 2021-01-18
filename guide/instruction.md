@@ -50,7 +50,7 @@ where the last item is the properties file.
 
 * Use Threat Dragon to create a diagram, like this:
 
-![acctp_example](td_simple_example.png)
+![acctp_example](pics/td_simple_example.png)
 
 You should mark items by the labels from the ACCTP common model with the 'Description' field.
 Here the 'webapp' item belongs to the 'CloudApplication' class.
@@ -73,6 +73,6 @@ class#VirtualMachine
 
 * Load the target JSON to the Threat Dragon one more time: 
 
-![acctp_example1](td_simple_example1.png)
+![acctp_example1](pics/td_simple_example1.png)
 
 Now you can work with threats (apply mitigations, define severity or delete).
