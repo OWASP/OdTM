@@ -3,8 +3,8 @@
 
 We are working on improvement of our software tools and their availability for wide audience.
 However, building of ontology-driven threat models is a bit tedious at the moment.
-We hope to enhance the usability on our own. 
-(also, we welcome any initiative of creation tools for the ontology-driven threat modeling).
+We hope to enhance the usability on our own 
+(also we welcome any initiative of creation tools for the ontology-driven threat modeling).
 
 ## Preparation
 
@@ -52,14 +52,14 @@ Other are items of the 'MODELS' property:
 
 [SecurityPatternCatalogNaiveSchema.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/schema/SecurityPatternCatalogNaiveSchema.owl) - the SP schema;
 
-[common.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/catalogs/acctp/catalog/common.owl) - the ACCTP common model
+[common.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/catalogs/acctp/catalog/common.owl) - the ACCTP common (class) model;
 
 [ACCTPCatalog.owl](https://github.com/nets4geeks/SPCatalogMaker/blob/master/catalogs/acctp/catalog/ACCTPCatalog.owl) - the ACCTP target model;
 
 [OdTMACCTP.owl](../OdTMACCTP.owl) - the ACCTP domain specific threat model.
 
 
-* *Run a particular modelling use command like*:
+* *Run a particular modelling with a command like*:
 
 ```
 mvn -e exec:java -q -Dexec.mainClass="ab.run.consoleApplication" -Dexec.args="server_acctp.properties" 
@@ -73,8 +73,9 @@ where the last item is the properties file.
 
 ![acctp_example](pics/td_simple_example.png)
 
-You should mark items by the labels from the ACCTP common model with the 'Description' field
-(here the 'webapp' item belongs to the 'CloudApplication' class).
+To enable cloud related threats, you should mark items by the labels from the ACCTP common model 
+with the 'Description' field (the 'webapp' item belongs to the 'CloudApplication' class in the picture,
+and user is labeled as 'class#RemoteUser', service has the 'class#ExternalService' label).
 
 Current list of the labels includes:
 
