@@ -14,7 +14,7 @@ The [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/release
 is a well-known free, open-source, cross-platform threat modeling tool.
 Use its [documentation](https://docs.threatdragon.org/) to learn the process of diagram management.
 
-Dragon has a built-in threat rule engine, supporting the STRIDE, CIA, LINDDUN techniques.
+Threat Dragon has a built-in threat rule engine, supporting the STRIDE, CIA, LINDDUN techniques.
 However, we use here the ontology-driven approach, based on domain-specific threat models, 
 and implemented by the OdTMServer application.
 
@@ -29,6 +29,17 @@ mvn compile
 ```
 
 * *Prepare a properties file for every diagram (use the 'server_acctp.properties' file in the OdTMServer folder as an example):*
+
+```
+BASEMODEL: ../../OdTMBaseThreatModel.owl
+MODELS: ../../../SPCatalogMaker/schema/SecurityPatternCatalogNaiveSchema.owl, ../../../SPCatalogMaker/catalogs/acctp/catalog/common.owl, ../../../SPCatalogMaker/catalogs/acctp/catalog/ACCTPCatalog.owl, ../../OdTMACCTP.owl
+
+DOMAINMODELIRI: http://www.grsu.by/net/OdTMACCTP
+CLASSMODELIRI: http://www.grsu.by/net/ACCTP/common
+
+TDFILE: cases/tdexample_acctp.json
+TDOUT: cases/tdexample_acctp_modelled.json
+```
 
 The 'TDFILE' property describes a source JSON file, created by Threat Dragon, 
 and 'TDOUT' points to a target JSON file with the ontological threat model.
@@ -79,7 +90,7 @@ class#SaaSApplication
 class#VirtualMachine
 ```
 
-* *Use Dragon's saved JSON file as a source (TDFILE) of the OdTMServer console application to get a target JSON file*.
+* *Use Dragon's saved JSON file as a source ('TDFILE') of the OdTMServer console application to get a target JSON file ('TDOUT')*.
 
 * *Load the target JSON to Threat Dragon:*
 
