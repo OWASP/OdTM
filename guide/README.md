@@ -24,12 +24,12 @@ which can be easy adopted for education purposes.
 
 The third-party [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/releases) desktop application 
 was used to create a set of diagrams for this guide.
-Then the diagrams have been processed by the OdTMServer console application to create ontology-driven threat lists.
+Then the diagrams have been processed by the **OdTMServer** console application to create ontology-driven threat lists.
 You can use Threat Dragon to analyse these threat models, apply mitigations, and generate reports.
 
 To create own ontology-driven threat models you should read [this instruction](instruction.md).
 
-* Lab1: Introduction to the ontological threat modeling of cloud systems
+* Lab1: [Introduction to the ontology-driven threat modeling](lab1_introduction.md)
 * Lab2: Modeling of the cloud architectural threats
 * Lab3: Modeling of the compliance challenges of cloud systems
 * Lab4: Modeling of the privacy challenges of cloud systems

@@ -1,0 +1,343 @@
+{
+  "summary" : {
+    "title" : "New Threat Model"
+  },
+  "detail" : {
+    "contributors" : [ ],
+    "diagrams" : [ {
+      "title" : "A simple application",
+      "thumbnail" : "./public/content/images/thumbnail.stride.jpg",
+      "diagramType" : "STRIDE",
+      "id" : 0,
+      "$$hashKey" : "object:20",
+      "diagramJson" : {
+        "cells" : [ {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 94,
+            "y" : 110
+          },
+          "angle" : 0,
+          "id" : "32ac47e5-cbbe-42db-93bb-411e893f7a07",
+          "z" : 1,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "user"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from https)",
+            "description" : "A generic repudiation threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from https)",
+            "description" : "A generic spoofing threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 363,
+            "y" : 192
+          },
+          "angle" : 0,
+          "id" : "2767acc2-75cf-491c-bdfe-436999c47843",
+          "z" : 2,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "app"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from https)",
+            "description" : "A generic tampering threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from sql)",
+            "description" : "A generic tampering threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from https)",
+            "description" : "A generic repudiation threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from sql)",
+            "description" : "A generic repudiation threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from https)",
+            "description" : "A generic spoofing threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from sql)",
+            "description" : "A generic spoofing threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from https)",
+            "description" : "A generic DoS threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from sql)",
+            "description" : "A generic DoS threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat (from https)",
+            "description" : "A generic elevation threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat (from sql)",
+            "description" : "A generic elevation threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat (from https)",
+            "description" : "A generic information disclosure threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat (from sql)",
+            "description" : "A generic information disclosure threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          } ]
+        }, {
+          "type" : "tm.Store",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 107,
+            "y" : 367
+          },
+          "angle" : 0,
+          "id" : "05407c39-1200-44c6-a1c8-5c2e19552a2d",
+          "z" : 3,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "db"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from sql)",
+            "description" : "A generic tampering threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from sql)",
+            "description" : "A generic repudiation threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from sql)",
+            "description" : "A generic DoS threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat (from sql)",
+            "description" : "A generic information disclosure threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "32ac47e5-cbbe-42db-93bb-411e893f7a07"
+          },
+          "target" : {
+            "id" : "2767acc2-75cf-491c-bdfe-436999c47843"
+          },
+          "vertices" : [ {
+            "x" : 199,
+            "y" : 233
+          } ],
+          "id" : "e29d9fff-f0ff-4675-be40-277cd05392b0",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "https",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 4,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "2767acc2-75cf-491c-bdfe-436999c47843"
+          },
+          "target" : {
+            "id" : "05407c39-1200-44c6-a1c8-5c2e19552a2d"
+          },
+          "vertices" : [ ],
+          "id" : "61bb40ec-9df3-4f3c-9ce5-70837b6afdf5",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "sql",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 5,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          } ]
+        } ]
+      },
+      "size" : {
+        "height" : 590,
+        "width" : 790
+      }
+    } ]
+  }
+}
