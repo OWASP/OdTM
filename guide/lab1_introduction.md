@@ -1,7 +1,5 @@
 # Lab1: Introduction to the ontology-driven threat modeling
 
-## Notes
-
 ### Starting threat modeling...
 
 The classic approach to threat modeling is based on [Data Flow Diagrams (DFD)](https://www.google.com/search?q=Shostack+A.+Experiences+Threat+Modeling+at+Microsoft).
@@ -35,7 +33,7 @@ as well as by 'db' with 'sql'):
 
 ![lab1_example3](pics/lab1_example1modelled1.png)
 
-The ontology-driven threat modelling framework is focused on the network communications.
+Note, the ontology-driven threat modelling framework is focused on the network communications.
 Every data flow represents a network connection from a client (edge without arrow) to a server (edge with arrow).
 Such a connection is bidirectional, and it does not have to create a flow from the server to client
 (but it should be taken into account).
