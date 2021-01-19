@@ -69,7 +69,7 @@ where the last item is the properties file.
 
 ## Model creation
 
-* *Use Threat Dragon to create a diagram, like this:*
+* *Use Threat Dragon to create a diagram, [like this](instruction_example.json):*
 
 ![acctp_example](pics/td_simple_example.png)
 
@@ -93,7 +93,7 @@ class#VirtualMachine
 
 * *Use Dragon's saved JSON file as a source ('TDFILE') of the OdTMServer console application to get a target JSON file ('TDOUT')*.
 
-* *Load the target JSON to Threat Dragon:*
+* *Load [the target JSON](instruction_example_modelled.json) to Threat Dragon:*
 
 ![acctp_example1](pics/td_simple_example1.png)
 
