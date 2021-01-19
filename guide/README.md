@@ -22,8 +22,7 @@ for their applications.
 The guide for system architects and developers is implemented as a set of laboratory works,
 which can be easy adopted for education purposes.
 
-The third-party [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/releases) desktop application 
-was used to create a set of diagrams for this guide.
+The third-party **OWASP Threat Dragon** desktop application was used to create a set of diagrams for this guide.
 Then the diagrams have been processed by the **OdTMServer** console application to create ontology-driven threat lists.
 You can use Threat Dragon to analyse these threat models, apply mitigations, and generate reports.
 
