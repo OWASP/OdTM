@@ -1,9 +1,9 @@
 
-# How to create own ontology-driven threat models
+# How to create ontology-driven threat models
 
 We are working on improvement of our software tools and their availability for wide audience.
-However, the creation of the ontology-driven models is a bit tedious at the moment.
-We hope to fix this challenge on our own 
+However, building of ontology-driven threat models is a bit tedious at the moment.
+We hope to enhance the usability on our own. 
 (also, we welcome any initiative of creation tools for the ontology-driven threat modeling).
 
 ## Preparation
@@ -12,17 +12,28 @@ We hope to fix this challenge on our own
 
 The [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/releases) desktop application 
 is a well-known free, open-source, cross-platform threat modeling tool.
-It has well-formed [documentation](https://docs.threatdragon.org/).
+Use its [documentation](https://docs.threatdragon.org/) to learn the process of diagram management.
 
-### Download and compile the OdTMServer application 
+Dragon has a built-in threat rule engine, supporting the STRIDE, CIA, LINDDUN techniques.
+However, we use here the ontology-driven approach, based on domain-specific threat models, 
+and implemented by the OdTMServer application.
+
+### Download, compile and configure the OdTMServer application 
 
 You need a **git client**, **java** & **maven**.
 
-* Clone the [OdTM repository](https://github.com/nets4geeks/OdTM.git), go to the 'applications/OdTMServer' folder and run 'mvn compile' there.
+* *Clone the [OdTM git repository](https://github.com/nets4geeks/OdTM.git), go to the 'applications/OdTMServer' folder and compile it:*
 
-* For every Threat Dragon's JSON file you need a properties file (use the 'server_acctp.properties' file as an example)
+```
+mvn compile
+```
 
-For the cloud modeling you need files of next ontologies:
+* *Prepare a properties file for every diagram (use the 'server_acctp.properties' file in the OdTMServer folder as an example):*
+
+The 'TDFILE' property describes a source JSON file, created by Threat Dragon, 
+and 'TDOUT' points to a target JSON file with the ontological threat model.
+
+For the cloud modeling you need files of several ontologies:
 
 [OdTMBaseThreatModel.owl](../OdTMBaseThreatModel.owl) - the base threat model (the 'BASEMODEL' property) 
 
@@ -36,24 +47,23 @@ Other are items of the 'MODELS' property:
 
 [OdTMACCTP.owl](../OdTMACCTP.owl) - the ACCTP domain specific threat model.
 
-The 'TDFILE' property describes a source JSON file, and 'TDOUT' points to a target JSON file.
 
-* To run a particular modelling use command:
+* *Run a particular modelling use command like*:
 
 ```
-mvn -e exec:java -q -Dexec.mainClass="ab.run.consoleApplication" -Dexec.args="server_xxx.properties" 
+mvn -e exec:java -q -Dexec.mainClass="ab.run.consoleApplication" -Dexec.args="server_acctp.properties" 
 ```
 
 where the last item is the properties file.
 
 ## Model creation
 
-* Use Threat Dragon to create a diagram, like this:
+* *Use Threat Dragon to create a diagram, like this:*
 
 ![acctp_example](pics/td_simple_example.png)
 
-You should mark items by the labels from the ACCTP common model with the 'Description' field.
-Here the 'webapp' item belongs to the 'CloudApplication' class.
+You should mark items by the labels from the ACCTP common model with the 'Description' field
+(here the 'webapp' item belongs to the 'CloudApplication' class).
 
 Current list of the labels includes:
 
@@ -69,10 +79,10 @@ class#SaaSApplication
 class#VirtualMachine
 ```
 
-* Use Dragon's saved JSON file as a source (TDFILE) of the OdTMServer console application to get a target JSON file.
+* *Use Dragon's saved JSON file as a source (TDFILE) of the OdTMServer console application to get a target JSON file*.
 
-* Load the target JSON to the Threat Dragon one more time: 
+* *Load the target JSON to Threat Dragon:*
 
 ![acctp_example1](pics/td_simple_example1.png)
 
-Now you can work with threats (apply mitigations, define severity or delete).
+Now you can work with threats (apply mitigations, define severity or delete a threat).

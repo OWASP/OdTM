@@ -1,0 +1,192 @@
+{
+  "summary": {
+    "title": "New Threat Model",
+    "description": "An example of the TD threat model. Use the OdTMServer tool to fill it with threats"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "title": "Example of diagram",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0,
+        "$$hashKey": "object:20",
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 143,
+                "y": 33
+              },
+              "angle": 0,
+              "id": "d8ad6d43-b5ee-46fa-9ef2-ff9af03c55e2",
+              "z": 1,
+              "hasOpenThreats": false,
+              "description": "class#CloudApplication",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "webapp"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 154,
+                "y": 290
+              },
+              "angle": 0,
+              "id": "516f8a7d-144f-40d8-b711-99fdf6f21c27",
+              "z": 3,
+              "hasOpenThreats": false,
+              "description": "class#RemoteUser",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "user"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "516f8a7d-144f-40d8-b711-99fdf6f21c27"
+              },
+              "target": {
+                "id": "d8ad6d43-b5ee-46fa-9ef2-ff9af03c55e2"
+              },
+              "vertices": [
+                {
+                  "x": 104,
+                  "y": 199
+                }
+              ],
+              "id": "c1f69e5a-688c-419b-a0aa-2cf9321f633a",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 1",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 4,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 343,
+                "y": 32
+              },
+              "angle": 0,
+              "id": "427eb014-f374-4379-8881-122aeb7fc782",
+              "z": 5,
+              "hasOpenThreats": false,
+              "description": "class#ExternalService",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "service"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "d8ad6d43-b5ee-46fa-9ef2-ff9af03c55e2"
+              },
+              "target": {
+                "id": "427eb014-f374-4379-8881-122aeb7fc782"
+              },
+              "vertices": [
+                {
+                  "x": 339,
+                  "y": 196
+                }
+              ],
+              "id": "e074ceed-6460-4a2e-9b3a-2f8754a4f310",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow 2",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 6,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            }
+          ]
+        },
+        "size": {
+          "height": 590,
+          "width": 790
+        }
+      }
+    ]
+  }
+}
