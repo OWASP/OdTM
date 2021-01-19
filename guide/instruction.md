@@ -12,11 +12,6 @@ We hope to enhance the usability on our own
 
 The [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/releases) desktop application 
 is a well-known free, open-source, cross-platform threat modeling tool.
-Use its [documentation](https://docs.threatdragon.org/) to learn the process of diagram management.
-
-Threat Dragon has a built-in threat rule engine, supporting the STRIDE, CIA, LINDDUN techniques.
-However, we use here the ontology-driven approach, based on domain-specific threat models, 
-and implemented by the OdTMServer application.
 
 ### Download, compile and configure the OdTMServer application 
 

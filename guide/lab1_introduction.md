@@ -9,9 +9,11 @@ Also several [other techniques](https://insights.sei.cmu.edu/sei_blog/2018/12/th
 
 You can use the [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/releases) desktop application 
 to create diagrams (here is [its documentation](https://docs.threatdragon.org/).
-Threat Dragon has a built-in threat rule engine, but we have used own one, called [OdTMServer](instruction.md).
+Threat Dragon has a built-in threat rule engine, supporting the STRIDE, CIA, LINDDUN techniques.
+However, we use here the ontology-driven approach, based on domain-specific threat models, 
+and implemented by the [OdTMServer](instruction.md) application.
 
-So, there is a simple computer system. 
+So, there is a simple computer system.
 It includes a web application (process) and background database (storage).
 Also, users of this system (external entities) should be taken into account.
 A user communicates with the application by the HTTPS protocol,
@@ -27,9 +29,12 @@ and information disclosure threats):
 
 ![lab1_example2](pics/lab1_example1modelled.png)
 
-Also, it can be find, that the 'app' component has double number of the STRIDE threats.
+Also, it can be found, that the 'app' component has double number of the STRIDE threats, 
+because it has two flows (for example, denial of service of 'app' can be caused by the 'user' item with the 'https' flow,
+as well as by 'db' with 'sql'):
 
 ![lab1_example3](pics/lab1_example1modelled1.png)
+
 
 
 ## Assignments
