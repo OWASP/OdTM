@@ -10,9 +10,9 @@ We hope to enhance the usability on our own
 
 ### Download and install the Threat Dragon tool
 
-The [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/releases) desktop application 
-is a well-known free, open-source, cross-platform threat modeling tool (there is [its documentation](https://docs.threatdragon.org/).
-Threat Dragon has a built-in threat rule engine, but we use here our OdTMServer application 
+You can download the [OWASP Threat Dragon](https://github.com/OWASP/threat-dragon-desktop/releases) desktop application from Github.
+There is [its documentation](https://docs.threatdragon.org/).
+Instead of usage Dragon's built-in threat rule engine, we use here our one, called **OdTMServer**, 
 as a part of the ontology-driven threat modeling framework.
 
 ### Download, compile and configure the OdTMServer application 
