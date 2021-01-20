@@ -27,7 +27,4 @@ for example, with the [OWASP Threat Dragon](https://owasp.org/www-project-threat
 Saved Dragon's JSON file should be used as a source for our OdTMServer application [(see details here)](../applications/OdTMServer/).
 JSON file with a threat model, built by the OdTMServer tool, can be reopen in Threat Dragon for further analysis.
 
-Here is an example of a threat model, which is opened in the modelling tool 
-(at the moment we use the 'Description' field to assign extra concepts with DFD items). 
-
-![acctp_example](td_example_new.png)
+There is a [guide of the ACCTP usage](../guide) and [intruction](../guide/instruction.md) how to create cloud-specific threat models.

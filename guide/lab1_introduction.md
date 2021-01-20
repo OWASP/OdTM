@@ -13,16 +13,15 @@ and implemented by own [OdTMServer](instruction.md) application.
 
 So, there is a simple computer system.
 It includes a web application (process) and background database (storage).
-Also, users of this system (external entities) should be taken into account.
-A user communicates with the application by the HTTPS protocol,
-and the application and database interact by the SQL protocol.
+Also, users of this system (external entities, or actors) should be taken into account.
+A user communicates with the application by the HTTPS protocol, and the application and database interact by the SQL protocol.
 
 To examine security aspects of the system, a simple DFD has been created:
 
 ![lab1_example1](pics/lab1_example1.png)
 
-After processing by OdTMServer, the [threat model](models/lab1_example1_modelled.json) (**Example1**)is like
-(for, example the 'db' item in the picture can be affected by the tampering, repudiation, denial of service, 
+After processing by OdTMServer, the [threat model](models/lab1_example1_modelled.json) (**Example1**) is like
+(i.e. the 'db' item in the picture can be affected by the tampering, repudiation, denial of service, 
 and information disclosure threats):
 
 ![lab1_example2](pics/lab1_example1modelled.png)
@@ -36,18 +35,40 @@ as well as by 'db' with 'sql'):
 Note, the ontology-driven threat modelling framework is focused on the network communications.
 Every data flow represents a network connection from a client (edge without arrow) to a server (edge with arrow).
 Such a connection is bidirectional, and you do not have to create a flow from the server to client
-(but this should be taken into account).
+(but this sort of traffic should be taken into account).
 
 ### ...and applying the cloud threats
 
-Example1 shows how the ontological approach works. Our rule engine has 'taken' the STRIDE threats 
+Example1 (see above) shows how the ontological approach works. Our rule engine has 'taken' the STRIDE threats 
 from the [base threat model](../docs/BASEMODEL.md), which is an OWL (Web Ontology Language) ontology. 
-Actually, that has been a result of reasoning of semantic interpretation of DFD (ontology too), e.g. ABox (Assertion Box),
+Actually, that has been a result of automatic reasoning of the semantic interpretation of DFD (ontology too), e.g. ABox (Assertion Box),
 and the base threat model, e.g. TBox (Terminology Box).
 An introduction to Ontology Engineering [can be found here](https://people.cs.uct.ac.za/~mkeet/OEbook/)
-(if you really interested in).
+(if you were really interested in).
 
+The STRIDE approach gives a generic view to security threats. Analysis of particular cases requires domain-specific knowledge
+(for example, the threats that are specific to interaction between browser and web application 
+or between web application and SQL database).
+The ontology-driven approach gives such an opportunity by domain-specific threat models.
+A domain-specific model contains typical components and threats, assigned to the flows between those components, for a paritical
+kind of computer systems.
 
+This guide depics a cloud threat model,
+based on the [Academic Cloud Computing Catalog Patterns (ACCTP)](https://nets4geeks.github.io/acctp/) catalog.
+We have created an ontological [domain-specific threat model](../docs/ODTMACCTP.md) from the ACCTP catalog.
+
+With ACCTP it is possible to morph the common example of computer system to cloud specific.
+To do so, the 'app' and 'db' items hav been labeled as 'class#CloudApplication' (see picture), 
+and 'user' as 'class#RemoteUser. These concepts ('CloudApplication', 'RemoteUser') are parts of ACCTP.
+
+![lab1_example4](pics/lab1_example2.png)
+
+After processing by OdTMServer, the items of the [threat model](models/lab1_example2_modelled.json) (**Example2**) 
+have got a bunch of new threats. The 'user' item has the least threats:
+
+![lab1_example5](pics/lab1_example2modelled.png)
+
+Now you can work with cloud threats  (apply mitigations, define severity or delete a threat) using Threat Dragon.
 
 ## Assignments
 

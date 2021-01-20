@@ -25,7 +25,7 @@ which can be easy adopted for education purposes.
 You can use the third-party desktop threat modeling tool ([OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/)) 
 to analyse proposed threat models, apply mitigations, and generate reports.
 That tool was used to create a set of diagrams for this guide.
-Then the diagrams have been processed by the [OdTMServer](../applications/OdTMServer) console application to create ontology-driven threat lists.
+Then the diagrams have been processed by the [OdTMServer](../applications/OdTMServer) console application to create ontology-driven threat models.
 
 To create own ontology-driven threat models for cloud computing you should read [this instruction](instruction.md).
 
