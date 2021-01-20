@@ -35,7 +35,7 @@ The applications are built with Java,
 the [OWL API](https://github.com/owlcs/owlapi) 
 and [HermiT Reasoner](http://www.hermit-reasoner.com/) libraries.
 
-To start using the OdTM framework and cloud threat models, you can read [this guide](../guide/README.md).
+To start using the OdTM framework and cloud threat models, you can read [this guide](guide/README.md).
 
 If you want to refer to OdTM, please, read [this article](https://www.researchgate.net/publication/339415212_Security_patterns_based_approach_to_automatically_select_mitigations_in_ontology-driven_threat_modelling)
 and cite it:
