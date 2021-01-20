@@ -1,3 +1,4 @@
+/ [main](README.md) /
 
 # How to create ontology-driven threat models
 
@@ -95,3 +96,5 @@ class#VirtualMachine
 ![acctp_example1](pics/td_simple_example1.png)
 
 Now you can work with threats (apply mitigations, define severity or delete a threat).
+
+/ [main](README.md) /
