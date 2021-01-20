@@ -32,7 +32,7 @@ as well as by 'db' with 'sql'):
 
 ![lab1_example3](pics/lab1_example1modelled1.png)
 
-Note, the ontology-driven threat modelling framework is focused on the network communications.
+Note, the ontology-driven threat modeling framework is focused on the network communications.
 Every data flow represents a network connection from a client (edge without arrow) to a server (edge with arrow).
 Such a connection is bidirectional, and you do not have to create a flow from the server to client
 (but this sort of traffic should be taken into account).
@@ -50,16 +50,16 @@ The STRIDE approach gives a generic view to security threats. Analysis of partic
 (for example, the threats that are specific to interaction between browser and web application 
 or between web application and SQL database).
 The ontology-driven approach gives such an opportunity by domain-specific threat models.
-A domain-specific model contains typical components and threats, assigned to the flows between those components, for a paritical
+A domain-specific model contains typical components and threats, assigned to the flows between those components, for a particular
 kind of computer systems.
 
-This guide depics a cloud threat model,
+This guide depicts a cloud threat model,
 based on the [Academic Cloud Computing Catalog Patterns (ACCTP)](https://nets4geeks.github.io/acctp/) catalog.
 We have created an ontological [domain-specific threat model](../docs/ODTMACCTP.md) from the ACCTP catalog.
 
 With ACCTP it is possible to morph the common example of computer system to cloud specific.
-To do so, the 'app' and 'db' items hav been labeled as 'class#CloudApplication' (see picture), 
-and 'user' as 'class#RemoteUser. These concepts ('CloudApplication', 'RemoteUser') are parts of ACCTP.
+To do so, the 'app' and 'db' items have been labeled as 'class#CloudApplication' (see picture), 
+and 'user' as 'class#RemoteUser'. These concepts ('CloudApplication', 'RemoteUser') are parts of ACCTP.
 
 ![lab1_example4](pics/lab1_example2.png)
 
@@ -72,7 +72,13 @@ Now you can work with cloud threats  (apply mitigations, define severity or dele
 
 ## Assignments
 
+* Using Threat Dragon, create a DFD for a case, that includes a web application 
+(frontend interface and background database) and uses an HTTP balancer; carefully define all the data flows;
+save the diagram as a JSON file.
 
+* Using Threat Dragon, apply mitigations to the threats of the 'user' entity from [Example2](models/lab1_example2_modelled.json);
+save a report as a PDF file. 
+To find mitigations use the [ACCTP catalog](https://nets4geeks.github.io/acctp/catalog/) and other cloud security sources.
 
 ## Self-testing
 
@@ -80,6 +86,11 @@ Now you can work with cloud threats  (apply mitigations, define severity or dele
 * What approaches are used for the threat modeling?
 * Which items can a data flow diagram consist of?
 * What is STRIDE?
-* What benifits does STRIDE-per-element provide?
+* What benefits does STRIDE-per-element provide?
+* What is ontology engineering?
+* How can you describe a role of OWL in the ontology engineering?
+* How can you describe a role of automatic reasoning in the ontology engineering?
+* What is the base threat model (OdTM) in charge of?
+* What is function of domain-specific threat models (OdTM)?
 
 

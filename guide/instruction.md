@@ -56,7 +56,7 @@ Other are items of the 'MODELS' property:
 [OdTMACCTP.owl](../OdTMACCTP.owl) - the ACCTP domain specific threat model.
 
 
-* *Run a particular modelling with a command like*:
+* *Run a particular modeling with a command like*:
 
 ```
 mvn -e exec:java -q -Dexec.mainClass="ab.run.consoleApplication" -Dexec.args="server_acctp.properties" 
