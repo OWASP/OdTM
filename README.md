@@ -35,9 +35,10 @@ The applications are built with Java,
 the [OWL API](https://github.com/owlcs/owlapi) 
 and [HermiT Reasoner](http://www.hermit-reasoner.com/) libraries.
 
-A basic introduction to the OdTM framework is [here](https://www.researchgate.net/publication/339415212_Security_patterns_based_approach_to_automatically_select_mitigations_in_ontology-driven_threat_modelling)
+To start using the OdTM framework and cloud threat models, you can read [this guide](../guide/README.md).
 
-If you want to refer to OdTM, please cite:
+If you want to refer to OdTM, please, read [this article](https://www.researchgate.net/publication/339415212_Security_patterns_based_approach_to_automatically_select_mitigations_in_ontology-driven_threat_modelling)
+and cite it:
 >Brazhuk A. Security patterns based approach to automatically select mitigations in ontology-driven threat modelling // Open Semantic Technologies for Intelligent Systems (OSTIS). – 2020. – №. 4. – С. 267-272
 
 Note, [the OWASP repository of the project is here](https://github.com/OWASP/OdTM)
