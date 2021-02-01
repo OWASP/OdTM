@@ -38,25 +38,12 @@
             }
           },
           "threats" : [ {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication",
-            "title" : "AC01 Malware From Cloud Application (from https)",
-            "description" : "Malicious content (malware) from the cloud application (because of https)",
-            "status" : "Open",
-            "severity" : "Medium"
-          }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
             "title" : "AB01 Failure Of Cloud Application (from https)",
             "description" : "Unexpected failure of the cloud application (because of https)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
-            "title" : "Generic repudiation threat (from https)",
-            "description" : "A generic repudiation threat (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
             "title" : "AB02 Connection Lost To Cloud Application (from https)",
@@ -65,6 +52,12 @@
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication",
+            "title" : "AC01 Malware From Cloud Application (from https)",
+            "description" : "Malicious content (malware) from the cloud application (because of https)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC02_PublicNetworkAccessToCloudApplication",
             "title" : "AC02 Public Network Access To Cloud Application (from https)",
             "description" : "Remote user connects to the cloud application though a public network (e.g. Wi-Fi) and can be attacked by a third-party adversary (because of https)",
@@ -72,19 +65,26 @@
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
-            "title" : "Generic spoofing threat (from https)",
-            "description" : "A generic spoofing threat (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Spoofing"
-          }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC03_SocialEngineeringAgainstRemoteUser",
             "title" : "AC03 Social Engineering Against Remote User (from https)",
             "description" : "Remote user suffers from Social Engineering attacks, performed by third-party adversary (e.g. including the cloud application into phishing schema) (because of https)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from https)",
+            "description" : "A generic repudiation threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from https)",
+            "description" : "A generic spoofing threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
           } ]
         }, {
           "type" : "tm.Process",
@@ -113,9 +113,9 @@
             }
           },
           "threats" : [ {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
-            "title" : "AB02 Connection Lost To Cloud Application (from https)",
-            "description" : "Connection lost to the cloud application (because of https)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
+            "title" : "AB01 Failure Of Cloud Application (from sql)",
+            "description" : "Unexpected failure of the cloud application (because of sql)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
@@ -127,45 +127,24 @@
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
+            "title" : "AD01 Broken Authentication (from https)",
+            "description" : "No authentication or broken (weak) authentication by the cloud application (because of https)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
             "title" : "AD02 Broken Access Control (from https)",
             "description" : "No access control or broken (weak) access control by the cloud application (because of https)",
             "status" : "Open",
             "severity" : "Medium"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
-            "title" : "AD02 Broken Access Control (from sql)",
-            "description" : "No access control or broken (weak) access control by the cloud application (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
-            "title" : "AD07 Logs Of Cloud Application Lost (from https)",
-            "description" : "Lost of cloud application logs (because of https)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
+            "title" : "AD03 Data Breach By Cloud Application (from https)",
+            "description" : "Data breach (information disclosure) by the cloud application (because of https)",
             "status" : "Open",
             "severity" : "Medium",
-            "type" : "Repudiation"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
-            "title" : "AD07 Logs Of Cloud Application Lost (from sql)",
-            "description" : "Lost of cloud application logs (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Repudiation"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
-            "title" : "Generic spoofing threat (from https)",
-            "description" : "A generic spoofing threat (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Spoofing"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
-            "title" : "Generic spoofing threat (from sql)",
-            "description" : "A generic spoofing threat (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Spoofing"
+            "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
             "title" : "AD04 Data Loss By Cloud Application (from https)",
@@ -174,22 +153,51 @@
             "severity" : "Medium",
             "type" : "Tampering"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
-            "title" : "AD04 Data Loss By Cloud Application (from sql)",
-            "description" : "Data loss (modification) by the cloud application (because of sql)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
+            "title" : "AD05 Backup Of CloudApplication Lost (from https)",
+            "description" : "Lost of cloud application backup (because of https)",
             "status" : "Open",
             "severity" : "Medium",
-            "type" : "Tampering"
+            "type" : "Denial of service"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
-            "title" : "AD01 Broken Authentication (from https)",
-            "description" : "No authentication or broken (weak) authentication by the cloud application (because of https)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
+            "title" : "AD06 Backups Of Cloud Application Stolen (from https)",
+            "description" : "Disclosure of cloud application backups (because of https)",
             "status" : "Open",
-            "severity" : "Medium"
+            "severity" : "Medium",
+            "type" : "Information disclosure"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
-            "title" : "AD01 Broken Authentication (from sql)",
-            "description" : "No authentication or broken (weak) authentication by the cloud application (because of sql)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
+            "title" : "AD07 Logs Of Cloud Application Lost (from https)",
+            "description" : "Lost of cloud application logs (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
+            "title" : "AD08 Logs Of Cloud Application Stolen (from https)",
+            "description" : "Disclosure of sensitive information from cloud application logs (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE01_DDoSAttackToCloudApplication",
+            "title" : "AE01 DDoS Attack To Cloud Application (from https)",
+            "description" : "DDoS/DoS attack against cloud application from the Internet (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE02_EDoSAttackToCloudApplication",
+            "title" : "AE02 EDoS Attack To Cloud Application (from https)",
+            "description" : "EDoS (Economic Denial of Service) attack against cloud application from the Internet (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE03_NetworkAttacksToCloudApplication",
+            "title" : "AE03 Network Attacks To Cloud Application (from https)",
+            "description" : "Remote side can perform remote malicious activities based on misconfiguration or vulnerabilities of the cloud application (because of https)",
             "status" : "Open",
             "severity" : "Medium"
           }, {
@@ -199,9 +207,30 @@
             "status" : "Open",
             "severity" : "Medium"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE01_DDoSAttackToCloudApplication",
-            "title" : "AE01 DDoS Attack To Cloud Application (from https)",
-            "description" : "DDoS/DoS attack against cloud application from the Internet (because of https)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication",
+            "title" : "AE05 Block Shared Resources Of Cloud Application (from https)",
+            "description" : "Blocking shared resources of cloud application (e.g. shared external IP) by a third-part reputation service (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface",
+            "title" : "AE06 Disclosure Of Credentials Of Cloud Management Interface (from https)",
+            "description" : "Disclosure of user credentials of management interface of cloud application (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from https)",
+            "description" : "A generic DoS threat (because of https)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from sql)",
+            "description" : "A generic DoS threat (because of sql)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
@@ -234,54 +263,6 @@
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE03_NetworkAttacksToCloudApplication",
-            "title" : "AE03 Network Attacks To Cloud Application (from https)",
-            "description" : "Remote side can perform remote malicious activities based on misconfiguration or vulnerabilities of the cloud application (because of https)",
-            "status" : "Open",
-            "severity" : "Medium"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
-            "title" : "Generic tampering threat (from https)",
-            "description" : "A generic tampering threat (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Tampering"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
-            "title" : "Generic tampering threat (from sql)",
-            "description" : "A generic tampering threat (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Tampering"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
-            "title" : "AB01 Failure Of Cloud Application (from https)",
-            "description" : "Unexpected failure of the cloud application (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Denial of service"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
-            "title" : "AB01 Failure Of Cloud Application (from sql)",
-            "description" : "Unexpected failure of the cloud application (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Denial of service"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
-            "title" : "AD03 Data Breach By Cloud Application (from https)",
-            "description" : "Data breach (information disclosure) by the cloud application (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Information disclosure"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
-            "title" : "AD03 Data Breach By Cloud Application (from sql)",
-            "description" : "Data breach (information disclosure) by the cloud application (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Information disclosure"
-          }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
             "title" : "Generic repudiation threat (from https)",
             "description" : "A generic repudiation threat (because of https)",
@@ -296,82 +277,33 @@
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface",
-            "title" : "AE06 Disclosure Of Credentials Of Cloud Management Interface (from https)",
-            "description" : "Disclosure of user credentials of management interface of cloud application (because of https)",
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from https)",
+            "description" : "A generic spoofing threat (because of https)",
             "status" : "Open",
             "severity" : "Medium",
-            "type" : "Information disclosure"
+            "type" : "Spoofing"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE02_EDoSAttackToCloudApplication",
-            "title" : "AE02 EDoS Attack To Cloud Application (from https)",
-            "description" : "EDoS (Economic Denial of Service) attack against cloud application from the Internet (because of https)",
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from sql)",
+            "description" : "A generic spoofing threat (because of sql)",
             "status" : "Open",
             "severity" : "Medium",
-            "type" : "Denial of service"
+            "type" : "Spoofing"
           }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
-            "title" : "Generic DoS threat (from https)",
-            "description" : "A generic DoS threat (because of https)",
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from https)",
+            "description" : "A generic tampering threat (because of https)",
             "status" : "Open",
             "severity" : "Medium",
-            "type" : "Denial of service"
+            "type" : "Tampering"
           }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
-            "title" : "Generic DoS threat (from sql)",
-            "description" : "A generic DoS threat (because of sql)",
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from sql)",
+            "description" : "A generic tampering threat (because of sql)",
             "status" : "Open",
             "severity" : "Medium",
-            "type" : "Denial of service"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
-            "title" : "AD08 Logs Of Cloud Application Stolen (from https)",
-            "description" : "Disclosure of sensitive information from cloud application logs (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Information disclosure"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
-            "title" : "AD08 Logs Of Cloud Application Stolen (from sql)",
-            "description" : "Disclosure of sensitive information from cloud application logs (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Information disclosure"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
-            "title" : "AD06 Backups Of Cloud Application Stolen (from https)",
-            "description" : "Disclosure of cloud application backups (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Information disclosure"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
-            "title" : "AD06 Backups Of Cloud Application Stolen (from sql)",
-            "description" : "Disclosure of cloud application backups (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Information disclosure"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
-            "title" : "AD05 Backup Of CloudApplication Lost (from https)",
-            "description" : "Lost of cloud application backup (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Denial of service"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
-            "title" : "AD05 Backup Of CloudApplication Lost (from sql)",
-            "description" : "Lost of cloud application backup (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Denial of service"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication",
-            "title" : "AE05 Block Shared Resources Of Cloud Application (from https)",
-            "description" : "Blocking shared resources of cloud application (e.g. shared external IP) by a third-part reputation service (because of https)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Denial of service"
+            "type" : "Tampering"
           } ]
         }, {
           "type" : "tm.Store",
@@ -400,12 +332,17 @@
             }
           },
           "threats" : [ {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
-            "title" : "Generic tampering threat (from sql)",
-            "description" : "A generic tampering threat (because of sql)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
+            "title" : "AD01 Broken Authentication (from sql)",
+            "description" : "No authentication or broken (weak) authentication by the cloud application (because of sql)",
             "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Tampering"
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
+            "title" : "AD02 Broken Access Control (from sql)",
+            "description" : "No access control or broken (weak) access control by the cloud application (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
             "title" : "AD03 Data Breach By Cloud Application (from sql)",
@@ -414,26 +351,6 @@
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
-            "title" : "Generic repudiation threat (from sql)",
-            "description" : "A generic repudiation threat (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Repudiation"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
-            "title" : "AD02 Broken Access Control (from sql)",
-            "description" : "No access control or broken (weak) access control by the cloud application (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
-            "title" : "AD07 Logs Of Cloud Application Lost (from sql)",
-            "description" : "Lost of cloud application logs (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Repudiation"
-          }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
             "title" : "AD04 Data Loss By Cloud Application (from sql)",
             "description" : "Data loss (modification) by the cloud application (because of sql)",
@@ -441,19 +358,12 @@
             "severity" : "Medium",
             "type" : "Tampering"
           }, {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
-            "title" : "Generic DoS threat (from sql)",
-            "description" : "A generic DoS threat (because of sql)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
+            "title" : "AD05 Backup Of CloudApplication Lost (from sql)",
+            "description" : "Lost of cloud application backup (because of sql)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
-          }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
-            "title" : "AD08 Logs Of Cloud Application Stolen (from sql)",
-            "description" : "Disclosure of sensitive information from cloud application logs (because of sql)",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
             "title" : "AD06 Backups Of Cloud Application Stolen (from sql)",
@@ -462,15 +372,23 @@
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
-            "title" : "AD01 Broken Authentication (from sql)",
-            "description" : "No authentication or broken (weak) authentication by the cloud application (because of sql)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
+            "title" : "AD07 Logs Of Cloud Application Lost (from sql)",
+            "description" : "Lost of cloud application logs (because of sql)",
             "status" : "Open",
-            "severity" : "Medium"
+            "severity" : "Medium",
+            "type" : "Repudiation"
           }, {
-            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
-            "title" : "AD05 Backup Of CloudApplication Lost (from sql)",
-            "description" : "Lost of cloud application backup (because of sql)",
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
+            "title" : "AD08 Logs Of Cloud Application Stolen (from sql)",
+            "description" : "Disclosure of sensitive information from cloud application logs (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from sql)",
+            "description" : "A generic DoS threat (because of sql)",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
@@ -481,6 +399,13 @@
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from sql)",
+            "description" : "A generic tampering threat (because of sql)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
           } ]
         }, {
           "type" : "tm.Flow",
@@ -521,13 +446,6 @@
             }
           },
           "threats" : [ {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
-            "title" : "Generic tampering threat",
-            "description" : "A generic tampering threat",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Tampering"
-          }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
             "title" : "Generic DoS threat",
             "description" : "A generic DoS threat",
@@ -541,6 +459,13 @@
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
           } ]
         }, {
           "type" : "tm.Flow",
@@ -578,13 +503,6 @@
             }
           },
           "threats" : [ {
-            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
-            "title" : "Generic tampering threat",
-            "description" : "A generic tampering threat",
-            "status" : "Open",
-            "severity" : "Medium",
-            "type" : "Tampering"
-          }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
             "title" : "Generic DoS threat",
             "description" : "A generic DoS threat",
@@ -598,6 +516,13 @@
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
           } ]
         } ]
       },

@@ -34,6 +34,8 @@ public class DSTMGenerator extends OManager{
    protected static String ClassifiedIsEdgeClass = "http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge";
    protected static String IsAffectedByProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy";
    protected static String IsAffectedByTargetsProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets";
+   protected static String IsAffectedByTargetProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget";
+   protected static String IsAffectedBySourceProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource";   
    protected static String ThreatClass = "http://www.grsu.by/net/OdTMBaseThreatModel#Threat";
    protected static String HasTitleProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasTitle";
    
@@ -292,16 +294,19 @@ public class DSTMGenerator extends OManager{
                 
                 IRI andIRI; // IRI of template for target (isAffectedBy)
                 IRI andFlowIRI; // IRI of template for flow (isAffectedByTargets)
+                String isAffected; // what property to apply
                 if (isClient){
                    // aggressor is a client, 
                    // set template like <affectedComponent> <<< <aggressorComponent>
                    andIRI = targetAndHasSource (affectedComponent, aggressorComponent);
                    andFlowIRI = hasSourceANDhasTarget(aggressorComponent, affectedComponent);
+                   isAffected = IsAffectedByTargetProperty;
                 } else {
                    // aggressor is a server, 
                    // set template like <affectedComponent> >>> <aggressorComponent>
                    andIRI = sourceAndHasTarget(affectedComponent, aggressorComponent);
                    andFlowIRI = hasSourceANDhasTarget(affectedComponent, aggressorComponent);
+                   isAffected = IsAffectedBySourceProperty;
                 }  
                                     
                 
@@ -315,7 +320,10 @@ public class DSTMGenerator extends OManager{
                    dModel.addAxiom(dModel.getClassAssertionAxiom(IRI.create(ThreatClass),pattern.getIRI()));
                                       
                    // create a template for a flow like '<andFlow class> isAffectedByTargets <pattern instance>'
-                   dModel.addAxiom(dModel.getSubClassValue(andFlowIRI, IRI.create(IsAffectedByTargetsProperty), pattern.getIRI()));
+                   // !!! todo: remove this
+                   // dModel.addAxiom(dModel.getSubClassValue(andFlowIRI, IRI.create(IsAffectedByTargetsProperty), pattern.getIRI()));
+                   // create a template for a flow like '<andFlow class> isAffectedByTarget|isAffectedBySource <pattern instance>'
+                   dModel.addAxiom(dModel.getSubClassValue(andFlowIRI, IRI.create(isAffected), pattern.getIRI()));
                    // set like '<andFlow class> is subclass of ClassifiedHasEdge'
                    dModel.addAxiom(dModel.getSubClass(andFlowIRI,IRI.create(ClassifiedHasEdgeClass)));
 

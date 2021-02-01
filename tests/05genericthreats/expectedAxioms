@@ -60,9 +60,12 @@ ClassAssertion(:HasSourceProcess :logflow)
 ClassAssertion(:HasTargetDataStore :logflow)
 
 # isAffectedByTargets
-ObjectPropertyAssertion(:isAffectedByTargets :flow :threat_GenericElevationOfPrivilege)
-ObjectPropertyAssertion(:isAffectedByTargets :flow :threat_GenericSpoofing)
-ObjectPropertyAssertion(:isAffectedByTargets :flow :threat_GenericTampering)
-ObjectPropertyAssertion(:isAffectedByTargets :flow :threat_GenericRepudiation)
-ObjectPropertyAssertion(:isAffectedByTargets :flow :threat_GenericInformationDisclosure)
-ObjectPropertyAssertion(:isAffectedByTargets :flow :threat_GenericDenialOfService)
+ObjectPropertyAssertion(:isAffectedBySource :flow :threat_GenericSpoofing)
+ObjectPropertyAssertion(:isAffectedBySource :flow :threat_GenericRepudiation)
+
+ObjectPropertyAssertion(:isAffectedByTarget :flow :threat_GenericElevationOfPrivilege)
+ObjectPropertyAssertion(:isAffectedByTarget :flow :threat_GenericSpoofing)
+ObjectPropertyAssertion(:isAffectedByTarget :flow :threat_GenericTampering)
+ObjectPropertyAssertion(:isAffectedByTarget :flow :threat_GenericRepudiation)
+ObjectPropertyAssertion(:isAffectedByTarget :flow :threat_GenericInformationDisclosure)
+ObjectPropertyAssertion(:isAffectedByTarget :flow :threat_GenericDenialOfService)

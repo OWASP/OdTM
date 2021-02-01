@@ -63,6 +63,8 @@ public class ThreatModeller extends OManager {
    protected static String IsEdgeOfProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf";   
    protected static String IsAffectedByProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy";
    protected static String IsAffectedByTargetsProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets";
+   protected static String IsAffectedByTargetProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget";
+   protected static String IsAffectedBySourceProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource";   
    protected static String SuggestsProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggests";
    protected static String SuggestsThreatCategoryProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory";
    protected static String SuggestsThreatProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreat"; 
@@ -279,7 +281,14 @@ public class ThreatModeller extends OManager {
        ArrayList<OWLNamedIndividual> res = new ArrayList<OWLNamedIndividual>();
        for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
            OWLNamedIndividual  flow = (OWLNamedIndividual)iterator.next();
-           OWLAxiom ax = model.getObjectPropertyAssertionAxiom(IRI.create(IsAffectedByTargetsProperty), flow.getIRI(), threatIRI);
+           String prop;
+           OWLAxiom ax1 = model.getObjectPropertyAssertionAxiom(IRI.create(HasSourceProperty), flow.getIRI(), targetIRI);
+           if (model.containsAxiom1(ax1)){
+              prop = IsAffectedBySourceProperty;
+           } else{
+              prop = IsAffectedByTargetProperty;
+           }
+           OWLAxiom ax = model.getObjectPropertyAssertionAxiom(IRI.create(prop), flow.getIRI(), threatIRI);
            if (model.containsAxiom1(ax)){
               res.add(flow);
            }
@@ -399,7 +408,7 @@ public class ThreatModeller extends OManager {
            
          model.flush();  
          // get threats from the ontological model
-         List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(nameIRI,IRI.create(IsAffectedByProperty)).collect(Collectors.toList());
+         List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(nameIRI,IRI.create(IsAffectedByProperty)).sorted().collect(Collectors.toList());
          if (threats.size() !=0) {
             ((ObjectNode)cell).put("hasOpenThreats", "true"); // put the 'hasOpenThreats' tag
             ArrayNode nodes = JsonNodeFactory.instance.arrayNode(); // generate an array
@@ -585,8 +594,16 @@ public class ThreatModeller extends OManager {
        StringBuffer bf = new StringBuffer();
        for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
            OWLNamedIndividual  flow = (OWLNamedIndividual)iterator.next();
-           OWLAxiom ax = model.getObjectPropertyAssertionAxiom(IRI.create(IsAffectedByTargetsProperty), flow.getIRI(), threat.getIRI());
-           if (model.containsAxiom1(ax)){
+           
+           String prop;
+           OWLAxiom ax1 = model.getObjectPropertyAssertionAxiom(IRI.create(HasSourceProperty), flow.getIRI(), target.getIRI());
+           if (model.containsAxiom1(ax1)){
+              prop = IsAffectedBySourceProperty;
+           } else{
+              prop = IsAffectedByTargetProperty;
+           }
+           OWLAxiom ax = model.getObjectPropertyAssertionAxiom(IRI.create(prop), flow.getIRI(), threat.getIRI());
+           if (model.containsAxiom1(ax)){           
               bf.append(flow.getIRI().toString());
               bf.append(" ");
            }
