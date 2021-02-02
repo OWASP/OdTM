@@ -56,7 +56,8 @@
             "title" : "AC01 Malware From Cloud Application (from https)",
             "description" : "Malicious content (malware) from the cloud application (because of https)",
             "status" : "Open",
-            "severity" : "Medium"
+            "severity" : "Medium",
+            "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC02_PublicNetworkAccessToCloudApplication",
             "title" : "AC02 Public Network Access To Cloud Application (from https)",
@@ -154,7 +155,7 @@
             "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
-            "title" : "AD05 Backup Of CloudApplication Lost (from https)",
+            "title" : "AD05 Backup Of Cloud Application Lost (from https)",
             "description" : "Lost of cloud application backup (because of https)",
             "status" : "Open",
             "severity" : "Medium",
@@ -359,7 +360,7 @@
             "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
-            "title" : "AD05 Backup Of CloudApplication Lost (from sql)",
+            "title" : "AD05 Backup Of Cloud Application Lost (from sql)",
             "description" : "Lost of cloud application backup (because of sql)",
             "status" : "Open",
             "severity" : "Medium",
