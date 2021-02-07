@@ -75,11 +75,11 @@ Now you can work with cloud threats  (apply mitigations, define severity or dele
 ## Assignments
 
 * Using Threat Dragon, create a DFD for a case, that includes a web application 
-(frontend interface and background database) and uses an HTTP balancer; carefully define all the data flows;
-save the diagram as a JSON file.
+(frontend interface and background database) and uses an HTTP balancer. Carefully define all the data flows.
+Save the diagram as a JSON file.
 
 * Using Threat Dragon, apply mitigations to the threats of the 'user' entity from [Example2](models/lab1_example2_modelled.json);
-save a report as a PDF file. 
+save a report as a PDF file.
 To find mitigations use the [ACCTP catalog](https://nets4geeks.github.io/acctp/catalog/) and other cloud security sources.
 
 ## Self-testing

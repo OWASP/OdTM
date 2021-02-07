@@ -8,6 +8,8 @@ which depicts common threats to cloud-based computer systems.
 
 It is automatically generated from the [ACCTP catalog](https://nets4geeks.github.io/acctp/).
 
+Here are [guide](../guide/README.md) how to use the ACCTP model and [instruction](../guide/instruction.md) how to create cloud-specific threat models.
+
 Proposed model of cloud computing environment contains a set of concepts, aimed to extend 
 the base threat model with the cloud-specific entities.
 
@@ -27,4 +29,3 @@ for example, with the [OWASP Threat Dragon](https://owasp.org/www-project-threat
 Saved Dragon's JSON file should be used as a source for our OdTMServer application [(see details here)](../applications/OdTMServer/).
 JSON file with a threat model, built by the OdTMServer tool, can be reopen in Threat Dragon for further analysis.
 
-There is a [guide of the ACCTP usage](../guide/README.md) and [instruction](../guide/instruction.md) how to create cloud-specific threat models.

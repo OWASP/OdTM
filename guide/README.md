@@ -30,7 +30,7 @@ Then the diagrams have been processed by the [OdTMServer](../applications/OdTMSe
 To create own ontology-driven threat models for cloud computing you should read [this instruction](instruction.md).
 
 * Lab1: [Introduction to the ontology-driven threat modeling](lab1_introduction.md)
-* Lab2: Modeling of the cloud architectural threats
+* Lab2: [Modeling of the cloud architecture threats](lab2_cloudarchitecture.md)
 * Lab3: Modeling of the compliance challenges of cloud systems
 * Lab4: Modeling of the privacy challenges of cloud systems
 * Lab5: Modeling of the IaaS clouds
