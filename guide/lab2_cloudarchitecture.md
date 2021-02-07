@@ -39,16 +39,20 @@ These components both influence earch other from the security point of view.
 
 The threats regarding this primitive are in the **ABxx** and **ADxx** groups (see examples above).
 
-### Primitive3: Interaction with external service
+### Primitive3: Interaction with external services
 
 A cloud application can use services, described as external, i.e. "as it is" or with weak agreement between
-service and customer (network flow from the Cloud Application to the External Service).  
+service and customer (network flow from the Cloud Application to the External Service).
+
+![lab2_primitive3](pics/lab2_primitive3a.png)
+
+This case (the use of the external service by the cloud application) is described by the **AAxx** group of threats.
+An example can be [AA05 Spoofing Of Remote Service](https://nets4geeks.github.io/acctp/catalog/threatAA05_SpoofingOfRemoteService.html). 
+
 And there is a case of the cloud application usage by an external service (External service to Cloud application).
 
-![lab2_primitive3](pics/lab2_primitive3.png)
+![lab2_primitive3](pics/lab2_primitive3b.png)
 
-The first case (the use of the external service by the cloud application) is described by the **AAxx** group of threats.
-An example can be [AA05 Spoofing Of Remote Service](https://nets4geeks.github.io/acctp/catalog/threatAA05_SpoofingOfRemoteService.html). 
 
 The use of cloud applications is shown by the **ABxx** and **ADxx** groups, mentioned above. 
 
