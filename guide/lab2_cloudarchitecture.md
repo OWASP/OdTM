@@ -59,8 +59,7 @@ And there is a case of the cloud application usage by an external service (Exter
 
 The use of cloud applications is shown by the **ABxx** and **ADxx** groups, mentioned above. 
 
-A possible [threat model of Primitive3 is here](models/lab2_primitive3_modelled.json) 
-(for an external service both as a client and server).
+A possible [threat model of Primitive3 is here](models/lab2_primitive3_modelled.json).
 
 ## Assignments
 
@@ -76,5 +75,10 @@ and apply valuable mitigations (from your point of view) to the cloud specific t
 * What well-known technologies are used to enable cloud computing?
 * What are kinds of stakeholders in the cloud environment and kinds of cloud services according [NIST Cloud Computing Reference Architecture](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-292.pdf)?
 * What is the difference between the IaaS and PaaS cloud services?
+* What are challenges of the user authentication?
+* How to prevent cloud based applications from data breach?
+* How to prevent cloud based services from data loss?
+* How to prevent cloud based services from spoofing?
+* How to prevent cloud based services from DDoS?
 
 / [main](README.md) /
