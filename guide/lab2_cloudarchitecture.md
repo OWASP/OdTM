@@ -47,6 +47,7 @@ A possible [threat model of Primitive2 is here](models/lab2_primitive2_modelled.
 
 A cloud application can use services, described as external, i.e. "as it is" or with weak agreement between
 a service and customer (network flow from the Cloud Application to the External Service).
+In some cases, a service should be treated as external if there is a lack of its management.
 
 ![lab2_primitive3](pics/lab2_primitive3a.png)
 
@@ -73,12 +74,13 @@ and apply valuable mitigations (from your point of view) to the cloud specific t
 
 * What are the main features of cloud services, considering as a definition of cloud?
 * What well-known technologies are used to enable cloud computing?
-* What are kinds of stakeholders in the cloud environment and kinds of cloud services according [NIST Cloud Computing Reference Architecture](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-292.pdf)?
+* What are kinds of cloud services according [NIST Cloud Computing Reference Architecture](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-292.pdf)?
 * What is the difference between the IaaS and PaaS cloud services?
 * What are challenges of the user authentication?
 * How to prevent cloud based applications from data breach?
 * How to prevent cloud based services from data loss?
 * How to prevent cloud based services from spoofing?
 * How to prevent cloud based services from DDoS?
+* What is the difference between 'CloudApplication' and 'ExternalService'
 
 / [main](README.md) /

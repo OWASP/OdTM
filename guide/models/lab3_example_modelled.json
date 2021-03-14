@@ -1,0 +1,285 @@
+{
+  "summary" : {
+    "title" : "New Threat Model"
+  },
+  "detail" : {
+    "contributors" : [ ],
+    "diagrams" : [ {
+      "title" : "comliance example",
+      "thumbnail" : "./public/content/images/thumbnail.stride.jpg",
+      "diagramType" : "STRIDE",
+      "id" : 0,
+      "$$hashKey" : "object:14",
+      "diagramJson" : {
+        "cells" : [ {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 864,
+            "y" : 3
+          },
+          "angle" : 0,
+          "id" : "4cb63d7d-1722-4d6e-ae8f-795c352307fa",
+          "z" : 1,
+          "hasOpenThreats" : "true",
+          "description" : "class#CloudApplication",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Cloud\nApplication"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA01_MaliciousInsiderInCloudInfrastructure",
+            "title" : "BA01 Malicious Insider In Cloud Infrastructure (from flow 2)",
+            "description" : "Malicious insider in cloud infrastructure causes security issues of cloud application (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA02_LackOfReservedResourcesForCloudApplication",
+            "title" : "BA02 Lack Of Reserved Resources For Cloud Application (from flow 2)",
+            "description" : "Lack of reserved resources for cloud application because of overload of cloud infrastructure (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA03_FailureOfResourceScalingForCloudApplication",
+            "title" : "BA03 Failure Of Resource Scaling For Cloud Application (from flow 2)",
+            "description" : "Unexpected failure of resource scaling for cloud application (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA04_HiddenDependenciesOfCloudInfrastructure",
+            "title" : "BA04 Hidden Dependencies Of Cloud Infrastructure (from flow 2)",
+            "description" : "Hidden dependencies between components of cloud application and cloud infrastructure cause security issues of cloud application (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA05_LackOfResourceIsolationOfCloudApplication",
+            "title" : "BA05 Lack Of Resource Isolation Of Cloud Application (from flow 2)",
+            "description" : "Lack of data, code, network isolation of cloud applications caused by misconfigurations and vulnerabilities of cloud infrastructure (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA06_LossOfSecurityControl",
+            "title" : "BA06 Loss Of Security Control (from flow 2)",
+            "description" : "Loss of visibility and control of security and privacy of cloud application (partially controlled) (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA07_PoorInformationSecurityProcesses",
+            "title" : "BA07 Poor Information Security Processes (from flow 2)",
+            "description" : "Poor information security processes of cloud provider (design, implementation and operations) (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA08_AuditAndCertificationIssues",
+            "title" : "BA08 Audit And Certification Issues (from flow 2)",
+            "description" : "Audit and certification of cloud applications and infrastructure are inaccessible or restricted (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA09_SecurityIssuesOfSLA",
+            "title" : "BA09 Security Issues Of SLA (from flow 2)",
+            "description" : "Incorrect or unclear information security section of SLA (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA10_ServiceProviderLockIn",
+            "title" : "BA10 Service Provider Lock-In (from flow 2)",
+            "description" : "Service provider lock-in (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA11_SoftwareLicenseIssues",
+            "title" : "BA11 Software License Issues (from flow 2)",
+            "description" : "Software license issues (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA12_ConfiscationOfComputerHardware",
+            "title" : "BA12 Confiscation Of Computer Hardware (from flow 2)",
+            "description" : "Confiscation of computer hardware of cloud provider as a result of subpoena by law-enforcement agencies (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA13_RestrictionsOfForensicReadiness",
+            "title" : "BA13 Restrictions Of Forensic Readiness (from flow 2)",
+            "description" : "Restrictions of forensic readiness for cloud applications (e.g. access to low-level logs and background data, disclosure of client context) (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA14_PhysicalAccessOrTheftOfComputerEquipment",
+            "title" : "BA14 Physical Access Or Theft Of Computer Equipment (from flow 2)",
+            "description" : "Unauthorized access or theft of computer equipment from data centre (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter",
+            "title" : "BA15 Destruction Of Data Center (from flow 2)",
+            "description" : "Natural disasters destroy data centre or cloud infrastructure (Force Majeure) (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from flow 2)",
+            "description" : "A generic DoS threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat (from flow 2)",
+            "description" : "A generic elevation threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat (from flow 2)",
+            "description" : "A generic information disclosure threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from flow 2)",
+            "description" : "A generic repudiation threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from flow 2)",
+            "description" : "A generic spoofing threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from flow 2)",
+            "description" : "A generic tampering threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 772,
+            "y" : 246
+          },
+          "angle" : 0,
+          "id" : "abb10031-fa69-40ea-9376-0b681b9c4fc5",
+          "z" : 2,
+          "hasOpenThreats" : "true",
+          "description" : "class#ComplianceManager",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Compliance Manager"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from flow 2)",
+            "description" : "A generic repudiation threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from flow 2)",
+            "description" : "A generic spoofing threat (because of flow 2)",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "abb10031-fa69-40ea-9376-0b681b9c4fc5"
+          },
+          "target" : {
+            "id" : "4cb63d7d-1722-4d6e-ae8f-795c352307fa"
+          },
+          "vertices" : [ ],
+          "id" : "7efc5258-5c18-4d2e-bbe7-a60abc241845",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow 2",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 3,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        } ]
+      },
+      "size" : {
+        "height" : 590,
+        "width" : 1028
+      }
+    } ]
+  }
+}

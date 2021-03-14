@@ -290,7 +290,7 @@ public class ThreatModeller extends OManager {
            }
            OWLAxiom ax = model.getObjectPropertyAssertionAxiom(IRI.create(prop), flow.getIRI(), threatIRI);
            if (model.containsAxiom1(ax)){
-              res.add(flow);
+               res.add(flow);
            }
        }       
        return res;
@@ -440,7 +440,6 @@ public class ThreatModeller extends OManager {
                
                // if it isn't a dataflow
                if (!cellType.equals("tm.Flow")){
-                                  
                   // get list of reasons (i.e. flows) 
                   //List<OWLNamedIndividual> flows = model.getReasonerInstances(HasEdgeValueClass).collect(Collectors.toList());
                   //List<OWLNamedIndividual> flows = model.getReasonerObjectPropertyValues(nameIRI,IRI.create(IsEdgeOfProperty)).collect(Collectors.toList());

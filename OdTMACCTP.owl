@@ -336,7 +336,7 @@ ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.g
 
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost>)
 
-# Individual: <http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen> (AD06 Backups Of Cloud Application Stolen)
+# Individual: <http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen> (AD06 Backup Of Cloud Application Stolen)
 
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen>)
 

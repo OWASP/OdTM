@@ -72,6 +72,13 @@ have got a bunch of new threats. The 'user' item has the least threats:
 
 Now you can work with cloud threats  (apply mitigations, define severity or delete a threat) using Threat Dragon.
 
+Note, our cloud threat metamodel has a minimum set of architectural components.
+In fact, you can model a structure of your application using the 'CloudApplication' concept and its derived entities only.
+External entities are represented by the 'RemoteUser' and 'ExternalService' concepts (see details in Lab2).
+To enable compliance-like threats the 'ComplianceManager' concept should be used (see Lab3),
+to apply the privacy threats use the 'PrivacyManager' concept (see Lab4).
+
+
 ## Assignments
 
 * Using Threat Dragon, create a DFD for a case, that includes a web application 
