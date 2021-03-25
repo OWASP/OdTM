@@ -16,6 +16,8 @@ of a domain-specific model, for example, with DFD (Data Flow Diagram),
 it allows the use of automatic reasoning procedures to build a threat model of the system 
 (i.e. figure out relevant threats and countermeasures).
 
+To start using the OdTM framework, you can read [this guide](guide/README.md).
+
 Our approach is based on a [base threat model (ontology)](docs/BASEMODEL.md).
 The base model enables creation of various domain-specific threat models 
 and their integration with external sources, like attack/vulnerability/weakness enumerations, 
@@ -34,8 +36,6 @@ as an alternative rule engine for threat modelling tools.
 The applications are built with Java, 
 the [OWL API](https://github.com/owlcs/owlapi) 
 and [HermiT Reasoner](http://www.hermit-reasoner.com/) libraries.
-
-To start using the OdTM framework and cloud threat models, you can read [this guide](guide/README.md).
 
 If you want to refer to OdTM, please, read [this article](https://www.researchgate.net/publication/339415212_Security_patterns_based_approach_to_automatically_select_mitigations_in_ontology-driven_threat_modelling)
 and cite it:
