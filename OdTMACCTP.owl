@@ -22,12 +22,15 @@ Declaration(Class(:HasSourceCloudApplicationAndHasTargetCloudApplication))
 Declaration(Class(:HasSourceCloudApplicationAndHasTargetExternalService))
 Declaration(Class(:HasSourceComplianceManager))
 Declaration(Class(:HasSourceComplianceManagerAndHasTargetCloudApplication))
+Declaration(Class(:HasSourceComplianceManagerAndHasTargetVirtualMachine))
 Declaration(Class(:HasSourceExternalService))
 Declaration(Class(:HasSourceExternalServiceAndHasTargetCloudApplication))
 Declaration(Class(:HasSourceRemoteUser))
 Declaration(Class(:HasSourceRemoteUserAndHasTargetCloudApplication))
+Declaration(Class(:HasSourceRemoteUserAndHasTargetVirtualMachine))
 Declaration(Class(:HasTargetCloudApplication))
 Declaration(Class(:HasTargetExternalService))
+Declaration(Class(:HasTargetVirtualMachine))
 Declaration(Class(:IsSourceOfHasTargetCloudApplication))
 Declaration(Class(:IsSourceOfHasTargetExternalService))
 Declaration(Class(:IsTargetOfHasSourceCloudApplication))
@@ -35,6 +38,8 @@ Declaration(Class(:IsTargetOfHasSourceComplianceManager))
 Declaration(Class(:IsTargetOfHasSourceExternalService))
 Declaration(Class(:IsTargetOfHasSourceRemoteUser))
 Declaration(Class(:RemoteUserAndIsSourceOfHasTargetCloudApplication))
+Declaration(Class(:VirtualMachineAndIsTargetOfHasSourceComplianceManager))
+Declaration(Class(:VirtualMachineAndIsTargetOfHasSourceRemoteUser))
 
 ############################
 #   Classes
@@ -182,6 +187,19 @@ SubClassOf(:HasSourceComplianceManagerAndHasTargetCloudApplication ObjectHasValu
 SubClassOf(:HasSourceComplianceManagerAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatBA14_PhysicalAccessOrTheftOfComputerEquipment>))
 SubClassOf(:HasSourceComplianceManagerAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter>))
 
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceComplianceManagerAndHasTargetVirtualMachine> (<http://www.grsu.by/net/OdTMACCTP#HasSourceComplianceManagerAndHasTargetVirtualMachine>)
+
+EquivalentClasses(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectIntersectionOf(:HasSourceComplianceManager :HasTargetVirtualMachine))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC01_VMEscape>))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel>))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities>))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration>))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository>))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository>))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation>))
+SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots>))
+
 # Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceExternalService> (<http://www.grsu.by/net/OdTMACCTP#HasSourceExternalService>)
 
 EquivalentClasses(:HasSourceExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> <http://www.grsu.by/net/ACCTP/common#ExternalService>))
@@ -229,6 +247,14 @@ SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http
 SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication>))
 SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface>))
 
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetVirtualMachine> (<http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetVirtualMachine>)
+
+EquivalentClasses(:HasSourceRemoteUserAndHasTargetVirtualMachine ObjectIntersectionOf(:HasSourceRemoteUser :HasTargetVirtualMachine))
+SubClassOf(:HasSourceRemoteUserAndHasTargetVirtualMachine <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
+SubClassOf(:HasSourceRemoteUserAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDB01_PriviledgeEscalation>))
+SubClassOf(:HasSourceRemoteUserAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDB02_RemoteCodeExecution>))
+SubClassOf(:HasSourceRemoteUserAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDB03_NetworkScanning>))
+
 # Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#HasTargetCloudApplication>)
 
 EquivalentClasses(:HasTargetCloudApplication ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#CloudApplication>))
@@ -236,6 +262,10 @@ EquivalentClasses(:HasTargetCloudApplication ObjectSomeValuesFrom(<http://www.gr
 # Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetExternalService> (<http://www.grsu.by/net/OdTMACCTP#HasTargetExternalService>)
 
 EquivalentClasses(:HasTargetExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#ExternalService>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetVirtualMachine> (<http://www.grsu.by/net/OdTMACCTP#HasTargetVirtualMachine>)
+
+EquivalentClasses(:HasTargetVirtualMachine ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#VirtualMachine>))
 
 # Class: <http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetCloudApplication>)
 
@@ -270,6 +300,27 @@ SubClassOf(:RemoteUserAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<htt
 SubClassOf(:RemoteUserAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication>))
 SubClassOf(:RemoteUserAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAC02_PublicNetworkAccessToCloudApplication>))
 SubClassOf(:RemoteUserAndIsSourceOfHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAC03_SocialEngineeringAgainstRemoteUser>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#VirtualMachineAndIsTargetOfHasSourceComplianceManager> (<http://www.grsu.by/net/OdTMACCTP#VirtualMachineAndIsTargetOfHasSourceComplianceManager>)
+
+EquivalentClasses(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#VirtualMachine> :IsTargetOfHasSourceComplianceManager))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC01_VMEscape>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceComplianceManager ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots>))
+
+# Class: <http://www.grsu.by/net/OdTMACCTP#VirtualMachineAndIsTargetOfHasSourceRemoteUser> (<http://www.grsu.by/net/OdTMACCTP#VirtualMachineAndIsTargetOfHasSourceRemoteUser>)
+
+EquivalentClasses(:VirtualMachineAndIsTargetOfHasSourceRemoteUser ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#VirtualMachine> :IsTargetOfHasSourceRemoteUser))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceRemoteUser <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDB01_PriviledgeEscalation>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDB02_RemoteCodeExecution>))
+SubClassOf(:VirtualMachineAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatDB03_NetworkScanning>))
 
 
 ############################
@@ -431,6 +482,50 @@ ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.g
 # Individual: <http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter> (BA15 Destruction Of Data Center)
 
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDB01_PriviledgeEscalation> (DB01 Priviledge Escalation)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDB01_PriviledgeEscalation>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDB02_RemoteCodeExecution> (DB02 Remote Code Execution)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDB02_RemoteCodeExecution>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDB03_NetworkScanning> (DB03 Network Scanning)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDB03_NetworkScanning>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC01_VMEscape> (DC01 VM Escape)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC01_VMEscape>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel> (DC02 Cross-VM Side Channel)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities> (DC03 Hypervisor Vulnerabilities)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration> (DC04 Unsafe VM Migration)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository> (DC05 Rogue VM Image In Repository)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository> (DC06 Outdated VM Image In Repository)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation> (DC07 Lack Of Network Isolation)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation>)
+
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots> (DC08_Unsafe VM Snapshots)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots>)
 
 
 )
