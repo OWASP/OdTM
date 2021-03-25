@@ -523,7 +523,7 @@ ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.g
 
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation>)
 
-# Individual: <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots> (DC08_Unsafe VM Snapshots)
+# Individual: <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots> (DC08 Unsafe VM Snapshots)
 
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots>)
 

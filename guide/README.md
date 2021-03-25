@@ -33,7 +33,7 @@ To create own ontology-driven threat models for cloud computing you should read 
 * Lab2: [Modeling of the cloud architecture threats](lab2_cloudarchitecture.md)
 * Lab3: [Modeling of the compliance challenges of cloud systems](lab3_compliance.md)
 * Lab4: Modeling of the privacy challenges of cloud systems
-* Lab5: Modeling of the IaaS clouds
+* Lab5: [Modeling of the IaaS clouds](lab5_IaaS.md)
 * Lab6: Modeling of the PaaS clouds
 * Instruction: [How to create ontology-driven threat models](instruction.md)
 
