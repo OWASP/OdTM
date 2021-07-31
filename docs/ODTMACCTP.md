@@ -24,8 +24,22 @@ The compliance profile holds threats close to responsibilities of cloud actors, 
 The privacy profile is about confidentiality of information and personal data. 
 Extended profiles (IaaS, PaaS, SaaS, Storage) contain the threats of various types of cloud applications.
 
-To use the ACCTP model, you should describe structure of cloud system by a Data Flow Diagram (DFD),
-for example, with the [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/) modelling tool.
-Saved Dragon's JSON file should be used as a source for our OdTMServer application [(see details here)](../applications/OdTMServer/).
+To use the ACCTP model, you should describe structure of cloud system by a Data Flow Diagram (DFD) 
+with the [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/) modelling tool, applying the cloud specific labels to items of the diagram.
+Saved Dragon's JSON file should be used as a source for our OdTMServer application [(see details in the instruction)](../guide/instruction.md).
 JSON file with a threat model, built by the OdTMServer tool, can be reopen in Threat Dragon for further analysis.
+
+Current list of the cloud specific labels includes:
+
+```
+class#CloudApplication
+class#CloudInfrastructure
+class#ComplianceManager
+class#ExternalService
+class#PaaSApplication
+class#PrivacyManager
+class#RemoteUser
+class#SaaSApplication
+class#VirtualMachine
+```
 

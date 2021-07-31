@@ -21,17 +21,15 @@ To start using the OdTM framework, you can read [this guide](guide/README.md).
 Our approach is based on a [base threat model (ontology)](docs/BASEMODEL.md).
 The base model enables creation of various domain-specific threat models 
 and their integration with external sources, like attack/vulnerability/weakness enumerations, 
-also with catalogues of traditional security patterns.
+also with catalogues of traditional security (threat) patterns.
 
 We also have an implementation of the [Academic Cloud Computing Threat Patterns (ACCTP)](docs/ODTMACCTP.md) model
 as a domain-specific threat model.
 
-All the models are implemented as OWL (Web Ontology Language) ontologies 
-with Description Logics (DLs) as a mathematical background.
+All the models are implemented as OWL (Web Ontology Language) ontologies with Description Logics (DLs) as a mathematical background.
 
-The framework includes a set of software tools for automation of the threat modelling process.
-In particular, we are working on the [OdTM Server](applications/OdTMServer/) 
-as an alternative rule engine for threat modelling tools.
+The framework includes a [set of software tools](applications/OdTMServer/) for automation of the threat modelling process
+(in particular, an alternative threat rule engine).
 
 The applications are built with Java, 
 the [OWL API](https://github.com/owlcs/owlapi) 

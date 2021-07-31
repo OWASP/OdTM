@@ -18,9 +18,6 @@ and processing by the OdTMServer application, you can get a threat model like [t
 * a text file with ABox axioms, like [this one](cases/01verysimplecase). 
 You can get a simple console output, used for the test purposes.
 
-To compile & run the application:
+To compile & run the application, follow [this instruction](../../guide/instruction.md)
 
-* clone the whole OdTM repository, go to the 'applications/OdTMServer' folder and run 'mvn compile' there.
-
-* edit 'server_xxx.properties' and execute the 'server_xxx.run' script there.
 
