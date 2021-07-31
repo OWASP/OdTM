@@ -1,7 +1,7 @@
 
 # Threat modeling guide
 
-This guide describes an approach to the threat modeling of cloud computer systems,
+This guide describes an approach of the threat modeling of cloud computer systems,
 based on the [Ontology-driven threat modeling (OdTM)](https://owasp.org/www-project-ontology-driven-threat-modeling-framework/) framework
 and [Academic Cloud Computing Threat Patterns (ACCTP)](https://nets4geeks.github.io/acctp/) catalog.
 
