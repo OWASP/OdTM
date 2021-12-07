@@ -14,6 +14,15 @@ The structure of the relations is shown in the figure:
 
 ![im_concepts](im_concepts.png)
 
+Both the root concept 'Threat' and the 'ATTCKTechnique' concept represent 
+the [ATT&CK techniques](https://github.com/mitre-attack/attack-stix-data).
+
+The 'CAPEC' concept represents another kind of attack patterns, taken from an [XML file](https://capec.mitre.org).
+
+The 'CWE' concept indicates entities of the weakness enumeration, which are provided by an [XML file](https://cwe.mitre.org).
+
+Also, CWEs refer to CVEs. So, the knowledge base has only CVEs mentioned in the CWE enumeration.
+
 
 ## Use of linked enumerations
 
@@ -47,6 +56,7 @@ associated with labeled component.
 Example is:
 
 ![im_example4](im_example4.png)
+
 
 [More examples can be found there](../applications/generateIM/cases/).
 
