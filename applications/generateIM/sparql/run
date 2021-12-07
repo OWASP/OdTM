@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/home/net/data/bin/apache-jena-3.7.0/bin/arq -q --query $1
+

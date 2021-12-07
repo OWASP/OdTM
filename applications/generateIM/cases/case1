@@ -1,0 +1,40 @@
+#
+# a case of remote task scheduling with domain authentication (Windows, Active Directory)
+#
+#  (ExternalInteractor)                 (Process)
+#         admin------------------------> taskCreation 
+#          |        flow
+#          |      (DataFlow)
+#          |      (hasSource admin)
+#          |      (hasTarget taskCreation)
+#          |      +(ScheduledJobCreation_DataComponent)
+#          |
+#          |                             (Process)
+#          |                             +(HasRestriction_Platform_SaaS)
+#          |--------------------------->  auth
+#                 flow2
+#                 (DataFlow)
+#                 (hasSource admin)
+#                 (hasTarget auth)
+#                 +(ActiveDirectoryCredentialRequest_DataComponent)  
+#
+#Import(<http://www.grsu.by/net/OdTMBaseThreatModel>)
+#Import(<http://www.grsu.by/net/OdTMIntegratedModel>)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow> :flow)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :taskCreation)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor> :admin)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :flow :admin)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :flow :taskCreation)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow> :flow2)
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Process> :auth)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> :flow2 :admin)
+ObjectPropertyAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> :flow2 :auth)
+
+ClassAssertion(<http://www.grsu.by/net/OdTMIntegratedModel#ScheduledJobCreation_DataComponent> :flow)
+ClassAssertion(<http://www.grsu.by/net/OdTMIntegratedModel#ActiveDirectoryCredentialRequest_DataComponent> :flow2)
+
+
+ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#HasRestrictions> :auth)
+ClassAssertion(<http://www.grsu.by/net/OdTMIntegratedModel#HasRestriction_Platform_SaaS> :auth)
+

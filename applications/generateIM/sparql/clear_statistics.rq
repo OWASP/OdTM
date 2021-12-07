@@ -1,0 +1,61 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+ 
+# the first source:
+PREFIX bm: <http://www.grsu.by/net/OdTMBaseThreatModel#> 
+# another one:
+PREFIX : <http://www.grsu.by/net/OdTMIntegratedModel#> 
+
+SELECT ?ATTCKs ?CAPECs ?CWEs ?CVEs ?ATTCKtoCAPECs  ?CAPECtoATTCKs ?CAPECtoCWEs ?CWEtoCAPECs ?CWEtoCVEs
+FROM <../ttl/OdTMIntegratedModel.ttl>
+WHERE
+{
+  {
+    SELECT (count(?a) as ?ATTCKs)
+    WHERE { ?a rdf:type :ATTCKTechnique .}
+  }
+
+  {
+    SELECT (count(?b) as ?ATTCKtoCAPECs)
+    WHERE { ?b bm:refToCAPEC ?c . }
+  }
+
+  {
+    SELECT (count(?d) as ?CAPECs)
+    WHERE { ?d rdf:type :CAPEC .}
+  }
+
+  {
+    SELECT (count(?e) as ?CAPECtoATTCKs)
+    WHERE { ?e bm:isRefToATTCK ?f . }
+  }
+
+
+  {
+    SELECT (count(?g) as ?CWEs)
+    WHERE { ?g rdf:type :CWE .}
+  }
+
+  {
+    SELECT (count(?h) as ?CAPECtoCWEs)
+    WHERE { ?h bm:refToCWE ?l . }
+  }
+
+  {
+    SELECT (count(?m) as ?CWEtoCAPECs)
+    WHERE { ?m bm:isRefToCAPEC ?n . }
+  }
+
+  {
+    SELECT (count(?k) as ?CVEs)
+    WHERE { ?k rdf:type :CVE .}
+  }
+
+  {
+    SELECT (count(?o) as ?CWEtoCVEs)
+    WHERE { ?o bm:refToCVE ?p . }
+  }
+
+}
+

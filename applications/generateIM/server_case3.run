@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+CONF="../generateIM/server_case3.properties"
+APP="../OdTMServer"
+
+cd $APP
+
+
+mvn -e exec:java -q -Dexec.mainClass="ab.run.consoleApplication" -Dexec.args="$CONF"
+

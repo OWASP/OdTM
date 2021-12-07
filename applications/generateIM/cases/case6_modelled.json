@@ -1,0 +1,271 @@
+{
+  "summary" : {
+    "title" : "New Threat Model"
+  },
+  "detail" : {
+    "contributors" : [ ],
+    "diagrams" : [ {
+      "title" : "windows case",
+      "thumbnail" : "./public/content/images/thumbnail.stride.jpg",
+      "diagramType" : "STRIDE",
+      "id" : 0,
+      "$$hashKey" : "object:14",
+      "diagramJson" : {
+        "cells" : [ {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 352,
+            "y" : 54
+          },
+          "angle" : 0,
+          "id" : "de80fd2b-580e-4b90-a847-48b849132f1e",
+          "z" : 2,
+          "hasOpenThreats" : "true",
+          "description" : "enum#CWE-284;\nrestriction#HasRestriction_Platform_Linux;",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "process2"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from flow 2)",
+            "description" : "A generic DoS threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat (from flow 2)",
+            "description" : "A generic elevation threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat (from flow 2)",
+            "description" : "A generic information disclosure threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from flow 2)",
+            "description" : "A generic repudiation threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from flow 2)",
+            "description" : "A generic spoofing threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from flow 2)",
+            "description" : "A generic tampering threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--03259939-0b57-482f-8eb5-87c0e0d54334",
+            "title" : "T1037 (by existence)",
+            "description" : "T1037 (https://attack.mitre.org/techniques/T1037);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-564 (https://capec.mitre.org/data/definitions/564.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--0f20e3cb-245b-4a61-8a91-2d93f7cb0e9b",
+            "title" : "T1014 (by existence)",
+            "description" : "T1014 (https://attack.mitre.org/techniques/T1014);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-552 (https://capec.mitre.org/data/definitions/552.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--1b7b1806-7746-41a1-a35d-e48dae25ddba",
+            "title" : "T1542.003 (by existence)",
+            "description" : "T1542.003 (https://attack.mitre.org/techniques/T1542/003);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nCAPEC-552 (https://capec.mitre.org/data/definitions/552.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--1ecb2399-e8ba-4f6b-8ba7-5c27d49405cf",
+            "title" : "T1547 (by existence)",
+            "description" : "T1547 (https://attack.mitre.org/techniques/T1547);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-564 (https://capec.mitre.org/data/definitions/564.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--a1b52199-c8c5-438a-9ded-656f1d0888c6",
+            "title" : "T1547.006 (by existence)",
+            "description" : "T1547.006 (https://attack.mitre.org/techniques/T1547/006);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-552 (https://capec.mitre.org/data/definitions/552.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--ac08589e-ee59-4935-8667-d845e38fe579",
+            "title" : "T1562.001 (by existence)",
+            "description" : "T1562.001 (https://attack.mitre.org/techniques/T1562/001);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-578 (https://capec.mitre.org/data/definitions/578.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b63a34e8-0a61-4c97-a23b-bf8a2ed812e2",
+            "title" : "T1546.004 (by existence)",
+            "description" : "T1546.004 (https://attack.mitre.org/techniques/T1546/004);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-19 (https://capec.mitre.org/data/definitions/19.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--c615231b-f253-4f58-9d47-d5b4cbdb6839",
+            "title" : "T1553.004 (by existence)",
+            "description" : "T1553.004 (https://attack.mitre.org/techniques/T1553/004);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-479 (https://capec.mitre.org/data/definitions/479.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--dfefe2ed-4389-4318-8762-f0272b350a1b",
+            "title" : "T1543.002 (by existence)",
+            "description" : "T1543.002 (https://attack.mitre.org/techniques/T1543/002);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-550 (https://capec.mitre.org/data/definitions/550.html); \nCAPEC-551 (https://capec.mitre.org/data/definitions/551.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCWE-522 (https://cwe.mitre.org/data/definitions/522.html); \nCVE-2000-0944 (https://www.cve.org/CVERecord?id=CVE-2000-0944); \nCVE-2005-0408 (https://www.cve.org/CVERecord?id=CVE-2005-0408); \nCVE-2005-3435 (https://www.cve.org/CVERecord?id=CVE-2005-3435); \nCVE-2007-0681 (https://www.cve.org/CVERecord?id=CVE-2007-0681); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence;",
+            "status" : "Open",
+            "severity" : "Medium"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 84,
+            "y" : 50
+          },
+          "angle" : 0,
+          "id" : "34344a37-4b1a-4727-80f9-bfc19cb456f4",
+          "z" : 4,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "process1"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat (from flow 2)",
+            "description" : "A generic DoS threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat (from flow 2)",
+            "description" : "A generic elevation threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat (from flow 2)",
+            "description" : "A generic information disclosure threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat (from flow 2)",
+            "description" : "A generic repudiation threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat (from flow 2)",
+            "description" : "A generic spoofing threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat (from flow 2)",
+            "description" : "A generic tampering threat;\nreason: flow 2;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "34344a37-4b1a-4727-80f9-bfc19cb456f4"
+          },
+          "target" : {
+            "id" : "de80fd2b-580e-4b90-a847-48b849132f1e"
+          },
+          "vertices" : [ ],
+          "id" : "06b1fa4e-db4f-43f0-809e-45c8f001ba0e",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow 2",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 5,
+          "hasOpenThreats" : "true",
+          "description" : "",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        } ]
+      },
+      "size" : {
+        "height" : 590,
+        "width" : 790
+      }
+    } ]
+  }
+}

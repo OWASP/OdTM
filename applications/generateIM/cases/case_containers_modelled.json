@@ -1,0 +1,1822 @@
+{
+  "summary" : {
+    "title" : "New Threat Model"
+  },
+  "detail" : {
+    "contributors" : [ ],
+    "diagrams" : [ {
+      "title" : "diagram1",
+      "thumbnail" : "./public/content/images/thumbnail.stride.jpg",
+      "diagramType" : "STRIDE",
+      "id" : 0,
+      "$$hashKey" : "object:20",
+      "diagramJson" : {
+        "cells" : [ {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 486,
+            "y" : 20
+          },
+          "angle" : 0,
+          "id" : "a72046c6-3a2f-4bf2-98c4-c9e565d1b3a3",
+          "z" : 1,
+          "hasOpenThreats" : "true",
+          "description" : "",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "orchestrator"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: flow9; flow4; flow1; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: flow9; flow4; flow1; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: flow9; flow4; flow1; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: flow9; flow4; flow1; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: flow9; flow4; flow1; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: flow9; flow4; flow1; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 612,
+            "y" : 177
+          },
+          "angle" : 0,
+          "id" : "d12df148-58e8-4efd-b2da-b26a77940a8d",
+          "z" : 2,
+          "hasOpenThreats" : "true",
+          "description" : "restriction#HasRestriction_Platform_Linux;",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "platform"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: flow5; flow8; flow10; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: flow5; flow8; flow10; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: flow5; flow8; flow10; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: flow5; flow8; flow10; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: flow5; flow8; flow10; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: flow5; flow8; flow10; flow11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--35dd844a-b219-4e2b-a6bb-efa9a75995a9",
+            "title" : "T1053",
+            "description" : "T1053 (https://attack.mitre.org/techniques/T1053);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-557 (https://capec.mitre.org/data/definitions/557.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--4a5b7ade-8bb5-4853-84ed-23f262002665",
+            "title" : "T1611",
+            "description" : "T1611 (https://attack.mitre.org/techniques/T1611);\nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-480 (https://capec.mitre.org/data/definitions/480.html); \nCWE-693 (https://cwe.mitre.org/data/definitions/693.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--8c32eb4d-805f-4fc5-bf60-c4d476c131b5",
+            "title" : "T1204",
+            "description" : "T1204 (https://attack.mitre.org/techniques/T1204);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 656,
+            "y" : 348
+          },
+          "angle" : 0,
+          "id" : "fbab6b26-1736-4dc7-bb63-83b97a73fce0",
+          "z" : 3,
+          "hasOpenThreats" : "true",
+          "description" : "restriction#HasRestriction_Platform_Containers;",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "container"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: flow7; flow8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: flow7; flow8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: flow7; flow8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: flow7; flow8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: flow7; flow8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: flow7; flow8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--35dd844a-b219-4e2b-a6bb-efa9a75995a9",
+            "title" : "T1053",
+            "description" : "T1053 (https://attack.mitre.org/techniques/T1053);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-557 (https://capec.mitre.org/data/definitions/557.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--3d333250-30e4-4a82-9edc-756c68afc529",
+            "title" : "T1562",
+            "description" : "T1562 (https://attack.mitre.org/techniques/T1562);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
+            "title" : "T1036",
+            "description" : "T1036 (https://attack.mitre.org/techniques/T1036);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-177 (https://capec.mitre.org/data/definitions/177.html); \nCWE-706 (https://cwe.mitre.org/data/definitions/706.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--435dfb86-2697-4867-85b5-2fef496c0517",
+            "title" : "T1552",
+            "description" : "T1552 (https://attack.mitre.org/techniques/T1552);\nTA0006 Credential Access (https://attack.mitre.org/tactics/TA0006); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--4a5b7ade-8bb5-4853-84ed-23f262002665",
+            "title" : "T1611",
+            "description" : "T1611 (https://attack.mitre.org/techniques/T1611);\nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-480 (https://capec.mitre.org/data/definitions/480.html); \nCWE-693 (https://cwe.mitre.org/data/definitions/693.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--799ace7f-e227-4411-baa0-8868704f2a69",
+            "title" : "T1070",
+            "description" : "T1070 (https://attack.mitre.org/techniques/T1070);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-93 (https://capec.mitre.org/data/definitions/93.html); \nCWE-117 (https://cwe.mitre.org/data/definitions/117.html); \nCWE-150 (https://cwe.mitre.org/data/definitions/150.html); \nCWE-75 (https://cwe.mitre.org/data/definitions/75.html); \nCVE-2000-0476 (https://www.cve.org/CVERecord?id=CVE-2000-0476); \nCVE-2000-0703 (https://www.cve.org/CVERecord?id=CVE-2000-0703); \nCVE-2001-1556 (https://www.cve.org/CVERecord?id=CVE-2001-1556); \nCVE-2002-0542 (https://www.cve.org/CVERecord?id=CVE-2002-0542); \nCVE-2002-0986 (https://www.cve.org/CVERecord?id=CVE-2002-0986); \nCVE-2003-0020 (https://www.cve.org/CVERecord?id=CVE-2003-0020); \nCVE-2003-0021 (https://www.cve.org/CVERecord?id=CVE-2003-0021); \nCVE-2003-0022 (https://www.cve.org/CVERecord?id=CVE-2003-0022); \nCVE-2003-0023 (https://www.cve.org/CVERecord?id=CVE-2003-0023); \nCVE-2003-0063 (https://www.cve.org/CVERecord?id=CVE-2003-0063); \nCVE-2003-0083 (https://www.cve.org/CVERecord?id=CVE-2003-0083); \nCVE-2006-4624 (https://www.cve.org/CVERecord?id=CVE-2006-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--7b50a1d3-4ca7-45d1-989d-a6503f04bfe1",
+            "title" : "T1609",
+            "description" : "T1609 (https://attack.mitre.org/techniques/T1609);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--837f9164-50af-4ac0-8219-379d8a74cefc",
+            "title" : "T1552.001",
+            "description" : "T1552.001 (https://attack.mitre.org/techniques/T1552/001);\nTA0006 Credential Access (https://attack.mitre.org/tactics/TA0006); \nCAPEC-191 (https://capec.mitre.org/data/definitions/191.html); \nCAPEC-639 (https://capec.mitre.org/data/definitions/639.html); \nCWE-552 (https://cwe.mitre.org/data/definitions/552.html); \nCWE-798 (https://cwe.mitre.org/data/definitions/798.html); \nCVE-2005-0496 (https://www.cve.org/CVERecord?id=CVE-2005-0496); \nCVE-2005-3716 (https://www.cve.org/CVERecord?id=CVE-2005-3716); \nCVE-2005-3803 (https://www.cve.org/CVERecord?id=CVE-2005-3803); \nCVE-2006-7142 (https://www.cve.org/CVERecord?id=CVE-2006-7142); \nCVE-2008-0961 (https://www.cve.org/CVERecord?id=CVE-2008-0961); \nCVE-2008-1160 (https://www.cve.org/CVERecord?id=CVE-2008-1160); \nCVE-2008-2369 (https://www.cve.org/CVERecord?id=CVE-2008-2369); \nCVE-2010-1573 (https://www.cve.org/CVERecord?id=CVE-2010-1573); \nCVE-2010-2073 (https://www.cve.org/CVERecord?id=CVE-2010-2073); \nCVE-2010-2772 (https://www.cve.org/CVERecord?id=CVE-2010-2772); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--8c32eb4d-805f-4fc5-bf60-c4d476c131b5",
+            "title" : "T1204",
+            "description" : "T1204 (https://attack.mitre.org/techniques/T1204);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--ac08589e-ee59-4935-8667-d845e38fe579",
+            "title" : "T1562.001",
+            "description" : "T1562.001 (https://attack.mitre.org/techniques/T1562/001);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-578 (https://capec.mitre.org/data/definitions/578.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b0c74ef9-c61e-4986-88cb-78da98a355ec",
+            "title" : "T1204.003",
+            "description" : "T1204.003 (https://attack.mitre.org/techniques/T1204/003);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--cd25c1b4-935c-4f0e-ba8d-552f28bc4783",
+            "title" : "T1496",
+            "description" : "T1496 (https://attack.mitre.org/techniques/T1496);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
+            "title" : "T1046",
+            "description" : "T1046 (https://attack.mitre.org/techniques/T1046);\nTA0007 Discovery (https://attack.mitre.org/tactics/TA0007); \nCAPEC-300 (https://capec.mitre.org/data/definitions/300.html); \nCWE-200 (https://cwe.mitre.org/data/definitions/200.html); \nCVE-2000-1117 (https://www.cve.org/CVERecord?id=CVE-2000-1117); \nCVE-2001-1483 (https://www.cve.org/CVERecord?id=CVE-2001-1483); \nCVE-2001-1528 (https://www.cve.org/CVERecord?id=CVE-2001-1528); \nCVE-2002-0515 (https://www.cve.org/CVERecord?id=CVE-2002-0515); \nCVE-2002-1725 (https://www.cve.org/CVERecord?id=CVE-2002-1725); \nCVE-2003-0190 (https://www.cve.org/CVERecord?id=CVE-2003-0190); \nCVE-2003-1078 (https://www.cve.org/CVERecord?id=CVE-2003-1078); \nCVE-2004-0778 (https://www.cve.org/CVERecord?id=CVE-2004-0778); \nCVE-2004-2150 (https://www.cve.org/CVERecord?id=CVE-2004-2150); \nCVE-2004-2268 (https://www.cve.org/CVERecord?id=CVE-2004-2268); \nCVE-2005-0603 (https://www.cve.org/CVERecord?id=CVE-2005-0603); \nCVE-2005-1205 (https://www.cve.org/CVERecord?id=CVE-2005-1205); \nCVE-2007-1409 (https://www.cve.org/CVERecord?id=CVE-2007-1409); \nCVE-2007-5172 (https://www.cve.org/CVERecord?id=CVE-2007-5172); \nCVE-2008-2049 (https://www.cve.org/CVERecord?id=CVE-2008-2049); \nCVE-2008-4638 (https://www.cve.org/CVERecord?id=CVE-2008-4638); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--f8ef3a62-3f44-40a4-abca-761ab235c436",
+            "title" : "T1552.007",
+            "description" : "T1552.007 (https://attack.mitre.org/techniques/T1552/007);\nTA0006 Credential Access (https://attack.mitre.org/tactics/TA0006); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 479,
+            "y" : 465
+          },
+          "angle" : 0,
+          "id" : "c9a76231-5a77-4536-948d-7a0015048262",
+          "z" : 4,
+          "hasOpenThreats" : "true",
+          "description" : "enum#CWE-787;\nenum#CWE-79;\nenum#CWE-125;\nenum#CWE-20;\nenum#CWE-78;",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "application"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: flow7; flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: flow7; flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: flow7; flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: flow7; flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: flow7; flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: flow7; flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--086952c4-5b90-4185-b573-02bad8e11953",
+            "title" : "T1148",
+            "description" : "T1148 (https://attack.mitre.org/techniques/T1148);\nCAPEC-13 (https://capec.mitre.org/data/definitions/13.html); \nCWE-15 (https://cwe.mitre.org/data/definitions/15.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-200 (https://cwe.mitre.org/data/definitions/200.html); \nCWE-285 (https://cwe.mitre.org/data/definitions/285.html); \nCWE-302 (https://cwe.mitre.org/data/definitions/302.html); \nCWE-353 (https://cwe.mitre.org/data/definitions/353.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-2000-1117 (https://www.cve.org/CVERecord?id=CVE-2000-1117); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2001-1483 (https://www.cve.org/CVERecord?id=CVE-2001-1483); \nCVE-2001-1528 (https://www.cve.org/CVERecord?id=CVE-2001-1528); \nCVE-2002-0367 (https://www.cve.org/CVERecord?id=CVE-2002-0367); \nCVE-2002-0515 (https://www.cve.org/CVERecord?id=CVE-2002-0515); \nCVE-2002-1725 (https://www.cve.org/CVERecord?id=CVE-2002-1725); \nCVE-2002-1730 (https://www.cve.org/CVERecord?id=CVE-2002-1730); \nCVE-2002-1734 (https://www.cve.org/CVERecord?id=CVE-2002-1734); \nCVE-2002-2054 (https://www.cve.org/CVERecord?id=CVE-2002-2054); \nCVE-2002-2064 (https://www.cve.org/CVERecord?id=CVE-2002-2064); \nCVE-2003-0190 (https://www.cve.org/CVERecord?id=CVE-2003-0190); \nCVE-2003-1078 (https://www.cve.org/CVERecord?id=CVE-2003-1078); \nCVE-2004-0261 (https://www.cve.org/CVERecord?id=CVE-2004-0261); \nCVE-2004-0778 (https://www.cve.org/CVERecord?id=CVE-2004-0778); \nCVE-2004-1611 (https://www.cve.org/CVERecord?id=CVE-2004-1611); \nCVE-2004-2150 (https://www.cve.org/CVERecord?id=CVE-2004-2150); \nCVE-2004-2268 (https://www.cve.org/CVERecord?id=CVE-2004-2268); \nCVE-2005-0603 (https://www.cve.org/CVERecord?id=CVE-2005-0603); \nCVE-2005-1205 (https://www.cve.org/CVERecord?id=CVE-2005-1205); \nCVE-2005-1708 (https://www.cve.org/CVERecord?id=CVE-2005-1708); \nCVE-2005-1787 (https://www.cve.org/CVERecord?id=CVE-2005-1787); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-1409 (https://www.cve.org/CVERecord?id=CVE-2007-1409); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5172 (https://www.cve.org/CVERecord?id=CVE-2007-5172); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-2049 (https://www.cve.org/CVERecord?id=CVE-2008-2049); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-4638 (https://www.cve.org/CVERecord?id=CVE-2008-4638); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--0c2d00da-7742-49e7-9928-4514e5075d32",
+            "title" : "T1574.007",
+            "description" : "T1574.007 (https://attack.mitre.org/techniques/T1574/007);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-13 (https://capec.mitre.org/data/definitions/13.html); \nCAPEC-38 (https://capec.mitre.org/data/definitions/38.html); \nCWE-15 (https://cwe.mitre.org/data/definitions/15.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-200 (https://cwe.mitre.org/data/definitions/200.html); \nCWE-285 (https://cwe.mitre.org/data/definitions/285.html); \nCWE-302 (https://cwe.mitre.org/data/definitions/302.html); \nCWE-353 (https://cwe.mitre.org/data/definitions/353.html); \nCWE-426 (https://cwe.mitre.org/data/definitions/426.html); \nCWE-427 (https://cwe.mitre.org/data/definitions/427.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-1999-0690 (https://www.cve.org/CVERecord?id=CVE-1999-0690); \nCVE-1999-1120 (https://www.cve.org/CVERecord?id=CVE-1999-1120); \nCVE-1999-1318 (https://www.cve.org/CVERecord?id=CVE-1999-1318); \nCVE-1999-1461 (https://www.cve.org/CVERecord?id=CVE-1999-1461); \nCVE-2000-0854 (https://www.cve.org/CVERecord?id=CVE-2000-0854); \nCVE-2000-1117 (https://www.cve.org/CVERecord?id=CVE-2000-1117); \nCVE-2001-0289 (https://www.cve.org/CVERecord?id=CVE-2001-0289); \nCVE-2001-0507 (https://www.cve.org/CVERecord?id=CVE-2001-0507); \nCVE-2001-0912 (https://www.cve.org/CVERecord?id=CVE-2001-0912); \nCVE-2001-0942 (https://www.cve.org/CVERecord?id=CVE-2001-0942); \nCVE-2001-0943 (https://www.cve.org/CVERecord?id=CVE-2001-0943); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2001-1483 (https://www.cve.org/CVERecord?id=CVE-2001-1483); \nCVE-2001-1528 (https://www.cve.org/CVERecord?id=CVE-2001-1528); \nCVE-2002-0367 (https://www.cve.org/CVERecord?id=CVE-2002-0367); \nCVE-2002-0515 (https://www.cve.org/CVERecord?id=CVE-2002-0515); \nCVE-2002-1576 (https://www.cve.org/CVERecord?id=CVE-2002-1576); \nCVE-2002-1725 (https://www.cve.org/CVERecord?id=CVE-2002-1725); \nCVE-2002-1730 (https://www.cve.org/CVERecord?id=CVE-2002-1730); \nCVE-2002-1734 (https://www.cve.org/CVERecord?id=CVE-2002-1734); \nCVE-2002-2017 (https://www.cve.org/CVERecord?id=CVE-2002-2017); \nCVE-2002-2040 (https://www.cve.org/CVERecord?id=CVE-2002-2040); \nCVE-2002-2054 (https://www.cve.org/CVERecord?id=CVE-2002-2054); \nCVE-2002-2064 (https://www.cve.org/CVERecord?id=CVE-2002-2064); \nCVE-2003-0190 (https://www.cve.org/CVERecord?id=CVE-2003-0190); \nCVE-2003-0579 (https://www.cve.org/CVERecord?id=CVE-2003-0579); \nCVE-2003-1078 (https://www.cve.org/CVERecord?id=CVE-2003-1078); \nCVE-2004-0261 (https://www.cve.org/CVERecord?id=CVE-2004-0261); \nCVE-2004-0778 (https://www.cve.org/CVERecord?id=CVE-2004-0778); \nCVE-2004-1611 (https://www.cve.org/CVERecord?id=CVE-2004-1611); \nCVE-2004-2150 (https://www.cve.org/CVERecord?id=CVE-2004-2150); \nCVE-2004-2268 (https://www.cve.org/CVERecord?id=CVE-2004-2268); \nCVE-2005-0603 (https://www.cve.org/CVERecord?id=CVE-2005-0603); \nCVE-2005-1205 (https://www.cve.org/CVERecord?id=CVE-2005-1205); \nCVE-2005-1307 (https://www.cve.org/CVERecord?id=CVE-2005-1307); \nCVE-2005-1632 (https://www.cve.org/CVERecord?id=CVE-2005-1632); \nCVE-2005-1705 (https://www.cve.org/CVERecord?id=CVE-2005-1705); \nCVE-2005-1708 (https://www.cve.org/CVERecord?id=CVE-2005-1708); \nCVE-2005-1787 (https://www.cve.org/CVERecord?id=CVE-2005-1787); \nCVE-2005-2072 (https://www.cve.org/CVERecord?id=CVE-2005-2072); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-1409 (https://www.cve.org/CVERecord?id=CVE-2007-1409); \nCVE-2007-2027 (https://www.cve.org/CVERecord?id=CVE-2007-2027); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5172 (https://www.cve.org/CVERecord?id=CVE-2007-5172); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1319 (https://www.cve.org/CVERecord?id=CVE-2008-1319); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-1810 (https://www.cve.org/CVERecord?id=CVE-2008-1810); \nCVE-2008-2049 (https://www.cve.org/CVERecord?id=CVE-2008-2049); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-2613 (https://www.cve.org/CVERecord?id=CVE-2008-2613); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3485 (https://www.cve.org/CVERecord?id=CVE-2008-3485); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-4638 (https://www.cve.org/CVERecord?id=CVE-2008-4638); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nCVE-2010-1795 (https://www.cve.org/CVERecord?id=CVE-2010-1795); \nCVE-2010-3131 (https://www.cve.org/CVERecord?id=CVE-2010-3131); \nCVE-2010-3135 (https://www.cve.org/CVERecord?id=CVE-2010-3135); \nCVE-2010-3138 (https://www.cve.org/CVERecord?id=CVE-2010-3138); \nCVE-2010-3147 (https://www.cve.org/CVERecord?id=CVE-2010-3147); \nCVE-2010-3152 (https://www.cve.org/CVERecord?id=CVE-2010-3152); \nCVE-2010-3397 (https://www.cve.org/CVERecord?id=CVE-2010-3397); \nCVE-2010-3402 (https://www.cve.org/CVERecord?id=CVE-2010-3402); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--633a100c-b2c9-41bf-9be5-905c1b16c825",
+            "title" : "T1574.006",
+            "description" : "T1574.006 (https://attack.mitre.org/techniques/T1574/006);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-13 (https://capec.mitre.org/data/definitions/13.html); \nCAPEC-640 (https://capec.mitre.org/data/definitions/640.html); \nCWE-15 (https://cwe.mitre.org/data/definitions/15.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-200 (https://cwe.mitre.org/data/definitions/200.html); \nCWE-285 (https://cwe.mitre.org/data/definitions/285.html); \nCWE-302 (https://cwe.mitre.org/data/definitions/302.html); \nCWE-353 (https://cwe.mitre.org/data/definitions/353.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-2000-1117 (https://www.cve.org/CVERecord?id=CVE-2000-1117); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2001-1483 (https://www.cve.org/CVERecord?id=CVE-2001-1483); \nCVE-2001-1528 (https://www.cve.org/CVERecord?id=CVE-2001-1528); \nCVE-2002-0367 (https://www.cve.org/CVERecord?id=CVE-2002-0367); \nCVE-2002-0515 (https://www.cve.org/CVERecord?id=CVE-2002-0515); \nCVE-2002-1725 (https://www.cve.org/CVERecord?id=CVE-2002-1725); \nCVE-2002-1730 (https://www.cve.org/CVERecord?id=CVE-2002-1730); \nCVE-2002-1734 (https://www.cve.org/CVERecord?id=CVE-2002-1734); \nCVE-2002-2054 (https://www.cve.org/CVERecord?id=CVE-2002-2054); \nCVE-2002-2064 (https://www.cve.org/CVERecord?id=CVE-2002-2064); \nCVE-2003-0190 (https://www.cve.org/CVERecord?id=CVE-2003-0190); \nCVE-2003-1078 (https://www.cve.org/CVERecord?id=CVE-2003-1078); \nCVE-2004-0261 (https://www.cve.org/CVERecord?id=CVE-2004-0261); \nCVE-2004-0778 (https://www.cve.org/CVERecord?id=CVE-2004-0778); \nCVE-2004-1611 (https://www.cve.org/CVERecord?id=CVE-2004-1611); \nCVE-2004-2150 (https://www.cve.org/CVERecord?id=CVE-2004-2150); \nCVE-2004-2268 (https://www.cve.org/CVERecord?id=CVE-2004-2268); \nCVE-2005-0603 (https://www.cve.org/CVERecord?id=CVE-2005-0603); \nCVE-2005-1205 (https://www.cve.org/CVERecord?id=CVE-2005-1205); \nCVE-2005-1708 (https://www.cve.org/CVERecord?id=CVE-2005-1708); \nCVE-2005-1787 (https://www.cve.org/CVERecord?id=CVE-2005-1787); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-1409 (https://www.cve.org/CVERecord?id=CVE-2007-1409); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5172 (https://www.cve.org/CVERecord?id=CVE-2007-5172); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-2049 (https://www.cve.org/CVERecord?id=CVE-2008-2049); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-4638 (https://www.cve.org/CVERecord?id=CVE-2008-4638); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--8f504411-cb96-4dac-a537-8d2bb7679c59",
+            "title" : "T1562.003",
+            "description" : "T1562.003 (https://attack.mitre.org/techniques/T1562/003);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-13 (https://capec.mitre.org/data/definitions/13.html); \nCWE-15 (https://cwe.mitre.org/data/definitions/15.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-200 (https://cwe.mitre.org/data/definitions/200.html); \nCWE-285 (https://cwe.mitre.org/data/definitions/285.html); \nCWE-302 (https://cwe.mitre.org/data/definitions/302.html); \nCWE-353 (https://cwe.mitre.org/data/definitions/353.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-2000-1117 (https://www.cve.org/CVERecord?id=CVE-2000-1117); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2001-1483 (https://www.cve.org/CVERecord?id=CVE-2001-1483); \nCVE-2001-1528 (https://www.cve.org/CVERecord?id=CVE-2001-1528); \nCVE-2002-0367 (https://www.cve.org/CVERecord?id=CVE-2002-0367); \nCVE-2002-0515 (https://www.cve.org/CVERecord?id=CVE-2002-0515); \nCVE-2002-1725 (https://www.cve.org/CVERecord?id=CVE-2002-1725); \nCVE-2002-1730 (https://www.cve.org/CVERecord?id=CVE-2002-1730); \nCVE-2002-1734 (https://www.cve.org/CVERecord?id=CVE-2002-1734); \nCVE-2002-2054 (https://www.cve.org/CVERecord?id=CVE-2002-2054); \nCVE-2002-2064 (https://www.cve.org/CVERecord?id=CVE-2002-2064); \nCVE-2003-0190 (https://www.cve.org/CVERecord?id=CVE-2003-0190); \nCVE-2003-1078 (https://www.cve.org/CVERecord?id=CVE-2003-1078); \nCVE-2004-0261 (https://www.cve.org/CVERecord?id=CVE-2004-0261); \nCVE-2004-0778 (https://www.cve.org/CVERecord?id=CVE-2004-0778); \nCVE-2004-1611 (https://www.cve.org/CVERecord?id=CVE-2004-1611); \nCVE-2004-2150 (https://www.cve.org/CVERecord?id=CVE-2004-2150); \nCVE-2004-2268 (https://www.cve.org/CVERecord?id=CVE-2004-2268); \nCVE-2005-0603 (https://www.cve.org/CVERecord?id=CVE-2005-0603); \nCVE-2005-1205 (https://www.cve.org/CVERecord?id=CVE-2005-1205); \nCVE-2005-1708 (https://www.cve.org/CVERecord?id=CVE-2005-1708); \nCVE-2005-1787 (https://www.cve.org/CVERecord?id=CVE-2005-1787); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-1409 (https://www.cve.org/CVERecord?id=CVE-2007-1409); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5172 (https://www.cve.org/CVERecord?id=CVE-2007-5172); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-2049 (https://www.cve.org/CVERecord?id=CVE-2008-2049); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-4638 (https://www.cve.org/CVERecord?id=CVE-2008-4638); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a",
+            "title" : "T1027",
+            "description" : "T1027 (https://attack.mitre.org/techniques/T1027);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-267 (https://capec.mitre.org/data/definitions/267.html); \nCWE-172 (https://cwe.mitre.org/data/definitions/172.html); \nCWE-173 (https://cwe.mitre.org/data/definitions/173.html); \nCWE-180 (https://cwe.mitre.org/data/definitions/180.html); \nCWE-181 (https://cwe.mitre.org/data/definitions/181.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-692 (https://cwe.mitre.org/data/definitions/692.html); \nCWE-697 (https://cwe.mitre.org/data/definitions/697.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-2000-0191 (https://www.cve.org/CVERecord?id=CVE-2000-0191); \nCVE-2002-0433 (https://www.cve.org/CVERecord?id=CVE-2002-0433); \nCVE-2002-0802 (https://www.cve.org/CVERecord?id=CVE-2002-0802); \nCVE-2002-0934 (https://www.cve.org/CVERecord?id=CVE-2002-0934); \nCVE-2003-0282 (https://www.cve.org/CVERecord?id=CVE-2003-0282); \nCVE-2003-0332 (https://www.cve.org/CVERecord?id=CVE-2003-0332); \nCVE-2004-2363 (https://www.cve.org/CVERecord?id=CVE-2004-2363); \nCVE-2006-3617 (https://www.cve.org/CVERecord?id=CVE-2006-3617); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-4308 (https://www.cve.org/CVERecord?id=CVE-2006-4308); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5727 (https://www.cve.org/CVERecord?id=CVE-2007-5727); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2016-10003 (https://www.cve.org/CVERecord?id=CVE-2016-10003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          } ]
+        }, {
+          "type" : "tm.Store",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 268,
+            "y" : 187
+          },
+          "angle" : 0,
+          "id" : "a1d29774-6afc-46b1-a80f-f58dd8def7fd",
+          "z" : 5,
+          "hasOpenThreats" : "true",
+          "description" : "HasRestriction_Platform_Linux;",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "scenarios"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: flow2; flow4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: flow2; flow4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: flow2; flow4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+            "title" : "T1560.001",
+            "description" : "T1560.001 (https://attack.mitre.org/techniques/T1560/001);\nTA0009 Collection (https://attack.mitre.org/tactics/TA0009); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--03259939-0b57-482f-8eb5-87c0e0d54334",
+            "title" : "T1037",
+            "description" : "T1037 (https://attack.mitre.org/techniques/T1037);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-564 (https://capec.mitre.org/data/definitions/564.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--0c2d00da-7742-49e7-9928-4514e5075d32",
+            "title" : "T1574.007",
+            "description" : "T1574.007 (https://attack.mitre.org/techniques/T1574/007);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-13 (https://capec.mitre.org/data/definitions/13.html); \nCAPEC-38 (https://capec.mitre.org/data/definitions/38.html); \nCWE-15 (https://cwe.mitre.org/data/definitions/15.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-200 (https://cwe.mitre.org/data/definitions/200.html); \nCWE-285 (https://cwe.mitre.org/data/definitions/285.html); \nCWE-302 (https://cwe.mitre.org/data/definitions/302.html); \nCWE-353 (https://cwe.mitre.org/data/definitions/353.html); \nCWE-426 (https://cwe.mitre.org/data/definitions/426.html); \nCWE-427 (https://cwe.mitre.org/data/definitions/427.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-1999-0690 (https://www.cve.org/CVERecord?id=CVE-1999-0690); \nCVE-1999-1120 (https://www.cve.org/CVERecord?id=CVE-1999-1120); \nCVE-1999-1318 (https://www.cve.org/CVERecord?id=CVE-1999-1318); \nCVE-1999-1461 (https://www.cve.org/CVERecord?id=CVE-1999-1461); \nCVE-2000-0854 (https://www.cve.org/CVERecord?id=CVE-2000-0854); \nCVE-2000-1117 (https://www.cve.org/CVERecord?id=CVE-2000-1117); \nCVE-2001-0289 (https://www.cve.org/CVERecord?id=CVE-2001-0289); \nCVE-2001-0507 (https://www.cve.org/CVERecord?id=CVE-2001-0507); \nCVE-2001-0912 (https://www.cve.org/CVERecord?id=CVE-2001-0912); \nCVE-2001-0942 (https://www.cve.org/CVERecord?id=CVE-2001-0942); \nCVE-2001-0943 (https://www.cve.org/CVERecord?id=CVE-2001-0943); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2001-1483 (https://www.cve.org/CVERecord?id=CVE-2001-1483); \nCVE-2001-1528 (https://www.cve.org/CVERecord?id=CVE-2001-1528); \nCVE-2002-0367 (https://www.cve.org/CVERecord?id=CVE-2002-0367); \nCVE-2002-0515 (https://www.cve.org/CVERecord?id=CVE-2002-0515); \nCVE-2002-1576 (https://www.cve.org/CVERecord?id=CVE-2002-1576); \nCVE-2002-1725 (https://www.cve.org/CVERecord?id=CVE-2002-1725); \nCVE-2002-1730 (https://www.cve.org/CVERecord?id=CVE-2002-1730); \nCVE-2002-1734 (https://www.cve.org/CVERecord?id=CVE-2002-1734); \nCVE-2002-2017 (https://www.cve.org/CVERecord?id=CVE-2002-2017); \nCVE-2002-2040 (https://www.cve.org/CVERecord?id=CVE-2002-2040); \nCVE-2002-2054 (https://www.cve.org/CVERecord?id=CVE-2002-2054); \nCVE-2002-2064 (https://www.cve.org/CVERecord?id=CVE-2002-2064); \nCVE-2003-0190 (https://www.cve.org/CVERecord?id=CVE-2003-0190); \nCVE-2003-0579 (https://www.cve.org/CVERecord?id=CVE-2003-0579); \nCVE-2003-1078 (https://www.cve.org/CVERecord?id=CVE-2003-1078); \nCVE-2004-0261 (https://www.cve.org/CVERecord?id=CVE-2004-0261); \nCVE-2004-0778 (https://www.cve.org/CVERecord?id=CVE-2004-0778); \nCVE-2004-1611 (https://www.cve.org/CVERecord?id=CVE-2004-1611); \nCVE-2004-2150 (https://www.cve.org/CVERecord?id=CVE-2004-2150); \nCVE-2004-2268 (https://www.cve.org/CVERecord?id=CVE-2004-2268); \nCVE-2005-0603 (https://www.cve.org/CVERecord?id=CVE-2005-0603); \nCVE-2005-1205 (https://www.cve.org/CVERecord?id=CVE-2005-1205); \nCVE-2005-1307 (https://www.cve.org/CVERecord?id=CVE-2005-1307); \nCVE-2005-1632 (https://www.cve.org/CVERecord?id=CVE-2005-1632); \nCVE-2005-1705 (https://www.cve.org/CVERecord?id=CVE-2005-1705); \nCVE-2005-1708 (https://www.cve.org/CVERecord?id=CVE-2005-1708); \nCVE-2005-1787 (https://www.cve.org/CVERecord?id=CVE-2005-1787); \nCVE-2005-2072 (https://www.cve.org/CVERecord?id=CVE-2005-2072); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-1409 (https://www.cve.org/CVERecord?id=CVE-2007-1409); \nCVE-2007-2027 (https://www.cve.org/CVERecord?id=CVE-2007-2027); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5172 (https://www.cve.org/CVERecord?id=CVE-2007-5172); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1319 (https://www.cve.org/CVERecord?id=CVE-2008-1319); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-1810 (https://www.cve.org/CVERecord?id=CVE-2008-1810); \nCVE-2008-2049 (https://www.cve.org/CVERecord?id=CVE-2008-2049); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-2613 (https://www.cve.org/CVERecord?id=CVE-2008-2613); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3485 (https://www.cve.org/CVERecord?id=CVE-2008-3485); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-4638 (https://www.cve.org/CVERecord?id=CVE-2008-4638); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nCVE-2010-1795 (https://www.cve.org/CVERecord?id=CVE-2010-1795); \nCVE-2010-3131 (https://www.cve.org/CVERecord?id=CVE-2010-3131); \nCVE-2010-3135 (https://www.cve.org/CVERecord?id=CVE-2010-3135); \nCVE-2010-3138 (https://www.cve.org/CVERecord?id=CVE-2010-3138); \nCVE-2010-3147 (https://www.cve.org/CVERecord?id=CVE-2010-3147); \nCVE-2010-3152 (https://www.cve.org/CVERecord?id=CVE-2010-3152); \nCVE-2010-3397 (https://www.cve.org/CVERecord?id=CVE-2010-3397); \nCVE-2010-3402 (https://www.cve.org/CVERecord?id=CVE-2010-3402); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--0cfe31a7-81fc-472c-bc45-e2808d1066a3",
+            "title" : "T1491.002",
+            "description" : "T1491.002 (https://attack.mitre.org/techniques/T1491/002);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--0f2c410d-d740-4ed9-abb1-b8f4a7faf6c3",
+            "title" : "T1546.013",
+            "description" : "T1546.013 (https://attack.mitre.org/techniques/T1546/013);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--106c0cf6-bf73-4601-9aa8-0945c2715ec5",
+            "title" : "T1543",
+            "description" : "T1543 (https://attack.mitre.org/techniques/T1543);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--1126cab1-c700-412f-a510-61f4937bb096",
+            "title" : "T1053.007",
+            "description" : "T1053.007 (https://attack.mitre.org/techniques/T1053/007);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--143c0cbb-a297-4142-9624-87ffc778980b",
+            "title" : "T1560.003",
+            "description" : "T1560.003 (https://attack.mitre.org/techniques/T1560/003);\nTA0009 Collection (https://attack.mitre.org/tactics/TA0009); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--1c34f7aa-9341-4a48-bfab-af22e51aca6c",
+            "title" : "T1074.001",
+            "description" : "T1074.001 (https://attack.mitre.org/techniques/T1074/001);\nTA0009 Collection (https://attack.mitre.org/tactics/TA0009); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--1cfcb312-b8d7-47a4-b560-4b16cc677292",
+            "title" : "T1565.001",
+            "description" : "T1565.001 (https://attack.mitre.org/techniques/T1565/001);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--1ecb2399-e8ba-4f6b-8ba7-5c27d49405cf",
+            "title" : "T1547",
+            "description" : "T1547 (https://attack.mitre.org/techniques/T1547);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-564 (https://capec.mitre.org/data/definitions/564.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--22905430-4901-4c2a-84f6-98243cb173f8",
+            "title" : "T1564",
+            "description" : "T1564 (https://attack.mitre.org/techniques/T1564);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+            "title" : "T1204.002",
+            "description" : "T1204.002 (https://attack.mitre.org/techniques/T1204/002);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--246fd3c7-f5e3-466d-8787-4c13d9e3b61c",
+            "title" : "T1080",
+            "description" : "T1080 (https://attack.mitre.org/techniques/T1080);\nTA0008 Lateral Movement (https://attack.mitre.org/tactics/TA0008); \nCAPEC-562 (https://capec.mitre.org/data/definitions/562.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--2bce5b30-7014-4a5d-ade7-12913fe6ac36",
+            "title" : "T1070.002",
+            "description" : "T1070.002 (https://attack.mitre.org/techniques/T1070/002);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--2c4d4e92-0ccf-4a97-b54c-86d662988a53",
+            "title" : "T1137",
+            "description" : "T1137 (https://attack.mitre.org/techniques/T1137);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--2de47683-f398-448f-b947-9abcc3e32fad",
+            "title" : "T1547.012",
+            "description" : "T1547.012 (https://attack.mitre.org/techniques/T1547/012);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--2fee9321-3e71-4cf4-af24-d4d40d355b34",
+            "title" : "T1574.001",
+            "description" : "T1574.001 (https://attack.mitre.org/techniques/T1574/001);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-471 (https://capec.mitre.org/data/definitions/471.html); \nCWE-427 (https://cwe.mitre.org/data/definitions/427.html); \nCVE-1999-0690 (https://www.cve.org/CVERecord?id=CVE-1999-0690); \nCVE-1999-1318 (https://www.cve.org/CVERecord?id=CVE-1999-1318); \nCVE-1999-1461 (https://www.cve.org/CVERecord?id=CVE-1999-1461); \nCVE-2000-0854 (https://www.cve.org/CVERecord?id=CVE-2000-0854); \nCVE-2001-0289 (https://www.cve.org/CVERecord?id=CVE-2001-0289); \nCVE-2001-0507 (https://www.cve.org/CVERecord?id=CVE-2001-0507); \nCVE-2001-0912 (https://www.cve.org/CVERecord?id=CVE-2001-0912); \nCVE-2001-0942 (https://www.cve.org/CVERecord?id=CVE-2001-0942); \nCVE-2001-0943 (https://www.cve.org/CVERecord?id=CVE-2001-0943); \nCVE-2002-1576 (https://www.cve.org/CVERecord?id=CVE-2002-1576); \nCVE-2002-2017 (https://www.cve.org/CVERecord?id=CVE-2002-2017); \nCVE-2002-2040 (https://www.cve.org/CVERecord?id=CVE-2002-2040); \nCVE-2003-0579 (https://www.cve.org/CVERecord?id=CVE-2003-0579); \nCVE-2005-1307 (https://www.cve.org/CVERecord?id=CVE-2005-1307); \nCVE-2005-1632 (https://www.cve.org/CVERecord?id=CVE-2005-1632); \nCVE-2005-1705 (https://www.cve.org/CVERecord?id=CVE-2005-1705); \nCVE-2005-2072 (https://www.cve.org/CVERecord?id=CVE-2005-2072); \nCVE-2010-1795 (https://www.cve.org/CVERecord?id=CVE-2010-1795); \nCVE-2010-3131 (https://www.cve.org/CVERecord?id=CVE-2010-3131); \nCVE-2010-3135 (https://www.cve.org/CVERecord?id=CVE-2010-3135); \nCVE-2010-3138 (https://www.cve.org/CVERecord?id=CVE-2010-3138); \nCVE-2010-3147 (https://www.cve.org/CVERecord?id=CVE-2010-3147); \nCVE-2010-3152 (https://www.cve.org/CVERecord?id=CVE-2010-3152); \nCVE-2010-3397 (https://www.cve.org/CVERecord?id=CVE-2010-3397); \nCVE-2010-3402 (https://www.cve.org/CVERecord?id=CVE-2010-3402); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--32ad5c86-2bcf-47d8-8fdc-d7f3d79a7490",
+            "title" : "T1565.003",
+            "description" : "T1565.003 (https://attack.mitre.org/techniques/T1565/003);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--34f1d81d-fe88-4f97-bd3b-a3164536255d",
+            "title" : "T1137.006",
+            "description" : "T1137.006 (https://attack.mitre.org/techniques/T1137/006);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--35187df2-31ed-43b6-a1f5-2f1d3d58d3f1",
+            "title" : "T1505.002",
+            "description" : "T1505.002 (https://attack.mitre.org/techniques/T1505/002);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--359b00ad-9425-420b-bba5-6de8d600cbc0",
+            "title" : "T1074.002",
+            "description" : "T1074.002 (https://attack.mitre.org/techniques/T1074/002);\nTA0009 Collection (https://attack.mitre.org/tactics/TA0009); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--35dd844a-b219-4e2b-a6bb-efa9a75995a9",
+            "title" : "T1053",
+            "description" : "T1053 (https://attack.mitre.org/techniques/T1053);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-557 (https://capec.mitre.org/data/definitions/557.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--3731fbcd-0e43-47ae-ae6c-d15e510f0d42",
+            "title" : "T1556.002",
+            "description" : "T1556.002 (https://attack.mitre.org/techniques/T1556/002);\nTA0006 Credential Access (https://attack.mitre.org/tactics/TA0006); \nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--389735f1-f21c-4208-b8f0-f8031e7169b8",
+            "title" : "T1176",
+            "description" : "T1176 (https://attack.mitre.org/techniques/T1176);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--3aef9463-9a7a-43ba-8957-a867e07c1e6a",
+            "title" : "T1070.003",
+            "description" : "T1070.003 (https://attack.mitre.org/techniques/T1070/003);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--3b744087-9945-4a6f-91e8-9dbceda417a4",
+            "title" : "T1091",
+            "description" : "T1091 (https://attack.mitre.org/techniques/T1091);\nTA0001 Initial Access (https://attack.mitre.org/tactics/TA0001); \nTA0008 Lateral Movement (https://attack.mitre.org/tactics/TA0008); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--41868330-6ee2-4d0f-b743-9f2294c3c9b6",
+            "title" : "T1560.002",
+            "description" : "T1560.002 (https://attack.mitre.org/techniques/T1560/002);\nTA0009 Collection (https://attack.mitre.org/tactics/TA0009); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--43881e51-ac74-445b-b4c6-f9f9e9bf23fe",
+            "title" : "T1547.010",
+            "description" : "T1547.010 (https://attack.mitre.org/techniques/T1547/010);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--43ba2b05-cf72-4b6c-8243-03a4aba41ee0",
+            "title" : "T1037.002",
+            "description" : "T1037.002 (https://attack.mitre.org/techniques/T1037/002);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--457c7820-d331-465a-915e-42f85500ccc4",
+            "title" : "T1218",
+            "description" : "T1218 (https://attack.mitre.org/techniques/T1218);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--4ab929c6-ee2d-4fb5-aab4-b14be2ed7179",
+            "title" : "T1547.009",
+            "description" : "T1547.009 (https://attack.mitre.org/techniques/T1547/009);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-132 (https://capec.mitre.org/data/definitions/132.html); \nCWE-59 (https://cwe.mitre.org/data/definitions/59.html); \nCVE-1999-0783 (https://www.cve.org/CVERecord?id=CVE-1999-0783); \nCVE-1999-1386 (https://www.cve.org/CVERecord?id=CVE-1999-1386); \nCVE-2000-0342 (https://www.cve.org/CVERecord?id=CVE-2000-0342); \nCVE-2000-0972 (https://www.cve.org/CVERecord?id=CVE-2000-0972); \nCVE-2000-1178 (https://www.cve.org/CVERecord?id=CVE-2000-1178); \nCVE-2001-1042 (https://www.cve.org/CVERecord?id=CVE-2001-1042); \nCVE-2001-1043 (https://www.cve.org/CVERecord?id=CVE-2001-1043); \nCVE-2001-1386 (https://www.cve.org/CVERecord?id=CVE-2001-1386); \nCVE-2001-1494 (https://www.cve.org/CVERecord?id=CVE-2001-1494); \nCVE-2002-0725 (https://www.cve.org/CVERecord?id=CVE-2002-0725); \nCVE-2002-0793 (https://www.cve.org/CVERecord?id=CVE-2002-0793); \nCVE-2003-0517 (https://www.cve.org/CVERecord?id=CVE-2003-0517); \nCVE-2003-0578 (https://www.cve.org/CVERecord?id=CVE-2003-0578); \nCVE-2003-0844 (https://www.cve.org/CVERecord?id=CVE-2003-0844); \nCVE-2003-1233 (https://www.cve.org/CVERecord?id=CVE-2003-1233); \nCVE-2004-0217 (https://www.cve.org/CVERecord?id=CVE-2004-0217); \nCVE-2004-0689 (https://www.cve.org/CVERecord?id=CVE-2004-0689); \nCVE-2004-1603 (https://www.cve.org/CVERecord?id=CVE-2004-1603); \nCVE-2004-1901 (https://www.cve.org/CVERecord?id=CVE-2004-1901); \nCVE-2005-0587 (https://www.cve.org/CVERecord?id=CVE-2005-0587); \nCVE-2005-0824 (https://www.cve.org/CVERecord?id=CVE-2005-0824); \nCVE-2005-1111 (https://www.cve.org/CVERecord?id=CVE-2005-1111); \nCVE-2005-1879 (https://www.cve.org/CVERecord?id=CVE-2005-1879); \nCVE-2005-1880 (https://www.cve.org/CVERecord?id=CVE-2005-1880); \nCVE-2005-1916 (https://www.cve.org/CVERecord?id=CVE-2005-1916); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--4ff5d6a8-c062-4c68-a778-36fc5edd564f",
+            "title" : "T1218.002",
+            "description" : "T1218.002 (https://attack.mitre.org/techniques/T1218/002);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--53ac20cd-aca3-406e-9aa0-9fc7fdc60a5a",
+            "title" : "T1560",
+            "description" : "T1560 (https://attack.mitre.org/techniques/T1560);\nTA0009 Collection (https://attack.mitre.org/tactics/TA0009); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--573ad264-1371-4ae0-8482-d2673b719dba",
+            "title" : "T1543.004",
+            "description" : "T1543.004 (https://attack.mitre.org/techniques/T1543/004);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-550 (https://capec.mitre.org/data/definitions/550.html); \nCAPEC-551 (https://capec.mitre.org/data/definitions/551.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCWE-522 (https://cwe.mitre.org/data/definitions/522.html); \nCVE-2000-0944 (https://www.cve.org/CVERecord?id=CVE-2000-0944); \nCVE-2005-0408 (https://www.cve.org/CVERecord?id=CVE-2005-0408); \nCVE-2005-3435 (https://www.cve.org/CVERecord?id=CVE-2005-3435); \nCVE-2007-0681 (https://www.cve.org/CVERecord?id=CVE-2007-0681); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--58af3705-8740-4c68-9329-ec015a7013c2",
+            "title" : "T1574.008",
+            "description" : "T1574.008 (https://attack.mitre.org/techniques/T1574/008);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-159 (https://capec.mitre.org/data/definitions/159.html); \nCWE-706 (https://cwe.mitre.org/data/definitions/706.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--5909f20f-3c39-4795-be06-ef1ea40d350b",
+            "title" : "T1491",
+            "description" : "T1491 (https://attack.mitre.org/techniques/T1491);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+            "title" : "T1505.003",
+            "description" : "T1505.003 (https://attack.mitre.org/techniques/T1505/003);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nCAPEC-650 (https://capec.mitre.org/data/definitions/650.html); \nCWE-287 (https://cwe.mitre.org/data/definitions/287.html); \nCWE-553 (https://cwe.mitre.org/data/definitions/553.html); \nCVE-2005-0408 (https://www.cve.org/CVERecord?id=CVE-2005-0408); \nCVE-2005-3435 (https://www.cve.org/CVERecord?id=CVE-2005-3435); \nCVE-2009-1048 (https://www.cve.org/CVERecord?id=CVE-2009-1048); \nCVE-2009-1596 (https://www.cve.org/CVERecord?id=CVE-2009-1596); \nCVE-2009-2168 (https://www.cve.org/CVERecord?id=CVE-2009-2168); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2382 (https://www.cve.org/CVERecord?id=CVE-2009-2382); \nCVE-2009-2422 (https://www.cve.org/CVERecord?id=CVE-2009-2422); \nCVE-2009-3107 (https://www.cve.org/CVERecord?id=CVE-2009-3107); \nCVE-2009-3231 (https://www.cve.org/CVERecord?id=CVE-2009-3231); \nCVE-2009-3232 (https://www.cve.org/CVERecord?id=CVE-2009-3232); \nCVE-2009-3421 (https://www.cve.org/CVERecord?id=CVE-2009-3421); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--63220765-d418-44de-8fae-694b3912317d",
+            "title" : "T1546.005",
+            "description" : "T1546.005 (https://attack.mitre.org/techniques/T1546/005);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--633a100c-b2c9-41bf-9be5-905c1b16c825",
+            "title" : "T1574.006",
+            "description" : "T1574.006 (https://attack.mitre.org/techniques/T1574/006);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-13 (https://capec.mitre.org/data/definitions/13.html); \nCAPEC-640 (https://capec.mitre.org/data/definitions/640.html); \nCWE-15 (https://cwe.mitre.org/data/definitions/15.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-200 (https://cwe.mitre.org/data/definitions/200.html); \nCWE-285 (https://cwe.mitre.org/data/definitions/285.html); \nCWE-302 (https://cwe.mitre.org/data/definitions/302.html); \nCWE-353 (https://cwe.mitre.org/data/definitions/353.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-2000-1117 (https://www.cve.org/CVERecord?id=CVE-2000-1117); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2001-1483 (https://www.cve.org/CVERecord?id=CVE-2001-1483); \nCVE-2001-1528 (https://www.cve.org/CVERecord?id=CVE-2001-1528); \nCVE-2002-0367 (https://www.cve.org/CVERecord?id=CVE-2002-0367); \nCVE-2002-0515 (https://www.cve.org/CVERecord?id=CVE-2002-0515); \nCVE-2002-1725 (https://www.cve.org/CVERecord?id=CVE-2002-1725); \nCVE-2002-1730 (https://www.cve.org/CVERecord?id=CVE-2002-1730); \nCVE-2002-1734 (https://www.cve.org/CVERecord?id=CVE-2002-1734); \nCVE-2002-2054 (https://www.cve.org/CVERecord?id=CVE-2002-2054); \nCVE-2002-2064 (https://www.cve.org/CVERecord?id=CVE-2002-2064); \nCVE-2003-0190 (https://www.cve.org/CVERecord?id=CVE-2003-0190); \nCVE-2003-1078 (https://www.cve.org/CVERecord?id=CVE-2003-1078); \nCVE-2004-0261 (https://www.cve.org/CVERecord?id=CVE-2004-0261); \nCVE-2004-0778 (https://www.cve.org/CVERecord?id=CVE-2004-0778); \nCVE-2004-1611 (https://www.cve.org/CVERecord?id=CVE-2004-1611); \nCVE-2004-2150 (https://www.cve.org/CVERecord?id=CVE-2004-2150); \nCVE-2004-2268 (https://www.cve.org/CVERecord?id=CVE-2004-2268); \nCVE-2005-0603 (https://www.cve.org/CVERecord?id=CVE-2005-0603); \nCVE-2005-1205 (https://www.cve.org/CVERecord?id=CVE-2005-1205); \nCVE-2005-1708 (https://www.cve.org/CVERecord?id=CVE-2005-1708); \nCVE-2005-1787 (https://www.cve.org/CVERecord?id=CVE-2005-1787); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-1409 (https://www.cve.org/CVERecord?id=CVE-2007-1409); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5172 (https://www.cve.org/CVERecord?id=CVE-2007-5172); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-2049 (https://www.cve.org/CVERecord?id=CVE-2008-2049); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-4638 (https://www.cve.org/CVERecord?id=CVE-2008-4638); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--6747daa2-3533-4e78-8fb8-446ebb86448a",
+            "title" : "T1547.011",
+            "description" : "T1547.011 (https://attack.mitre.org/techniques/T1547/011);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--70d81154-b187-45f9-8ec5-295d01255979",
+            "title" : "T1574.005",
+            "description" : "T1574.005 (https://attack.mitre.org/techniques/T1574/005);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-642 (https://capec.mitre.org/data/definitions/642.html); \nCWE-732 (https://cwe.mitre.org/data/definitions/732.html); \nCVE-2001-0006 (https://www.cve.org/CVERecord?id=CVE-2001-0006); \nCVE-2002-0969 (https://www.cve.org/CVERecord?id=CVE-2002-0969); \nCVE-2004-1714 (https://www.cve.org/CVERecord?id=CVE-2004-1714); \nCVE-2005-4868 (https://www.cve.org/CVERecord?id=CVE-2005-4868); \nCVE-2007-5544 (https://www.cve.org/CVERecord?id=CVE-2007-5544); \nCVE-2007-6033 (https://www.cve.org/CVERecord?id=CVE-2007-6033); \nCVE-2008-0322 (https://www.cve.org/CVERecord?id=CVE-2008-0322); \nCVE-2008-0662 (https://www.cve.org/CVERecord?id=CVE-2008-0662); \nCVE-2009-0115 (https://www.cve.org/CVERecord?id=CVE-2009-0115); \nCVE-2009-0141 (https://www.cve.org/CVERecord?id=CVE-2009-0141); \nCVE-2009-1073 (https://www.cve.org/CVERecord?id=CVE-2009-1073); \nCVE-2009-3289 (https://www.cve.org/CVERecord?id=CVE-2009-3289); \nCVE-2009-3482 (https://www.cve.org/CVERecord?id=CVE-2009-3482); \nCVE-2009-3489 (https://www.cve.org/CVERecord?id=CVE-2009-3489); \nCVE-2009-3611 (https://www.cve.org/CVERecord?id=CVE-2009-3611); \nCVE-2009-3897 (https://www.cve.org/CVERecord?id=CVE-2009-3897); \nCVE-2009-3939 (https://www.cve.org/CVERecord?id=CVE-2009-3939); \nCVE-2020-15708 (https://www.cve.org/CVERecord?id=CVE-2020-15708); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--70e52b04-2a0c-4cea-9d18-7149f1df9dc5",
+            "title" : "T1546.008",
+            "description" : "T1546.008 (https://attack.mitre.org/techniques/T1546/008);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-558 (https://capec.mitre.org/data/definitions/558.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--799ace7f-e227-4411-baa0-8868704f2a69",
+            "title" : "T1070",
+            "description" : "T1070 (https://attack.mitre.org/techniques/T1070);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-93 (https://capec.mitre.org/data/definitions/93.html); \nCWE-117 (https://cwe.mitre.org/data/definitions/117.html); \nCWE-150 (https://cwe.mitre.org/data/definitions/150.html); \nCWE-75 (https://cwe.mitre.org/data/definitions/75.html); \nCVE-2000-0476 (https://www.cve.org/CVERecord?id=CVE-2000-0476); \nCVE-2000-0703 (https://www.cve.org/CVERecord?id=CVE-2000-0703); \nCVE-2001-1556 (https://www.cve.org/CVERecord?id=CVE-2001-1556); \nCVE-2002-0542 (https://www.cve.org/CVERecord?id=CVE-2002-0542); \nCVE-2002-0986 (https://www.cve.org/CVERecord?id=CVE-2002-0986); \nCVE-2003-0020 (https://www.cve.org/CVERecord?id=CVE-2003-0020); \nCVE-2003-0021 (https://www.cve.org/CVERecord?id=CVE-2003-0021); \nCVE-2003-0022 (https://www.cve.org/CVERecord?id=CVE-2003-0022); \nCVE-2003-0023 (https://www.cve.org/CVERecord?id=CVE-2003-0023); \nCVE-2003-0063 (https://www.cve.org/CVERecord?id=CVE-2003-0063); \nCVE-2003-0083 (https://www.cve.org/CVERecord?id=CVE-2003-0083); \nCVE-2006-4624 (https://www.cve.org/CVERecord?id=CVE-2006-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--79a47ad0-fc3b-4821-9f01-a026b1ddba21",
+            "title" : "T1137.001",
+            "description" : "T1137.001 (https://attack.mitre.org/techniques/T1137/001);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--7dd95ff6-712e-4056-9626-312ea4ab4c5e",
+            "title" : "T1074",
+            "description" : "T1074 (https://attack.mitre.org/techniques/T1074);\nTA0009 Collection (https://attack.mitre.org/tactics/TA0009); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--7e7c2fba-7cca-486c-9582-4c1bb2851961",
+            "title" : "T1553.005",
+            "description" : "T1553.005 (https://attack.mitre.org/techniques/T1553/005);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+            "title" : "T1218.005",
+            "description" : "T1218.005 (https://attack.mitre.org/techniques/T1218/005);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--8c32eb4d-805f-4fc5-bf60-c4d476c131b5",
+            "title" : "T1204",
+            "description" : "T1204 (https://attack.mitre.org/techniques/T1204);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--8c41090b-aa47-4331-986b-8c9a51a91103",
+            "title" : "T1491.001",
+            "description" : "T1491.001 (https://attack.mitre.org/techniques/T1491/001);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--960c3c86-1480-4d72-b4e0-8c242e84a5c5",
+            "title" : "T1554",
+            "description" : "T1554 (https://attack.mitre.org/techniques/T1554);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--9c45eaa3-8604-4780-8988-b5074dbb9ecd",
+            "title" : "T1546.014",
+            "description" : "T1546.014 (https://attack.mitre.org/techniques/T1546/014);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--9e8b28c9-35fe-48ac-a14d-e6cc032dcbcd",
+            "title" : "T1574.010",
+            "description" : "T1574.010 (https://attack.mitre.org/techniques/T1574/010);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-1 (https://capec.mitre.org/data/definitions/1.html); \nCAPEC-17 (https://capec.mitre.org/data/definitions/17.html); \nCAPEC-642 (https://capec.mitre.org/data/definitions/642.html); \nCWE-1191 (https://cwe.mitre.org/data/definitions/1191.html); \nCWE-1193 (https://cwe.mitre.org/data/definitions/1193.html); \nCWE-1220 (https://cwe.mitre.org/data/definitions/1220.html); \nCWE-1224 (https://cwe.mitre.org/data/definitions/1224.html); \nCWE-1244 (https://cwe.mitre.org/data/definitions/1244.html); \nCWE-1252 (https://cwe.mitre.org/data/definitions/1252.html); \nCWE-1257 (https://cwe.mitre.org/data/definitions/1257.html); \nCWE-1262 (https://cwe.mitre.org/data/definitions/1262.html); \nCWE-1268 (https://cwe.mitre.org/data/definitions/1268.html); \nCWE-1282 (https://cwe.mitre.org/data/definitions/1282.html); \nCWE-1283 (https://cwe.mitre.org/data/definitions/1283.html); \nCWE-1297 (https://cwe.mitre.org/data/definitions/1297.html); \nCWE-1299 (https://cwe.mitre.org/data/definitions/1299.html); \nCWE-1302 (https://cwe.mitre.org/data/definitions/1302.html); \nCWE-1311 (https://cwe.mitre.org/data/definitions/1311.html); \nCWE-1312 (https://cwe.mitre.org/data/definitions/1312.html); \nCWE-1313 (https://cwe.mitre.org/data/definitions/1313.html); \nCWE-1314 (https://cwe.mitre.org/data/definitions/1314.html); \nCWE-1315 (https://cwe.mitre.org/data/definitions/1315.html); \nCWE-1318 (https://cwe.mitre.org/data/definitions/1318.html); \nCWE-1320 (https://cwe.mitre.org/data/definitions/1320.html); \nCWE-1321 (https://cwe.mitre.org/data/definitions/1321.html); \nCWE-1326 (https://cwe.mitre.org/data/definitions/1326.html); \nCWE-1327 (https://cwe.mitre.org/data/definitions/1327.html); \nCWE-270 (https://cwe.mitre.org/data/definitions/270.html); \nCWE-272 (https://cwe.mitre.org/data/definitions/272.html); \nCWE-276 (https://cwe.mitre.org/data/definitions/276.html); \nCWE-282 (https://cwe.mitre.org/data/definitions/282.html); \nCWE-285 (https://cwe.mitre.org/data/definitions/285.html); \nCWE-434 (https://cwe.mitre.org/data/definitions/434.html); \nCWE-59 (https://cwe.mitre.org/data/definitions/59.html); \nCWE-693 (https://cwe.mitre.org/data/definitions/693.html); \nCWE-732 (https://cwe.mitre.org/data/definitions/732.html); \nCVE-1999-0426 (https://www.cve.org/CVERecord?id=CVE-1999-0426); \nCVE-1999-0783 (https://www.cve.org/CVERecord?id=CVE-1999-0783); \nCVE-1999-1125 (https://www.cve.org/CVERecord?id=CVE-1999-1125); \nCVE-1999-1386 (https://www.cve.org/CVERecord?id=CVE-1999-1386); \nCVE-2000-0342 (https://www.cve.org/CVERecord?id=CVE-2000-0342); \nCVE-2000-0972 (https://www.cve.org/CVERecord?id=CVE-2000-0972); \nCVE-2000-1178 (https://www.cve.org/CVERecord?id=CVE-2000-1178); \nCVE-2001-0006 (https://www.cve.org/CVERecord?id=CVE-2001-0006); \nCVE-2001-0497 (https://www.cve.org/CVERecord?id=CVE-2001-0497); \nCVE-2001-0901 (https://www.cve.org/CVERecord?id=CVE-2001-0901); \nCVE-2001-1042 (https://www.cve.org/CVERecord?id=CVE-2001-1042); \nCVE-2001-1043 (https://www.cve.org/CVERecord?id=CVE-2001-1043); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2001-1386 (https://www.cve.org/CVERecord?id=CVE-2001-1386); \nCVE-2001-1494 (https://www.cve.org/CVERecord?id=CVE-2001-1494); \nCVE-2001-1550 (https://www.cve.org/CVERecord?id=CVE-2001-1550); \nCVE-2002-0725 (https://www.cve.org/CVERecord?id=CVE-2002-0725); \nCVE-2002-0793 (https://www.cve.org/CVERecord?id=CVE-2002-0793); \nCVE-2002-0969 (https://www.cve.org/CVERecord?id=CVE-2002-0969); \nCVE-2002-1688 (https://www.cve.org/CVERecord?id=CVE-2002-1688); \nCVE-2002-1711 (https://www.cve.org/CVERecord?id=CVE-2002-1711); \nCVE-2002-1713 (https://www.cve.org/CVERecord?id=CVE-2002-1713); \nCVE-2002-1770 (https://www.cve.org/CVERecord?id=CVE-2002-1770); \nCVE-2002-1841 (https://www.cve.org/CVERecord?id=CVE-2002-1841); \nCVE-2002-1844 (https://www.cve.org/CVERecord?id=CVE-2002-1844); \nCVE-2003-0517 (https://www.cve.org/CVERecord?id=CVE-2003-0517); \nCVE-2003-0578 (https://www.cve.org/CVERecord?id=CVE-2003-0578); \nCVE-2003-0844 (https://www.cve.org/CVERecord?id=CVE-2003-0844); \nCVE-2003-1026 (https://www.cve.org/CVERecord?id=CVE-2003-1026); \nCVE-2003-1233 (https://www.cve.org/CVERecord?id=CVE-2003-1233); \nCVE-2004-0217 (https://www.cve.org/CVERecord?id=CVE-2004-0217); \nCVE-2004-0689 (https://www.cve.org/CVERecord?id=CVE-2004-0689); \nCVE-2004-1603 (https://www.cve.org/CVERecord?id=CVE-2004-1603); \nCVE-2004-1714 (https://www.cve.org/CVERecord?id=CVE-2004-1714); \nCVE-2004-1901 (https://www.cve.org/CVERecord?id=CVE-2004-1901); \nCVE-2004-2262 (https://www.cve.org/CVERecord?id=CVE-2004-2262); \nCVE-2005-0254 (https://www.cve.org/CVERecord?id=CVE-2005-0254); \nCVE-2005-0587 (https://www.cve.org/CVERecord?id=CVE-2005-0587); \nCVE-2005-0824 (https://www.cve.org/CVERecord?id=CVE-2005-0824); \nCVE-2005-1111 (https://www.cve.org/CVERecord?id=CVE-2005-1111); \nCVE-2005-1868 (https://www.cve.org/CVERecord?id=CVE-2005-1868); \nCVE-2005-1879 (https://www.cve.org/CVERecord?id=CVE-2005-1879); \nCVE-2005-1880 (https://www.cve.org/CVERecord?id=CVE-2005-1880); \nCVE-2005-1881 (https://www.cve.org/CVERecord?id=CVE-2005-1881); \nCVE-2005-1916 (https://www.cve.org/CVERecord?id=CVE-2005-1916); \nCVE-2005-1941 (https://www.cve.org/CVERecord?id=CVE-2005-1941); \nCVE-2005-2263 (https://www.cve.org/CVERecord?id=CVE-2005-2263); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3288 (https://www.cve.org/CVERecord?id=CVE-2005-3288); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2005-4868 (https://www.cve.org/CVERecord?id=CVE-2005-4868); \nCVE-2006-2428 (https://www.cve.org/CVERecord?id=CVE-2006-2428); \nCVE-2006-4558 (https://www.cve.org/CVERecord?id=CVE-2006-4558); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2006-6994 (https://www.cve.org/CVERecord?id=CVE-2006-6994); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2007-5544 (https://www.cve.org/CVERecord?id=CVE-2007-5544); \nCVE-2007-6033 (https://www.cve.org/CVERecord?id=CVE-2007-6033); \nCVE-2008-0322 (https://www.cve.org/CVERecord?id=CVE-2008-0322); \nCVE-2008-0662 (https://www.cve.org/CVERecord?id=CVE-2008-0662); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-0115 (https://www.cve.org/CVERecord?id=CVE-2009-0115); \nCVE-2009-0141 (https://www.cve.org/CVERecord?id=CVE-2009-0141); \nCVE-2009-1073 (https://www.cve.org/CVERecord?id=CVE-2009-1073); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3289 (https://www.cve.org/CVERecord?id=CVE-2009-3289); \nCVE-2009-3482 (https://www.cve.org/CVERecord?id=CVE-2009-3482); \nCVE-2009-3489 (https://www.cve.org/CVERecord?id=CVE-2009-3489); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3611 (https://www.cve.org/CVERecord?id=CVE-2009-3611); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nCVE-2009-3897 (https://www.cve.org/CVERecord?id=CVE-2009-3897); \nCVE-2009-3939 (https://www.cve.org/CVERecord?id=CVE-2009-3939); \nCVE-2017-18293 (https://www.cve.org/CVERecord?id=CVE-2017-18293); \nCVE-2017-8252 (https://www.cve.org/CVERecord?id=CVE-2017-8252); \nCVE-2018-3721 (https://www.cve.org/CVERecord?id=CVE-2018-3721); \nCVE-2019-10744 (https://www.cve.org/CVERecord?id=CVE-2019-10744); \nCVE-2019-11358 (https://www.cve.org/CVERecord?id=CVE-2019-11358); \nCVE-2019-18827 (https://www.cve.org/CVERecord?id=CVE-2019-18827); \nCVE-2020-15483 (https://www.cve.org/CVERecord?id=CVE-2020-15483); \nCVE-2020-15708 (https://www.cve.org/CVERecord?id=CVE-2020-15708); \nCVE-2020-8203 (https://www.cve.org/CVERecord?id=CVE-2020-8203); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--a1b52199-c8c5-438a-9ded-656f1d0888c6",
+            "title" : "T1547.006",
+            "description" : "T1547.006 (https://attack.mitre.org/techniques/T1547/006);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-552 (https://capec.mitre.org/data/definitions/552.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--a6937325-9321-4e2e-bb2b-3ed2d40b2a9d",
+            "title" : "T1218.001",
+            "description" : "T1218.001 (https://attack.mitre.org/techniques/T1218/001);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-636 (https://capec.mitre.org/data/definitions/636.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--ac9e6b22-11bf-45d7-9181-c1cb08360931",
+            "title" : "T1565",
+            "description" : "T1565 (https://attack.mitre.org/techniques/T1565);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--aedfca76-3b30-4866-b2aa-0f1d7fd1e4b6",
+            "title" : "T1574",
+            "description" : "T1574 (https://attack.mitre.org/techniques/T1574);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a",
+            "title" : "T1027",
+            "description" : "T1027 (https://attack.mitre.org/techniques/T1027);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nCAPEC-267 (https://capec.mitre.org/data/definitions/267.html); \nCWE-172 (https://cwe.mitre.org/data/definitions/172.html); \nCWE-173 (https://cwe.mitre.org/data/definitions/173.html); \nCWE-180 (https://cwe.mitre.org/data/definitions/180.html); \nCWE-181 (https://cwe.mitre.org/data/definitions/181.html); \nCWE-20 (https://cwe.mitre.org/data/definitions/20.html); \nCWE-692 (https://cwe.mitre.org/data/definitions/692.html); \nCWE-697 (https://cwe.mitre.org/data/definitions/697.html); \nCWE-73 (https://cwe.mitre.org/data/definitions/73.html); \nCWE-74 (https://cwe.mitre.org/data/definitions/74.html); \nCVE-2000-0191 (https://www.cve.org/CVERecord?id=CVE-2000-0191); \nCVE-2002-0433 (https://www.cve.org/CVERecord?id=CVE-2002-0433); \nCVE-2002-0802 (https://www.cve.org/CVERecord?id=CVE-2002-0802); \nCVE-2002-0934 (https://www.cve.org/CVERecord?id=CVE-2002-0934); \nCVE-2003-0282 (https://www.cve.org/CVERecord?id=CVE-2003-0282); \nCVE-2003-0332 (https://www.cve.org/CVERecord?id=CVE-2003-0332); \nCVE-2004-2363 (https://www.cve.org/CVERecord?id=CVE-2004-2363); \nCVE-2006-3617 (https://www.cve.org/CVERecord?id=CVE-2006-3617); \nCVE-2006-3790 (https://www.cve.org/CVERecord?id=CVE-2006-3790); \nCVE-2006-4308 (https://www.cve.org/CVERecord?id=CVE-2006-4308); \nCVE-2006-5525 (https://www.cve.org/CVERecord?id=CVE-2006-5525); \nCVE-2006-6658 (https://www.cve.org/CVERecord?id=CVE-2006-6658); \nCVE-2006-6870 (https://www.cve.org/CVERecord?id=CVE-2006-6870); \nCVE-2007-2442 (https://www.cve.org/CVERecord?id=CVE-2007-2442); \nCVE-2007-3409 (https://www.cve.org/CVERecord?id=CVE-2007-3409); \nCVE-2007-5727 (https://www.cve.org/CVERecord?id=CVE-2007-5727); \nCVE-2007-5893 (https://www.cve.org/CVERecord?id=CVE-2007-5893); \nCVE-2008-0600 (https://www.cve.org/CVERecord?id=CVE-2008-0600); \nCVE-2008-1284 (https://www.cve.org/CVERecord?id=CVE-2008-1284); \nCVE-2008-1303 (https://www.cve.org/CVERecord?id=CVE-2008-1303); \nCVE-2008-1440 (https://www.cve.org/CVERecord?id=CVE-2008-1440); \nCVE-2008-1625 (https://www.cve.org/CVERecord?id=CVE-2008-1625); \nCVE-2008-1737 (https://www.cve.org/CVERecord?id=CVE-2008-1737); \nCVE-2008-1738 (https://www.cve.org/CVERecord?id=CVE-2008-1738); \nCVE-2008-2223 (https://www.cve.org/CVERecord?id=CVE-2008-2223); \nCVE-2008-2252 (https://www.cve.org/CVERecord?id=CVE-2008-2252); \nCVE-2008-2309 (https://www.cve.org/CVERecord?id=CVE-2008-2309); \nCVE-2008-2374 (https://www.cve.org/CVERecord?id=CVE-2008-2374); \nCVE-2008-3174 (https://www.cve.org/CVERecord?id=CVE-2008-3174); \nCVE-2008-3177 (https://www.cve.org/CVERecord?id=CVE-2008-3177); \nCVE-2008-3464 (https://www.cve.org/CVERecord?id=CVE-2008-3464); \nCVE-2008-3477 (https://www.cve.org/CVERecord?id=CVE-2008-3477); \nCVE-2008-3494 (https://www.cve.org/CVERecord?id=CVE-2008-3494); \nCVE-2008-3571 (https://www.cve.org/CVERecord?id=CVE-2008-3571); \nCVE-2008-3660 (https://www.cve.org/CVERecord?id=CVE-2008-3660); \nCVE-2008-3680 (https://www.cve.org/CVERecord?id=CVE-2008-3680); \nCVE-2008-3812 (https://www.cve.org/CVERecord?id=CVE-2008-3812); \nCVE-2008-3843 (https://www.cve.org/CVERecord?id=CVE-2008-3843); \nCVE-2008-4114 (https://www.cve.org/CVERecord?id=CVE-2008-4114); \nCVE-2008-5285 (https://www.cve.org/CVERecord?id=CVE-2008-5285); \nCVE-2008-5305 (https://www.cve.org/CVERecord?id=CVE-2008-5305); \nCVE-2008-5563 (https://www.cve.org/CVERecord?id=CVE-2008-5563); \nCVE-2008-5748 (https://www.cve.org/CVERecord?id=CVE-2008-5748); \nCVE-2008-5764 (https://www.cve.org/CVERecord?id=CVE-2008-5764); \nCVE-2016-10003 (https://www.cve.org/CVERecord?id=CVE-2016-10003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b5327dd1-6bf9-4785-a199-25bcbd1f4a9d",
+            "title" : "T1564.006",
+            "description" : "T1564.006 (https://attack.mitre.org/techniques/T1564/006);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b6301b64-ef57-4cce-bb0b-77026f14a8db",
+            "title" : "T1546",
+            "description" : "T1546 (https://attack.mitre.org/techniques/T1546);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b63a34e8-0a61-4c97-a23b-bf8a2ed812e2",
+            "title" : "T1546.004",
+            "description" : "T1546.004 (https://attack.mitre.org/techniques/T1546/004);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-19 (https://capec.mitre.org/data/definitions/19.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b77cf5f3-6060-475d-bd60-40ccbf28fdc2",
+            "title" : "T1187",
+            "description" : "T1187 (https://attack.mitre.org/techniques/T1187);\nTA0006 Credential Access (https://attack.mitre.org/tactics/TA0006); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
+            "title" : "T1486",
+            "description" : "T1486 (https://attack.mitre.org/techniques/T1486);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+            "title" : "T1570",
+            "description" : "T1570 (https://attack.mitre.org/techniques/T1570);\nTA0008 Lateral Movement (https://attack.mitre.org/tactics/TA0008); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--bf96a5a3-3bce-43b7-8597-88545984c07b",
+            "title" : "T1574.009",
+            "description" : "T1574.009 (https://attack.mitre.org/techniques/T1574/009);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-38 (https://capec.mitre.org/data/definitions/38.html); \nCWE-426 (https://cwe.mitre.org/data/definitions/426.html); \nCWE-427 (https://cwe.mitre.org/data/definitions/427.html); \nCVE-1999-0690 (https://www.cve.org/CVERecord?id=CVE-1999-0690); \nCVE-1999-1120 (https://www.cve.org/CVERecord?id=CVE-1999-1120); \nCVE-1999-1318 (https://www.cve.org/CVERecord?id=CVE-1999-1318); \nCVE-1999-1461 (https://www.cve.org/CVERecord?id=CVE-1999-1461); \nCVE-2000-0854 (https://www.cve.org/CVERecord?id=CVE-2000-0854); \nCVE-2001-0289 (https://www.cve.org/CVERecord?id=CVE-2001-0289); \nCVE-2001-0507 (https://www.cve.org/CVERecord?id=CVE-2001-0507); \nCVE-2001-0912 (https://www.cve.org/CVERecord?id=CVE-2001-0912); \nCVE-2001-0942 (https://www.cve.org/CVERecord?id=CVE-2001-0942); \nCVE-2001-0943 (https://www.cve.org/CVERecord?id=CVE-2001-0943); \nCVE-2002-1576 (https://www.cve.org/CVERecord?id=CVE-2002-1576); \nCVE-2002-2017 (https://www.cve.org/CVERecord?id=CVE-2002-2017); \nCVE-2002-2040 (https://www.cve.org/CVERecord?id=CVE-2002-2040); \nCVE-2003-0579 (https://www.cve.org/CVERecord?id=CVE-2003-0579); \nCVE-2005-1307 (https://www.cve.org/CVERecord?id=CVE-2005-1307); \nCVE-2005-1632 (https://www.cve.org/CVERecord?id=CVE-2005-1632); \nCVE-2005-1705 (https://www.cve.org/CVERecord?id=CVE-2005-1705); \nCVE-2005-2072 (https://www.cve.org/CVERecord?id=CVE-2005-2072); \nCVE-2007-2027 (https://www.cve.org/CVERecord?id=CVE-2007-2027); \nCVE-2008-1319 (https://www.cve.org/CVERecord?id=CVE-2008-1319); \nCVE-2008-1810 (https://www.cve.org/CVERecord?id=CVE-2008-1810); \nCVE-2008-2613 (https://www.cve.org/CVERecord?id=CVE-2008-2613); \nCVE-2008-3485 (https://www.cve.org/CVERecord?id=CVE-2008-3485); \nCVE-2010-1795 (https://www.cve.org/CVERecord?id=CVE-2010-1795); \nCVE-2010-3131 (https://www.cve.org/CVERecord?id=CVE-2010-3131); \nCVE-2010-3135 (https://www.cve.org/CVERecord?id=CVE-2010-3135); \nCVE-2010-3138 (https://www.cve.org/CVERecord?id=CVE-2010-3138); \nCVE-2010-3147 (https://www.cve.org/CVERecord?id=CVE-2010-3147); \nCVE-2010-3152 (https://www.cve.org/CVERecord?id=CVE-2010-3152); \nCVE-2010-3397 (https://www.cve.org/CVERecord?id=CVE-2010-3397); \nCVE-2010-3402 (https://www.cve.org/CVERecord?id=CVE-2010-3402); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--c0dfe7b0-b873-4618-9ff8-53e31f70907f",
+            "title" : "T1037.005",
+            "description" : "T1037.005 (https://attack.mitre.org/techniques/T1037/005);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--c63a348e-ffc2-486a-b9d9-d7f11ec54d99",
+            "title" : "T1037.003",
+            "description" : "T1037.003 (https://attack.mitre.org/techniques/T1037/003);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--c726e0a2-a57a-4b7b-a973-d0f013246617",
+            "title" : "T1027.004",
+            "description" : "T1027.004 (https://attack.mitre.org/techniques/T1027/004);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--cd25c1b4-935c-4f0e-ba8d-552f28bc4783",
+            "title" : "T1496",
+            "description" : "T1496 (https://attack.mitre.org/techniques/T1496);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--ce4b7013-640e-48a9-b501-d0025a95f4bf",
+            "title" : "T1546.002",
+            "description" : "T1546.002 (https://attack.mitre.org/techniques/T1546/002);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--d10cbd34-42e3-45c0-84d2-535a09849584",
+            "title" : "T1543.001",
+            "description" : "T1543.001 (https://attack.mitre.org/techniques/T1543/001);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-564 (https://capec.mitre.org/data/definitions/564.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--d456de47-a16f-4e46-8980-e67478a12dcb",
+            "title" : "T1505",
+            "description" : "T1505 (https://attack.mitre.org/techniques/T1505);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--d45a3d09-b3cf-48f4-9f0f-f521ee5cb05c",
+            "title" : "T1485",
+            "description" : "T1485 (https://attack.mitre.org/techniques/T1485);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+            "title" : "T1070.004",
+            "description" : "T1070.004 (https://attack.mitre.org/techniques/T1070/004);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
+            "title" : "T1189",
+            "description" : "T1189 (https://attack.mitre.org/techniques/T1189);\nTA0001 Initial Access (https://attack.mitre.org/tactics/TA0001); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--dca670cf-eeec-438f-8185-fd959d9ef211",
+            "title" : "T1037.004",
+            "description" : "T1037.004 (https://attack.mitre.org/techniques/T1037/004);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--dfefe2ed-4389-4318-8762-f0272b350a1b",
+            "title" : "T1543.002",
+            "description" : "T1543.002 (https://attack.mitre.org/techniques/T1543/002);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-550 (https://capec.mitre.org/data/definitions/550.html); \nCAPEC-551 (https://capec.mitre.org/data/definitions/551.html); \nCWE-284 (https://cwe.mitre.org/data/definitions/284.html); \nCWE-522 (https://cwe.mitre.org/data/definitions/522.html); \nCVE-2000-0944 (https://www.cve.org/CVERecord?id=CVE-2000-0944); \nCVE-2005-0408 (https://www.cve.org/CVERecord?id=CVE-2005-0408); \nCVE-2005-3435 (https://www.cve.org/CVERecord?id=CVE-2005-3435); \nCVE-2007-0681 (https://www.cve.org/CVERecord?id=CVE-2007-0681); \nCVE-2010-4624 (https://www.cve.org/CVERecord?id=CVE-2010-4624); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--e0232cb0-ded5-4c2e-9dc7-2893142a5c11",
+            "title" : "T1547.013",
+            "description" : "T1547.013 (https://attack.mitre.org/techniques/T1547/013);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--e64c62cf-9cd7-4a14-94ec-cdaac43ab44b",
+            "title" : "T1574.002",
+            "description" : "T1574.002 (https://attack.mitre.org/techniques/T1574/002);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-641 (https://capec.mitre.org/data/definitions/641.html); \nCWE-706 (https://cwe.mitre.org/data/definitions/706.html); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+            "title" : "T1105",
+            "description" : "T1105 (https://attack.mitre.org/techniques/T1105);\nTA0011 Command and Control (https://attack.mitre.org/tactics/TA0011); \nCAPEC-185 (https://capec.mitre.org/data/definitions/185.html); \nCWE-494 (https://cwe.mitre.org/data/definitions/494.html); \nCVE-2001-1125 (https://www.cve.org/CVERecord?id=CVE-2001-1125); \nCVE-2002-0671 (https://www.cve.org/CVERecord?id=CVE-2002-0671); \nCVE-2008-3324 (https://www.cve.org/CVERecord?id=CVE-2008-3324); \nCVE-2008-3438 (https://www.cve.org/CVERecord?id=CVE-2008-3438); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--ec8fc7e2-b356-455c-8db5-2e37be158e7d",
+            "title" : "T1564.001",
+            "description" : "T1564.001 (https://attack.mitre.org/techniques/T1564/001);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--ed7efd4d-ce28-4a19-a8e6-c58011eb2c7a",
+            "title" : "T1137.002",
+            "description" : "T1137.002 (https://attack.mitre.org/techniques/T1137/002);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+            "title" : "T1204.001",
+            "description" : "T1204.001 (https://attack.mitre.org/techniques/T1204/001);\nTA0002 Execution (https://attack.mitre.org/tactics/TA0002); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--f0589bc3-a6ae-425a-a3d5-5659bfee07f4",
+            "title" : "T1547.008",
+            "description" : "T1547.008 (https://attack.mitre.org/techniques/T1547/008);\nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--f4c1826f-a322-41cd-9557-562100848c84",
+            "title" : "T1556",
+            "description" : "T1556 (https://attack.mitre.org/techniques/T1556);\nTA0006 Credential Access (https://attack.mitre.org/tactics/TA0006); \nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nCAPEC-665 (https://capec.mitre.org/data/definitions/665.html); \nCWE-1188 (https://cwe.mitre.org/data/definitions/1188.html); \nCWE-288 (https://cwe.mitre.org/data/definitions/288.html); \nCWE-345 (https://cwe.mitre.org/data/definitions/345.html); \nCWE-353 (https://cwe.mitre.org/data/definitions/353.html); \nCWE-862 (https://cwe.mitre.org/data/definitions/862.html); \nCVE-1999-1077 (https://www.cve.org/CVERecord?id=CVE-1999-1077); \nCVE-1999-1454 (https://www.cve.org/CVERecord?id=CVE-1999-1454); \nCVE-2000-1179 (https://www.cve.org/CVERecord?id=CVE-2000-1179); \nCVE-2001-1155 (https://www.cve.org/CVERecord?id=CVE-2001-1155); \nCVE-2002-0066 (https://www.cve.org/CVERecord?id=CVE-2002-0066); \nCVE-2002-0870 (https://www.cve.org/CVERecord?id=CVE-2002-0870); \nCVE-2003-0304 (https://www.cve.org/CVERecord?id=CVE-2003-0304); \nCVE-2003-1035 (https://www.cve.org/CVERecord?id=CVE-2003-1035); \nCVE-2005-1036 (https://www.cve.org/CVERecord?id=CVE-2005-1036); \nCVE-2005-2801 (https://www.cve.org/CVERecord?id=CVE-2005-2801); \nCVE-2005-3623 (https://www.cve.org/CVERecord?id=CVE-2005-3623); \nCVE-2006-6679 (https://www.cve.org/CVERecord?id=CVE-2006-6679); \nCVE-2007-2925 (https://www.cve.org/CVERecord?id=CVE-2007-2925); \nCVE-2008-3424 (https://www.cve.org/CVERecord?id=CVE-2008-3424); \nCVE-2008-4577 (https://www.cve.org/CVERecord?id=CVE-2008-4577); \nCVE-2008-5027 (https://www.cve.org/CVERecord?id=CVE-2008-5027); \nCVE-2008-6123 (https://www.cve.org/CVERecord?id=CVE-2008-6123); \nCVE-2008-6548 (https://www.cve.org/CVERecord?id=CVE-2008-6548); \nCVE-2008-7109 (https://www.cve.org/CVERecord?id=CVE-2008-7109); \nCVE-2009-0034 (https://www.cve.org/CVERecord?id=CVE-2009-0034); \nCVE-2009-2213 (https://www.cve.org/CVERecord?id=CVE-2009-2213); \nCVE-2009-2282 (https://www.cve.org/CVERecord?id=CVE-2009-2282); \nCVE-2009-2960 (https://www.cve.org/CVERecord?id=CVE-2009-2960); \nCVE-2009-3168 (https://www.cve.org/CVERecord?id=CVE-2009-3168); \nCVE-2009-3230 (https://www.cve.org/CVERecord?id=CVE-2009-3230); \nCVE-2009-3597 (https://www.cve.org/CVERecord?id=CVE-2009-3597); \nCVE-2009-3781 (https://www.cve.org/CVERecord?id=CVE-2009-3781); \nCVE-2020-17533 (https://www.cve.org/CVERecord?id=CVE-2020-17533); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a",
+            "title" : "T1490",
+            "description" : "T1490 (https://attack.mitre.org/techniques/T1490);\nTA0040 Impact (https://attack.mitre.org/tactics/TA0040); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--fc742192-19e3-466c-9eb5-964a97b29490",
+            "title" : "T1574.004",
+            "description" : "T1574.004 (https://attack.mitre.org/techniques/T1574/004);\nTA0005 Defense Evasion (https://attack.mitre.org/tactics/TA0005); \nTA0003 Persistence (https://attack.mitre.org/tactics/TA0003); \nTA0004 Privilege Escalation (https://attack.mitre.org/tactics/TA0004); \nCAPEC-471 (https://capec.mitre.org/data/definitions/471.html); \nCWE-427 (https://cwe.mitre.org/data/definitions/427.html); \nCVE-1999-0690 (https://www.cve.org/CVERecord?id=CVE-1999-0690); \nCVE-1999-1318 (https://www.cve.org/CVERecord?id=CVE-1999-1318); \nCVE-1999-1461 (https://www.cve.org/CVERecord?id=CVE-1999-1461); \nCVE-2000-0854 (https://www.cve.org/CVERecord?id=CVE-2000-0854); \nCVE-2001-0289 (https://www.cve.org/CVERecord?id=CVE-2001-0289); \nCVE-2001-0507 (https://www.cve.org/CVERecord?id=CVE-2001-0507); \nCVE-2001-0912 (https://www.cve.org/CVERecord?id=CVE-2001-0912); \nCVE-2001-0942 (https://www.cve.org/CVERecord?id=CVE-2001-0942); \nCVE-2001-0943 (https://www.cve.org/CVERecord?id=CVE-2001-0943); \nCVE-2002-1576 (https://www.cve.org/CVERecord?id=CVE-2002-1576); \nCVE-2002-2017 (https://www.cve.org/CVERecord?id=CVE-2002-2017); \nCVE-2002-2040 (https://www.cve.org/CVERecord?id=CVE-2002-2040); \nCVE-2003-0579 (https://www.cve.org/CVERecord?id=CVE-2003-0579); \nCVE-2005-1307 (https://www.cve.org/CVERecord?id=CVE-2005-1307); \nCVE-2005-1632 (https://www.cve.org/CVERecord?id=CVE-2005-1632); \nCVE-2005-1705 (https://www.cve.org/CVERecord?id=CVE-2005-1705); \nCVE-2005-2072 (https://www.cve.org/CVERecord?id=CVE-2005-2072); \nCVE-2010-1795 (https://www.cve.org/CVERecord?id=CVE-2010-1795); \nCVE-2010-3131 (https://www.cve.org/CVERecord?id=CVE-2010-3131); \nCVE-2010-3135 (https://www.cve.org/CVERecord?id=CVE-2010-3135); \nCVE-2010-3138 (https://www.cve.org/CVERecord?id=CVE-2010-3138); \nCVE-2010-3147 (https://www.cve.org/CVERecord?id=CVE-2010-3147); \nCVE-2010-3152 (https://www.cve.org/CVERecord?id=CVE-2010-3152); \nCVE-2010-3397 (https://www.cve.org/CVERecord?id=CVE-2010-3397); \nCVE-2010-3402 (https://www.cve.org/CVERecord?id=CVE-2010-3402); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          } ]
+        }, {
+          "type" : "tm.Store",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 190,
+            "y" : 358
+          },
+          "angle" : 0,
+          "id" : "289a53d0-0b69-4ded-b51a-c1f590d4d126",
+          "z" : 6,
+          "hasOpenThreats" : "true",
+          "description" : "restriction#HasRestriction_Platform_SaaS;",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "images"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: flow5; flow3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: flow5; flow3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: flow5; flow3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMIntegratedModel#attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
+            "title" : "T1189",
+            "description" : "T1189 (https://attack.mitre.org/techniques/T1189);\nTA0001 Initial Access (https://attack.mitre.org/tactics/TA0001); \nreason: by existence",
+            "status" : "Open",
+            "severity" : "Medium"
+          } ]
+        }, {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 26,
+            "y" : 42
+          },
+          "angle" : 0,
+          "id" : "fc0d213e-36a1-4a3a-967d-064df0b74eb4",
+          "z" : 7,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "developer"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: flow3; flow2; flow1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: flow3; flow2; flow1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 91,
+            "y" : 489
+          },
+          "angle" : 0,
+          "id" : "5e3ab093-0610-42c6-9e59-f819ec97579f",
+          "z" : 8,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "user"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: flow6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "fc0d213e-36a1-4a3a-967d-064df0b74eb4"
+          },
+          "target" : {
+            "id" : "a72046c6-3a2f-4bf2-98c4-c9e565d1b3a3"
+          },
+          "vertices" : [ ],
+          "id" : "95474f3f-211b-4252-b078-f562ed40a781",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow1",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 9,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "fc0d213e-36a1-4a3a-967d-064df0b74eb4"
+          },
+          "target" : {
+            "id" : "a1d29774-6afc-46b1-a80f-f58dd8def7fd"
+          },
+          "vertices" : [ ],
+          "id" : "f58beaa6-f0e0-4d09-82be-a21525703de1",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow2",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 10,
+          "hasOpenThreats" : "true",
+          "description" : "class#FileDeletion_DataComponent;\nclass#FileCreation_DataComponent;",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "fc0d213e-36a1-4a3a-967d-064df0b74eb4"
+          },
+          "target" : {
+            "id" : "289a53d0-0b69-4ded-b51a-c1f590d4d126"
+          },
+          "vertices" : [ ],
+          "id" : "0ce88dbe-9564-4d50-ade2-5f0aed594bff",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow3",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 11,
+          "hasOpenThreats" : "true",
+          "description" : "class#FileDeletion_DataComponent;\nclass#FileCreation_DataComponent;",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "a1d29774-6afc-46b1-a80f-f58dd8def7fd"
+          },
+          "target" : {
+            "id" : "a72046c6-3a2f-4bf2-98c4-c9e565d1b3a3"
+          },
+          "vertices" : [ ],
+          "id" : "08e09560-d3b9-4693-ae85-7daa3db071ad",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow4",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 12,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "289a53d0-0b69-4ded-b51a-c1f590d4d126"
+          },
+          "target" : {
+            "id" : "d12df148-58e8-4efd-b2da-b26a77940a8d"
+          },
+          "vertices" : [ ],
+          "id" : "4be07d27-c39c-4ce4-ab63-6ff0cbc4fc78",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow5",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 13,
+          "hasOpenThreats" : "true",
+          "description" : "",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "5e3ab093-0610-42c6-9e59-f819ec97579f"
+          },
+          "target" : {
+            "id" : "c9a76231-5a77-4536-948d-7a0015048262"
+          },
+          "vertices" : [ ],
+          "id" : "a6d0a77d-beb5-4e3c-9294-5641905af7e5",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow6",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 14,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "c9a76231-5a77-4536-948d-7a0015048262"
+          },
+          "target" : {
+            "id" : "fbab6b26-1736-4dc7-bb63-83b97a73fce0"
+          },
+          "vertices" : [ ],
+          "id" : "1f17ebb7-6ee0-41d1-ae7e-1c4467ef5bab",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow7",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 15,
+          "hasOpenThreats" : "true",
+          "description" : "class#ProcessCreation_DataComponent;\nclass#CommandExecution_DataComponent;",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "d12df148-58e8-4efd-b2da-b26a77940a8d"
+          },
+          "target" : {
+            "id" : "fbab6b26-1736-4dc7-bb63-83b97a73fce0"
+          },
+          "vertices" : [ ],
+          "id" : "081c1aa5-279b-4024-b0c6-fb125e963feb",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow8",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 16,
+          "hasOpenThreats" : "true",
+          "description" : "",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 799,
+            "y" : 12
+          },
+          "angle" : 0,
+          "id" : "fcd9d58e-3142-476b-8926-01238be88699",
+          "z" : 17,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "administrator"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: flow9; flow10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: flow9; flow10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "fcd9d58e-3142-476b-8926-01238be88699"
+          },
+          "target" : {
+            "id" : "a72046c6-3a2f-4bf2-98c4-c9e565d1b3a3"
+          },
+          "vertices" : [ ],
+          "id" : "7cf3184f-d7d5-48d9-9e05-893d3d1fc2c7",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow9",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 18,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "fcd9d58e-3142-476b-8926-01238be88699"
+          },
+          "target" : {
+            "id" : "d12df148-58e8-4efd-b2da-b26a77940a8d"
+          },
+          "vertices" : [ ],
+          "id" : "7efef89d-ff81-4760-9530-9eac9f4aa664",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow10",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 19,
+          "hasOpenThreats" : "true",
+          "description" : "class#ContainerEnumeration_DataComponent;\nclass#ContainerMetadata_DataComponent;",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "a72046c6-3a2f-4bf2-98c4-c9e565d1b3a3"
+          },
+          "target" : {
+            "id" : "d12df148-58e8-4efd-b2da-b26a77940a8d"
+          },
+          "vertices" : [ ],
+          "id" : "f8a9bd60-4a04-4711-b70b-5242beffa7e0",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "flow11",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 20,
+          "hasOpenThreats" : "true",
+          "description" : "class#ContainerCreation_DataComponent;",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        } ]
+      },
+      "size" : {
+        "height" : 2332,
+        "width" : 1006
+      }
+    } ]
+  }
+}

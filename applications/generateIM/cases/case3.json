@@ -1,0 +1,252 @@
+{
+  "summary": {
+    "title": "New Threat Model"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "title": "windows case",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "diagramType": "STRIDE",
+        "id": 0,
+        "$$hashKey": "object:14",
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 50,
+                "y": 51
+              },
+              "angle": 0,
+              "id": "c519061c-5d9d-4a23-82d3-25fe29be94b5",
+              "z": 1,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "admin"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 402,
+                "y": 47
+              },
+              "angle": 0,
+              "id": "de80fd2b-580e-4b90-a847-48b849132f1e",
+              "z": 2,
+              "hasOpenThreats": false,
+              "description": "",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "taskCreation"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "c519061c-5d9d-4a23-82d3-25fe29be94b5"
+              },
+              "target": {
+                "id": "de80fd2b-580e-4b90-a847-48b849132f1e"
+              },
+              "vertices": [],
+              "id": "8f7287e2-d3dc-4534-a35c-f70184fee34a",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.47463521473044723,
+                    "offset": 1.9292311864865481
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "flow",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 3,
+              "hasOpenThreats": false,
+              "description": "class#ScheduledJobCreation_DataComponent",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 111,
+                "y": 263
+              },
+              "angle": 0,
+              "id": "34344a37-4b1a-4727-80f9-bfc19cb456f4",
+              "z": 4,
+              "hasOpenThreats": false,
+              "description": "restriction#HasRestriction_Platform_Windows;",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "auth_windows"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "c519061c-5d9d-4a23-82d3-25fe29be94b5"
+              },
+              "target": {
+                "id": "34344a37-4b1a-4727-80f9-bfc19cb456f4"
+              },
+              "vertices": [],
+              "id": "0639a312-b2b5-4e37-b801-1a9612589fa8",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow2",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 5,
+              "hasOpenThreats": false,
+              "description": "class#ActiveDirectoryCredentialRequest_DataComponent;",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "c519061c-5d9d-4a23-82d3-25fe29be94b5"
+              },
+              "target": {
+                "id": "1f68f4a5-3dee-4c43-a2fa-407ada859ab4"
+              },
+              "vertices": [],
+              "id": "afc9fee7-de39-47fb-95b9-a678a08ae744",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "flow3",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 7,
+              "hasOpenThreats": false,
+              "description": "class#ActiveDirectoryCredentialRequest_DataComponent;",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 398,
+                "y": 269
+              },
+              "angle": 0,
+              "id": "1f68f4a5-3dee-4c43-a2fa-407ada859ab4",
+              "z": 8,
+              "hasOpenThreats": false,
+              "description": "restriction#HasRestriction_Platform_SaaS",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "auth_cloud"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            }
+          ]
+        },
+        "size": {
+          "height": 590,
+          "width": 790
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+ 
+# the first source:
+PREFIX bm: <http://www.grsu.by/net/OdTMBaseThreatModel#> 
+# another one:
+PREFIX : <http://www.grsu.by/net/OdTMIntegratedModel#> 
+
+SELECT ?ATTCKs ?CAPECs ?CWEs ?CVEs ?ATTCKhasCAPECs ?CAPEChasATTCKs ?CAPEChasCWEs ?CWEhasCAPECs ?CWEhasCVEs ?CVEhasCWEs
+FROM <../ttl/OdTMIntegratedModel_filled.ttl>
+WHERE
+{
+  {
+    SELECT (count(?a) as ?ATTCKs)
+    WHERE { ?a rdf:type :ATTCKTechnique .}
+  }
+
+  {
+    SELECT (count(?b) as ?CAPECs)
+    WHERE { ?b rdf:type :CAPEC .}
+  }
+
+  {
+    SELECT (count(?c) as ?CWEs)
+    WHERE { ?c rdf:type :CWE .}
+  }
+
+  {
+    SELECT (count(?d) as ?CVEs)
+    WHERE { ?d rdf:type :CVE .}
+  }
+
+  {
+    SELECT (count(distinct ?e) as ?ATTCKhasCAPECs)
+    WHERE { ?e bm:refToCAPEC ?f . }
+  }
+
+  {
+    SELECT (count(distinct ?g) as ?CAPEChasATTCKs)
+    WHERE { ?g bm:isRefToATTCK ?h . }
+  }
+
+  {
+    SELECT (count(distinct ?j) as ?CAPEChasCWEs)
+    WHERE { ?j bm:refToCWE ?k . }
+  }
+
+  {
+    SELECT (count(distinct ?l) as ?CWEhasCAPECs)
+    WHERE { ?l bm:isRefToCAPEC ?m . }
+  }
+
+  {
+    SELECT (count(distinct ?o) as ?CWEhasCVEs)
+    WHERE { ?o bm:refToCVE ?p . }
+  }
+
+  {
+    SELECT (count(distinct ?s) as ?CVEhasCWEs)
+    WHERE { ?s bm:isRefToCWE ?t . }
+  }
+
+
+}
+

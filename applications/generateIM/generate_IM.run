@@ -1,0 +1,8 @@
+#!/bin/bash
+
+CONF="../generateIM/generate_IM.properties"
+APP="../OdTMServer"
+
+cd $APP
+
+mvn -e exec:java -q -Dexec.mainClass="ab.run.generateIM" -Dexec.args="$CONF"
