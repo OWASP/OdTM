@@ -24,8 +24,8 @@ and their integration with external sources, like attack/vulnerability/weakness 
 also with catalogues of traditional security (threat) patterns.
 
 We also have implementation of 
-[Academic Cloud Computing Threat Patterns (ACCTP)](docs/ODTMACCTP.md) model as a domain-specific threat model.
-and [Integrated model of ATT&CK, CAPEC, and CWE](docs/IM.md)
+[Academic Cloud Computing Threat Patterns (ACCTP)](docs/ODTMACCTP.md) model as a domain-specific threat model
+and [Integrated model of ATT&CK, CAPEC, and CWE](docs/IM.md).
 
 All the models are implemented as OWL (Web Ontology Language) ontologies with Description Logics (DLs) as a mathematical background.
 
