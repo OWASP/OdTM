@@ -40,213 +40,215 @@
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService",
             "title" : "AA01 Failure Of Remote Service (from flow 2)",
-            "description" : "Unexpected failure of the remote service (because of flow 2)",
+            "description" : "overview: Unexpected failure of the remote service;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService",
             "title" : "AA02 Connection Lost To Remote Service (from flow 2)",
-            "description" : "Connection lost to the remote service (because of flow 2)",
+            "description" : "overview: Connection lost to the remote service;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA03_DataBreachByRemoteService",
             "title" : "AA03 Data Breach By Remote Service (from flow 2)",
-            "description" : "Data breach (information disclosure) by the remote service (because of flow 2)",
+            "description" : "overview: Data breach (information disclosure) by the remote service;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA04_DataLossByRemoteService",
             "title" : "AA04 Data Loss By Remote Service (from flow 2)",
-            "description" : "Data loss (modification) by the remote service (because of flow 2)",
+            "description" : "overview: Data loss (modification) by the remote service;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA05_SpoofingOfRemoteService",
             "title" : "AA05 Spoofing Of Remote Service (from flow 2)",
-            "description" : "Spoofing of the remote service (because of flow 2)",
+            "description" : "overview: Spoofing of the remote service;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Spoofing"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
             "title" : "AD01 Broken Authentication (from flow 1)",
-            "description" : "No authentication or broken (weak) authentication by the cloud application (because of flow 1)",
+            "description" : "overview: No authentication or broken (weak) authentication by the cloud application;\nreason: flow 1;",
             "status" : "Open",
-            "severity" : "Medium"
+            "severity" : "Medium",
+            "type" : "Spoofing"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
             "title" : "AD02 Broken Access Control (from flow 1)",
-            "description" : "No access control or broken (weak) access control by the cloud application (because of flow 1)",
+            "description" : "overview: No access control, broken (weak) access control, and the authorization issues of the cloud application;\nreason: flow 1;",
             "status" : "Open",
-            "severity" : "Medium"
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
             "title" : "AD03 Data Breach By Cloud Application (from flow 1)",
-            "description" : "Data breach (information disclosure) by the cloud application (because of flow 1)",
+            "description" : "overview: Data breach (information disclosure) by the cloud application;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
             "title" : "AD04 Data Loss By Cloud Application (from flow 1)",
-            "description" : "Data loss (modification) by the cloud application (because of flow 1)",
+            "description" : "overview: Data loss (modification) by the cloud application;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
-            "title" : "AD05 Backup Of CloudApplication Lost (from flow 1)",
-            "description" : "Lost of cloud application backup (because of flow 1)",
+            "title" : "AD05 Backup Of Cloud Application Lost (from flow 1)",
+            "description" : "overview: Lost of cloud application backup;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
-            "title" : "AD06 Backups Of Cloud Application Stolen (from flow 1)",
-            "description" : "Disclosure of cloud application backups (because of flow 1)",
+            "title" : "AD06 Backup Of Cloud Application Stolen (from flow 1)",
+            "description" : "overview: Disclosure of cloud application backups;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
             "title" : "AD07 Logs Of Cloud Application Lost (from flow 1)",
-            "description" : "Lost of cloud application logs (because of flow 1)",
+            "description" : "overview: Lost of cloud application logs;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
             "title" : "AD08 Logs Of Cloud Application Stolen (from flow 1)",
-            "description" : "Disclosure of sensitive information from cloud application logs (because of flow 1)",
+            "description" : "overview: Disclosure of sensitive information from cloud application logs;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE01_DDoSAttackToCloudApplication",
             "title" : "AE01 DDoS Attack To Cloud Application (from flow 1)",
-            "description" : "DDoS/DoS attack against cloud application from the Internet (because of flow 1)",
+            "description" : "overview: DDoS/DoS attack against cloud application from the Internet;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE02_EDoSAttackToCloudApplication",
             "title" : "AE02 EDoS Attack To Cloud Application (from flow 1)",
-            "description" : "EDoS (Economic Denial of Service) attack against cloud application from the Internet (because of flow 1)",
+            "description" : "overview: EDoS (Economic Denial of Sustainability or Economic Denial of Service) attack against cloud application from the Internet;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE03_NetworkAttacksToCloudApplication",
             "title" : "AE03 Network Attacks To Cloud Application (from flow 1)",
-            "description" : "Remote side can perform remote malicious activities based on misconfiguration or vulnerabilities of the cloud application (because of flow 1)",
+            "description" : "overview: Remote side can perform remote malicious activities based on misconfiguration or vulnerabilities of the cloud application;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE04_CloudApplicationAbuse",
             "title" : "AE04 Cloud Application Abuse (from flow 1)",
-            "description" : "Malicious usage (abuse) of cloud application from the Internet (e.g. sending spam, participating botnet, mining) after gain control on it (because of flow 1)",
+            "description" : "overview: Malicious usage (abuse) of cloud application from the Internet (e.g. sending spam, participating botnet, mining) after gain control on it;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication",
             "title" : "AE05 Block Shared Resources Of Cloud Application (from flow 1)",
-            "description" : "Blocking shared resources of cloud application (e.g. shared external IP) by a third-part reputation service (because of flow 1)",
+            "description" : "overview: Blocking shared resources of cloud application (e.g. shared external IP) by a third-part reputation service;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface",
             "title" : "AE06 Disclosure Of Credentials Of Cloud Management Interface (from flow 1)",
-            "description" : "Disclosure of user credentials of management interface of cloud application (because of flow 1)",
+            "description" : "overview: Disclosure of user credentials of management interface of cloud application;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
             "title" : "Generic DoS threat (from flow 2)",
-            "description" : "A generic DoS threat (because of flow 2)",
+            "description" : "overview: A generic DoS threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
             "title" : "Generic DoS threat (from flow 1)",
-            "description" : "A generic DoS threat (because of flow 1)",
+            "description" : "overview: A generic DoS threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
             "title" : "Generic elevation threat (from flow 2)",
-            "description" : "A generic elevation threat (because of flow 2)",
+            "description" : "overview: A generic elevation threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Elevation of privilege"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
             "title" : "Generic elevation threat (from flow 1)",
-            "description" : "A generic elevation threat (because of flow 1)",
+            "description" : "overview: A generic elevation threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Elevation of privilege"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
             "title" : "Generic information disclosure threat (from flow 2)",
-            "description" : "A generic information disclosure threat (because of flow 2)",
+            "description" : "overview: A generic information disclosure threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
             "title" : "Generic information disclosure threat (from flow 1)",
-            "description" : "A generic information disclosure threat (because of flow 1)",
+            "description" : "overview: A generic information disclosure threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
             "title" : "Generic repudiation threat (from flow 2)",
-            "description" : "A generic repudiation threat (because of flow 2)",
+            "description" : "overview: A generic repudiation threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
             "title" : "Generic repudiation threat (from flow 1)",
-            "description" : "A generic repudiation threat (because of flow 1)",
+            "description" : "overview: A generic repudiation threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
             "title" : "Generic spoofing threat (from flow 2)",
-            "description" : "A generic spoofing threat (because of flow 2)",
+            "description" : "overview: A generic spoofing threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Spoofing"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
             "title" : "Generic spoofing threat (from flow 1)",
-            "description" : "A generic spoofing threat (because of flow 1)",
+            "description" : "overview: A generic spoofing threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Spoofing"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
             "title" : "Generic tampering threat (from flow 2)",
-            "description" : "A generic tampering threat (because of flow 2)",
+            "description" : "overview: A generic tampering threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
             "title" : "Generic tampering threat (from flow 1)",
-            "description" : "A generic tampering threat (because of flow 1)",
+            "description" : "overview: A generic tampering threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"
@@ -280,48 +282,49 @@
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
             "title" : "AB01 Failure Of Cloud Application (from flow 1)",
-            "description" : "Unexpected failure of the cloud application (because of flow 1)",
+            "description" : "overview: Unexpected failure of the cloud application;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
             "title" : "AB02 Connection Lost To Cloud Application (from flow 1)",
-            "description" : "Connection lost to the cloud application (because of flow 1)",
+            "description" : "overview: Connection lost to the cloud application;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication",
             "title" : "AC01 Malware From Cloud Application (from flow 1)",
-            "description" : "Malicious content (malware) from the cloud application (because of flow 1)",
+            "description" : "overview: Malicious content (malware) from the cloud application;\nreason: flow 1;",
             "status" : "Open",
-            "severity" : "Medium"
+            "severity" : "Medium",
+            "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC02_PublicNetworkAccessToCloudApplication",
             "title" : "AC02 Public Network Access To Cloud Application (from flow 1)",
-            "description" : "Remote user connects to the cloud application though a public network (e.g. Wi-Fi) and can be attacked by a third-party adversary (because of flow 1)",
+            "description" : "overview: Remote user connects to the cloud application though a public network (e.g. Wi-Fi) and can be attacked by a third-party adversary;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
-            "type" : "Information disclosure"
+            "type" : "Tampering"
           }, {
             "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC03_SocialEngineeringAgainstRemoteUser",
             "title" : "AC03 Social Engineering Against Remote User (from flow 1)",
-            "description" : "Remote user suffers from Social Engineering attacks, performed by third-party adversary (e.g. including the cloud application into phishing schema) (because of flow 1)",
+            "description" : "overview: Remote user suffers from Social Engineering attacks, performed by third-party adversary (e.g. including the cloud application into phishing schema);\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
             "title" : "Generic repudiation threat (from flow 1)",
-            "description" : "A generic repudiation threat (because of flow 1)",
+            "description" : "overview: A generic repudiation threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
             "title" : "Generic spoofing threat (from flow 1)",
-            "description" : "A generic spoofing threat (because of flow 1)",
+            "description" : "overview: A generic spoofing threat;\nreason: flow 1;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Spoofing"
@@ -367,21 +370,21 @@
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
             "title" : "Generic DoS threat",
-            "description" : "A generic DoS threat",
+            "description" : "overview: A generic DoS threat;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
             "title" : "Generic information disclosure threat",
-            "description" : "A generic information disclosure threat",
+            "description" : "overview: A generic information disclosure threat;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
             "title" : "Generic tampering threat",
-            "description" : "A generic tampering threat",
+            "description" : "overview: A generic tampering threat;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"
@@ -415,14 +418,14 @@
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
             "title" : "Generic repudiation threat (from flow 2)",
-            "description" : "A generic repudiation threat (because of flow 2)",
+            "description" : "overview: A generic repudiation threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Repudiation"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
             "title" : "Generic spoofing threat (from flow 2)",
-            "description" : "A generic spoofing threat (because of flow 2)",
+            "description" : "overview: A generic spoofing threat;\nreason: flow 2;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Spoofing"
@@ -468,21 +471,21 @@
           "threats" : [ {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
             "title" : "Generic DoS threat",
-            "description" : "A generic DoS threat",
+            "description" : "overview: A generic DoS threat;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Denial of service"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
             "title" : "Generic information disclosure threat",
-            "description" : "A generic information disclosure threat",
+            "description" : "overview: A generic information disclosure threat;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Information disclosure"
           }, {
             "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
             "title" : "Generic tampering threat",
-            "description" : "A generic tampering threat",
+            "description" : "overview: A generic tampering threat;",
             "status" : "Open",
             "severity" : "Medium",
             "type" : "Tampering"

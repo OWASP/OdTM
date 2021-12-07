@@ -54,7 +54,8 @@ class consoleApplication {
                
                   if (modeller !=null){
                      modeller.createWorkModelFromFile(caseName);                     
-                     modeller.analyseWithAIEd();
+                     //modeller.analyseWithAIEd();
+                     modeller.analyseWithAIEd1();
                                     
                   } else{
                     LOGGER.severe("could not fill modeller! exiting...");

@@ -45,3 +45,4 @@ class#VirtualMachine
 
 To mention the ACCTP model in your publication, please, cite:
 >Brazhuk A. Threat modeling of cloud systems with ontological security pattern catalog //International Journal of Open Information Technologies. – 2021. – Т. 9. – №. 5. – С. 36-41.
+[fulltext](https://www.researchgate.net/publication/351308477_Threat_modeling_of_cloud_systems_with_ontological_security_pattern_catalog)

@@ -23,8 +23,9 @@ The base model enables creation of various domain-specific threat models
 and their integration with external sources, like attack/vulnerability/weakness enumerations, 
 also with catalogues of traditional security (threat) patterns.
 
-We also have an implementation of the [Academic Cloud Computing Threat Patterns (ACCTP)](docs/ODTMACCTP.md) model
-as a domain-specific threat model.
+We also have implementation of 
+[Academic Cloud Computing Threat Patterns (ACCTP)](docs/ODTMACCTP.md) model as a domain-specific threat model.
+and [Integrated model of ATT&CK, CAPEC, and CWE](docs/IM.md)
 
 All the models are implemented as OWL (Web Ontology Language) ontologies with Description Logics (DLs) as a mathematical background.
 
@@ -52,6 +53,7 @@ And a [mirror is here](https://github.com/nets4geeks/OdTM).
 
 ## Domain-specific threat models
 
+* [Integrated model of ATT&CK, CAPEC, and CWE](docs/IM.md)
 * [Academic Cloud Computing Threat Patterns (ACCTP) model](docs/ODTMACCTP.md)
 * [Common Cloud Computing Threat Model or CCCTM](docs/ODTMCCCTM.md) (obsolete)
 

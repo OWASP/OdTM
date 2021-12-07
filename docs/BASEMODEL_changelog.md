@@ -1,11 +1,22 @@
 
 # Changelog of Base Threat Model
 
+## Version 0.60 (November 2021)
+
+* added the 'ThreatRestriction' class 
+* added the 'satisfiesThreatRestriction' property
+* added the 'ClassifiedStencil' class
+* added the 'refToATTCK' 'refToCAPEC', 'refToCWE', 'refToCVE' properties
+* added inverse 'isRefToThreat','isRefToATTCK', 'isRefToCAPEC', 'isRefToCWE' properties
+* added property chains refToCAPECresoned, refToCWEreasoned & refToCVEreasoned
+* added the 'refToTacticProperty' property
+* added the 'refToEnum' superproperty
+
 ## Version 0.55 (February 2021)
 
 * added the 'isAffectedByTargets' property
 * added hand made reasons of the STRIDE threats for targets
-* a bit of integration with the security pattern (SP) schema 
+* a bit of integration with the security pattern (SP) schema
 
 ## Version 0.50 (August 2020)
 

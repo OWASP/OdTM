@@ -74,6 +74,22 @@ public class ThreatModeller extends OManager {
    protected static String HasDescriptionProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasDescription";
    protected static String HasSeverityProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#hasSeverity";
    protected static String LabelsSTRIDE = "http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE";
+   protected static String HasRestrictionsClass = "http://www.grsu.by/net/OdTMBaseThreatModel#HasRestrictions";
+   protected static String ThreatRestrictionClass = "http://www.grsu.by/net/OdTMBaseThreatModel#ThreatRestriction";
+   protected static String SatisfiesProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#satisfiesThreatRestriction";
+
+   protected static String refToTacticProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToTactic";
+   protected static String refToATTCKProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToATTCK";
+   protected static String refToCAPECProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPEC";
+   protected static String refToCWEProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToCWE";
+   protected static String refToCVEProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToCVE";
+   protected static String isRefToATTCKProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isRefToATTCK";
+   protected static String isRefToCAPECProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isRefToCAPEC";
+   protected static String isRefToCWEProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#isRefToCWE";
+   protected static String refToCAPECreasonedProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPECreasoned";
+   protected static String refToCWEreasonedProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToCWEreasoned";
+   protected static String refToCVEreasonedProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToCVEreasoned";
+   protected static String refToEnumProperty = "http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum";   
    
    // !!! legacy
    // init it with base model & domain model before use 
@@ -183,6 +199,14 @@ public class ThreatModeller extends OManager {
        model.flush();
     }
 
+    public boolean isItFromBaseModel(IRI iri){
+       if (bmodel!=null) {
+          if (bmodel.hasDefaultPrefix(iri)) return true;
+       }
+       return false;      
+    }
+
+
     // to perform an operation with an object (i.e. EntitySearch related methods in O)  
     // we need to know where this object is (in base or domain model)
     protected O getModelByIRI(IRI iri){
@@ -272,6 +296,48 @@ public class ThreatModeller extends OManager {
       return null;
    }
 
+   // parse the "class#CloudApplication" & "restriction#HasRestriction_SomeRestriction" like entities
+   // and apply needed axioms
+   public boolean applyJSONclasses(String in, IRI itemIRI){
+      if (in !=null){
+         in = in.replace("\n", "");
+         String[] args = in.split(";");
+         for (int i=0; i<args.length; i++){
+            String[] args2 = args[i].split("#");
+            if (args2.length ==2){
+               String prefix = args2[0];
+               String name = args2[1];
+               if (prefix.equals("class") || prefix.equals("restriction")){
+                  String res = classModelIRI+"#"+name;
+                  // apply class to instance
+                  model.addAxiom(model.getClassAssertionAxiom(IRI.create(res), itemIRI));
+                  // !!! item belongs to the 'HasRestrictions'
+                  if(prefix.equals("restriction")) model.addAxiom(model.getClassAssertionAxiom(IRI.create(HasRestrictionsClass), itemIRI));
+               }
+               if (prefix.equals("enum")){
+                  IRI enumIRI = IRI.create(classModelIRI+"#"+name);
+                  // like HasEnum_CWE-284
+                  IRI searchIRI = IRI.create(model.getDefaultPrefix()+"HasEnum_"+name);
+                  // HasEnum_CWE-284 = refToEnum value CWE-284
+                  model.addAxiom(model.getDefinedClassValue(searchIRI, IRI.create(refToEnumProperty), enumIRI));
+                  model.flush();
+                  // threats are individuals of HasEnum_CWE-284
+                  List<OWLNamedIndividual> threats = model.getReasonerInstances(searchIRI).sorted().collect(Collectors.toList());
+                  for (Iterator<OWLNamedIndividual> iterator = threats.stream().iterator(); iterator.hasNext(); ){
+                      OWLNamedIndividual  threat = (OWLNamedIndividual)iterator.next();
+                      // <itemIRI> isAffectedBy threat
+                      model.addAxiom(model.getObjectPropertyAssertionAxiom(IRI.create(IsAffectedByProperty),itemIRI,threat.getIRI()));
+                  }
+ 
+               }
+            }            
+         }
+         return true;
+       }
+       return false;
+   }
+
+
     public ArrayList<OWLNamedIndividual> findAggressorsJSON(IRI targetIRI, IRI threatIRI){
        List<OWLNamedIndividual> flows = model.getReasonerObjectPropertyValues(targetIRI,IRI.create(IsEdgeOfProperty)).collect(Collectors.toList());
        if (flows == null){
@@ -280,7 +346,7 @@ public class ThreatModeller extends OManager {
        }
        ArrayList<OWLNamedIndividual> res = new ArrayList<OWLNamedIndividual>();
        for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
-           OWLNamedIndividual  flow = (OWLNamedIndividual)iterator.next();
+           OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
            String prop;
            OWLAxiom ax1 = model.getObjectPropertyAssertionAxiom(IRI.create(HasSourceProperty), flow.getIRI(), targetIRI);
            if (model.containsAxiom1(ax1)){
@@ -298,7 +364,7 @@ public class ThreatModeller extends OManager {
 
    
    // takes a JSonNode that represents a diagram and creates a work model.
-   // Caution! A poor example of Jackson's use. Use ObjectMapper instead. 
+   // Caution! A poor example of Jackson's use. Use ObjectMapper instead??? 
    public boolean createWorkModelFromJSON(JsonNode diagram){
       // create empty model with the domain model import
       workModel = create("http://tmp.local");
@@ -337,16 +403,16 @@ public class ThreatModeller extends OManager {
          // add type
          model.addAxiom(model.getClassAssertionAxiom(typeIRI, nameIRI));
 
-         // get class
-         // currently, it is in the 'descripion' tag and has the 'class#' prefix
+         // get classes & restrictions
+         // it is in the 'descripion' tag and 
+         //    has the 'class#' (both flows and targets) 
+         //    & 'restriction#' prefixes (for targets)
+         // like:
+         //    class#SomeClass;
+         //    restriction#SomeRestrictionClass
          String cellClass = cell.path("description").textValue();
-         IRI classIRI = convertJSONclass(cellClass);
-         // if it is ok ...
-         if (classIRI != null){
-            // ... adds class
-            model.addAxiom(model.getClassAssertionAxiom(classIRI, nameIRI));   
-         }
-         
+         applyJSONclasses(cellClass,nameIRI);
+
          // get & add text
          String cellText = null;
          if (cellType.equals("tm.Flow")){
@@ -374,14 +440,15 @@ public class ThreatModeller extends OManager {
              }
          }
                   
-         //         
+         //       
                   
       }  
       
       return true;
    }
  
-   // a bad primer of Jackson's use...
+   // applies reasoning results a json diagram
+   // !!! a bad primer of Jackson's use...
    public boolean applyAxiomsToJSON(JsonNode diagram){
       JsonNode cells = diagram.path("diagramJson").path("cells");
       Iterator<JsonNode> itr1 = cells.elements();
@@ -405,8 +472,14 @@ public class ThreatModeller extends OManager {
             LOGGER.severe("could not find the type "+ cellType);
             return false;   
          }   
-           
+         
+         // reason the model  
          model.flush();  
+
+         // if component belongs to the 'HasRestrictions' class, restrictions exist of its applicability
+         // threat should be checked, if they satisfy the restrictions
+         boolean hasRestrictions = model.isReasonerIndividualBelongsToClass(nameIRI,IRI.create(HasRestrictionsClass));
+
          // get threats from the ontological model
          List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(nameIRI,IRI.create(IsAffectedByProperty)).sorted().collect(Collectors.toList());
          if (threats.size() !=0) {
@@ -418,6 +491,12 @@ public class ThreatModeller extends OManager {
                O modelOfThreat = getModelByIRI1(tmp.getIRI()); // model from what the threat comes (base or domain) 
                String ruleId = tmp.getIRI().toString(); // get rule ID
                String shortIRI = O.getShortIRI(tmp);
+               
+               // skip if threat does not satisfy component and not from base model
+               if (hasRestrictions && !isItFromBaseModel(tmp.getIRI()) ) {
+                  OWLAxiom ax = model.getObjectPropertyAssertionAxiom(IRI.create(SatisfiesProperty),nameIRI, tmp.getIRI());
+                  if (!model.containsAxiom1(ax)) continue;
+               }
    
                // trying to get title from the 'hasTitle' property...
                String title = modelOfThreat.getSearcherDataPropertyValue(tmp.getIRI(), IRI.create(HasTitleProperty)); // get title
@@ -425,46 +504,101 @@ public class ThreatModeller extends OManager {
                   // ... or from label
                   title = modelOfThreat.getSeacherLabel(tmp);
                }
-               // trying to get description from the 'hasDescription' property ...
+               // trying to get a basic description from the 'hasDescription' property ...
                String description = modelOfThreat.getSearcherDataPropertyValue(tmp.getIRI(), IRI.create(HasDescriptionProperty)); // get description
                if (description == null){
                   // ... or from comment
                   description = modelOfThreat.getSeacherComment(tmp);
+                  if (description == null) description = shortIRI;
                }
+               description = description+";";
                
-               // get type (!!! only one)  <threat> labelsSTRIDE <some STRIDE>
+               // get type (!!! only one at the moment)  <threat> labelsSTRIDE <some STRIDE>
                OWLNamedIndividual typeInstance = model.getObjectPropertyValueFromOntology(tmp.getIRI(),IRI.create(LabelsSTRIDE),bmodel.getIRI());
-               //model.showInstances(model.getReasonerObjectPropertyValues(tmp.getIRI(),IRI.create(LabelsSTRIDE)));
                String type =null;
                if (typeInstance!=null) type = getModelByIRI1(typeInstance.getIRI()).getSearcherDataPropertyValue(typeInstance.getIRI(), IRI.create(HasTitleProperty));   
-               
+
+               // get tactics with the 'refToTactic' property
+               String descriptionTactic = "";
+               List<OWLNamedIndividual> tactics = model.getReasonerObjectPropertyValues(tmp.getIRI(),IRI.create(refToTacticProperty)).sorted().collect(Collectors.toList());
+               if (tactics !=null){
+                  for (Iterator<OWLNamedIndividual> iterator5 = tactics.stream().iterator(); iterator5.hasNext(); ){
+                     OWLNamedIndividual tactic =  (OWLNamedIndividual)iterator5.next();
+                     String tacticComment = getModelByIRI1(tactic.getIRI()).getSeacherComment(tactic);
+                     if (tacticComment != null) descriptionTactic = descriptionTactic+"\n" +tacticComment+"; ";
+                  }
+                  if (!descriptionTactic.equals("")) description = description + descriptionTactic;
+               }
+
+    
+               // get capecs with the 'refToCAPECreasoned' property
+               String descriptionCAPEC = "";
+               List<OWLNamedIndividual> capecs = model.getReasonerObjectPropertyValues(tmp.getIRI(),IRI.create(refToCAPECreasonedProperty)).sorted().collect(Collectors.toList());
+               if (capecs !=null){
+                  for (Iterator<OWLNamedIndividual> iterator5 = capecs.stream().iterator(); iterator5.hasNext(); ){
+                     OWLNamedIndividual capec =  (OWLNamedIndividual)iterator5.next();
+                     String capecComment = getModelByIRI1(capec.getIRI()).getSeacherComment(capec);
+                     if (capecComment != null) descriptionCAPEC = descriptionCAPEC+"\n" +capecComment+"; ";
+                  }
+                  if (!descriptionCAPEC.equals("")) description = description + descriptionCAPEC;
+               }
+         
+               // get cwes with the 'refToCWEreasoned' property
+               String descriptionCWE = "";
+               List<OWLNamedIndividual> cwes = model.getReasonerObjectPropertyValues(tmp.getIRI(),IRI.create(refToCWEreasonedProperty)).sorted().collect(Collectors.toList());
+               if (cwes !=null){
+                  for (Iterator<OWLNamedIndividual> iterator5 = cwes.stream().iterator(); iterator5.hasNext(); ){
+                     OWLNamedIndividual cwe =  (OWLNamedIndividual)iterator5.next();
+                     String cweComment = getModelByIRI1(cwe.getIRI()).getSeacherComment(cwe);
+                     if (cweComment != null) descriptionCWE = descriptionCWE+"\n"+cweComment+"; ";
+                  }
+                  if (!descriptionCWE.equals("")) description = description + descriptionCWE;
+               }
+         
+               // get cves with the 'refToCVEreasoned' property
+               String descriptionCVE = "";
+               List<OWLNamedIndividual> cves = model.getReasonerObjectPropertyValues(tmp.getIRI(),IRI.create(refToCVEreasonedProperty)).sorted().collect(Collectors.toList());
+               if (cves !=null){
+                  for (Iterator<OWLNamedIndividual> iterator5 = cves.stream().iterator(); iterator5.hasNext(); ){
+                     OWLNamedIndividual cve =  (OWLNamedIndividual)iterator5.next();
+                     String cveComment = getModelByIRI1(cve.getIRI()).getSeacherComment(cve);
+                     if (cveComment != null) descriptionCVE = descriptionCVE+"\n"+cveComment+"; ";
+                  }
+                  if (!descriptionCVE.equals("")) description = description + descriptionCVE;
+               }
+
+         
+               String reasonText ="";
                // if it isn't a dataflow
                if (!cellType.equals("tm.Flow")){
                   // get list of reasons (i.e. flows) 
-                  //List<OWLNamedIndividual> flows = model.getReasonerInstances(HasEdgeValueClass).collect(Collectors.toList());
-                  //List<OWLNamedIndividual> flows = model.getReasonerObjectPropertyValues(nameIRI,IRI.create(IsEdgeOfProperty)).collect(Collectors.toList());
                   List<OWLNamedIndividual> flows = findAggressorsJSON(nameIRI,tmp.getIRI());
-                  for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
-                     OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
-                     String reasonText = model.getSearcherDataPropertyValue(flow.getIRI(), IRI.create(HasTextProperty));
-                     // copy-past
-                     ObjectNode threatNode = nodes.addObject(); // add a JSON node
-                     // add ruleId
-                     threatNode.put("ruleId", ruleId);
-                     // add title
-                     if (title !=null) threatNode.put("title", title+" (from "+reasonText+")");
-                     else threatNode.put("title", shortIRI+" (from "+reasonText+")");
-                     // add description
-                     if (description !=null) threatNode.put("description", description+" (because of "+reasonText+")" );
-                     else threatNode.put("description", shortIRI+ " (because of "+reasonText+")");
-                     // add status
-                     threatNode.put("status", "Open");
-                     // add severity (Medium at the moment)
-                     threatNode.put("severity", "Medium");
-                     // add type 
-                     if (type != null) threatNode.put("type", type);                     
-
+                  
+                  if (flows.size() !=0){
+                     for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
+                        OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+                        reasonText = reasonText +model.getSearcherDataPropertyValue(flow.getIRI(), IRI.create(HasTextProperty))+ "; ";
+                     } 
+                  } else {
+                     reasonText = "by existence";   
                   }
+                  
+                  // no flows
+                  ObjectNode threatNode = nodes.addObject(); // add a JSON node
+                  // add ruleId
+                  threatNode.put("ruleId", ruleId);
+                  // add title
+                  if (title !=null) threatNode.put("title", title);
+                  else threatNode.put("title", shortIRI);
+                  // add description
+                  threatNode.put("description", description+"\nreason: "+reasonText );
+                  // add status
+                  threatNode.put("status", "Open");
+                  // add severity (Medium at the moment)
+                  threatNode.put("severity", "Medium");
+                  // add type 
+                  if (type != null) threatNode.put("type", type);                  
+                  
                   
                }  else {
                   // copy-past
@@ -475,8 +609,7 @@ public class ThreatModeller extends OManager {
                   if (title !=null) threatNode.put("title", title);
                   else threatNode.put("title", shortIRI);
                   // add description
-                  if (description !=null) threatNode.put("description", description);
-                  else threatNode.put("description", shortIRI);
+                  threatNode.put("description", description);
                   // add status
                   threatNode.put("status", "Open");
                   // add severity (Medium at the moment)
@@ -484,8 +617,10 @@ public class ThreatModeller extends OManager {
                   // add type 
                   if (type != null) threatNode.put("type", type);
                   
-               }        
+               }       
                
+                
+
                // standard fields
                // {
                //   "ruleId": "b2a6d40d-d3f8-4750-8e4d-c02cc84b13dc",
@@ -610,7 +745,7 @@ public class ThreatModeller extends OManager {
        return bf.toString();
     }
 
-    
+    // old procedure
     public void analyseWithAIEd(){
        // reason the model
        flushModel();
@@ -629,20 +764,20 @@ public class ThreatModeller extends OManager {
           OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
           // describe it
           says("The flow " + flow.toString());
-          says("...It belongs to the class(es) " + model.classesToString(model.getSearcherTypes(flow)));
-          says("...Its source is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasSourceProperty)));
-          says("...Its target is " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasTargetProperty)));
+          says("... belongs to " + model.classesToString(model.getSearcherTypes(flow)));
+          says("... its source " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasSourceProperty)));
+          says("... its target " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasTargetProperty)));
           // take a list of threats
           List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(flow.getIRI(),IRI.create(IsAffectedByProperty)).collect(Collectors.toList());
           for (Iterator<OWLNamedIndividual> iterator5 = threats.stream().iterator(); iterator5.hasNext(); ){
               // take a threat
               OWLNamedIndividual tmp = (OWLNamedIndividual)iterator5.next();
-              says("...It is affected by the threat " + tmp.toString());
+              says("... affected by " + tmp.toString());
           }
 
           // if some subclass of ClassifiedHasEdge has the suggestsThreat or suggestsThreatCategory properties
           // it is possible to recommend the creation of extra instances of threats
-          for (Iterator<OWLClass> iterator1 = model.getReasonerTypes(flow).iterator(); iterator1.hasNext(); ){
+         /* for (Iterator<OWLClass> iterator1 = model.getReasonerTypes(flow).iterator(); iterator1.hasNext(); ){
               OWLClass cls = (OWLClass)iterator1.next();
               if (classifiedHasEdge.contains(cls)){ // check only subclasses of the 'ClassifiedHasEdge' class
                  O tmp = getModelByIRI(cls.getIRI());
@@ -656,7 +791,7 @@ public class ThreatModeller extends OManager {
                     }
                  }
               }
-          }
+          } */ 
  
        }
 
@@ -669,20 +804,20 @@ public class ThreatModeller extends OManager {
           OWLNamedIndividual target = (OWLNamedIndividual)iterator.next();
           says("The " + target.toString()+ " target:");
           // primary types
-          says("...It belongs to the class(es) " + model.classesToString(model.getSearcherTypes(target)));
+          says("... belongs to " + model.classesToString(model.getSearcherTypes(target)));
  
           // sourced flows 
           List<OWLNamedIndividual> sourceFlows = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsSourceOfProperty)).collect(Collectors.toList());
           for (Iterator<OWLNamedIndividual> iterator2 = sourceFlows.stream().iterator(); iterator2.hasNext(); ){
               OWLNamedIndividual tmp = (OWLNamedIndividual)iterator2.next();
-              says("...It's a source of the flow " + tmp.toString());
+              says("... source of " + tmp.toString());
           }
           
           // target flows
           List<OWLNamedIndividual> targetFlows = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsTargetOfProperty)).collect(Collectors.toList());
           for (Iterator<OWLNamedIndividual> iterator3 = targetFlows.stream().iterator(); iterator3.hasNext(); ){
               OWLNamedIndividual tmp = (OWLNamedIndividual)iterator3.next();
-              says("...It's a target of the flow " + tmp.toString());
+              says("... target of " + tmp.toString());
           }
           
           // all the flows
@@ -693,12 +828,12 @@ public class ThreatModeller extends OManager {
           for (Iterator<OWLNamedIndividual> iterator4 = threats.stream().iterator(); iterator4.hasNext(); ){
               // take a threat
               OWLNamedIndividual threat = (OWLNamedIndividual)iterator4.next();
-              says("...It is affected by the threat " + threat.toString() + " (reasons: "+findAggressors(target,threat,edgeFlows)+")");
+              says("... affected by " + threat.toString() + " (reasons: "+findAggressors(target,threat,edgeFlows)+")");
           }
 
           // for suggestions: possible threats & structure
           // list of the 'classified as an edge' classes
-          List<OWLClass> classifiedIsEdge = model.getReasonerSubclasses(IRI.create(ClassifiedIsEdgeClass)).collect(Collectors.toList());
+         /* List<OWLClass> classifiedIsEdge = model.getReasonerSubclasses(IRI.create(ClassifiedIsEdgeClass)).collect(Collectors.toList());
           for (Iterator<OWLClass> iterator1 = model.getReasonerTypes(target).iterator(); iterator1.hasNext(); ){
               OWLClass cls = (OWLClass)iterator1.next();
               if (classifiedIsEdge.contains(cls)){ // check only subclasses of the 'ClassifiedIsEdge' class
@@ -729,12 +864,127 @@ public class ThreatModeller extends OManager {
 
                  }
               }
-          }
+          } */
        }
        
        says("Done.");
     }
    
+
+    private void says1(String str){
+       //String name = ":";       
+       System.out.println(str);
+    }
+ 
+
+    public void analyseWithAIEd1(){
+       // reason the model
+       flushModel();
+   
+       says1 ("model: " +model.getIRI());
+       // get list of flows
+       List<OWLNamedIndividual> flows = model.getReasonerInstances(IRI.create(DataFlowClass)).collect(Collectors.toList());
+       says1("total_flows: "+flows.size());
+       
+       // for the flow suggestions
+       List<OWLClass> classifiedHasEdge = model.getReasonerSubclasses(IRI.create(ClassifiedHasEdgeClass)).collect(Collectors.toList());
+       // get primary type, source & target, also suggestions
+       for (Iterator<OWLNamedIndividual> iterator = flows.stream().iterator(); iterator.hasNext(); ){
+          // take a flow
+          OWLNamedIndividual flow = (OWLNamedIndividual)iterator.next();
+          // describe it
+          says1("flow: " + flow.toString());
+          says1("  classes: " + model.classesToString1(model.getSearcherTypes(flow)));
+          says1("  source: " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasSourceProperty)));
+          says1("  target: " + model.getObjectPropertyValue(flow.getIRI(),IRI.create(HasTargetProperty)));
+          // take a list of threats
+          List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(flow.getIRI(),IRI.create(IsAffectedByProperty)).collect(Collectors.toList());
+          says1("  threats:");
+          
+          //todo: implement restrictions
+          boolean hasRestrictions = model.isReasonerIndividualBelongsToClass(flow.getIRI(),IRI.create(HasRestrictionsClass));
+
+          for (Iterator<OWLNamedIndividual> iterator5 = threats.stream().iterator(); iterator5.hasNext(); ){
+              // take a threat
+              OWLNamedIndividual tmp = (OWLNamedIndividual)iterator5.next();
+              says1("  - " + tmp.toString());              
+          }
+
+          // if some subclass of ClassifiedHasEdge has the suggestsThreat or suggestsThreatCategory properties
+          // it is possible to recommend the creation of extra instances of threats
+         /* for (Iterator<OWLClass> iterator1 = model.getReasonerTypes(flow).iterator(); iterator1.hasNext(); ){
+              OWLClass cls = (OWLClass)iterator1.next();
+              if (classifiedHasEdge.contains(cls)){ // check only subclasses of the 'ClassifiedHasEdge' class
+                 O tmp = getModelByIRI(cls.getIRI());
+                 if (tmp!=null){
+                    // a recommendation for threats
+                    // !!! takes only one value
+                    IRI y = tmp.searchForExpressionValue(tmp.getSearcherSuperClasses(cls.getIRI()),"ObjectSomeValuesFrom",IRI.create(SuggestsThreatProperty));
+                    if (y!=null) {
+                       String instances = model.instancesToString(model.getReasonerInstances(y)); 
+                       says("...I suggest to apply threats of the <"+ y.toString()+ "> class: " +instances);
+                    }
+                 }
+              }
+          } */ 
+ 
+       }
+
+       // get list of targets
+       List<OWLNamedIndividual> targets = model.getReasonerInstances(IRI.create(TargetClass)).collect(Collectors.toList());
+       says1("total_targets: "+targets.size());
+       for (Iterator<OWLNamedIndividual> iterator = targets.stream().iterator(); iterator.hasNext(); ){
+          // get a target
+          OWLNamedIndividual target = (OWLNamedIndividual)iterator.next();
+          says1("target: " + target.toString());
+          // primary types
+          says1("  type: " + model.classesToString(model.getSearcherTypes(target)));
+ 
+          // sourced flows 
+          List<OWLNamedIndividual> sourceFlows = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsSourceOfProperty)).collect(Collectors.toList());
+          for (Iterator<OWLNamedIndividual> iterator2 = sourceFlows.stream().iterator(); iterator2.hasNext(); ){
+              OWLNamedIndividual tmp = (OWLNamedIndividual)iterator2.next();
+              says1("  is_source_of: " + tmp.toString());
+          }
+          
+          // target flows
+          List<OWLNamedIndividual> targetFlows = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsTargetOfProperty)).collect(Collectors.toList());
+          for (Iterator<OWLNamedIndividual> iterator3 = targetFlows.stream().iterator(); iterator3.hasNext(); ){
+              OWLNamedIndividual tmp = (OWLNamedIndividual)iterator3.next();
+              says1("  is_target_of: " + tmp.toString());
+          }
+          
+          // all the flows
+          List<OWLNamedIndividual> edgeFlows = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsEdgeOfProperty)).collect(Collectors.toList());
+
+          boolean hasRestrictions = model.isReasonerIndividualBelongsToClass(target.getIRI(),IRI.create(HasRestrictionsClass));
+
+          // affected threats
+          List<OWLNamedIndividual> threats = model.getReasonerObjectPropertyValues(target.getIRI(),IRI.create(IsAffectedByProperty)).collect(Collectors.toList());
+          says1("  threats:");
+
+          for (Iterator<OWLNamedIndividual> iterator4 = threats.stream().iterator(); iterator4.hasNext(); ){
+              // take a threat
+              OWLNamedIndividual threat = (OWLNamedIndividual)iterator4.next();
+              
+              // check that threat satisfies the target, skip threats from the base model        
+              if (hasRestrictions && !isItFromBaseModel(threat.getIRI())){
+                  OWLAxiom ax = model.getObjectPropertyAssertionAxiom(IRI.create(SatisfiesProperty),target.getIRI(), threat.getIRI());
+                  if (!model.containsAxiom1(ax)) says1("  - " + threat.toString()+ " (not satisfied)");
+                  else says1("  - " + threat.toString()+ " (satisfied)");
+              } else says1("  - " + threat.toString());
+              
+              // apply comments and reasons
+              O modelOfThreat = getModelByIRI1(threat.getIRI());
+              says1("    comment: "+modelOfThreat.getSeacherComment(threat));
+              says1("    reasons: "+findAggressors(target,threat,edgeFlows));
+          }
+
+       }
+       
+      // says1("Done.");
+    }
+
 
     public boolean saveWorkModelToFile(String filename){
        LOGGER.info("trying to save work model as "+ filename);

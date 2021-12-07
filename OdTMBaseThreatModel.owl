@@ -25,6 +25,7 @@ Declaration(Class(:ClassifiedFlow))
 Declaration(Class(:ClassifiedHasEdge))
 Declaration(Class(:ClassifiedIsEdge))
 Declaration(Class(:ClassifiedLabel))
+Declaration(Class(:ClassifiedStencil))
 Declaration(Class(:ClassifiedTarget))
 Declaration(Class(:CommonThreat))
 Declaration(Class(:Component))
@@ -61,6 +62,7 @@ Declaration(Class(:HTTPProtocol))
 Declaration(Class(:HTTPProtocolImplementation))
 Declaration(Class(:HTTPServerComponent))
 Declaration(Class(:HardwareComponent))
+Declaration(Class(:HasRestrictions))
 Declaration(Class(:HasSourceDataStore))
 Declaration(Class(:HasSourceExternalInteractor))
 Declaration(Class(:HasSourceProcess))
@@ -102,6 +104,7 @@ Declaration(Class(:Stub))
 Declaration(Class(:Target))
 Declaration(Class(:TargetThreat))
 Declaration(Class(:Threat))
+Declaration(Class(:ThreatRestriction))
 Declaration(Class(:TransportProtocol))
 Declaration(Class(:TrustBorderBoundary))
 Declaration(Class(:TrustLineBoundary))
@@ -123,12 +126,26 @@ Declaration(ObjectProperty(:isEdgeOf))
 Declaration(ObjectProperty(:isIncluded))
 Declaration(ObjectProperty(:isMitigatedBy))
 Declaration(ObjectProperty(:isProtectedBy))
+Declaration(ObjectProperty(:isRefToATTCK))
+Declaration(ObjectProperty(:isRefToCAPEC))
+Declaration(ObjectProperty(:isRefToCWE))
+Declaration(ObjectProperty(:isRefToThreat))
 Declaration(ObjectProperty(:isSourceOf))
 Declaration(ObjectProperty(:isTargetOf))
 Declaration(ObjectProperty(:labelsSO))
 Declaration(ObjectProperty(:labelsSTRIDE))
 Declaration(ObjectProperty(:mitigates))
 Declaration(ObjectProperty(:protects))
+Declaration(ObjectProperty(:refToATTCK))
+Declaration(ObjectProperty(:refToCAPEC))
+Declaration(ObjectProperty(:refToCAPECreasoned))
+Declaration(ObjectProperty(:refToCVE))
+Declaration(ObjectProperty(:refToCVEreasoned))
+Declaration(ObjectProperty(:refToCWE))
+Declaration(ObjectProperty(:refToCWEreasoned))
+Declaration(ObjectProperty(:refToEnum))
+Declaration(ObjectProperty(:refToTactic))
+Declaration(ObjectProperty(:satisfiesThreatRestriction))
 Declaration(ObjectProperty(:suggests))
 Declaration(ObjectProperty(:suggestsThreat))
 Declaration(ObjectProperty(:suggestsThreatCategory))
@@ -247,6 +264,25 @@ InverseObjectProperties(:isMitigatedBy :mitigates)
 AnnotationAssertion(rdfs:comment :isProtectedBy "i.e. Target or DataFlow isProtectedBy Counterneasure"@en)
 InverseObjectProperties(:isProtectedBy :protects)
 
+# Object Property: :isRefToATTCK (:isRefToATTCK)
+
+AnnotationAssertion(rdfs:comment :isRefToATTCK "CAPEC object refers to ATTCK object"@en)
+InverseObjectProperties(:isRefToATTCK :refToCAPEC)
+
+# Object Property: :isRefToCAPEC (:isRefToCAPEC)
+
+AnnotationAssertion(rdfs:comment :isRefToCAPEC "CWE object refers to CAPEC entity"@en)
+InverseObjectProperties(:isRefToCAPEC :refToCWE)
+
+# Object Property: :isRefToCWE (:isRefToCWE)
+
+AnnotationAssertion(rdfs:comment :isRefToCWE "CVE object refers to CWE entity"@en)
+InverseObjectProperties(:isRefToCWE :refToCVE)
+
+# Object Property: :isRefToThreat (:isRefToThreat)
+
+InverseObjectProperties(:isRefToThreat :refToATTCK)
+
 # Object Property: :isSourceOf (:isSourceOf)
 
 AnnotationAssertion(rdfs:comment :isSourceOf "i.e. Target isSourceOf DataFlow"@en)
@@ -273,6 +309,38 @@ AnnotationAssertion(rdfs:comment :mitigates "i.e. Countermeasure mitigates Threa
 # Object Property: :protects (:protects)
 
 AnnotationAssertion(rdfs:comment :protects "i.e. Countermeasure protects Target or DataFlow"@en)
+
+# Object Property: :refToATTCK (:refToATTCK)
+
+SubObjectPropertyOf(:refToATTCK :refToEnum)
+
+# Object Property: :refToCAPEC (:refToCAPEC)
+
+AnnotationAssertion(rdfs:comment :refToCAPEC "ATTCK object refers to CAPEC entity"@en)
+
+# Object Property: :refToCAPECreasoned (:refToCAPECreasoned)
+
+SubObjectPropertyOf(:refToCAPECreasoned :refToEnum)
+
+# Object Property: :refToCVE (:refToCVE)
+
+AnnotationAssertion(rdfs:comment :refToCVE "CWE object refers to CVE entity"@en)
+
+# Object Property: :refToCVEreasoned (:refToCVEreasoned)
+
+SubObjectPropertyOf(:refToCVEreasoned :refToEnum)
+
+# Object Property: :refToCWE (:refToCWE)
+
+AnnotationAssertion(rdfs:comment :refToCWE "CAPEC object refers to CWE entity"@en)
+
+# Object Property: :refToCWEreasoned (:refToCWEreasoned)
+
+SubObjectPropertyOf(:refToCWEreasoned :refToEnum)
+
+# Object Property: :refToTactic (:refToTactic)
+
+SubObjectPropertyOf(:refToTactic :refToEnum)
 
 # Object Property: :suggests (:suggests)
 
@@ -420,6 +488,10 @@ SubClassOf(:ClassifiedIsEdge :Classified)
 # Class: :ClassifiedLabel (:ClassifiedLabel)
 
 SubClassOf(:ClassifiedLabel :Classified)
+
+# Class: :ClassifiedStencil (:ClassifiedStencil)
+
+SubClassOf(:ClassifiedStencil :Classified)
 
 # Class: :ClassifiedTarget (:ClassifiedTarget)
 
@@ -957,4 +1029,7 @@ DataPropertyAssertion(:hasTitle :threat_GenericTampering "Generic tampering thre
 
 
 SubObjectPropertyOf(ObjectPropertyChain(:isEdgeOf :agrees) :implements)
+SubObjectPropertyOf(ObjectPropertyChain(:refToATTCK :refToCAPEC) :refToCAPECreasoned)
+SubObjectPropertyOf(ObjectPropertyChain(:refToCAPECreasoned :refToCWE) :refToCWEreasoned)
+SubObjectPropertyOf(ObjectPropertyChain(:refToCWEreasoned :refToCVE) :refToCVEreasoned)
 )

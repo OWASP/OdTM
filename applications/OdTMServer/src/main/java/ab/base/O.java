@@ -300,6 +300,21 @@ public class O {
        return null;
     }
 
+    public static String classesToString1(Stream<OWLClass> lst){
+       if (lst != null){
+          StringBuffer bf = new StringBuffer();
+          for (Iterator<OWLClass> iterator = lst.iterator(); iterator.hasNext(); ){
+             OWLClass flow = (OWLClass)iterator.next();
+             bf.append("\n  - ");
+             bf.append(flow.toString());
+             //bf.append("\n");
+          }
+          return bf.toString();
+       }
+       return null;
+    }
+
+
    public static ArrayList<OWLNamedIndividual> individualsToList(Stream<OWLNamedIndividual> stream){
       ArrayList<OWLNamedIndividual> out = new ArrayList<OWLNamedIndividual>();
       for (Iterator<OWLNamedIndividual> iterator = stream.iterator(); iterator.hasNext(); ){
@@ -581,7 +596,7 @@ public class O {
   }
 
 
-  public Stream<OWLPropertyExpression> getSearcherSubProperties(String propertyName){
+  public Stream<OWLObjectPropertyExpression> getSearcherSubProperties(String propertyName){
 	 OWLObjectProperty e = df.getOWLObjectProperty(IRI.create(propertyName)); 
      return EntitySearcher.getSubProperties(e, o);     
   } 
