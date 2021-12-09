@@ -17,11 +17,11 @@ The structure of the relations is shown in the figure:
 Both the root concept 'Threat' and the 'ATTCKTechnique' concept represent 
 the [ATT&CK techniques](https://github.com/mitre-attack/attack-stix-data).
 
-The 'CAPEC' concept represents another kind of attack patterns, taken from an [XML file](https://capec.mitre.org).
+The ['CAPEC'](https://capec.mitre.org) concept represents another kind of attack patterns, taken from an XML file.
 
-The 'CWE' concept indicates entities of the weakness enumeration, which are provided by an [XML file](https://cwe.mitre.org).
+The ['CWE'](https://cwe.mitre.org) concept indicates entities of the weakness enumeration, which are provided by an XML file.
 
-Also, CWEs refer to CVEs. So, the knowledge base has only CVEs mentioned in the CWE enumeration.
+Also, CWEs refer to [CVEs](https://www.cve.org/). So, the knowledge base has only CVEs mentioned in the CWE enumeration.
 
 
 ## Use of linked enumerations
@@ -53,12 +53,19 @@ that have the 'refToEnum value CWE-284' property.
 After applying this class, a reasoner should start one more time to have the threats, 
 associated with labeled component.
 
-Example is:
+An example of labeling:
 
 ![im_example4](im_example4.png)
 
+Results are like:
 
-[More examples can be found there](../applications/generateIM/cases/).
+![im_example5](im_example5.png)
+
+The JSON files of that case (and other ones) [are here](applications/generateIM/cases/).
 
 
+More details about the model (and ATT&CK centric threat modeling) can be found in [this publication](https://www.researchgate.net/publication/356869652_Towards_automation_of_threat_modeling_based_on_a_semantic_model_of_attack_patterns_and_weaknesses).
+
+To cite the model:
+>Brazhuk A. Towards automation of threat modeling based on a semantic model of attack patterns and weaknesses // arXiv preprint arXiv:2112.04231 . – 2021.
 
