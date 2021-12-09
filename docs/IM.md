@@ -61,7 +61,7 @@ Results are like:
 
 ![im_example5](im_example5.png)
 
-The JSON files of that case (and other ones) [are here](applications/generateIM/cases/).
+The JSON files of that case (and other ones) [are here](../applications/generateIM/cases/).
 
 
 More details about the model (and ATT&CK centric threat modeling) can be found in [this publication](https://www.researchgate.net/publication/356869652_Towards_automation_of_threat_modeling_based_on_a_semantic_model_of_attack_patterns_and_weaknesses).
