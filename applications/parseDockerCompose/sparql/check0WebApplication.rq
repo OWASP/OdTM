@@ -1,0 +1,17 @@
+PREFIX b: <http://www.grsu.by/net/OdTMBaseThreatModel#> 
+PREFIX : <http://www.grsu.by/net/OdTMDockerComposeModel#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+
+# 
+# template: user -> WebApplication
+
+SELECT ?source ?flow ?target
+WHERE {
+  ?flow b:hasSource :user ;
+        b:hasTarget ?target .
+
+  ?target rdf:type :WebApplication .
+  ?source b:isSourceOf ?flow .
+}
+ORDER BY ?target

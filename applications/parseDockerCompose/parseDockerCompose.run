@@ -1,0 +1,13 @@
+#!/bin/bash
+
+CONF="../parseDockerCompose/parseDockerCompose.properties"
+APP="../OdTMServer"
+REZ="../../../DockerComposeDataset/raw/rez/"
+CLEAR="../../../DockerComposeDataset/clear/"
+
+cd $APP
+
+rm -f ${REZ}/*
+rm -f ${CLEAR}/*
+
+mvn -e exec:java -q -Dexec.mainClass="ab.run.parseDockerCompose" -Dexec.args="$CONF"

@@ -26,6 +26,7 @@ public class ATTCKAttackPattern extends ATTCKAbstractRecord{
    // type : string
    // x_mitre_is_subtechnique : boolean
    // x_mitre_remote_support : boolean
+   // x_mitre_deprecated: boolean,
    // external_references : list
    // x_mitre_platforms : list
    // x_mitre_permissions_required : list
@@ -153,7 +154,7 @@ public class ATTCKAttackPattern extends ATTCKAbstractRecord{
         if (node.has("kill_chain_phases")){
             rec.setKillChainPhases(mapper.readValue(node.path("kill_chain_phases").toString(), new TypeReference<List<ATTCKKillChainPhase>>(){}) );             
         }
-        
+                
         return rec;
      } catch (Exception e) {
         e.printStackTrace();

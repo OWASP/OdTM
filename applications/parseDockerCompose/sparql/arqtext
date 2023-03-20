@@ -1,0 +1,4 @@
+#!/bin/bash
+
+~/apache-jena/bin/arq --query $1 --data $2
+

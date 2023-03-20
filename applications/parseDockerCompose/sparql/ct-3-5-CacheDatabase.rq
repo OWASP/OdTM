@@ -1,0 +1,17 @@
+PREFIX b: <http://www.grsu.by/net/OdTMBaseThreatModel#> 
+PREFIX : <http://www.grsu.by/net/OdTMDockerComposeModel#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+
+# 
+# template: CacheDatabase <-> Process
+
+SELECT ?target ?target1
+WHERE {
+   ?target rdf:type :CacheDatabase ;
+           b:relates ?target1 .
+
+   ?target1 rdf:type b:Process .
+
+}
+ORDER BY ?target

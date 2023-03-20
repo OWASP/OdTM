@@ -13,7 +13,8 @@ public abstract class ATTCKAbstractRecord {
    protected String id;
    protected String type;
    protected String name;
-   
+   protected boolean x_mitre_deprecated;
+
    protected List<ATTCKExternalReference> externalReferences;
 
    protected String extID; // ID from external references
@@ -60,7 +61,8 @@ public abstract class ATTCKAbstractRecord {
       return name;
    }
 
- 
+   public boolean getX_mitre_deprecated(){
+      return x_mitre_deprecated;
+   }
 
-   
 }

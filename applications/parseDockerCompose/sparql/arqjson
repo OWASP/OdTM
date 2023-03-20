@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#~/apache-jena/bin/arq -out JSON --query $1 --data $2
+~/apache-jena/bin/arq --results=JSON --query $1 --data $2
+

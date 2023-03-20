@@ -157,27 +157,25 @@ public class IMOntologyGenerator extends OManager{
 ////////////////////////////////////////////////////////////////////////////////////
 // ATTCK Attack Patterns
 
-   public void processATTCKAttackPattern(ATTCKAttackPattern pattern){
-      IRI patternIRI = IRI.create(dModel.getDefaultPrefix()+pattern.getId());
+public void processATTCKAttackPattern(ATTCKAttackPattern pattern){
+   IRI patternIRI = IRI.create(dModel.getDefaultPrefix()+pattern.getId());
 
-      String ma = null;
-      IRI maIRI = null;
+   String ma = null;
+   IRI maIRI = null;
           
       // apply label & comment to the threat (attack pattern)
-      if (pattern.getExtID() !=null) {
-         dModel.addAxiom(dModel.getIndividualAnnotation(patternIRI, pattern.getExtID(), "en"));
-         dModel.addAxiom(dModel.getIndividualComment(patternIRI, pattern.getExtID()+" ("+pattern.getExtUrl()+")", "en"));
+   if ((pattern.getExtID() !=null) && (pattern.getX_mitre_deprecated() == false)) {
+      dModel.addAxiom(dModel.getIndividualAnnotation(patternIRI, pattern.getExtID(), "en"));
+      dModel.addAxiom(dModel.getIndividualComment(patternIRI, pattern.getExtID()+" ("+pattern.getExtUrl()+")", "en"));
  
-        // applying references to ATTCK
-         ma= "ATTCK-"+O.safeIRI(pattern.getExtID());
-         maIRI = IRI.create(dModel.getDefaultPrefix()+ma);
+      // applying references to ATTCK
+      ma= "ATTCK-"+O.safeIRI(pattern.getExtID());
+      maIRI = IRI.create(dModel.getDefaultPrefix()+ma);
        
-         dModel.addAxiom(dModel.getClassAssertionAxiom(IRI.create(ATTCKClass), maIRI));
-         dModel.addAxiom(dModel.getObjectPropertyAssertionAxiom(IRI.create(refToATTCKProperty),patternIRI,maIRI));
-         dModel.addAxiom(dModel.getIndividualAnnotation(maIRI, "ATT&CK "+pattern.getExtID(), "en"));
-         dModel.addAxiom(dModel.getIndividualComment(maIRI, "ATT&CK " +pattern.getExtID()+" ("+pattern.getExtUrl()+")", "en"));
-      }
-      else LOGGER.severe("no reference to ATTCK "+pattern.getId());
+      dModel.addAxiom(dModel.getClassAssertionAxiom(IRI.create(ATTCKClass), maIRI));
+      dModel.addAxiom(dModel.getObjectPropertyAssertionAxiom(IRI.create(refToATTCKProperty),patternIRI,maIRI));
+      dModel.addAxiom(dModel.getIndividualAnnotation(maIRI, "ATT&CK "+pattern.getExtID(), "en"));
+      dModel.addAxiom(dModel.getIndividualComment(maIRI, "ATT&CK " +pattern.getExtID()+" ("+pattern.getExtUrl()+")", "en"));
 
       // an attack pattern belongs to the Threat class
       dModel.addAxiom(dModel.getClassAssertionAxiom(IRI.create(ThreatClass), patternIRI));
@@ -224,9 +222,7 @@ public class IMOntologyGenerator extends OManager{
            dModel.addAxiom(dModel.getSubClass(flowIRI,IRI.create(ClassifiedHasEdgeClass)));
 
          }
-      } /*else {
-         LOGGER.severe("no datasource for "+pattern.getId());
-      }*/
+      } 
       
       // restrctions      
       applyRestrictions(pattern.getXMitrePlatforms(), "Platform", patternIRI);
@@ -268,6 +264,11 @@ public class IMOntologyGenerator extends OManager{
       }
 
    }
+   else {
+      if (pattern.getExtID() == null) LOGGER.severe("no reference to ATTCK, skipping "+pattern.getId());
+      if (pattern.getX_mitre_deprecated() == true) LOGGER.severe("skipping depricatef pattern "+pattern.getId());
+   }    
+}
 
    protected void applyRestrictions(List<String> permissions, String restriction, IRI patternIRI){
       if ( permissions !=null && permissions.size()!=0 ){         
