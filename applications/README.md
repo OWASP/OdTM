@@ -17,3 +17,12 @@ A simple functional test framework integrated with OdTM Server.
 
 A simple tool for creation of domain-specific threat models 
 from ontological security/threat patterns catalogs.
+
+## generate IM
+
+A tool to parse security enumerations (ATT&CK, CAPEC, CWE) and create a semantic knowledge base from them.
+
+
+## parse Docker Compose
+
+A simple tool to parse docker compose files in order to build semantic data flow diagrams.
