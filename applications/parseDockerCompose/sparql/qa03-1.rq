@@ -3,14 +3,15 @@ PREFIX : <http://www.grsu.by/net/OdTMDockerComposeModel#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 
-# ok
-# (SensitiveHostPath) and (ReadOnlyFlow)
+# 
+# template: DataCollector <-> Database
 
-SELECT ?source ?flow ?target
+SELECT ?target ?target1
 WHERE {
-  ?flow rdf:type :SensitiveHostPath ;
-        rdf:type :ReadOnlyFlow .
-  ?source b:isSourceOf ?flow .
-  ?target b:isTargetOf ?flow .
+   ?target rdf:type :DataCollector .
+
+   ?target1 rdf:type :Database ;
+            b:relates ?target .
+
 }
-ORDER BY ?source
+ORDER BY ?target

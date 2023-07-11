@@ -214,7 +214,7 @@ public class Diagram {
 
 
    public DFDPoint addProcess(String realName, ServiceModel model){
-      DFDProcess process = new DFDProcess(realName,model.getName(), model.getLabels(),processes.size());
+      DFDProcess process = new DFDProcess(realName,model.getName(), model.getLabels(), model.getLabels2(), processes.size());
       processes.add(process);
       return process.asDFDPoint();
    }

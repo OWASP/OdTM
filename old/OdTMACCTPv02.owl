@@ -10,17 +10,12 @@ Ontology(<http://www.grsu.by/net/OdTMACCTP>
 Import(<http://www.grsu.by/net/ACCTP>)
 Import(<http://www.grsu.by/net/OdTMBaseThreatModel>)
 
-Declaration(Class(<http://www.grsu.by/net/ACCTP/common#ContainerSocket>))
 Declaration(Class(:CloudApplicationAndIsSourceOfHasTargetCloudApplication))
 Declaration(Class(:CloudApplicationAndIsSourceOfHasTargetExternalService))
 Declaration(Class(:CloudApplicationAndIsTargetOfHasSourceCloudApplication))
 Declaration(Class(:CloudApplicationAndIsTargetOfHasSourceComplianceManager))
 Declaration(Class(:CloudApplicationAndIsTargetOfHasSourceExternalService))
 Declaration(Class(:CloudApplicationAndIsTargetOfHasSourceRemoteUser))
-Declaration(Class(:ContainerAndIsTargetOfHasSourceContainer))
-Declaration(Class(:ContainerAndIsTargetOfHasSourceRemoteUser))
-Declaration(Class(:ContainerSocketAndIsTargetOfHasSourceContainer))
-Declaration(Class(:ContainerVolumeAndIsTargetOfHasSourceContainer))
 Declaration(Class(:ExternalServiceAndIsSourceOfHasTargetCloudApplication))
 Declaration(Class(:HasSourceCloudApplication))
 Declaration(Class(:HasSourceCloudApplicationAndHasTargetCloudApplication))
@@ -28,30 +23,18 @@ Declaration(Class(:HasSourceCloudApplicationAndHasTargetExternalService))
 Declaration(Class(:HasSourceComplianceManager))
 Declaration(Class(:HasSourceComplianceManagerAndHasTargetCloudApplication))
 Declaration(Class(:HasSourceComplianceManagerAndHasTargetVirtualMachine))
-Declaration(Class(:HasSourceContainer))
-Declaration(Class(:HasSourceContainerAndHasTargetContainer))
-Declaration(Class(:HasSourceContainerAndHasTargetContainerSocket))
-Declaration(Class(:HasSourceContainerAndHasTargetContainerVolume))
-Declaration(Class(:HasSourceContainerAndHasTargetHostStorage))
 Declaration(Class(:HasSourceExternalService))
 Declaration(Class(:HasSourceExternalServiceAndHasTargetCloudApplication))
 Declaration(Class(:HasSourceRemoteUser))
 Declaration(Class(:HasSourceRemoteUserAndHasTargetCloudApplication))
-Declaration(Class(:HasSourceRemoteUserAndHasTargetContainer))
 Declaration(Class(:HasSourceRemoteUserAndHasTargetVirtualMachine))
 Declaration(Class(:HasTargetCloudApplication))
-Declaration(Class(:HasTargetContainer))
-Declaration(Class(:HasTargetContainerSocket))
-Declaration(Class(:HasTargetContainerVolume))
 Declaration(Class(:HasTargetExternalService))
-Declaration(Class(:HasTargetHostStorage))
 Declaration(Class(:HasTargetVirtualMachine))
-Declaration(Class(:HostStorageAndIsTargetOfHasSourceContainer))
 Declaration(Class(:IsSourceOfHasTargetCloudApplication))
 Declaration(Class(:IsSourceOfHasTargetExternalService))
 Declaration(Class(:IsTargetOfHasSourceCloudApplication))
 Declaration(Class(:IsTargetOfHasSourceComplianceManager))
-Declaration(Class(:IsTargetOfHasSourceContainer))
 Declaration(Class(:IsTargetOfHasSourceExternalService))
 Declaration(Class(:IsTargetOfHasSourceRemoteUser))
 Declaration(Class(:RemoteUserAndIsSourceOfHasTargetCloudApplication))
@@ -144,44 +127,6 @@ SubClassOf(:CloudApplicationAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<htt
 SubClassOf(:CloudApplicationAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication>))
 SubClassOf(:CloudApplicationAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface>))
 
-# Class: <http://www.grsu.by/net/OdTMACCTP#ContainerAndIsTargetOfHasSourceContainer> (<http://www.grsu.by/net/OdTMACCTP#ContainerAndIsTargetOfHasSourceContainer>)
-
-EquivalentClasses(:ContainerAndIsTargetOfHasSourceContainer ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#Container> :IsTargetOfHasSourceContainer))
-SubClassOf(:ContainerAndIsTargetOfHasSourceContainer <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
-SubClassOf(:ContainerAndIsTargetOfHasSourceContainer <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
-SubClassOf(:ContainerAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC01_UseContainerManagementTools>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC02_ContainerEscape>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC03_ContainerPrivilegeEscalation>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC04_CompromisedAccessToken>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#ContainerAndIsTargetOfHasSourceRemoteUser> (<http://www.grsu.by/net/OdTMACCTP#ContainerAndIsTargetOfHasSourceRemoteUser>)
-
-EquivalentClasses(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#Container> :IsTargetOfHasSourceRemoteUser))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC01_UseContainerManagementTools>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC02_ContainerEscape>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC03_ContainerPrivilegeEscalation>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC04_CompromisedAccessToken>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatED01_AccessToContainerManagementInterface>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatED02_ExploitPublishedNetworkApplication>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatED03_DeployMaliciousContainer>))
-SubClassOf(:ContainerAndIsTargetOfHasSourceRemoteUser ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatED04_ContainerDiscovery>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#ContainerSocketAndIsTargetOfHasSourceContainer> (<http://www.grsu.by/net/OdTMACCTP#ContainerSocketAndIsTargetOfHasSourceContainer>)
-
-EquivalentClasses(:ContainerSocketAndIsTargetOfHasSourceContainer ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#ContainerSocket> :IsTargetOfHasSourceContainer))
-SubClassOf(:ContainerSocketAndIsTargetOfHasSourceContainer <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
-SubClassOf(:ContainerSocketAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEA02_UseOfContainerSocket>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#ContainerVolumeAndIsTargetOfHasSourceContainer> (<http://www.grsu.by/net/OdTMACCTP#ContainerVolumeAndIsTargetOfHasSourceContainer>)
-
-EquivalentClasses(:ContainerVolumeAndIsTargetOfHasSourceContainer ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#ContainerVolume> :IsTargetOfHasSourceContainer))
-SubClassOf(:ContainerVolumeAndIsTargetOfHasSourceContainer <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
-SubClassOf(:ContainerVolumeAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEB01_WriteAccessToVolume>))
-SubClassOf(:ContainerVolumeAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEB02_DataLeakAtStorage>))
-SubClassOf(:ContainerVolumeAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEB03_DataCorruptionAtStorage>))
-
 # Class: <http://www.grsu.by/net/OdTMACCTP#ExternalServiceAndIsSourceOfHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#ExternalServiceAndIsSourceOfHasTargetCloudApplication>)
 
 EquivalentClasses(:ExternalServiceAndIsSourceOfHasTargetCloudApplication ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#ExternalService> :IsSourceOfHasTargetCloudApplication))
@@ -255,45 +200,6 @@ SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(
 SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation>))
 SubClassOf(:HasSourceComplianceManagerAndHasTargetVirtualMachine ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots>))
 
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceContainer> (<http://www.grsu.by/net/OdTMACCTP#HasSourceContainer>)
-
-EquivalentClasses(:HasSourceContainer ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> <http://www.grsu.by/net/ACCTP/common#Container>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetContainer> (<http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetContainer>)
-
-EquivalentClasses(:HasSourceContainerAndHasTargetContainer ObjectIntersectionOf(:HasSourceContainer :HasTargetContainer))
-SubClassOf(:HasSourceContainerAndHasTargetContainer <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
-SubClassOf(:HasSourceContainerAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC05_DataLeakAtTransfer>))
-SubClassOf(:HasSourceContainerAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC06_DataCorruptionAtTransfer>))
-SubClassOf(:HasSourceContainerAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC07_ChannelDestroyed>))
-SubClassOf(:HasSourceContainerAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC01_UseContainerManagementTools>))
-SubClassOf(:HasSourceContainerAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC02_ContainerEscape>))
-SubClassOf(:HasSourceContainerAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC03_ContainerPrivilegeEscalation>))
-SubClassOf(:HasSourceContainerAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC04_CompromisedAccessToken>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetContainerSocket> (<http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetContainerSocket>)
-
-EquivalentClasses(:HasSourceContainerAndHasTargetContainerSocket ObjectIntersectionOf(:HasSourceContainer :HasTargetContainerSocket))
-SubClassOf(:HasSourceContainerAndHasTargetContainerSocket <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
-SubClassOf(:HasSourceContainerAndHasTargetContainerSocket ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEA02_UseOfContainerSocket>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetContainerVolume> (<http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetContainerVolume>)
-
-EquivalentClasses(:HasSourceContainerAndHasTargetContainerVolume ObjectIntersectionOf(:HasSourceContainer :HasTargetContainerVolume))
-SubClassOf(:HasSourceContainerAndHasTargetContainerVolume <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
-SubClassOf(:HasSourceContainerAndHasTargetContainerVolume ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEB01_WriteAccessToVolume>))
-SubClassOf(:HasSourceContainerAndHasTargetContainerVolume ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEB02_DataLeakAtStorage>))
-SubClassOf(:HasSourceContainerAndHasTargetContainerVolume ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEB03_DataCorruptionAtStorage>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetHostStorage> (<http://www.grsu.by/net/OdTMACCTP#HasSourceContainerAndHasTargetHostStorage>)
-
-EquivalentClasses(:HasSourceContainerAndHasTargetHostStorage ObjectIntersectionOf(:HasSourceContainer :HasTargetHostStorage))
-SubClassOf(:HasSourceContainerAndHasTargetHostStorage <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
-SubClassOf(:HasSourceContainerAndHasTargetHostStorage ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEA01_HostStorageUse>))
-SubClassOf(:HasSourceContainerAndHasTargetHostStorage ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEB01_WriteAccessToVolume>))
-SubClassOf(:HasSourceContainerAndHasTargetHostStorage ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEB02_DataLeakAtStorage>))
-SubClassOf(:HasSourceContainerAndHasTargetHostStorage ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEB03_DataCorruptionAtStorage>))
-
 # Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceExternalService> (<http://www.grsu.by/net/OdTMACCTP#HasSourceExternalService>)
 
 EquivalentClasses(:HasSourceExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasSource> <http://www.grsu.by/net/ACCTP/common#ExternalService>))
@@ -341,22 +247,6 @@ SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http
 SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication>))
 SubClassOf(:HasSourceRemoteUserAndHasTargetCloudApplication ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface>))
 
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetContainer> (<http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetContainer>)
-
-EquivalentClasses(:HasSourceRemoteUserAndHasTargetContainer ObjectIntersectionOf(:HasSourceRemoteUser :HasTargetContainer))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge>)
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC05_DataLeakAtTransfer>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC06_DataCorruptionAtTransfer>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEC07_ChannelDestroyed>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC01_UseContainerManagementTools>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC02_ContainerEscape>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC03_ContainerPrivilegeEscalation>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatEC04_CompromisedAccessToken>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatED01_AccessToContainerManagementInterface>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatED02_ExploitPublishedNetworkApplication>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatED03_DeployMaliciousContainer>))
-SubClassOf(:HasSourceRemoteUserAndHasTargetContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget> <http://www.grsu.by/net/ACCTP#threatED04_ContainerDiscovery>))
-
 # Class: <http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetVirtualMachine> (<http://www.grsu.by/net/OdTMACCTP#HasSourceRemoteUserAndHasTargetVirtualMachine>)
 
 EquivalentClasses(:HasSourceRemoteUserAndHasTargetVirtualMachine ObjectIntersectionOf(:HasSourceRemoteUser :HasTargetVirtualMachine))
@@ -369,38 +259,13 @@ SubClassOf(:HasSourceRemoteUserAndHasTargetVirtualMachine ObjectHasValue(<http:/
 
 EquivalentClasses(:HasTargetCloudApplication ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#CloudApplication>))
 
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetContainer> (<http://www.grsu.by/net/OdTMACCTP#HasTargetContainer>)
-
-EquivalentClasses(:HasTargetContainer ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#Container>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetContainerSocket> (<http://www.grsu.by/net/OdTMACCTP#HasTargetContainerSocket>)
-
-EquivalentClasses(:HasTargetContainerSocket ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#ContainerSocket>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetContainerVolume> (<http://www.grsu.by/net/OdTMACCTP#HasTargetContainerVolume>)
-
-EquivalentClasses(:HasTargetContainerVolume ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#ContainerVolume>))
-
 # Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetExternalService> (<http://www.grsu.by/net/OdTMACCTP#HasTargetExternalService>)
 
 EquivalentClasses(:HasTargetExternalService ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#ExternalService>))
 
-# Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetHostStorage> (<http://www.grsu.by/net/OdTMACCTP#HasTargetHostStorage>)
-
-EquivalentClasses(:HasTargetHostStorage ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#HostStorage>))
-
 # Class: <http://www.grsu.by/net/OdTMACCTP#HasTargetVirtualMachine> (<http://www.grsu.by/net/OdTMACCTP#HasTargetVirtualMachine>)
 
 EquivalentClasses(:HasTargetVirtualMachine ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget> <http://www.grsu.by/net/ACCTP/common#VirtualMachine>))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#HostStorageAndIsTargetOfHasSourceContainer> (<http://www.grsu.by/net/OdTMACCTP#HostStorageAndIsTargetOfHasSourceContainer>)
-
-EquivalentClasses(:HostStorageAndIsTargetOfHasSourceContainer ObjectIntersectionOf(<http://www.grsu.by/net/ACCTP/common#HostStorage> :IsTargetOfHasSourceContainer))
-SubClassOf(:HostStorageAndIsTargetOfHasSourceContainer <http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge>)
-SubClassOf(:HostStorageAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEA01_HostStorageUse>))
-SubClassOf(:HostStorageAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEB01_WriteAccessToVolume>))
-SubClassOf(:HostStorageAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEB02_DataLeakAtStorage>))
-SubClassOf(:HostStorageAndIsTargetOfHasSourceContainer ObjectHasValue(<http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy> <http://www.grsu.by/net/ACCTP#threatEB03_DataCorruptionAtStorage>))
 
 # Class: <http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetCloudApplication> (<http://www.grsu.by/net/OdTMACCTP#IsSourceOfHasTargetCloudApplication>)
 
@@ -417,10 +282,6 @@ EquivalentClasses(:IsTargetOfHasSourceCloudApplication ObjectSomeValuesFrom(<htt
 # Class: <http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceComplianceManager> (<http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceComplianceManager>)
 
 EquivalentClasses(:IsTargetOfHasSourceComplianceManager ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> :HasSourceComplianceManager))
-
-# Class: <http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceContainer> (<http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceContainer>)
-
-EquivalentClasses(:IsTargetOfHasSourceContainer ObjectSomeValuesFrom(<http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf> :HasSourceContainer))
 
 # Class: <http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceExternalService> (<http://www.grsu.by/net/OdTMACCTP#IsTargetOfHasSourceExternalService>)
 
@@ -665,70 +526,6 @@ ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.g
 # Individual: <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots> (DC08 Unsafe VM Snapshots)
 
 ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEA01_HostStorageUse> (EA01 Host storage use)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEA01_HostStorageUse>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEA02_UseOfContainerSocket> (EA02 Use of Container Socket)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEA02_UseOfContainerSocket>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEB01_WriteAccessToVolume> (EB01 Write Access to Volume)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEB01_WriteAccessToVolume>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEB02_DataLeakAtStorage> (EB02 Data Leak at Storage)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEB02_DataLeakAtStorage>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEB03_DataCorruptionAtStorage> (EB03 Data Corruption at Storage)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEB03_DataCorruptionAtStorage>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEC01_UseContainerManagementTools> (EC01 Use container management tools)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEC01_UseContainerManagementTools>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEC02_ContainerEscape> (EC02 Container Escape)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEC02_ContainerEscape>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEC03_ContainerPrivilegeEscalation> (EC03 Container Privilege Escalation)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEC03_ContainerPrivilegeEscalation>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEC04_CompromisedAccessToken> (EC04 Compromised Access Token)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEC04_CompromisedAccessToken>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEC05_DataLeakAtTransfer> (EC05 Data Leak At Transfer)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEC05_DataLeakAtTransfer>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEC06_DataCorruptionAtTransfer> (EC06 Data Corruption At Transfer)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEC06_DataCorruptionAtTransfer>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatEC07_ChannelDestroyed> (EC07 Channel Destroyed)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatEC07_ChannelDestroyed>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatED01_AccessToContainerManagementInterface> (ED01 Access to container management interface)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatED01_AccessToContainerManagementInterface>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatED02_ExploitPublishedNetworkApplication> (ED02 Exploit Published Network Application)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatED02_ExploitPublishedNetworkApplication>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatED03_DeployMaliciousContainer> (ED03 Deploy Malicious Container)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatED03_DeployMaliciousContainer>)
-
-# Individual: <http://www.grsu.by/net/ACCTP#threatED04_ContainerDiscovery> (ED04 Container Discovery)
-
-ClassAssertion(<http://www.grsu.by/net/OdTMBaseThreatModel#Threat> <http://www.grsu.by/net/ACCTP#threatED04_ContainerDiscovery>)
 
 
 )

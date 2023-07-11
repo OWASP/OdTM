@@ -1,0 +1,530 @@
+
+certs:
+  - /etc/apache/ssl
+  - /etc/apache2/ssl
+  - /etc/letsencrypt
+  - /etc/nginx/cert
+  - /etc/nginx/ssl
+  - /letsencrypt
+  - /var/www/certbot
+  - /var/www/letsencrypt
+
+configs:
+  - /app/config
+  - /bitnami/nginx/conf
+  - /docker-entrypoint-initdb.d
+  - /etc/apache
+  - /etc/caddy
+  - /etc/coturn
+  - /etc/grafana
+  - /etc/influxdb
+  - /etc/ldap
+  - /etc/mariadb
+  - /etc/mongo
+  - /etc/mysql
+  - /etc/nginx
+  - /etc/nginx/vhost.d
+  - /etc/phpmyadmin
+  - /etc/prometheus
+  - /etc/telegraf
+  - /etc/supervisor
+  - /opt/logicaldoc/conf
+  - /usr/share/elasticsearch/config
+  - /usr/share/kibana/config
+
+logs:
+  - /var/log
+  - /var/log/apache
+  - /var/log/nginx
+
+datas:
+  - /app/data
+  - /app/shared/sites
+  - /bitnami/mongodb
+  - /data
+  - /data/db
+  - /home/git/data
+  - /home/ftpuser
+  - /opt/observium
+  - /opt/logicaldoc/repository
+  - /prometheus
+  - /usr/share/elasticsearch/data
+  - /usr/share/nginx/html
+  - /var/lib/cockroach
+  - /var/lib/data
+  - /var/lib/ghost/content
+  - /var/lib/grafana
+  - /var/lib/influxdb
+  - /var/lib/ldap
+  - /var/lib/mysql
+  - /var/lib/postgresql
+  - /var/lib/postgresql/data
+  - /var/www
+  - /var/www/html
+
+
+ports:
+
+  - name: FTP
+    label: FTPServer
+    value: 21
+
+  - name: SSH
+    label: SSHServer
+    value: 22
+
+  - name: SMTP
+    label: SMTPServer
+    value: 25
+
+  - name: DNS
+    label: DNSResolver
+    value: 53
+
+  - name: DHCP
+    label: DHCPServer
+    value: 67
+
+  - name: HTTP
+    label: HTTPServer
+    value: 80
+
+  - name: LDAP
+    label: LDAPServer
+    value: 389
+
+  - name: HTTPS
+    label: HTTPSServer
+    value: 443
+
+  - name: Syslog
+    label: SyslogServer
+    value: 514
+
+  - name: DNSoverQUIC
+    label: DoQResolver
+    value: 784
+
+  - name: DNSoverTLS
+    label: DNSTLSResolver
+    value: 853
+
+  - name: SMTPLocal
+    label: SMTPLocalServer
+    value: 1025
+
+    # local apps
+  - name: HTTP
+    label: HTTPServer
+    value: 3000
+ 
+    # Mysql
+  - name: DB
+    value: 3306
+ 
+    # Postgres
+  - name: DB
+    value: 5432
+
+    # kibana
+  - name: HTTP
+    value: 5601
+
+  - name: AMQP
+    label: AMQPServer
+    value: 5672
+
+    # Redis
+  - name: RESP
+    value: 6379
+
+  - name: HTTP
+    value: 8080
+    label: HTTPServer
+
+    # influxdb
+  - name: HTTP
+    value: 8086
+
+  - name: HTTPS
+    value: 8443
+    label: HTTPSServer
+
+    # Elastic
+  - name: HTTP
+    value: 9200
+
+    # Elastic cluster
+  - name: Cluster
+    value: 9300
+
+    # RabbitMQ Management Plugin
+  - name: HTTP
+    value: 15672
+
+    # Redis Cluster
+  - name: Cluster
+    value: 16379
+
+    # Mongo
+  - name: DB
+    value: 27017
+
+    # Mongo Cluster
+  - name: Cluster
+    value: 27018
+
+
+services:
+
+######################################################
+### applications
+
+  - name: AgentApplication
+    images:
+      - zabbix-agent
+      - drone-runner
+      - drone-agent
+      - curl
+      - clearml-agent-services
+      - port_check
+      - docker-hub-exporter
+      - node-exporter
+      - mackerel-agent
+
+  - name: WebApplication
+    images:
+      - kadira-ui
+      - plantuml-server
+      - zabbix-web
+      - redmine
+      - arsnova-webclient
+      - icingaweb
+      - orangehrm
+    labels:
+      - WebServer
+
+  - name: CollaborationPlatform
+    images:
+      - nextcloud
+      - owncloud
+      - logicaldoc-ce-docker
+    labels:
+      - WebServer
+      - FileStorage
+
+  - name: FileStorage
+    images:
+      - sftp
+      - pure-ftpd
+
+  - name: GitService
+    images:
+      - gitea
+      - gogs
+      - gitlab
+
+  - name: DatabaseManagement
+    images:
+      - phpmyadmin
+      - mongo-express
+      - adminer
+      - redis-commander
+      - zkui
+      - mongodb-php-gui
+      - pgadmin
+      - pg-backup
+      - mongoclient
+
+  - name: GenericDevelopment
+    images:
+      - tidyverse
+      - xoom-designer
+      - drone
+      - meltano
+      - xoom-schemata
+
+  - name: TestingEnvironment
+    images:
+      - phpunit
+      - standalone-firefox
+
+  - name: BuildingEnvironment
+    images:
+      - composer
+      - build2xlsform
+      - build
+
+  - name: JavaEnv
+    images:
+      - openjdk
+      - maven
+      - groovy
+    labels:
+      - DevelopmentEnvironment
+
+  - name: PythonEnv
+    images:
+      - python
+    labels:
+      - DevelopmentEnvironment
+
+  - name: NodeJsEnv
+    images:
+      - node
+    labels:
+      - DevelopmentEnvironment
+    labels2:
+      - CloudApplication
+
+  - name: PHPEnv
+    images:
+      - php
+      - symfony
+    labels:
+      - DevelopmentEnvironment
+
+  - name: RubyEnv
+    images:
+      - ruby
+    labels:
+      - DevelopmentEnvironment
+
+  - name: GoEnv
+    images:
+      - golang
+    labels:
+      - DevelopmentEnvironment
+
+  - name: PerlEnv
+    images:
+      - perl
+    labels:
+      - DevelopmentEnvironment
+
+  - name: CMS
+    images:
+      - wordpress
+      - ghost
+      - modx
+      - drupal
+      - omeka
+    labels:
+      - WebApplication
+      - WebServer
+
+  - name: StatisticsPlatformCore
+    images:
+      - kadira-engine
+      - monitjs-node-server
+    labels:
+      - StatisticsPlatform
+
+  - name: StatisticsPlatform
+    images:
+      - matomo
+      - piwik
+    labels:
+      - WebServer
+      - WebApplication
+
+  - name: ChatPlatform
+    images:
+      - rocket.chat
+
+  - name: CommunicationPlatform
+    images:
+      - mastodon
+      - nakama
+    labels: 
+      - WebServer
+      - WebApplication
+
+  - name: MessageBroker
+    images:
+      - rabbitmq
+      - elasticmq
+      - cp-kafka
+      - kafka
+      - nats
+
+  - name: DataCollector
+    images:
+      - logstash
+      - filebeat
+      - fluentd
+      - telegraf
+      - logspout
+
+  - name: DataVisualizer
+    images:
+      - kibana
+      - grafana
+      - arranger
+
+  - name: DataConverter
+    images:
+      - imgproxy
+      - clearml
+      - gdal
+      - kroki
+
+  - name: InfrastructureMonitoring
+    images:
+      - zabbix-server
+      - icinga_master
+
+  - name: InfrastructureMonitoringWeb
+    images:
+      - observium-ce
+      - graylog
+      - snipe-it
+    labels:
+      - WebServer
+      - WebApplication
+      - InfrastructureMonitoring
+
+  - name: GenericMonitoring
+    images:
+      - prometheus
+    labels:
+      - WebServer
+      - WebApplication
+      - Database
+
+  - name: CertManager
+    images:
+      - letsencrypt-nginx-proxy-companion
+      - certupdater
+
+  - name: SSOService
+    images:
+      - simplesaml
+      - ego
+      - casdoor
+      - arsnova-server-authz
+
+  - name: CloudStack
+    images:
+      - localstack
+      - consul
+
+  - name: CredentialsManager
+    images:
+      - vault
+      - keycloak
+
+  - name: DirectoryService
+    images:
+      - openldap
+      - zookeeper
+      - cp-zookeeper
+
+######################################################
+### web services
+  
+  - name: ApplicationGateway
+    images:
+      - coturn
+      - guacd
+      - arsnova-proxy
+
+  - name: WebProxy
+    images: 
+      - nginx-proxy
+      - traefik
+      - nginx-s3-proxy
+      - arsnova-server-gateway
+      - haproxy
+
+  - name: HostingPanel
+    images:
+      - ajenti
+    labels:
+      - WebServer
+
+  - name: WebServer
+    images:
+      - nginx
+      - apache
+      - caddy
+
+##################################################################
+### databases
+
+  - name: SQLDatabase
+    images:
+      - mysql
+      - mariadb
+      - postgres
+      - postgis
+      - timescaledb
+      - firebird
+      - cockroach
+      - otrs-mariadb
+    labels:
+      - Database
+    labels2:
+      - CloudStorage
+
+  - name: NoSQLDatabase
+    images:
+      - mongodb
+      - mongo
+      - influxdb
+      - zookeeper
+      - couchdb
+    labels:
+      - Database
+
+  - name: SearchEngine
+    images:
+      - elasticsearch
+      - solr
+    labels:
+      - Database
+
+  - name: ObjectStorage
+    images:
+      - minio
+      - score-server
+    labels:
+      - Database
+
+  - name: CacheDatabase
+    images:
+      - memcached
+      - redis
+
+
+###############################################################################
+# network services
+
+  - name: NameServer
+    images:
+      - unbound
+
+  - name: MailServer
+    images:
+      - postfix
+      - sendmail
+
+#################################################################################
+# OS
+
+  - name: OS
+    images:
+      - ubuntu
+      - busybox
+      - debian
+
+  - name: RemoteDesktop
+    images:
+      - guacamole
+
+  - name: ConsoleService
+    images:
+      - aws-cli
+      - docker-console
+
+

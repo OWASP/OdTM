@@ -1,0 +1,19 @@
+PREFIX b: <http://www.grsu.by/net/OdTMBaseThreatModel#> 
+PREFIX : <http://www.grsu.by/net/OdTMDockerComposeModel#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+
+# 
+# template: WebServer <-> DevelopmentEnvironment <-> Database
+
+SELECT ?target ?target1 ?target2
+WHERE {
+   ?target rdf:type :DevelopmentEnvironment .
+
+   ?target1 rdf:type :DevelopmentEnvironment ;
+            b:relates ?target .
+
+   ?target2 rdf:type :Database ;
+            b:relates ?target1 .
+}
+ORDER BY ?target

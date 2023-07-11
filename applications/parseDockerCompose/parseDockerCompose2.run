@@ -1,9 +1,9 @@
 #!/bin/bash
 
-CONF="../parseDockerCompose/parseDockerCompose.test.properties"
+CONF="../parseDockerCompose/parseDockerCompose2.properties"
 APP="../OdTMServer"
-REZ="../parseDockerCompose/rez/"
-CLEAR="../parseDockerCompose/clear/"
+REZ="../../../DockerComposeDataset/raw2/rez/"
+CLEAR="../../../DockerComposeDataset/clear2/"
 
 cd $APP
 

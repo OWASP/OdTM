@@ -14,6 +14,7 @@ public class ServiceModel{
    private List<String> images;
    // labels, i.e. extra classes
    private List<String> labels;
+   private List<String> labels2;
 
    public static final String DockerSocket = "DockerSocket";
    public static final String GenericStorage = "GenericStorage";
@@ -41,6 +42,9 @@ public class ServiceModel{
       return labels;
    }
 
+   public List<String> getLabels2(){
+      return labels2;
+   }
 
    public String list2string(List<String> lst){
       if (lst == null) return null;

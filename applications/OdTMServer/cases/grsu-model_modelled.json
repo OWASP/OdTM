@@ -1,0 +1,2697 @@
+{
+  "summary" : {
+    "title" : "grsu recruiting"
+  },
+  "detail" : {
+    "contributors" : [ ],
+    "diagrams" : [ {
+      "title" : "main",
+      "thumbnail" : "./public/content/images/thumbnail.stride.jpg",
+      "diagramType" : "STRIDE",
+      "id" : 0,
+      "$$hashKey" : "object:14",
+      "diagramJson" : {
+        "cells" : [ {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 1,
+            "y" : 198
+          },
+          "angle" : 0,
+          "id" : "bc58195e-102d-491f-a4a4-1dde1fbd0a43",
+          "z" : 1,
+          "hasOpenThreats" : "true",
+          "description" : "class#RemoteUser",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Абитуриенты"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
+            "title" : "AB01 Failure Of Cloud Application",
+            "description" : "Unexpected failure of the cloud application;\nreason: поток2; поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
+            "title" : "AB02 Connection Lost To Cloud Application",
+            "description" : "Connection lost to the cloud application;\nreason: поток2; поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication",
+            "title" : "AC01 Malware From Cloud Application",
+            "description" : "Malicious content (malware) from the cloud application;\nreason: поток2; поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC02_PublicNetworkAccessToCloudApplication",
+            "title" : "AC02 Public Network Access To Cloud Application",
+            "description" : "Remote user connects to the cloud application though a public network (e.g. Wi-Fi) and can be attacked by a third-party adversary;\nreason: поток2; поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC03_SocialEngineeringAgainstRemoteUser",
+            "title" : "AC03 Social Engineering Against Remote User",
+            "description" : "Remote user suffers from Social Engineering attacks, performed by third-party adversary (e.g. including the cloud application into phishing schema);\nreason: поток2; поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток2; поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток2; поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 229,
+            "y" : 318
+          },
+          "angle" : 0,
+          "id" : "6fdc43ad-d309-4ae8-ad0e-c9aa095f0f33",
+          "z" : 2,
+          "hasOpenThreats" : "true",
+          "description" : "class#VirtualMachine",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Цифровой\nкабинет\nабитуриента\n(ВМ)"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
+            "title" : "AB01 Failure Of Cloud Application",
+            "description" : "Unexpected failure of the cloud application;\nreason: поток8; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
+            "title" : "AB02 Connection Lost To Cloud Application",
+            "description" : "Connection lost to the cloud application;\nreason: поток8; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
+            "title" : "AD01 Broken Authentication",
+            "description" : "No authentication or broken (weak) authentication by the cloud application;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
+            "title" : "AD02 Broken Access Control",
+            "description" : "No access control, broken (weak) access control, and the authorization issues of the cloud application;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
+            "title" : "AD03 Data Breach By Cloud Application",
+            "description" : "Data breach (information disclosure) by the cloud application;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
+            "title" : "AD04 Data Loss By Cloud Application",
+            "description" : "Data loss (modification) by the cloud application;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
+            "title" : "AD05 Backup Of Cloud Application Lost",
+            "description" : "Lost of cloud application backup;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
+            "title" : "AD06 Backup Of Cloud Application Stolen",
+            "description" : "Disclosure of cloud application backups;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
+            "title" : "AD07 Logs Of Cloud Application Lost",
+            "description" : "Lost of cloud application logs;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
+            "title" : "AD08 Logs Of Cloud Application Stolen",
+            "description" : "Disclosure of sensitive information from cloud application logs;\nreason: поток1; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE01_DDoSAttackToCloudApplication",
+            "title" : "AE01 DDoS Attack To Cloud Application",
+            "description" : "DDoS/DoS attack against cloud application from the Internet;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE02_EDoSAttackToCloudApplication",
+            "title" : "AE02 EDoS Attack To Cloud Application",
+            "description" : "EDoS (Economic Denial of Sustainability or Economic Denial of Service) attack against cloud application from the Internet;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE03_NetworkAttacksToCloudApplication",
+            "title" : "AE03 Network Attacks To Cloud Application",
+            "description" : "Remote side can perform remote malicious activities based on misconfiguration or vulnerabilities of the cloud application;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE04_CloudApplicationAbuse",
+            "title" : "AE04 Cloud Application Abuse",
+            "description" : "Malicious usage (abuse) of cloud application from the Internet (e.g. sending spam, participating botnet, mining) after gain control on it;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication",
+            "title" : "AE05 Block Shared Resources Of Cloud Application",
+            "description" : "Blocking shared resources of cloud application (e.g. shared external IP) by a third-part reputation service;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface",
+            "title" : "AE06 Disclosure Of Credentials Of Cloud Management Interface",
+            "description" : "Disclosure of user credentials of management interface of cloud application;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA01_MaliciousInsiderInCloudInfrastructure",
+            "title" : "BA01 Malicious Insider In Cloud Infrastructure",
+            "description" : "Malicious insider in cloud infrastructure causes security issues of cloud application;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA02_LackOfReservedResourcesForCloudApplication",
+            "title" : "BA02 Lack Of Reserved Resources For Cloud Application",
+            "description" : "Lack of reserved resources for cloud application because of overload of cloud infrastructure;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA03_FailureOfResourceScalingForCloudApplication",
+            "title" : "BA03 Failure Of Resource Scaling For Cloud Application",
+            "description" : "Unexpected failure of resource scaling for cloud application;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA04_HiddenDependenciesOfCloudInfrastructure",
+            "title" : "BA04 Hidden Dependencies Of Cloud Infrastructure",
+            "description" : "Hidden dependencies between components of cloud application and cloud infrastructure cause security issues of cloud application;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA05_LackOfResourceIsolationOfCloudApplication",
+            "title" : "BA05 Lack Of Resource Isolation Of Cloud Application",
+            "description" : "Lack of data, code, network isolation of cloud applications caused by misconfigurations and vulnerabilities of cloud infrastructure;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA06_LossOfSecurityControl",
+            "title" : "BA06 Loss Of Security Control",
+            "description" : "Loss of visibility and control of security and privacy of cloud application (partially controlled);\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA07_PoorInformationSecurityProcesses",
+            "title" : "BA07 Poor Information Security Processes",
+            "description" : "Poor information security processes of cloud provider (design, implementation and operations);\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA08_AuditAndCertificationIssues",
+            "title" : "BA08 Audit And Certification Issues",
+            "description" : "Audit and certification of cloud applications and infrastructure are inaccessible or restricted;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA09_SecurityIssuesOfSLA",
+            "title" : "BA09 Security Issues Of SLA",
+            "description" : "Incorrect or unclear information security section of SLA;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA10_ServiceProviderLockIn",
+            "title" : "BA10 Service Provider Lock-In",
+            "description" : "Service provider lock-in;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA11_SoftwareLicenseIssues",
+            "title" : "BA11 Software License Issues",
+            "description" : "Software license issues;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA12_ConfiscationOfComputerHardware",
+            "title" : "BA12 Confiscation Of Computer Hardware",
+            "description" : "Confiscation of computer hardware of cloud provider as a result of subpoena by law-enforcement agencies;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA13_RestrictionsOfForensicReadiness",
+            "title" : "BA13 Restrictions Of Forensic Readiness",
+            "description" : "Restrictions of forensic readiness for cloud applications (e.g. access to low-level logs and background data, disclosure of client context);\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA14_PhysicalAccessOrTheftOfComputerEquipment",
+            "title" : "BA14 Physical Access Or Theft Of Computer Equipment",
+            "description" : "Unauthorized access or theft of computer equipment from data centre;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter",
+            "title" : "BA15 Destruction Of Data Center",
+            "description" : "Natural disasters destroy data centre or cloud infrastructure (Force Majeure);\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB01_PriviledgeEscalation",
+            "title" : "DB01 Priviledge Escalation",
+            "description" : "System services and applications suffer from privilege escalation;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB02_RemoteCodeExecution",
+            "title" : "DB02 Remote Code Execution",
+            "description" : "Remote code execution against network applications and services from Internet;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB03_NetworkScanning",
+            "title" : "DB03 Network Scanning",
+            "description" : "Network and port scanning, service and version detection of VM from Internet;\nreason: поток1; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC01_VMEscape",
+            "title" : "DC01 VM Escape",
+            "description" : "VM suffers from process that escaped from another VM (VM Escape);\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel",
+            "title" : "DC02 Cross-VM Side Channel",
+            "description" : "VM suffers from a Cross-VM side channel attack;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities",
+            "title" : "DC03 Hypervisor Vulnerabilities",
+            "description" : "VM suffers from vulnerabilities of hypervisor;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration",
+            "title" : "DC04 Unsafe VM Migration",
+            "description" : "Loss or disclosure of information during VM migration;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository",
+            "title" : "DC05 Rogue VM Image In Repository",
+            "description" : "Uncontrolled placement of VM images (possibly with malicious content) in repository;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository",
+            "title" : "DC06 Outdated VM Image In Repository",
+            "description" : "Use of an outdated image for VM from repository;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation",
+            "title" : "DC07 Lack Of Network Isolation",
+            "description" : "Security issues of VM networking, caused by lack of network isolation;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots",
+            "title" : "DC08 Unsafe VM Snapshots",
+            "description" : "Security issues, related to management of VM snapshots;\nreason: поток10; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: поток1; поток10; поток8; поток4; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: поток1; поток10; поток8; поток4; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: поток1; поток10; поток8; поток4; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток1; поток10; поток8; поток4; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток1; поток10; поток8; поток4; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: поток1; поток10; поток8; поток4; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "bc58195e-102d-491f-a4a4-1dde1fbd0a43"
+          },
+          "target" : {
+            "id" : "6fdc43ad-d309-4ae8-ad0e-c9aa095f0f33"
+          },
+          "vertices" : [ ],
+          "id" : "5cfca2f1-b8a7-4e4c-92f1-234fff6a7e1f",
+          "labels" : [ {
+            "position" : {
+              "distance" : 0.4635530480161663,
+              "offset" : 3.8107321356804666
+            },
+            "attrs" : {
+              "text" : {
+                "text" : "поток1",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 3,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 38,
+            "y" : 75
+          },
+          "angle" : 0,
+          "id" : "a41954bc-5271-4f44-a0c6-643d4d1e3441",
+          "z" : 4,
+          "hasOpenThreats" : "true",
+          "description" : "class#RemoteUser",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Приемная комиссия"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
+            "title" : "AB01 Failure Of Cloud Application",
+            "description" : "Unexpected failure of the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
+            "title" : "AB02 Connection Lost To Cloud Application",
+            "description" : "Connection lost to the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC01_MalwareFromCloudApplication",
+            "title" : "AC01 Malware From Cloud Application",
+            "description" : "Malicious content (malware) from the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC02_PublicNetworkAccessToCloudApplication",
+            "title" : "AC02 Public Network Access To Cloud Application",
+            "description" : "Remote user connects to the cloud application though a public network (e.g. Wi-Fi) and can be attacked by a third-party adversary;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAC03_SocialEngineeringAgainstRemoteUser",
+            "title" : "AC03 Social Engineering Against Remote User",
+            "description" : "Remote user suffers from Social Engineering attacks, performed by third-party adversary (e.g. including the cloud application into phishing schema);\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 287,
+            "y" : 12
+          },
+          "angle" : 0,
+          "id" : "5727693b-fdbf-4b89-a545-1504e99f507d",
+          "z" : 6,
+          "hasOpenThreats" : "true",
+          "description" : "class#VirtualMachine",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Цифровая\nприемная\nкомиссия (ВМ)"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
+            "title" : "AB01 Failure Of Cloud Application",
+            "description" : "Unexpected failure of the cloud application;\nreason: поток14; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
+            "title" : "AB02 Connection Lost To Cloud Application",
+            "description" : "Connection lost to the cloud application;\nreason: поток14; поток4; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
+            "title" : "AD01 Broken Authentication",
+            "description" : "No authentication or broken (weak) authentication by the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
+            "title" : "AD02 Broken Access Control",
+            "description" : "No access control, broken (weak) access control, and the authorization issues of the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
+            "title" : "AD03 Data Breach By Cloud Application",
+            "description" : "Data breach (information disclosure) by the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
+            "title" : "AD04 Data Loss By Cloud Application",
+            "description" : "Data loss (modification) by the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
+            "title" : "AD05 Backup Of Cloud Application Lost",
+            "description" : "Lost of cloud application backup;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
+            "title" : "AD06 Backup Of Cloud Application Stolen",
+            "description" : "Disclosure of cloud application backups;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
+            "title" : "AD07 Logs Of Cloud Application Lost",
+            "description" : "Lost of cloud application logs;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
+            "title" : "AD08 Logs Of Cloud Application Stolen",
+            "description" : "Disclosure of sensitive information from cloud application logs;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE01_DDoSAttackToCloudApplication",
+            "title" : "AE01 DDoS Attack To Cloud Application",
+            "description" : "DDoS/DoS attack against cloud application from the Internet;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE02_EDoSAttackToCloudApplication",
+            "title" : "AE02 EDoS Attack To Cloud Application",
+            "description" : "EDoS (Economic Denial of Sustainability or Economic Denial of Service) attack against cloud application from the Internet;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE03_NetworkAttacksToCloudApplication",
+            "title" : "AE03 Network Attacks To Cloud Application",
+            "description" : "Remote side can perform remote malicious activities based on misconfiguration or vulnerabilities of the cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE04_CloudApplicationAbuse",
+            "title" : "AE04 Cloud Application Abuse",
+            "description" : "Malicious usage (abuse) of cloud application from the Internet (e.g. sending spam, participating botnet, mining) after gain control on it;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication",
+            "title" : "AE05 Block Shared Resources Of Cloud Application",
+            "description" : "Blocking shared resources of cloud application (e.g. shared external IP) by a third-part reputation service;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface",
+            "title" : "AE06 Disclosure Of Credentials Of Cloud Management Interface",
+            "description" : "Disclosure of user credentials of management interface of cloud application;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA01_MaliciousInsiderInCloudInfrastructure",
+            "title" : "BA01 Malicious Insider In Cloud Infrastructure",
+            "description" : "Malicious insider in cloud infrastructure causes security issues of cloud application;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA02_LackOfReservedResourcesForCloudApplication",
+            "title" : "BA02 Lack Of Reserved Resources For Cloud Application",
+            "description" : "Lack of reserved resources for cloud application because of overload of cloud infrastructure;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA03_FailureOfResourceScalingForCloudApplication",
+            "title" : "BA03 Failure Of Resource Scaling For Cloud Application",
+            "description" : "Unexpected failure of resource scaling for cloud application;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA04_HiddenDependenciesOfCloudInfrastructure",
+            "title" : "BA04 Hidden Dependencies Of Cloud Infrastructure",
+            "description" : "Hidden dependencies between components of cloud application and cloud infrastructure cause security issues of cloud application;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA05_LackOfResourceIsolationOfCloudApplication",
+            "title" : "BA05 Lack Of Resource Isolation Of Cloud Application",
+            "description" : "Lack of data, code, network isolation of cloud applications caused by misconfigurations and vulnerabilities of cloud infrastructure;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA06_LossOfSecurityControl",
+            "title" : "BA06 Loss Of Security Control",
+            "description" : "Loss of visibility and control of security and privacy of cloud application (partially controlled);\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA07_PoorInformationSecurityProcesses",
+            "title" : "BA07 Poor Information Security Processes",
+            "description" : "Poor information security processes of cloud provider (design, implementation and operations);\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA08_AuditAndCertificationIssues",
+            "title" : "BA08 Audit And Certification Issues",
+            "description" : "Audit and certification of cloud applications and infrastructure are inaccessible or restricted;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA09_SecurityIssuesOfSLA",
+            "title" : "BA09 Security Issues Of SLA",
+            "description" : "Incorrect or unclear information security section of SLA;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA10_ServiceProviderLockIn",
+            "title" : "BA10 Service Provider Lock-In",
+            "description" : "Service provider lock-in;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA11_SoftwareLicenseIssues",
+            "title" : "BA11 Software License Issues",
+            "description" : "Software license issues;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA12_ConfiscationOfComputerHardware",
+            "title" : "BA12 Confiscation Of Computer Hardware",
+            "description" : "Confiscation of computer hardware of cloud provider as a result of subpoena by law-enforcement agencies;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA13_RestrictionsOfForensicReadiness",
+            "title" : "BA13 Restrictions Of Forensic Readiness",
+            "description" : "Restrictions of forensic readiness for cloud applications (e.g. access to low-level logs and background data, disclosure of client context);\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA14_PhysicalAccessOrTheftOfComputerEquipment",
+            "title" : "BA14 Physical Access Or Theft Of Computer Equipment",
+            "description" : "Unauthorized access or theft of computer equipment from data centre;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter",
+            "title" : "BA15 Destruction Of Data Center",
+            "description" : "Natural disasters destroy data centre or cloud infrastructure (Force Majeure);\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB01_PriviledgeEscalation",
+            "title" : "DB01 Priviledge Escalation",
+            "description" : "System services and applications suffer from privilege escalation;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB02_RemoteCodeExecution",
+            "title" : "DB02 Remote Code Execution",
+            "description" : "Remote code execution against network applications and services from Internet;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB03_NetworkScanning",
+            "title" : "DB03 Network Scanning",
+            "description" : "Network and port scanning, service and version detection of VM from Internet;\nreason: поток3; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC01_VMEscape",
+            "title" : "DC01 VM Escape",
+            "description" : "VM suffers from process that escaped from another VM (VM Escape);\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel",
+            "title" : "DC02 Cross-VM Side Channel",
+            "description" : "VM suffers from a Cross-VM side channel attack;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities",
+            "title" : "DC03 Hypervisor Vulnerabilities",
+            "description" : "VM suffers from vulnerabilities of hypervisor;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration",
+            "title" : "DC04 Unsafe VM Migration",
+            "description" : "Loss or disclosure of information during VM migration;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository",
+            "title" : "DC05 Rogue VM Image In Repository",
+            "description" : "Uncontrolled placement of VM images (possibly with malicious content) in repository;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository",
+            "title" : "DC06 Outdated VM Image In Repository",
+            "description" : "Use of an outdated image for VM from repository;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation",
+            "title" : "DC07 Lack Of Network Isolation",
+            "description" : "Security issues of VM networking, caused by lack of network isolation;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots",
+            "title" : "DC08 Unsafe VM Snapshots",
+            "description" : "Security issues, related to management of VM snapshots;\nreason: поток9; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: поток3; поток14; поток4; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: поток3; поток14; поток4; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: поток3; поток14; поток4; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток3; поток14; поток4; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток3; поток14; поток4; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: поток3; поток14; поток4; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "a41954bc-5271-4f44-a0c6-643d4d1e3441"
+          },
+          "target" : {
+            "id" : "5727693b-fdbf-4b89-a545-1504e99f507d"
+          },
+          "vertices" : [ ],
+          "id" : "1c9faf30-3f59-44f5-9d68-1598364d82f0",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток3",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 7,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "5727693b-fdbf-4b89-a545-1504e99f507d"
+          },
+          "target" : {
+            "id" : "6fdc43ad-d309-4ae8-ad0e-c9aa095f0f33"
+          },
+          "vertices" : [ ],
+          "id" : "4baf1d17-807b-4a63-b288-8c10795393a5",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток4",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 8,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 384,
+            "y" : 451
+          },
+          "angle" : 0,
+          "id" : "ff03d1d7-d0d7-460c-8bdd-199fa9240683",
+          "z" : 9,
+          "hasOpenThreats" : "true",
+          "description" : "class#VirtualMachine",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "АСУ\nАбитуриент\n(ВМ)"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
+            "title" : "AD01 Broken Authentication",
+            "description" : "No authentication or broken (weak) authentication by the cloud application;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
+            "title" : "AD02 Broken Access Control",
+            "description" : "No access control, broken (weak) access control, and the authorization issues of the cloud application;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
+            "title" : "AD03 Data Breach By Cloud Application",
+            "description" : "Data breach (information disclosure) by the cloud application;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
+            "title" : "AD04 Data Loss By Cloud Application",
+            "description" : "Data loss (modification) by the cloud application;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
+            "title" : "AD05 Backup Of Cloud Application Lost",
+            "description" : "Lost of cloud application backup;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
+            "title" : "AD06 Backup Of Cloud Application Stolen",
+            "description" : "Disclosure of cloud application backups;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
+            "title" : "AD07 Logs Of Cloud Application Lost",
+            "description" : "Lost of cloud application logs;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
+            "title" : "AD08 Logs Of Cloud Application Stolen",
+            "description" : "Disclosure of sensitive information from cloud application logs;\nreason: поток7; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA01_MaliciousInsiderInCloudInfrastructure",
+            "title" : "BA01 Malicious Insider In Cloud Infrastructure",
+            "description" : "Malicious insider in cloud infrastructure causes security issues of cloud application;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA02_LackOfReservedResourcesForCloudApplication",
+            "title" : "BA02 Lack Of Reserved Resources For Cloud Application",
+            "description" : "Lack of reserved resources for cloud application because of overload of cloud infrastructure;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA03_FailureOfResourceScalingForCloudApplication",
+            "title" : "BA03 Failure Of Resource Scaling For Cloud Application",
+            "description" : "Unexpected failure of resource scaling for cloud application;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA04_HiddenDependenciesOfCloudInfrastructure",
+            "title" : "BA04 Hidden Dependencies Of Cloud Infrastructure",
+            "description" : "Hidden dependencies between components of cloud application and cloud infrastructure cause security issues of cloud application;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA05_LackOfResourceIsolationOfCloudApplication",
+            "title" : "BA05 Lack Of Resource Isolation Of Cloud Application",
+            "description" : "Lack of data, code, network isolation of cloud applications caused by misconfigurations and vulnerabilities of cloud infrastructure;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA06_LossOfSecurityControl",
+            "title" : "BA06 Loss Of Security Control",
+            "description" : "Loss of visibility and control of security and privacy of cloud application (partially controlled);\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA07_PoorInformationSecurityProcesses",
+            "title" : "BA07 Poor Information Security Processes",
+            "description" : "Poor information security processes of cloud provider (design, implementation and operations);\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA08_AuditAndCertificationIssues",
+            "title" : "BA08 Audit And Certification Issues",
+            "description" : "Audit and certification of cloud applications and infrastructure are inaccessible or restricted;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA09_SecurityIssuesOfSLA",
+            "title" : "BA09 Security Issues Of SLA",
+            "description" : "Incorrect or unclear information security section of SLA;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA10_ServiceProviderLockIn",
+            "title" : "BA10 Service Provider Lock-In",
+            "description" : "Service provider lock-in;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA11_SoftwareLicenseIssues",
+            "title" : "BA11 Software License Issues",
+            "description" : "Software license issues;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA12_ConfiscationOfComputerHardware",
+            "title" : "BA12 Confiscation Of Computer Hardware",
+            "description" : "Confiscation of computer hardware of cloud provider as a result of subpoena by law-enforcement agencies;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA13_RestrictionsOfForensicReadiness",
+            "title" : "BA13 Restrictions Of Forensic Readiness",
+            "description" : "Restrictions of forensic readiness for cloud applications (e.g. access to low-level logs and background data, disclosure of client context);\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA14_PhysicalAccessOrTheftOfComputerEquipment",
+            "title" : "BA14 Physical Access Or Theft Of Computer Equipment",
+            "description" : "Unauthorized access or theft of computer equipment from data centre;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter",
+            "title" : "BA15 Destruction Of Data Center",
+            "description" : "Natural disasters destroy data centre or cloud infrastructure (Force Majeure);\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC01_VMEscape",
+            "title" : "DC01 VM Escape",
+            "description" : "VM suffers from process that escaped from another VM (VM Escape);\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel",
+            "title" : "DC02 Cross-VM Side Channel",
+            "description" : "VM suffers from a Cross-VM side channel attack;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities",
+            "title" : "DC03 Hypervisor Vulnerabilities",
+            "description" : "VM suffers from vulnerabilities of hypervisor;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration",
+            "title" : "DC04 Unsafe VM Migration",
+            "description" : "Loss or disclosure of information during VM migration;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository",
+            "title" : "DC05 Rogue VM Image In Repository",
+            "description" : "Uncontrolled placement of VM images (possibly with malicious content) in repository;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository",
+            "title" : "DC06 Outdated VM Image In Repository",
+            "description" : "Use of an outdated image for VM from repository;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation",
+            "title" : "DC07 Lack Of Network Isolation",
+            "description" : "Security issues of VM networking, caused by lack of network isolation;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots",
+            "title" : "DC08 Unsafe VM Snapshots",
+            "description" : "Security issues, related to management of VM snapshots;\nreason: поток12; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: поток7; поток12; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: поток7; поток12; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: поток7; поток12; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток7; поток12; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток7; поток12; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: поток7; поток12; поток14; поток5; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "6fdc43ad-d309-4ae8-ad0e-c9aa095f0f33"
+          },
+          "target" : {
+            "id" : "ff03d1d7-d0d7-460c-8bdd-199fa9240683"
+          },
+          "vertices" : [ ],
+          "id" : "fa8c736c-56ce-4b26-92a9-7d9da2c3868e",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток5",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 10,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 145,
+            "y" : 471
+          },
+          "angle" : 0,
+          "id" : "72e70a56-3f7c-431b-8680-4d6eab266211",
+          "z" : 11,
+          "hasOpenThreats" : "true",
+          "description" : "class#VirtualMachine",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Веб-сайт\nприемной\nкомиссии (ВМ)"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB01_FailureOfCloudApplication",
+            "title" : "AB01 Failure Of Cloud Application",
+            "description" : "Unexpected failure of the cloud application;\nreason: поток7; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAB02_ConnectionLostToCloudApplication",
+            "title" : "AB02 Connection Lost To Cloud Application",
+            "description" : "Connection lost to the cloud application;\nreason: поток7; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
+            "title" : "AD01 Broken Authentication",
+            "description" : "No authentication or broken (weak) authentication by the cloud application;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
+            "title" : "AD02 Broken Access Control",
+            "description" : "No access control, broken (weak) access control, and the authorization issues of the cloud application;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
+            "title" : "AD03 Data Breach By Cloud Application",
+            "description" : "Data breach (information disclosure) by the cloud application;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
+            "title" : "AD04 Data Loss By Cloud Application",
+            "description" : "Data loss (modification) by the cloud application;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
+            "title" : "AD05 Backup Of Cloud Application Lost",
+            "description" : "Lost of cloud application backup;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
+            "title" : "AD06 Backup Of Cloud Application Stolen",
+            "description" : "Disclosure of cloud application backups;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
+            "title" : "AD07 Logs Of Cloud Application Lost",
+            "description" : "Lost of cloud application logs;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
+            "title" : "AD08 Logs Of Cloud Application Stolen",
+            "description" : "Disclosure of sensitive information from cloud application logs;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE01_DDoSAttackToCloudApplication",
+            "title" : "AE01 DDoS Attack To Cloud Application",
+            "description" : "DDoS/DoS attack against cloud application from the Internet;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE02_EDoSAttackToCloudApplication",
+            "title" : "AE02 EDoS Attack To Cloud Application",
+            "description" : "EDoS (Economic Denial of Sustainability or Economic Denial of Service) attack against cloud application from the Internet;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE03_NetworkAttacksToCloudApplication",
+            "title" : "AE03 Network Attacks To Cloud Application",
+            "description" : "Remote side can perform remote malicious activities based on misconfiguration or vulnerabilities of the cloud application;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE04_CloudApplicationAbuse",
+            "title" : "AE04 Cloud Application Abuse",
+            "description" : "Malicious usage (abuse) of cloud application from the Internet (e.g. sending spam, participating botnet, mining) after gain control on it;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE05_BlockSharedResourcesOfCloudApplication",
+            "title" : "AE05 Block Shared Resources Of Cloud Application",
+            "description" : "Blocking shared resources of cloud application (e.g. shared external IP) by a third-part reputation service;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAE06_DisclosureOfCredentialsOfCloudManagementInterface",
+            "title" : "AE06 Disclosure Of Credentials Of Cloud Management Interface",
+            "description" : "Disclosure of user credentials of management interface of cloud application;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA01_MaliciousInsiderInCloudInfrastructure",
+            "title" : "BA01 Malicious Insider In Cloud Infrastructure",
+            "description" : "Malicious insider in cloud infrastructure causes security issues of cloud application;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA02_LackOfReservedResourcesForCloudApplication",
+            "title" : "BA02 Lack Of Reserved Resources For Cloud Application",
+            "description" : "Lack of reserved resources for cloud application because of overload of cloud infrastructure;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA03_FailureOfResourceScalingForCloudApplication",
+            "title" : "BA03 Failure Of Resource Scaling For Cloud Application",
+            "description" : "Unexpected failure of resource scaling for cloud application;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA04_HiddenDependenciesOfCloudInfrastructure",
+            "title" : "BA04 Hidden Dependencies Of Cloud Infrastructure",
+            "description" : "Hidden dependencies between components of cloud application and cloud infrastructure cause security issues of cloud application;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA05_LackOfResourceIsolationOfCloudApplication",
+            "title" : "BA05 Lack Of Resource Isolation Of Cloud Application",
+            "description" : "Lack of data, code, network isolation of cloud applications caused by misconfigurations and vulnerabilities of cloud infrastructure;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA06_LossOfSecurityControl",
+            "title" : "BA06 Loss Of Security Control",
+            "description" : "Loss of visibility and control of security and privacy of cloud application (partially controlled);\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA07_PoorInformationSecurityProcesses",
+            "title" : "BA07 Poor Information Security Processes",
+            "description" : "Poor information security processes of cloud provider (design, implementation and operations);\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA08_AuditAndCertificationIssues",
+            "title" : "BA08 Audit And Certification Issues",
+            "description" : "Audit and certification of cloud applications and infrastructure are inaccessible or restricted;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA09_SecurityIssuesOfSLA",
+            "title" : "BA09 Security Issues Of SLA",
+            "description" : "Incorrect or unclear information security section of SLA;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA10_ServiceProviderLockIn",
+            "title" : "BA10 Service Provider Lock-In",
+            "description" : "Service provider lock-in;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA11_SoftwareLicenseIssues",
+            "title" : "BA11 Software License Issues",
+            "description" : "Software license issues;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA12_ConfiscationOfComputerHardware",
+            "title" : "BA12 Confiscation Of Computer Hardware",
+            "description" : "Confiscation of computer hardware of cloud provider as a result of subpoena by law-enforcement agencies;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA13_RestrictionsOfForensicReadiness",
+            "title" : "BA13 Restrictions Of Forensic Readiness",
+            "description" : "Restrictions of forensic readiness for cloud applications (e.g. access to low-level logs and background data, disclosure of client context);\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA14_PhysicalAccessOrTheftOfComputerEquipment",
+            "title" : "BA14 Physical Access Or Theft Of Computer Equipment",
+            "description" : "Unauthorized access or theft of computer equipment from data centre;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter",
+            "title" : "BA15 Destruction Of Data Center",
+            "description" : "Natural disasters destroy data centre or cloud infrastructure (Force Majeure);\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB01_PriviledgeEscalation",
+            "title" : "DB01 Priviledge Escalation",
+            "description" : "System services and applications suffer from privilege escalation;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB02_RemoteCodeExecution",
+            "title" : "DB02 Remote Code Execution",
+            "description" : "Remote code execution against network applications and services from Internet;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDB03_NetworkScanning",
+            "title" : "DB03 Network Scanning",
+            "description" : "Network and port scanning, service and version detection of VM from Internet;\nreason: поток2; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC01_VMEscape",
+            "title" : "DC01 VM Escape",
+            "description" : "VM suffers from process that escaped from another VM (VM Escape);\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel",
+            "title" : "DC02 Cross-VM Side Channel",
+            "description" : "VM suffers from a Cross-VM side channel attack;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities",
+            "title" : "DC03 Hypervisor Vulnerabilities",
+            "description" : "VM suffers from vulnerabilities of hypervisor;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration",
+            "title" : "DC04 Unsafe VM Migration",
+            "description" : "Loss or disclosure of information during VM migration;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository",
+            "title" : "DC05 Rogue VM Image In Repository",
+            "description" : "Uncontrolled placement of VM images (possibly with malicious content) in repository;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository",
+            "title" : "DC06 Outdated VM Image In Repository",
+            "description" : "Use of an outdated image for VM from repository;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation",
+            "title" : "DC07 Lack Of Network Isolation",
+            "description" : "Security issues of VM networking, caused by lack of network isolation;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots",
+            "title" : "DC08 Unsafe VM Snapshots",
+            "description" : "Security issues, related to management of VM snapshots;\nreason: поток13; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: поток2; поток7; поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: поток2; поток7; поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: поток2; поток7; поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток2; поток7; поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток2; поток7; поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: поток2; поток7; поток13; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "bc58195e-102d-491f-a4a4-1dde1fbd0a43"
+          },
+          "target" : {
+            "id" : "72e70a56-3f7c-431b-8680-4d6eab266211"
+          },
+          "vertices" : [ ],
+          "id" : "5e25c0b8-5140-4d2c-be99-c5332c6d3992",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток2",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 12,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "72e70a56-3f7c-431b-8680-4d6eab266211"
+          },
+          "target" : {
+            "id" : "ff03d1d7-d0d7-460c-8bdd-199fa9240683"
+          },
+          "vertices" : [ ],
+          "id" : "87173bf7-e7e8-4860-95e2-f9723f78d9e1",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток7",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 13,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Process",
+          "size" : {
+            "width" : 100,
+            "height" : 100
+          },
+          "position" : {
+            "x" : 513,
+            "y" : 206
+          },
+          "angle" : 0,
+          "id" : "880576cf-2fd7-4c71-8408-aad799a01190",
+          "z" : 14,
+          "hasOpenThreats" : "true",
+          "description" : "class#VirtualMachine",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Отправка SMS\nоповещений\n(ВМ)"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA01_FailureOfRemoteService",
+            "title" : "AA01 Failure Of Remote Service",
+            "description" : "Unexpected failure of the remote service;\nreason: поток6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA02_ConnectionLostToRemoteService",
+            "title" : "AA02 Connection Lost To Remote Service",
+            "description" : "Connection lost to the remote service;\nreason: поток6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA03_DataBreachByRemoteService",
+            "title" : "AA03 Data Breach By Remote Service",
+            "description" : "Data breach (information disclosure) by the remote service;\nreason: поток6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA04_DataLossByRemoteService",
+            "title" : "AA04 Data Loss By Remote Service",
+            "description" : "Data loss (modification) by the remote service;\nreason: поток6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAA05_SpoofingOfRemoteService",
+            "title" : "AA05 Spoofing Of Remote Service",
+            "description" : "Spoofing of the remote service;\nreason: поток6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD01_BrokenAuthentication",
+            "title" : "AD01 Broken Authentication",
+            "description" : "No authentication or broken (weak) authentication by the cloud application;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD02_BrokenAccessControl",
+            "title" : "AD02 Broken Access Control",
+            "description" : "No access control, broken (weak) access control, and the authorization issues of the cloud application;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD03_DataBreachByCloudApplication",
+            "title" : "AD03 Data Breach By Cloud Application",
+            "description" : "Data breach (information disclosure) by the cloud application;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD04_DataLossByCloudApplication",
+            "title" : "AD04 Data Loss By Cloud Application",
+            "description" : "Data loss (modification) by the cloud application;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD05_BackupOfCloudApplicationLost",
+            "title" : "AD05 Backup Of Cloud Application Lost",
+            "description" : "Lost of cloud application backup;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD06_BackupOfCloudApplicationStolen",
+            "title" : "AD06 Backup Of Cloud Application Stolen",
+            "description" : "Disclosure of cloud application backups;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD07_LogOfCloudApplicationLost",
+            "title" : "AD07 Logs Of Cloud Application Lost",
+            "description" : "Lost of cloud application logs;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatAD08_LogOfCloudApplicationStolen",
+            "title" : "AD08 Logs Of Cloud Application Stolen",
+            "description" : "Disclosure of sensitive information from cloud application logs;\nreason: поток8; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA01_MaliciousInsiderInCloudInfrastructure",
+            "title" : "BA01 Malicious Insider In Cloud Infrastructure",
+            "description" : "Malicious insider in cloud infrastructure causes security issues of cloud application;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA02_LackOfReservedResourcesForCloudApplication",
+            "title" : "BA02 Lack Of Reserved Resources For Cloud Application",
+            "description" : "Lack of reserved resources for cloud application because of overload of cloud infrastructure;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA03_FailureOfResourceScalingForCloudApplication",
+            "title" : "BA03 Failure Of Resource Scaling For Cloud Application",
+            "description" : "Unexpected failure of resource scaling for cloud application;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA04_HiddenDependenciesOfCloudInfrastructure",
+            "title" : "BA04 Hidden Dependencies Of Cloud Infrastructure",
+            "description" : "Hidden dependencies between components of cloud application and cloud infrastructure cause security issues of cloud application;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA05_LackOfResourceIsolationOfCloudApplication",
+            "title" : "BA05 Lack Of Resource Isolation Of Cloud Application",
+            "description" : "Lack of data, code, network isolation of cloud applications caused by misconfigurations and vulnerabilities of cloud infrastructure;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA06_LossOfSecurityControl",
+            "title" : "BA06 Loss Of Security Control",
+            "description" : "Loss of visibility and control of security and privacy of cloud application (partially controlled);\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA07_PoorInformationSecurityProcesses",
+            "title" : "BA07 Poor Information Security Processes",
+            "description" : "Poor information security processes of cloud provider (design, implementation and operations);\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA08_AuditAndCertificationIssues",
+            "title" : "BA08 Audit And Certification Issues",
+            "description" : "Audit and certification of cloud applications and infrastructure are inaccessible or restricted;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA09_SecurityIssuesOfSLA",
+            "title" : "BA09 Security Issues Of SLA",
+            "description" : "Incorrect or unclear information security section of SLA;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA10_ServiceProviderLockIn",
+            "title" : "BA10 Service Provider Lock-In",
+            "description" : "Service provider lock-in;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA11_SoftwareLicenseIssues",
+            "title" : "BA11 Software License Issues",
+            "description" : "Software license issues;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA12_ConfiscationOfComputerHardware",
+            "title" : "BA12 Confiscation Of Computer Hardware",
+            "description" : "Confiscation of computer hardware of cloud provider as a result of subpoena by law-enforcement agencies;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA13_RestrictionsOfForensicReadiness",
+            "title" : "BA13 Restrictions Of Forensic Readiness",
+            "description" : "Restrictions of forensic readiness for cloud applications (e.g. access to low-level logs and background data, disclosure of client context);\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA14_PhysicalAccessOrTheftOfComputerEquipment",
+            "title" : "BA14 Physical Access Or Theft Of Computer Equipment",
+            "description" : "Unauthorized access or theft of computer equipment from data centre;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatBA15_DestructionOfDataCenter",
+            "title" : "BA15 Destruction Of Data Center",
+            "description" : "Natural disasters destroy data centre or cloud infrastructure (Force Majeure);\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC01_VMEscape",
+            "title" : "DC01 VM Escape",
+            "description" : "VM suffers from process that escaped from another VM (VM Escape);\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC02_CrossVMSideChannel",
+            "title" : "DC02 Cross-VM Side Channel",
+            "description" : "VM suffers from a Cross-VM side channel attack;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC03_HypervisorVulnerabilities",
+            "title" : "DC03 Hypervisor Vulnerabilities",
+            "description" : "VM suffers from vulnerabilities of hypervisor;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC04_UnsafeVMMigration",
+            "title" : "DC04 Unsafe VM Migration",
+            "description" : "Loss or disclosure of information during VM migration;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC05_RogueVMImageInRepository",
+            "title" : "DC05 Rogue VM Image In Repository",
+            "description" : "Uncontrolled placement of VM images (possibly with malicious content) in repository;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC06_OutdatedVMImageInRepository",
+            "title" : "DC06 Outdated VM Image In Repository",
+            "description" : "Use of an outdated image for VM from repository;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC07_LackOfNetworkIsolation",
+            "title" : "DC07 Lack Of Network Isolation",
+            "description" : "Security issues of VM networking, caused by lack of network isolation;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/ACCTP#threatDC08_UnsafeVMSnapshots",
+            "title" : "DC08 Unsafe VM Snapshots",
+            "description" : "Security issues, related to management of VM snapshots;\nreason: поток11; ",
+            "status" : "Open",
+            "severity" : "Medium"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;\nreason: поток6; поток8; поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege",
+            "title" : "Generic elevation threat",
+            "description" : "A generic elevation threat;\nreason: поток6; поток8; поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Elevation of privilege"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;\nreason: поток6; поток8; поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток6; поток8; поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток6; поток8; поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;\nreason: поток6; поток8; поток11; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "6fdc43ad-d309-4ae8-ad0e-c9aa095f0f33"
+          },
+          "target" : {
+            "id" : "880576cf-2fd7-4c71-8408-aad799a01190"
+          },
+          "vertices" : [ ],
+          "id" : "6ff2804c-4abd-448a-aadf-086d87fcba71",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток8",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 15,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 554,
+            "y" : 1
+          },
+          "angle" : 0,
+          "id" : "51899334-a356-4028-a983-fa305accf2f8",
+          "z" : 16,
+          "hasOpenThreats" : "true",
+          "description" : "class#ComplianceManager",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Администратор облака"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток13; поток12; поток10; поток11; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток13; поток12; поток10; поток11; поток9; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "51899334-a356-4028-a983-fa305accf2f8"
+          },
+          "target" : {
+            "id" : "5727693b-fdbf-4b89-a545-1504e99f507d"
+          },
+          "vertices" : [ ],
+          "id" : "73e695f9-4987-4c72-a86b-fb1c4901ca55",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток9",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 17,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "51899334-a356-4028-a983-fa305accf2f8"
+          },
+          "target" : {
+            "id" : "6fdc43ad-d309-4ae8-ad0e-c9aa095f0f33"
+          },
+          "vertices" : [ {
+            "x" : 466,
+            "y" : 110
+          } ],
+          "id" : "2b4e52ae-0d8b-4c42-a1e5-a0e68a15081a",
+          "labels" : [ {
+            "position" : {
+              "distance" : 0.6462396574449973,
+              "offset" : -0.8473520771939518
+            },
+            "attrs" : {
+              "text" : {
+                "text" : "поток10",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 18,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "51899334-a356-4028-a983-fa305accf2f8"
+          },
+          "target" : {
+            "id" : "880576cf-2fd7-4c71-8408-aad799a01190"
+          },
+          "vertices" : [ {
+            "x" : 553,
+            "y" : 137
+          } ],
+          "id" : "5dfeb967-2670-444f-8b3a-d9dfab0ad956",
+          "labels" : [ {
+            "position" : {
+              "distance" : 0.6162783298461681,
+              "offset" : 27.58410011464587
+            },
+            "attrs" : {
+              "text" : {
+                "text" : "поток11",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 19,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "51899334-a356-4028-a983-fa305accf2f8"
+          },
+          "target" : {
+            "id" : "ff03d1d7-d0d7-460c-8bdd-199fa9240683"
+          },
+          "vertices" : [ {
+            "x" : 665,
+            "y" : 435
+          } ],
+          "id" : "0ff63dbe-44ee-40d3-b922-c146943cbbec",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток12",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 20,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "51899334-a356-4028-a983-fa305accf2f8"
+          },
+          "target" : {
+            "id" : "72e70a56-3f7c-431b-8680-4d6eab266211"
+          },
+          "vertices" : [ {
+            "x" : 711,
+            "y" : 398
+          }, {
+            "x" : 529,
+            "y" : 559
+          } ],
+          "id" : "59bd8ac7-6a45-4e58-a35c-e5b84c341231",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток13",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 21,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "5727693b-fdbf-4b89-a545-1504e99f507d"
+          },
+          "target" : {
+            "id" : "ff03d1d7-d0d7-460c-8bdd-199fa9240683"
+          },
+          "vertices" : [ {
+            "x" : 476,
+            "y" : 210
+          } ],
+          "id" : "a787b0e8-0c27-4851-892f-c068899d034d",
+          "labels" : [ {
+            "position" : {
+              "distance" : 0.43350499880058413,
+              "offset" : 1.9371131119248024
+            },
+            "attrs" : {
+              "text" : {
+                "text" : "поток14",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 22,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        }, {
+          "type" : "tm.Actor",
+          "size" : {
+            "width" : 160,
+            "height" : 80
+          },
+          "position" : {
+            "x" : 480,
+            "y" : 366
+          },
+          "angle" : 0,
+          "id" : "0d5c6465-19de-42d2-bfeb-c2a3cc0d2edf",
+          "z" : 23,
+          "hasOpenThreats" : "true",
+          "description" : "class#ExternalService",
+          "attrs" : {
+            ".element-shape" : {
+              "class" : "element-shape hasNoOpenThreats isInScope"
+            },
+            "text" : {
+              "text" : "Сервис отправки SMS"
+            },
+            ".element-text" : {
+              "class" : "element-text hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation",
+            "title" : "Generic repudiation threat",
+            "description" : "A generic repudiation threat;\nreason: поток6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Repudiation"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing",
+            "title" : "Generic spoofing threat",
+            "description" : "A generic spoofing threat;\nreason: поток6; ",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Spoofing"
+          } ]
+        }, {
+          "type" : "tm.Flow",
+          "size" : {
+            "width" : 10,
+            "height" : 10
+          },
+          "smooth" : true,
+          "source" : {
+            "id" : "880576cf-2fd7-4c71-8408-aad799a01190"
+          },
+          "target" : {
+            "id" : "0d5c6465-19de-42d2-bfeb-c2a3cc0d2edf"
+          },
+          "vertices" : [ {
+            "x" : 563,
+            "y" : 346
+          } ],
+          "id" : "b3016650-16ad-4202-9964-6da5e1c3da64",
+          "labels" : [ {
+            "position" : 0.5,
+            "attrs" : {
+              "text" : {
+                "text" : "поток6",
+                "font-weight" : "400",
+                "font-size" : "small"
+              }
+            }
+          } ],
+          "z" : 24,
+          "hasOpenThreats" : "true",
+          "attrs" : {
+            ".marker-target" : {
+              "class" : "marker-target hasNoOpenThreats isInScope"
+            },
+            ".connection" : {
+              "class" : "connection hasNoOpenThreats isInScope"
+            }
+          },
+          "threats" : [ {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService",
+            "title" : "Generic DoS threat",
+            "description" : "A generic DoS threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Denial of service"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure",
+            "title" : "Generic information disclosure threat",
+            "description" : "A generic information disclosure threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Information disclosure"
+          }, {
+            "ruleId" : "http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering",
+            "title" : "Generic tampering threat",
+            "description" : "A generic tampering threat;",
+            "status" : "Open",
+            "severity" : "Medium",
+            "type" : "Tampering"
+          } ]
+        } ]
+      },
+      "size" : {
+        "height" : 598,
+        "width" : 1035
+      }
+    } ]
+  }
+}

@@ -4,12 +4,11 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#> 
 
 # ok
-# (SensitiveHostPath) and (ReadOnlyFlow)
+# hasTarget :hostStorage
 
 SELECT ?source ?flow ?target
 WHERE {
-  ?flow rdf:type :SensitiveHostPath ;
-        rdf:type :ReadOnlyFlow .
+  ?flow b:hasTarget :hostStorage .
   ?source b:isSourceOf ?flow .
   ?target b:isTargetOf ?flow .
 }

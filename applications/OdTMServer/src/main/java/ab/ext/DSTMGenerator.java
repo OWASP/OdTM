@@ -48,6 +48,8 @@ public class DSTMGenerator extends OManager{
    static String HAS_AGGRESSOR_PROPERTY = "http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAggressor";
    static String HAS_AGGRESSOR_ROLE_PROPERTY = "http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAggressorRole";
    static String ROLE_SERVER = "http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#role_Server";
+   static String ROLE_FLOW = "http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#role_Flow";
+   
 
    // base model   
    OWLOntology baseModel;
@@ -278,9 +280,12 @@ public class DSTMGenerator extends OManager{
           // by default aggressor is a client
           // it becomes a server, if meets the ...role_Server '<pattern> hasAggressorRole <role_Server|role_Client>'
           boolean isClient = true;
+          boolean isFlow = false;
           List<OWLNamedIndividual> aggressorRoles = cModel.getReasonerObjectPropertyValues(pattern.getIRI(),IRI.create(HAS_AGGRESSOR_ROLE_PROPERTY)).collect(Collectors.toList());
           for (OWLNamedIndividual aggressorRole : aggressorRoles) {
              if (aggressorRole.getIRI().equals(IRI.create(ROLE_SERVER))) isClient = false;
+             if (aggressorRole.getIRI().equals(IRI.create(ROLE_FLOW))) isFlow = true;
+             
           }
           LOGGER.info("Pattern: "+pattern.getIRI().toString()+ " isThreatPattern: "+isThreatPattern+ " (Aggressor)_isClient="+isClient);
           
@@ -311,21 +316,30 @@ public class DSTMGenerator extends OManager{
                                     
                 
                 if (isThreatPattern){
-                   // it is a threat pattern
-                   // map it to the template like '<and class> isAffectedBy <pattern instance>'
-                   dModel.addAxiom(dModel.getSubClassValue(andIRI, IRI.create(IsAffectedByProperty), pattern.getIRI()));
-                   // set like '<and class> is subclass of ClassifiedIsEdge'
-                   dModel.addAxiom(dModel.getSubClass(andIRI,IRI.create(ClassifiedIsEdgeClass)));
-                   // set like '<pattern> is an instance of the Threat class'
-                   dModel.addAxiom(dModel.getClassAssertionAxiom(IRI.create(ThreatClass),pattern.getIRI()));
+                   if (isFlow == false) {
+                      // it is a threat pattern
+                      // map it to the template like '<and class> isAffectedBy <pattern instance>'
+                      dModel.addAxiom(dModel.getSubClassValue(andIRI, IRI.create(IsAffectedByProperty), pattern.getIRI()));
+                      // set like '<and class> is subclass of ClassifiedIsEdge'
+                      dModel.addAxiom(dModel.getSubClass(andIRI,IRI.create(ClassifiedIsEdgeClass)));
+                      // set like '<pattern> is an instance of the Threat class'
+                      dModel.addAxiom(dModel.getClassAssertionAxiom(IRI.create(ThreatClass),pattern.getIRI()));
                                       
-                   // create a template for a flow like '<andFlow class> isAffectedByTargets <pattern instance>'
-                   // !!! todo: remove this
-                   // dModel.addAxiom(dModel.getSubClassValue(andFlowIRI, IRI.create(IsAffectedByTargetsProperty), pattern.getIRI()));
-                   // create a template for a flow like '<andFlow class> isAffectedByTarget|isAffectedBySource <pattern instance>'
-                   dModel.addAxiom(dModel.getSubClassValue(andFlowIRI, IRI.create(isAffected), pattern.getIRI()));
-                   // set like '<andFlow class> is subclass of ClassifiedHasEdge'
-                   dModel.addAxiom(dModel.getSubClass(andFlowIRI,IRI.create(ClassifiedHasEdgeClass)));
+                      // create a template for a flow like '<andFlow class> isAffectedByTarget|isAffectedBySource <pattern instance>'
+                      dModel.addAxiom(dModel.getSubClassValue(andFlowIRI, IRI.create(isAffected), pattern.getIRI()));
+                      // set like '<andFlow class> is subclass of ClassifiedHasEdge'
+                      dModel.addAxiom(dModel.getSubClass(andFlowIRI,IRI.create(ClassifiedHasEdgeClass)));
+
+                    } else {
+
+                      // map it to template like 'hasSoure ... and hasTarget ... isAffectedBy <pattern instance>' 
+                      dModel.addAxiom(dModel.getSubClassValue(andFlowIRI, IRI.create(IsAffectedByProperty), pattern.getIRI()));
+                      // ??? 'is subclass of ClassifiedIsEdge'                      
+                      dModel.addAxiom(dModel.getSubClass(andIRI,IRI.create(ClassifiedHasEdgeClass)));
+                      // set like '<pattern> is an instance of the Threat class'
+                      dModel.addAxiom(dModel.getClassAssertionAxiom(IRI.create(ThreatClass),pattern.getIRI()));
+                       
+                    }
 
                    
                 } else{
